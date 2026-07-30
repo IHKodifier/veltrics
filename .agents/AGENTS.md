@@ -20,5 +20,5 @@
   3. Update the overall sprint completion percentage in the master tracker (`trackers/07-big-picture-tracker.md`).
 
 ## 5. Sprint Handoff Prompt Generation
-- **End-of-Sprint Protocol:** At the end of every sprint (once 100% of DoD criteria and local tests pass), the agent MUST automatically generate a structured Handoff Prompt file indicating both the completed sprint and the upcoming sprint (e.g. `handoff-sprint-01-to-02.md`) and save it in the `handoff-prompts/sprints/` directory (e.g. `handoff-prompts/sprints/handoff-sprint-01-to-02.md`).
+- **End-of-Sprint Protocol:** At the end of every sprint (once 100% of DoD criteria and local tests pass), the agent MUST automatically generate a structured Handoff Prompt file indicating both the completed sprint and the upcoming sprint (e.g. `handoff-sprint-01-to-02.md`) and save it in the stage's sprint handoff directory (e.g. `handoff-prompts/sprints/stage-01/handoff-sprint-01-to-02.md`).
 - **Handoff Content:** The sprint handoff prompt must include a summary of completed user stories/tasks, test results, branch merge status, updated tracker links, and initial prompts/goals for the subsequent sprint.
