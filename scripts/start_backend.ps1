@@ -1,5 +1,5 @@
 # start_backend.ps1
-# This script navigates to the backend directory, activates the Python virtual environment,
+# This script navigates to the src/backend directory, activates the Python virtual environment,
 # seeds the local SQLite database if missing, and launches the FastAPI Uvicorn server on port 8000.
 # Zero Docker required! High-speed local development setup.
 
@@ -9,8 +9,8 @@ $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $ProjectRoot = Split-Path -Parent $ScriptDir
 
-# Navigate to the backend directory (or create if not present)
-$BackendDir = Join-Path -Path $ProjectRoot -ChildPath "backend"
+# Navigate to the src/backend directory (or create if not present)
+$BackendDir = Join-Path -Path $ProjectRoot -ChildPath "src\backend"
 
 if (-not (Test-Path $BackendDir)) {
     Write-Host "Creating backend directory at $BackendDir..." -ForegroundColor Cyan

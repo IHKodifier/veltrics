@@ -1,295 +1,162 @@
-# Veltrics Fleet & Vehicle Management — Master Product Requirement Document (Master PRD)
+# Master Product Requirements Document
+# Veltrics — Fleet & Vehicle Management Platform [Version 1.0]
 
-> **Reads from:** [01-product-brief.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/01-product-brief.md), [01b-tech-stack.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/01b-tech-stack.md), [02-architecture.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/02-architecture.md), [03-user-journeys.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/03-user-journeys.md), [04-feature-stories.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/04-feature-stories.md), [04b-mvp-scope.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/04b-mvp-scope.md), [05-style-guide.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05-style-guide.md), [05b-flutter-theme.dart](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart), [06-data-model.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/06-data-model.md), [07-roadmap.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/07-roadmap.md), [07b-integrity-review.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/07b-integrity-review.md), [07c-gcp-cost-minimization-and-skill-plan.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/07c-gcp-cost-minimization-and-skill-plan.md)  
-> **Status:** ✅ Approved & Definitive Master Specification  
-> **Author:** Chief of Product Persona (App Architect)  
-> **Target Release Date:** January 1, 2027 (10 Sprints across 3 Isolated Environment Tiers)
-
----
-
-## 1. Executive Vision & Strategic Positioning
-
-**Veltrics Fleet & Vehicle Management** is an enterprise-grade, multi-tenant SaaS platform designed to manage individual vehicles and commercial fleets seamlessly from a single unified ecosystem. 
-
-Veltrics intentionally decouples fleet asset governance from hardware OBD-II telematics, focusing instead on **high-reliability maintenance scheduling, total cost of ownership (TCO) financial auditing, driver assignment, fuel logging, and offline-first operational synchronization**.
-
-```mermaid
-graph TD
-    Consumer[Individual Consumer / Family] -->|Free Tier / Ad-Rewarded| CorePlatform[Veltrics Engine]
-    SMB[SMB Fleet Manager] -->|Pro Subscription| CorePlatform
-    Enterprise[Enterprise Fleet Director] -->|Enterprise Custom SaaS| CorePlatform
-
-    CorePlatform --> International[International Operations\nStripe Payments + FCM]
-    CorePlatform --> Pakistan[Pakistan Operations\nSafepay Payments + SMS / FCM Alerts]
-
-    CorePlatform --> LocalTDD[Local Zero-Cloud TDD\nFastAPI + Uvicorn + SQLite]
-    CorePlatform --> GCPCloud[GCP Cloud Infrastructure\nCloud Run + Cloud SQL PostgreSQL]
-```
-
-### 1.1 Strategic Highlights & Core Differentiators
-1. **Enterprise Fleet & Asset Focus (Non-Telematics):** Solves vehicle upkeep, financial auditing, asset lifecycle status tracking, and compliance without requiring expensive or proprietary OBD-II GPS hardware.
-2. **Dual-Market Regionalization:** Operates seamlessly across International markets (Stripe gateway billing, FCM push notifications) and Pakistan regional markets (Safepay payment gateway, SMS dispatch/alert support, PKR/USD currency localization).
-3. **Offline-First Resilience:** Equips mobile drivers and field managers with offline transactional queues that automatically batch sync with topological integrity upon network re-connection.
-4. **Zero-Cloud Local TDD Architecture:** Guarantees 100% database dialect parity across SQLite local development (`sqlite:///./dev.db`) and GCP Cloud SQL PostgreSQL in staging and production, strictly capping monthly non-production GCP costs (<$15/mo).
+> **Document Type:** Master Product Requirements Document (PRD)  
+> **Stage:** Stage 8 — Master PRD (Final Specification Synthesis)  
+> **Persona:** Chief of Product  
+> **Status:** ✅ Approved  
+> **Last Updated:** 2026-08-02  
+> **Reads from:** `01` · `01b` · `02` · `03` · `04` · `04b` · `05` · `06` · `06a` · `07` · `07a` · `07b`  
+>
+> **Intended Audience:** Founders, engineering leads, AI coding agents, QA engineers, designers, investors.  
+> **Canonical Engineering Rules:** Repo root [`/AGENTS.md`](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/AGENTS.md)  
+> **Master Backlog & Trackers:** [`trackers/07-big-picture-tracker.md`](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/07-big-picture-tracker.md)  
 
 ---
 
-## 2. Multi-Platform System Architecture & Tech Stack
+## 1. Executive Summary
 
-Veltrics enforces absolute separation between the client presentation layer and backend database models, routing 100% of data traffic through strongly-typed REST API endpoints governed by Pydantic payloads.
+### 1.1 Product Vision
+Veltrics is a multi-tenant Fleet & Vehicle Management Platform serving single-vehicle consumers, small-to-medium commercial fleets (3–25 vehicles), and enterprise logistics networks across Pakistan and international markets. It replaces paper logbooks and bloated enterprise software with automated maintenance schedules, offline-first mobile transaction logging, driver safety scoring, and dual payment gateway subscription billing.
 
-```mermaid
-graph TB
-    subgraph Clients["Presentation Layer (Flutter 3.x)"]
-        MobileApp["Android Mobile App\n(Offline-First Sync Engine)"]
-        WebApp["Chrome Desktop Web App\n(Fleet Ops Dashboard)"]
-    end
+### 1.2 Core Hypothesis
+If vehicle owners and fleet managers are provided with pre-populated maintenance schedules and an offline-first mobile logger, they will consistently log maintenance and operational data—unlocking higher vehicle resale values, lower downtime, and sustainable subscription/ad revenue.
 
-    subgraph Gateway["API & Security Layer (FastAPI)"]
-        AuthMiddleware["Firebase Auth Emulator / Identity Engine"]
-        RESTAPI["FastAPI REST Router\n(Pydantic Payload Validation)"]
-        BatchSyncEngine["Topological Batch Sync Processor\nPOST /api/v1/sync/batch"]
-    end
+### 1.3 Success Definition
 
-    subgraph DataLayer["Persistence Layer (SQLAlchemy 2.0 ORM)"]
-        TypeWrappers["Dialect-Agnostic Type Handlers\n(UUIDString & JSON Native/Text)"]
-        LocalDB[("Local Dev DB\nSQLite (dev.db)")]
-        CloudDB[("GCP Staging / Prod DB\nCloud SQL (PostgreSQL 15)")]
-    end
+| Time Horizon | Success Target | Key Metric |
+|:---|:---|:---|
+| **MVP Launch (Day 90)** | 100 active vehicle logs; zero critical sync data losses. | 100% test pass rate across all 122 UC tickets. |
+| **3 Months Post-Launch** | 500 active vehicles; 50 Pro tier organizations onboarded. | Day-30 user retention > 45%; Monthly Recurring Revenue (MRR) growth. |
+| **12 Months** | 5,000+ managed vehicles across Pakistan & South Asia. | > 60% conversion on rewarded video ad bonus quota triggers. |
 
-    MobileApp -->|HTTPS / REST| RESTAPI
-    WebApp -->|HTTPS / REST| RESTAPI
-    RESTAPI --> AuthMiddleware
-    RESTAPI --> BatchSyncEngine
-    BatchSyncEngine --> TypeWrappers
-    TypeWrappers -->|Local Env| LocalDB
-    TypeWrappers -->|Staging & Prod Envs| CloudDB
-```
-
-### 2.1 Approved Technology Stack Summary
-
-| Infrastructure Layer | Standardized Technology | Purpose & Environment Execution |
-| :--- | :--- | :--- |
-| **Frontend Framework** | Flutter 3.x (Dart 3.x) | Single codebase for Android Mobile App and Chrome Desktop Web App. |
-| **State Management** | Flutter Riverpod 3.x | Reactive state management with offline persistence providers. |
-| **Backend Framework** | FastAPI (Python 3.11+) | Asynchronous REST API service with automated OpenAPI specification generation. |
-| **Data Validation** | Pydantic v2 | Strict request/response payload validation and schema enforcement. |
-| **ORM & Database** | SQLAlchemy 2.0 + SQLite / PostgreSQL | Dialect-agnostic database access supporting SQLite locally and PostgreSQL on GCP. |
-| **Authentication** | Firebase Auth (Local Emulator / Cloud) | JWT Bearer token authentication supporting email/password and phone OTP. |
-| **Payment Gateways** | Stripe (Intl) & Safepay (PK) | Webhook-driven multi-currency subscription processing and quota management. |
-| **Cloud Hosting** | GCP Cloud Run & GCP Cloud SQL | Serverless API execution paired with managed PostgreSQL (Staging/Production). |
+### 1.4 Scale Profile
+- **Target Market:** Pakistan (local payment via Safepay, Urdu RTL locale) and International (Stripe USD billing, English locale).
+- **Scale Profile:** Regional MVP scaling to 100k+ concurrent connected devices. Architecture enforces dialect-agnostic SQLAlchemy models (SQLite local, PostgreSQL staging/prod on Cloud Run + Cloud SQL).
 
 ---
 
-## 3. Target User Personas & Journey Specifications
+## 2. Problem & Market
 
-Veltrics caters to three primary user tiers with tailored user journeys and permission levels.
+### 2.1 Problem Statement
+Vehicle owners and fleet managers lack an intuitive, localized platform to track routine servicing, fuel usage, trip logs, and driver accountability. Existing solutions are either generic expense trackers or overpriced enterprise telematics systems requiring expensive OBD-II hardware.
 
-```mermaid
-journey
-    title Veltrics User Journey Lifecycle
-    section Consumer Onboarding
-      Download App & Login: 5: Consumer
-      Add First Vehicle & Set Reminders: 5: Consumer
-      Log Fuel Entry: 4: Consumer
-    section SMB Fleet Operations
-      Register Organization & Invite Drivers: 5: SMB Manager
-      Assign Drivers to Vehicles: 5: SMB Manager
-      Log Maintenance & Track Expenses: 4: SMB Manager, Driver
-      Review TCO Summary & Export CSV: 5: SMB Manager
-    section Enterprise Governance
-      Multi-Tenant Branch Configuration: 5: Enterprise Director
-      Custom RBAC Role Assignment: 5: Enterprise Director
-      Audit Log Compliance Verification: 5: Enterprise Director
-```
+### 2.2 The Insight
+80% of vehicle maintenance is predictable by odometer interval. Pre-populating manufacturer service schedules upon vehicle selection removes 90% of data entry friction, driving immediate user adoption.
 
-### 3.1 Persona Profiles & Feature Matrix
+### 2.3 Target Users
 
-| Persona Class | Operational Focus | Primary Interface | Key Permissions & Limits |
-| :--- | :--- | :--- | :--- |
-| **Consumer (Free)** | Individual Vehicle Owners & Families | Android Mobile App | - Max 3 Vehicles (+2 via ad rewards = 5 max)<br>- Max 3 Drivers (+2 via ad rewards = 5 max)<br>- Maintenance alerts, fuel logging, basic expense recording. |
-| **SMB Fleet Manager (Pro)** | Rental Operators, Logistics SMBs | Chrome Desktop Web + Android Mobile | - Up to 25 Vehicles & 25 Drivers<br>- Ad-free experience, PDF/CSV financial exports.<br>- Driver assignment, maintenance status updates. |
-| **Enterprise Fleet Director** | Multi-Branch Logistics & Rental | Chrome Desktop Web App | - Unlimited Vehicles & Custom Driver Quotas<br>- Role-based access control (RBAC), immutable audit logs.<br>- Dedicated reporting and enterprise support SLAs. |
+| Segment | Who They Are | Primary Pain Point | Value Driver / Trigger |
+|:---|:---|:---|:---|
+| **Consumer Owner** | Individual car/bike owners. | Forgets oil changes; loses service paper receipts. | Automatic service push reminders & PDF maintenance record export. |
+| **SMB Fleet Manager** | Operates 3–25 commercial vehicles / delivery vans. | Unclear fuel theft, high downtime, driver misuse. | Fleet cost ranking heatmap, driver safety score, PDF/CSV export. |
+| **Commercial Driver** | Appointed driver operating assigned fleet vehicle. | Complex logging forms; spotty cell connectivity. | 1-tap offline logging with client-side UUID generation. |
+
+### 2.4 Competitive Differentiation
+1. **Ad-Rewarded Quota Expansion:** Free users can earn +2 vehicle and +2 driver slots via rewarded video ads, unlocking up to 5 free vehicles/drivers without paying subscription fees.
+2. **Dual Gateway Localization:** Native integration with Safepay (PKR) alongside Stripe (International USD).
+3. **Offline-First Transaction Sync:** Full mobile functionality without internet connection, syncing seamlessly upon reconnect via `POST /api/v1/sync/batch`.
 
 ---
 
-## 4. Complete Feature Matrix & Acceptance Criteria
+## 3. Business Model & Tier Limits
 
-All user stories are prioritized across P0 (Critical MVP), P1 (High Priority), and P2 (Enhancement).
+### 3.1 Monetization Tier Limits
 
-### 4.1 Feature Stories & Testable Criteria (P0 / P1 / P2)
-
-| Story ID | Epic | Feature Description | Priority | Testable Acceptance Criteria |
-| :--- | :--- | :--- | :--- | :--- |
-| **US-001** | Identity | Organization Registration & Multi-Tenant Setup | P0 | Given a new admin, when registering an organization, then create the tenant with free quota limits and initialize default roles. |
-| **US-002** | Identity | User Authentication & JWT Session Management | P0 | Given valid credentials, when authenticating via Firebase Auth, then return a signed JWT bearer token containing `org_id` and `role`. |
-| **US-003** | Assets | Vehicle Lifecycle Registration & Profile Management | P0 | Given vehicle specifications (VIN, License, Make, Model, Odometer), when created, default status to `ACTIVE` and enforce organization limits. |
-| **US-004** | Operations | Maintenance Scheduling & Alert Generation | P0 | Given date or odometer thresholds, when maintenance is due, trigger alert status (`SCHEDULED` → `OVERDUE`) and send notification. |
-| **US-005** | Operations | Granular Service Logging | P0 | Given a completed service item (e.g. Engine Oil, Brake Pads), when logged, update vehicle current odometer and record cost in financial audit. |
-| **US-006** | Operations | Fuel Entry Logging & Consumption Analysis | P0 | Given fuel volume, cost, and odometer reading, calculate distance traveled and MPG / km-per-liter efficiency metrics. |
-| **US-007** | Operations | General Expense & Cost Recording | P0 | Given non-maintenance costs (tolls, parking, repairs), assign expenses to vehicle records and attribute category tags. |
-| **US-008** | Offline Engine| Topological Batch Sync Endpoint | P0 | Given an offline device re-connecting, process `POST /api/v1/sync/batch` in strict topological order (`orgs` → `users` → `vehicles` → `drivers` → `logs`). |
-| **US-009** | Monetization| Ad-Rewarded Asset Quota Expansion | P1 | Given a Free tier user watching an in-app reward ad, permanently attach +1 vehicle/driver slot up to the hard cap of 5 total assets. |
-| **US-010** | Monetization| Stripe Payment Gateway Subscription Sync | P1 | Given international checkout completion, process Stripe webhook to elevate organization status to `ACTIVE` Pro tier. |
-| **US-011** | Monetization| Safepay Payment Gateway Webhook Handler | P1 | Given Pakistan Safepay checkout success, normalize transaction status and persist raw webhook JSON in `subscriptions.gateway_payload`. |
-| **US-012** | Analytics | Fleet Financial TCO Summary Dashboard | P1 | Given selected date ranges, compute total fleet expenditure per vehicle, per driver, and cost per kilometer. |
-| **US-013** | Compliance | Immutable System Audit Logging | P2 | Given sensitive operations (role elevation, asset deletion), record immutable audit log entries with user ID, IP address, and payload delta. |
-
-### 4.2 Explicitly Descoped MVP Scope (Phase 1 Non-Goals)
-- **OBD-II Hardware / Live Telematics Streaming:** Zero reliance on physical vehicle tracking hardware.
-- **AI-Powered Predictive Maintenance Scoring:** Machine learning failure analysis deferred to Phase 2.
-- **OCR Automated Receipt Scanning:** Optical character recognition for fuel/service receipts deferred to Phase 2.
-- **Native iOS Application:** Native iOS binary build deferred until Phase 2 rollout.
+| Feature / Resource | Free Tier | Pro Tier ($19/mo or Local PKR Equivalent) | Enterprise Tier |
+|:---|:---|:---|:---|
+| **Base Vehicles** | 3 Base | 25 Base | Up to 1,000 |
+| **Bonus Ad Vehicles** | +2 via Rewarded Ads (Max: 5) | — (Ad-free) | — (Ad-free) |
+| **Base Drivers** | 3 Base | 15 Base | Up to 1,000 |
+| **Bonus Ad Drivers** | +2 via Rewarded Ads (Max: 5) | — (Ad-free) | — (Ad-free) |
+| **Ad Experience** | Banners + Rewarded Videos | 100% Ad-Free | 100% Ad-Free |
+| **Data Export (PDF/CSV)** | 🔒 Locked | ✅ Included | ✅ Included |
+| **Driver Safety Scoring** | 🔒 Locked | ✅ Included | ✅ Included |
 
 ---
 
-## 5. Data Model, State Lifecycles & Dialect Parity
+## 4. Architecture & Technology Stack
 
-To ensure seamless execution across local zero-cloud development (`SQLite`) and production GCP infrastructure (`PostgreSQL`), all database schemas utilize custom SQLAlchemy type wrappers: `UUIDString` (maps to `CHAR(36)` on SQLite and native `UUID` on PostgreSQL) and `JSON` (maps to `JSON` / `TEXT` on SQLite and native `JSONB` on PostgreSQL).
+### 4.1 Tech Stack Summary
+- **Mobile Frontend:** Flutter (Dart) targeting Android, iOS, and Web.
+- **Backend API:** Python FastAPI + Pydantic v2 validation.
+- **Local Dev Database:** SQLite (`sqlite:///./dev.db`). Zero Docker required.
+- **Staging / Prod Database:** Managed PostgreSQL on GCP Cloud SQL (dialect-agnostic SQLAlchemy models).
+- **Authentication:** Firebase Auth SDK on mobile with FastAPI JWT mock middleware for local dev.
+- **Payment Gateways:** Stripe Webhooks + Safepay Webhooks writing to unified `subscriptions` table.
 
-```mermaid
-erDiagram
-    ORGANIZATIONS ||--o{ USERS : employs
-    ORGANIZATIONS ||--o{ VEHICLES : owns
-    ORGANIZATIONS ||--o{ SUBSCRIPTIONS : billed_via
-    VEHICLES ||--o{ DRIVERS : assigned_to
-    VEHICLES ||--o{ MAINTENANCE_LOGS : requires
-    VEHICLES ||--o{ FUEL_LOGS : consumes
-    VEHICLES ||--o{ EXPENSES : incurs
-    USERS ||--o{ AUDIT_LOGS : executes
-
-    ORGANIZATIONS {
-        string id PK
-        string name
-        string tier
-        int bonus_vehicle_slots
-        datetime created_at
-    }
-
-    VEHICLES {
-        string id PK
-        string org_id FK
-        string vin
-        string license_plate
-        string status
-        int current_odometer
-    }
-
-    MAINTENANCE_LOGS {
-        string id PK
-        string vehicle_id FK
-        string service_category
-        string status
-        float total_cost
-        datetime performed_at
-    }
-
-    FUEL_LOGS {
-        string id PK
-        string vehicle_id FK
-        float fuel_amount
-        float total_cost
-        int odometer_reading
-    }
-```
-
-### 5.1 Primary Entity Lifecycles & State Transitions
-
-```mermaid
-stateDiagram-v2
-    [*] --> VehicleActive : Register Asset
-    VehicleActive --> MaintenanceDue : Trigger Date/Odometer Threshold
-    MaintenanceDue --> UnderMaintenance : Schedule Service Entry
-    UnderMaintenance --> VehicleActive : Complete Maintenance Log
-    VehicleActive --> Decommissioned : Retire Asset
-    Decommissioned --> [*]
-
-    note right of MaintenanceDue
-        Triggers FCM Push Notification
-        or SMS Alert (Pakistan Region)
-    end note
-```
-
-```mermaid
-stateDiagram-v2
-    [*] --> SubscribedActive : Webhook Checkout Success
-    SubscribedActive --> PastDue : Payment Failed (Retry Period)
-    PastDue --> SubscribedActive : Recovery Payment Success
-    PastDue --> Cancelled : Grace Period Expired
-    SubscribedActive --> Cancelled : User Cancelled Subscription
-    Cancelled --> [*] : Revert Org to Free Tier Quotas
-```
+### 4.2 Local-First Execution & Git Branch Protocol
+- **Git Branch Hierarchy:** `main` (Production) → `dev` (Staging) → `sprint/sprint-XX` (Feature/Ticket Work).
+- **Phase 0 Setup:** Initial repo commit to `main` → checkout `dev` → checkout `sprint/sprint-01`. Flutter project creation (`flutter create mobile_frontend`) linked to Firebase Dev/Staging/Prod options (`flutterfire configure`).
+- **Local Backend Runner:** `.\scripts\start_backend.ps1` (FastAPI + SQLite + Local Auth Emulator).
+- **GCP Cost Control:** `.\scripts\gcp_cloud_control.ps1 -Action start|stop` strictly for staging verification.
 
 ---
 
-## 6. Design System & UI Components
+## 5. Feature Requirements & Implementation Ticket Backlog
 
-Veltrics implements a dark-mode first design system tailored for high readability in automotive field conditions and desktop fleet operations.
+The complete backlog consists of **122 implementation-ready tickets** (`UC-001` through `UC-122`) detailed in `06a-use-case-tickets.md`:
 
-### 6.1 Color Palette & Visual Tokens
-
-| Design Token | Color Hex Code | Application Purpose |
-| :--- | :--- | :--- |
-| **Primary Brand Blue** | `#1E88E5` | Primary buttons, active tab indicators, key navigation links. |
-| **Accent Electric Cyan** | `#00E5FF` | Highlight badges, metric callouts, interactive toggles. |
-| **Background Charcoal** | `#121212` | Main application background (Dark Mode default). |
-| **Surface Dark Slate** | `#1E1E1E` | Card containers, modal popups, table background surfaces. |
-| **Status Warning Gold** | `#FFB300` | Maintenance scheduled alerts, upcoming inspection warnings. |
-| **Status Critical Red** | `#E53935` | Overdue maintenance, payment past-due alerts, vehicle out-of-service. |
-| **Status Success Green** | `#43A047` | Active vehicle status, completed maintenance logs, sync complete. |
-
----
-
-## 7. Development Roadmap, Release Gates & Cost Governance
-
-Development is structured into **10 Sprints across 3 Isolated Environment Tiers**, culminating in the target production release on **January 1, 2027**.
-
-```mermaid
-gantt
-    title Veltrics 10-Sprint Execution Timeline (Jan 1, 2027 Production Launch)
-    dateFormat  YYYY-MM-DD
-    section Foundation & Data
-    Sprint 01 (Auth & Multi-Tenant Setup)    :a1, 2026-08-01, 14d
-    Sprint 02 (Vehicle & Driver Schema)      :a2, after a1, 14d
-    section Core Operations
-    Sprint 03 (Maintenance Alert Engine)     :a3, after a2, 14d
-    Sprint 04 (Fuel & Expense Auditing)       :a4, after a3, 14d
-    Sprint 05 (Offline Topological Sync)     :a5, after a4, 14d
-    section Desktop & Client
-    Sprint 06 (Chrome Desktop Dashboard)     :a6, after a5, 14d
-    Sprint 07 (Android Mobile UI Refinement) :a7, after a6, 14d
-    section Monetization & Staging
-    Sprint 08 (Stripe & Safepay Gateways)    :a8, after a7, 14d
-    Sprint 09 (GCP Staging & Dialect Audit)  :a9, after a8, 14d
-    section Launch & Release Gate
-    Sprint 10 (Production Release & Polish)  :a10, after a9, 14d
-```
-
-### 7.1 Mandatory Production Release Gate KPIs
-
-Before merging the final `dev` branch into `main` for production release, 100% of the following Release Gate KPIs must be empirically validated:
-
-1. **100% Dialect Parity & Zero Sync Data Loss:** 100% automated pass rate across both local SQLite unit/integration test suites and GCP Cloud SQL PostgreSQL staging test suites. Topological offline batch processing (`POST /api/v1/sync/batch`) must execute zero-data-loss recovery.
-2. **Sub-200ms API Latency under 3G Mobile Simulation:** All core REST API endpoints (vehicle list, maintenance log entry, fuel record submit) must achieve `<200ms` response times under simulated high-latency 3G mobile network conditions.
-3. **Strict Non-Production GCP Cost Limit (<$15/mo):** GCP Cloud SQL staging instances must be automatically managed via `.\scripts\gcp_cloud_control.ps1 -Action start/stop` to guarantee zero redundant cloud charges during non-coding windows.
+- **EP-AUTH (UC-001..013):** Google One-Tap, Facebook Login, Email/Pass, Phone OTP, Silent JWT Refresh, Role Navigation, Session Expiry.
+- **EP-ORG (UC-014..023):** Multi-Tenancy, Organization Profiles, Invites, Member Removal, Soft Delete.
+- **EP-VEH (UC-024..033):** Vehicle Registry with Typeahead, Detail Screens, Driver Assignment, Document Uploads, Recovery.
+- **EP-MNT (UC-034..045):** Pre-Populated Schedules, Custom Items, Log Service, Vendors, Inspection Checklists, Alert Snoozing.
+- **EP-FUEL (UC-046..051):** Fuel Logs, Efficiency Calculation, Receipt Photos, Quick-Log Widgets.
+- **EP-TRIP (UC-052..057):** Manual & GPS Trips, Distance Summaries, Quick-Log Widgets.
+- **EP-EXP (UC-058..063):** Expense Records, Receipt Attachments, Categorization.
+- **EP-DASH (UC-064..071):** Consumer & Fleet Manager Web Dashboards, Cost Rankings, Availability Widgets, Leaderboards.
+- **EP-NOTIF (UC-072..079):** Push Notification Registration, Overdue Service Alerts, Preference Toggles, Token Cleanup.
+- **EP-PAY (UC-080..089):** Stripe & Safepay Checkout Flows, Quota Wall Enforcement, Downgrade Processing, Enterprise Form.
+- **EP-SYNC (UC-090..097):** Offline SQLite Queueing, Client UUID v4 Keys, Delta Payload Construction, Conflict Resolution.
+- **EP-AD (UC-098..102):** AdMob Banners, Rewarded Video Ad Playback, Bonus Slot Lifecycle, Ad-Free Pro Enforcement.
+- **EP-DRV (UC-103..106):** Driver Consistency Safety Scoring, Anomaly Alerts, Certificate Badges.
+- **EP-THEME (UC-107..109):** Light / Slate Teal Dark Mode Theme Engine.
+- **EP-EXPORT (UC-110..112):** PDF Maintenance History, CSV Data Export, Scheduled Monthly Email Reports.
+- **EP-SET (UC-113..118):** Settings, Unit Conversions (Metric/Imperial), English/Urdu RTL Locale, Support Ticket, DB Seeding (`UC-118`).
+- **CORE INFRA (UC-119..122):** Sync Batch Transaction Engine (`UC-119`), Ad-Rewarded Quota Lifecycle Engine (`UC-120`), Dual Webhook Reconciliation Engine (`UC-121`), Ad-Gate Signature Enforcement Protocol (`UC-122`).
 
 ---
 
-## 8. Specification Integrity Review Resolutions
+## 6. 90-Day Build Roadmap & Phase 0 Setup Sequence
 
-The following structural conflicts identified during the Stage 7b Integrity Review (`product-specs/07b-integrity-review.md`) have been fully resolved in this Master PRD:
-
-1. **Dialect Parity Standard:** Enforced `UUIDString` and `JSON` ORM type wrappers so SQLite local development matches GCP PostgreSQL staging without Docker overhead.
-2. **Topological Batch Ingestion Order:** Enforced strict entity ingestion order in `POST /api/v1/sync/batch`: `organizations` → `users` → `vehicles` → `drivers` → `fuel_logs` / `maintenance_logs` / `expenses` to prevent foreign key dependency violations.
-3. **Multi-Gateway Payment Status Normalization:** Standardized subscription status mappings (`ACTIVE`, `PAST_DUE`, `CANCELLED`) for Stripe and Safepay webhooks, retaining full raw payloads in `gateway_payload` JSON fields.
-4. **Ad-Rewarded Quota Lifecycle:** Standardized Free Tier ad rewards to attach directly to `organization` records, hard-capping total free slots at 5 vehicles and 5 drivers.
+- **Phase 0 (Weeks 1–2):** Git setup (`main` → `dev` → `sprint/sprint-01`), Flutter boilerplate (`flutter create mobile_frontend`), Firebase Dev/Staging/Prod bindings (`flutterfire configure`), Theme application (`05b-flutter-theme.dart`), FastAPI & SQLite DB Seeding (`UC-118`).
+- **Sprint 1 (Days 1–15):** Auth, Org Baseline, Vehicle CRUD, Maintenance Core (`UC-001`..`UC-016`, `UC-024`..`UC-027`, `UC-034`..`UC-038`, `UC-064`, `UC-118` — 27 Tickets).
+- **Sprint 2 (Days 16–30):** Fuel, Trip, Expense Logging, Push Notifications (`UC-046`..`UC-063`, `UC-065`..`UC-066`, `UC-072`..`UC-075` — 24 Tickets).
+- **Sprint 3 (Days 31–45):** Offline Sync Batch Engine & Multi-Tenant Core (`UC-017`..`UC-023`, `UC-028`..`UC-033`, `UC-090`..`UC-097`, `UC-119` — 22 Tickets).
+- **Sprint 4 (Days 46–60):** Stripe/Safepay Payments, Ad Engine & Ad-Gate Middleware (`UC-080`..`UC-089`, `UC-098`..`UC-102`, `UC-120`..`UC-122` — 18 Tickets).
+- **Sprint 5 (Days 61–75):** Fleet Intelligence Dashboard, Driver Safety Scoring & PDF/CSV Export (`UC-039`..`UC-045`, `UC-067`..`UC-071`, `UC-076`..`UC-079`, `UC-103`..`UC-106`, `UC-110`..`UC-112` — 23 Tickets).
+- **Sprint 6 (Days 76–90):** Dark Mode, Unit Conversion, Urdu Locale, Account Deletion & Hardening (`UC-107`..`UC-109`, `UC-113`..`UC-117` — 8 Tickets).
 
 ---
 
-## 9. PRD Change Control & Governance
+## 7. Engineering Governance Summary
 
-Any post-approval modifications to this Master PRD during Sprint implementation must be explicitly recorded in the version log below with engineering rationale and approval sign-offs.
+Project governance directives live at repo root [`/AGENTS.md`](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/AGENTS.md):
+- **Branch Strategy:** `main` (Production) ← `dev` (Staging) ← `sprint/sprint-XX` or `feature/` branches.
+- **Merge Criteria:** 100% local test suite pass required prior to merging into `dev`.
+- **TDD Mandate:** Tests created in `./tests/unit/` or `./tests/integration/` before implementation logic.
+- **Tracker Rollup:** Live execution status maintained in `trackers/07-big-picture-tracker.md` and sprint trackers.
 
-| Version | Sprint ID | Date | Author / Role | Section Updated | Description & Rationale | Approver Sign-Off |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **1.0.0** | Baseline | 2026-07-29 | Chief of Product | All Sections | Baseline Master PRD synthesized from approved Stage 01–07b specs. | Lead Architect & TPM |
+---
+
+## Appendix — Master Specification Artifact Index
+
+| Order | Artifact Path | Stage Name | Description |
+|:---|:---|:---|:---|
+| 0 | `product-specs/00-carry-forward-flags.md` | 📋 Flag Register | Open/Resolved architectural decisions and deferred flags. |
+| 1 | `product-specs/01-product-brief.md` | Stage 1 | Vision, market insight, target user segments, problem statement. |
+| 2 | `product-specs/01b-tech-stack.md` | ★ Tech Stack | Technical stack selections, libraries, testing frameworks. |
+| 3 | `product-specs/02-architecture.md` | Stage 2 | System architecture diagrams, service boundaries, scale profile. |
+| 4 | `product-specs/03-user-journeys.md` | Stage 3 | User journeys, emotional maps, full screen inventory. |
+| 5 | `product-specs/04-feature-stories.md` | Stage 4 | Epics E1–E16, feature stories, acceptance criteria. |
+| 6 | `product-specs/04b-mvp-scope.md` | ★ Scope Gate | Tier limit definitions, minimum value loop. |
+| 7 | `product-specs/05-style-guide.md` | Stage 5 | Design tokens, typography, Slate Teal palette, motion rules. |
+| 8 | `product-specs/05b-flutter-theme.dart` | Stage 5 Output | Theme code implementation. |
+| 9 | `product-specs/06-data-model.md` | Stage 6 | Relational ERD, 18 entity schemas, state machines, API map. |
+| 10 | `product-specs/06a-use-case-tickets.md` | ★ Tickets | 122 implementation-ready tickets (`UC-001` .. `UC-122`). |
+| 11 | `product-specs/07-roadmap.md` | Stage 7 | 6-sprint development roadmap, phase gates, risk register. |
+| 12 | `product-specs/07a-engineering-charter.md` | ★ Charter | Governance spec trail record (mirrored in root `/AGENTS.md`). |
+| 13 | `product-specs/07b-integrity-review.md` | ★ Integrity | Specification integrity findings & audit report. |
+| 14 | `product-specs/08-master-prd.md` | Stage 8 | **Master PRD (this document) — Master Synthesis** |
+| 15 | `AGENTS.md` | Project Root | Canonical engineering governance directives. |
+| 16 | `trackers/07-big-picture-tracker.md` | Trackers | Hierarchical master tracker tracking all 122 UC tickets. |

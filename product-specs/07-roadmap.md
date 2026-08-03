@@ -1,183 +1,309 @@
-# Veltrics Fleet & Vehicle Management — Development Roadmap
+# Development Roadmap: Veltrics Fleet & Vehicle Management Platform
 
-> **Reads from:** [01-product-brief.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/01-product-brief.md), [01b-tech-stack.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/01b-tech-stack.md), [02-architecture.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/02-architecture.md), [03-user-journeys.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/03-user-journeys.md), [04-feature-stories.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/04-feature-stories.md), [04b-mvp-scope.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/04b-mvp-scope.md), [05-style-guide.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05-style-guide.md), [05b-flutter-theme.dart](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart), [06-data-model.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/06-data-model.md)  
-> **Status:** ✅ Approved & Complete  
-> **Author:** Engineering Programme Manager Persona (App Architect)  
 > **Stage:** Stage 7 — Development Roadmap  
+> **Persona:** Engineering Programme Manager  
+> **Status:** ✅ Approved  
+> **Reads from:** [01-product-brief.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/01-product-brief.md) · [01b-tech-stack.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/01b-tech-stack.md) · [02-architecture.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/02-architecture.md) · [04b-mvp-scope.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/04b-mvp-scope.md) · [06-data-model.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/06-data-model.md) · [06a-use-case-tickets.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/06a-use-case-tickets.md)  
 
 ---
 
-## 1. Executive Summary & Delivery Strategy
+## Programme Summary
 
-The **Veltrics Fleet & Vehicle Management Platform** development roadmap outlines a structured, 10-sprint execution plan leading to official production launch on **January 1, 2027**.
+This Development Roadmap translates the 122 implementation-ready use case tickets (`UC-001` through `UC-122`) defined in `06a-use-case-tickets.md` into a structured 6-sprint build sequence. The timeline assumes a 90-day (6 × 2-week sprint) schedule executed by a solo developer operating with AI assistance. Every ticket is assigned to exactly one sprint, respecting topological foreign-key dependencies and prerequisite use cases.
 
-Designed specifically for a **solo full-stack developer leveraging AI-assisted coding**, the delivery strategy prioritizes:
-1. **API-First & TDD Discipline:** 100% of frontend data interactions route through FastAPI REST endpoints governed by Pydantic schema validation. Unit and integration tests are written at the start of every sprint before implementation code.
-2. **Three-Tier Environment Isolation:** 
-   - **Dev (Local):** Zero-cloud, Docker-free local development using FastAPI + Uvicorn + SQLite (`sqlite:///./dev.db`) + Firebase Local Auth Emulators.
-   - **Staging (GCP Staging):** GCP Cloud Run Staging + Staging Cloud SQL + Safepay Sandbox. Deployed automatically on merge to `dev`.
-   - **Production (GCP Prod):** GCP Cloud Run Production + Cloud SQL + Live Gateways. Deployed automatically on merge to `main`.
-3. **Branch Protection Workflow:** Feature development occurs on `sprint/sprint-XX` branches checked out from `dev`. Once local TDD tests pass, code is merged via PR into `dev` (Staging), and finally merged into `main` (Production) upon milestone completion.
-4. **Hierarchical Execution Tracking:** Monitored via [07-big-picture-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/07-big-picture-tracker.md) and stage/sprint sub-trackers in `./trackers/`.
+| Phase | Name | Duration | Gate Condition | Owner |
+|:---|:---|:---|:---|:---|
+| **Phase 0** | Foundation & Project Setup | Weeks 1–2 | Git branch hierarchy initialized (`main` → `dev` → `sprint/sprint-01`), Flutter boilerplate & Firebase (Dev/Staging/Prod) linked, local backend runner (`start_backend.ps1`) verified. | Lead Architect |
+| **Phase 1** | MVP Build | Weeks 3–15 | All 122 UC tickets pass test suites; core user loops validated end-to-end. | Engineering Lead |
+| **Phase 2** | Beta | Weeks 16–19 | 10–50 SMB fleet managers & individual vehicle owners onboarded; error monitoring active. | Product Lead |
+| **Phase 3** | Launch | Weeks 20–23 | Staging verification pass; GCP Cloud SQL start script verified; public app store & web deployment. | Operations |
+| **Phase 4** | Post-Launch | Months 6+ | Post-MVP feature backlog (GPS tracking, predictive maintenance) prioritized by analytics. | Product Lead |
 
----
-
-## 2. 10-Sprint Master Timeline (Target Launch: Jan 1, 2027)
-
-```mermaid
-gantt
-    title Veltrics 10-Sprint Execution Timeline (Aug 2026 - Jan 2027)
-    dateFormat  YYYY-MM-DD
-    axisFormat  %b %d
-
-    section Foundation & Data
-    Sprint 01 (FastAPI & Local DB)     :s1, 2026-08-01, 2026-08-14
-    Sprint 02 (Hive & Offline Sync)    :s2, 2026-08-15, 2026-08-28
-
-    section Fleet Core
-    Sprint 03 (Vehicles & Drivers API) :s3, 2026-08-29, 2026-09-11
-    Sprint 04 (Fuel & KPL Engine)      :s4, 2026-09-12, 2026-09-25
-
-    section Operations & Billing
-    Sprint 05 (Maintenance Schedules)  :s5, 2026-09-26, 2026-10-09
-    Sprint 06 (Safepay & Quota Wall)   :s6, 2026-10-10, 2026-10-23
-
-    section Advanced Features
-    Sprint 07 (Rewarded Ads & Audit)   :s7, 2026-10-24, 2026-11-06
-    Sprint 08 (Trips & Resource Opt)   :s8, 2026-11-07, 2026-11-20
-
-    section Staging & Launch
-    Sprint 09 (Staging & Sync Stress)  :s9, 2026-11-21, 2026-12-04
-    Sprint 10 (Prod Hardening & CI/CD) :s10, 2026-12-05, 2026-12-25
-    Official Production Launch        :milestone, 2027-01-01, 0d
-```
+**Critical Path Item:** Phase 0 Repo/Firebase Setup, Offline-first Sync Batch Engine (`UC-119`) & Ad-Gate Middleware Signature Enforcement (`UC-122`).  
+**Hard Deadline:** Day 90 MVP Feature-Complete Lock (October 2026). Driven by commercial pilot commitments with regional logistics partners in Pakistan.
 
 ---
 
-## 3. Sprint Breakdown & Task Specifications
+## Phase 0: Foundation & Setup Sequence (Weeks 1–2)
 
-### 3.1 Sprint 01 — Foundation, FastAPI Core & Local Backend
-* **Target Completion Date:** August 14, 2026
-* **Sprint Goal:** Establish repository structure, local non-Docker development environment, FastAPI backend skeleton, SQLAlchemy models, Pydantic payloads, and Firebase Auth verification middleware.
-* **Key Tasks:**
-  - Setup `./scripts/start_backend.ps1` for single-command Uvicorn + SQLite startup.
-  - Implement SQLAlchemy ORM schemas for `organizations`, `users`, and `user_organizations` from [06-data-model.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/06-data-model.md).
-  - Build Auth API Endpoints: `POST /api/v1/auth/sync-user`, `GET /api/v1/auth/me`.
-  - Configure Flutter project theme foundation from [05b-flutter-theme.dart](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart).
-* **TDD Deliverables:** Unit tests for Auth payload validation; Integration tests for tenant user creation.
+**Goal:** Establish the complete project layout, Firebase project bindings across environments (Dev / Staging / Prod), git branch hierarchy (`main` → `dev` → `sprint/sprint-01`), and zero-cloud local development baseline before feature coding begins.
 
-### 3.2 Sprint 02 — Hive Offline Infrastructure & Sync Protocol Core
-* **Target Completion Date:** August 28, 2026
-* **Sprint Goal:** Build Flutter Hive local key-value store, sync metadata queues, and backend batch sync endpoint with deterministic server-wins conflict resolution.
-* **Key Tasks:**
-  - Create Hive Adapters for `SyncMetadataModel`, `VehicleLocalModel`, and `FuelLogSyncModel`.
-  - Implement FastAPI Sync API Endpoint: `POST /api/v1/sync/batch`.
-  - Implement client-side transaction queue & connection listener in Flutter.
-* **TDD Deliverables:** Offline-to-online sync simulation unit tests; Server-wins timestamp collision integration tests.
+### Step 0.1 — Git Branch Hierarchy Initialization
+- [ ] Initialize Git repository (if not already done).
+- [ ] Commit initial project specifications (`product-specs/`, `/AGENTS.md`, `trackers/`) to `main`.
+- [ ] Checkout protected staging branch `dev` from `main`: `git checkout -b dev`.
+- [ ] Checkout first active sprint branch from `dev`: `git checkout -b sprint/sprint-01`.
 
-### 3.3 Sprint 03 — Vehicles & Drivers Fleet Core
-* **Target Completion Date:** September 11, 2026
-* **Sprint Goal:** Build full CRUD API endpoints and UI screens for Vehicle assets and Driver management with strict tenant isolation.
-* **Key Tasks:**
-  - Implement FastAPI Endpoints: `GET/POST/PUT/DELETE /api/v1/vehicles`, `GET/POST/PUT/DELETE /api/v1/drivers`.
-  - Build JSONB Pydantic schema validator for `vehicles.custom_specs`.
-  - Construct Flutter UI: Fleet Dashboard (`SCR-FLT-001`), Add/Edit Vehicle Form (`SCR-FLT-002`), Driver List (`SCR-DRV-001`).
-* **TDD Deliverables:** `custom_specs` JSONB schema validation tests; Multi-tenant tenant boundary leak security tests (`organization_id` isolation).
+### Step 0.2 — Flutter Project Scaffolding & Firebase Multi-Env Setup
+- [ ] Create Flutter mobile client boilerplate: `flutter create mobile_frontend`.
+- [ ] Configure Flutter package dependencies (`firebase_core`, `firebase_auth`, `provider`/`flutter_bloc`, `sqflite`, `http`).
+- [ ] Link Firebase projects for Dev, Staging, and Production environments (`flutterfire configure`):
+  - **Dev:** Local emulator / `veltrics-dev` Firebase project bindings.
+  - **Staging:** `veltrics-staging` Firebase project bindings.
+  - **Prod:** `veltrics-prod` Firebase project bindings.
+- [ ] Apply design tokens and theme code from `product-specs/05b-flutter-theme.dart` into `/mobile_frontend/lib/theme/`.
+- [ ] Verify "Hello World" app compilation on Android emulator, iOS simulator, and Chrome Web.
 
-### 3.4 Sprint 04 — Fuel Refill Logging & Automatic Efficiency Engine
-* **Target Completion Date:** September 25, 2026
-* **Sprint Goal:** Build fuel log entry APIs, image receipt upload placeholders, and automatic km-per-liter (KPL) calculation logic.
-* **Key Tasks:**
-  - Implement FastAPI Endpoints: `POST /api/v1/fuel-logs`, `GET /api/v1/fuel-logs/vehicle/{id}`.
-  - Write KPL Efficiency Engine: Computes `calculated_efficiency_kpl` against previous full tank refuels.
-  - Build Flutter UI: Quick Refuel Entry (`SCR-FUEL-001`), Fuel History Graph (`SCR-FUEL-002`).
-* **TDD Deliverables:** KPL math edge-case unit tests (partial refuel, missing previous full tank); Fuel log CRUD integration tests.
+### Step 0.3 — Local Backend Runner & Database Seeding Baseline
+- [ ] Create `/backend` directory structure (FastAPI routers, Pydantic schemas, SQLAlchemy models).
+- [ ] Configure local script `.\scripts\start_backend.ps1` to spin up Uvicorn, SQLite database (`sqlite:///./dev.db`), and Local Auth emulator.
+- [ ] CI pipeline configured for linting, format checking, and automated test execution (`pytest tests/ -v`).
+- [ ] DB Migration engine (`UC-118`) configured with initial Alembic migrations for all 18 data model entities.
 
-### 3.5 Sprint 05 — Maintenance Schedules & Service Work Orders
-* **Target Completion Date:** October 09, 2026
-* **Sprint Goal:** Implement the "Aha Moment" recurring maintenance alert engine and service log history.
-* **Key Tasks:**
-  - Implement FastAPI Endpoints: `GET/POST /api/v1/maintenance/schedules`, `POST /api/v1/maintenance/logs`.
-  - Build Maintenance Alert Engine: State machine transitioning tasks (`upcoming` -> `due_soon` -> `overdue`).
-  - Build JSONB Pydantic schema validator for `maintenance_logs.checklist_items`.
-  - Build Flutter UI: Maintenance Dashboard (`SCR-MNT-001`), Service Logger with checklist (`SCR-MNT-002`).
-* **TDD Deliverables:** Maintenance state machine transition unit tests; Checklist JSONB payload validation tests.
-
-### 3.6 Sprint 06 — Safepay Billing Gateway & Quota Wall Enforcement
-* **Target Completion Date:** October 23, 2026
-* **Sprint Goal:** Integrate Safepay Checkout (Pakistan MVP), subscription lifecycle webhooks, and materialized quota enforcement (3 vehicles / 3 drivers).
-* **Key Tasks:**
-  - Implement FastAPI Endpoints: `POST /api/v1/billing/safepay/checkout`, `POST /api/v1/billing/safepay/webhook`.
-  - Implement Quota Middleware: Rejects creation of 4th vehicle/driver unless Pro plan active or slot unlocked.
-  - Build Flutter UI: Subscription Tier Upgrade Modal & Quota Wall (`SCR-SUB-001`).
-* **TDD Deliverables:** Safepay HMAC webhook signature verification tests; Quota limit enforcement unit tests.
-
-### 3.7 Sprint 07 — Rewarded Video Ad Slot Unlocks & Audit Logging
-* **Target Completion Date:** November 06, 2026
-* **Sprint Goal:** Build 3-ad video watch verification to unlock temporary bonus slots (+1 vehicle, +1 driver) and immutable audit logging.
-* **Key Tasks:**
-  - Implement FastAPI Endpoints: `POST /api/v1/ads/verify-reward`, `GET /api/v1/audit-logs`.
-  - Build Ad Bonus Manager: Updates `quota_usages.bonus_vehicles_count` upon 3rd verified watch.
-  - Build system-wide SQLAlchemy audit event listener capturing mutations into `audit_logs`.
-  - Build Flutter UI: Rewarded Ad Slot Unlock Card (`SCR-AD-001`).
-* **TDD Deliverables:** Ad count increment & slot unlock unit tests; Audit payload diff validation tests.
-
-### 3.8 Sprint 08 — Trip Logs, Expense Tracking & Device Resource Optimization
-* **Target Completion Date:** November 20, 2026
-* **Sprint Goal:** Implement trip mileage tracking, non-fuel expenses, GPS battery drain optimization, and photo compression before upload.
-* **Key Tasks:**
-  - Implement FastAPI Endpoints: `POST /api/v1/trips`, `POST /api/v1/expenses`.
-  - Implement Client Photo Compressor (Flutter image compression to <300KB before Cloud Storage upload).
-  - Implement GPS location sampling throttler for trip logging.
-  - Build Flutter UI: Trip Logger (`SCR-TRIP-001`), Expense Manager (`SCR-EXP-001`).
-* **TDD Deliverables:** Trip distance math unit tests; Expense category schema validation tests.
-
-### 3.9 Sprint 09 — GCP Staging Deployment & E2E Sync Stress Testing
-* **Target Completion Date:** December 04, 2026
-* **Sprint Goal:** Deploy full stack to GCP Staging environment (Cloud Run + Staging Cloud SQL) and run end-to-end offline sync stress testing.
-* **Key Tasks:**
-  - Deploy FastAPI to GCP Cloud Run (Staging) via GitHub Actions (`.github/workflows/staging-ci-cd.yml`).
-  - Execute automated load tests: 1,000 batch offline sync requests via Locust / Python `httpx`.
-  - Perform manual QA verification on staging build (`dev` branch).
-* **TDD Deliverables:** Staging E2E sync stress test suite; Zero-data-loss conflict resolution validation.
-
-### 3.10 Sprint 10 — Production Hardening, CI/CD & Launch Buffer
-* **Target Completion Date:** December 25, 2026
-* **Sprint Goal:** Production environment deployment, security penetration audit, app store release build generation, and final launch buffer.
-* **Key Tasks:**
-  - Deploy GCP Cloud Run Production & Cloud SQL Production instance.
-  - Execute Security Audit: JWT claim validation, CORS headers, SQL injection checks.
-  - Build signed Android APK / App Bundle and Web production bundle.
-  - Finalize documentation and handoff artifacts.
-* **TDD Deliverables:** Production release regression test suite (100% green); Security audit compliance checklist.
+**Phase 0 Gate:** `.\scripts\start_backend.ps1` executes cleanly, Flutter "Hello World" compiles against Firebase Dev environment/emulator, and `sprint/sprint-01` branch is active for ticket implementation.
 
 ---
 
-## 4. Definition of Done (DoD) Criteria
+## Phase 1: MVP Build (Weeks 3–15)
 
-Every user story or task must satisfy all 4 DoD criteria before being marked complete in the sprint tracker:
-
-1. **Unit & Integration Test Coverage:** Minimum **80% code coverage** across FastAPI backend endpoints and Flutter business logic controllers (`/tests/`).
-2. **API Payload & Schema Validation:** 100% of request/response payloads validated against strict Pydantic schemas.
-3. **CI/CD Pipeline Success:** GitHub Actions build, linting, and automated test runs pass with zero errors (`dev` for Staging, `main` for Prod).
-4. **On-Demand Manual QA:** Core UI flows verified on local emulator or staging environment without regressions.
+The 122 implementation-ready tickets are distributed across 6 two-week sprints. Every ticket from `06a-use-case-tickets.md` is assigned to exactly one sprint.
 
 ---
 
-## 5. Critical Path & Risk Mitigation Matrix
+### Sprint 1: Foundation — Auth, Org Baseline, Vehicle CRUD & Maintenance Core (Days 1–15)
 
-| Risk Category | Potential Impact | Severity | Mitigation Strategy |
-| :--- | :--- | :--- | :--- |
-| **Offline Sync Conflicts** | Data overwrite / duplicate records | **High** | Enforce deterministic "server-wins" timestamp logic with client UUID v4 identity. |
-| **Safepay Sandbox Instability** | Delayed billing deployment | **Medium** | Build a mock Safepay sandbox runner locally; decouple payment webhook verification from gateway network availability. |
-| **GPS Battery Drain** | Poor user reviews / app termination | **Medium** | Restrict GPS sampling to distance deltas (>50m) rather than continuous high-accuracy polling. |
-| **GCP Cloud SQL Charges** | Unintended infrastructure costs | **Low** | Use local SQLite for daily dev (`start_backend.ps1`); use `gcp_cloud_control.ps1` to stop Cloud SQL when idle. |
+**Goal:** User can sign up, create an organization, add a vehicle, view pre-populated maintenance schedules, and log a service record.
+
+| Ticket | Use Case | Owner | Estimate | Depends on | Status |
+|:---|:---|:---|:---|:---|:---|
+| **UC-001** | Sign Up with Google One-Tap | FE/BE | S | none | Not Started |
+| **UC-002** | Sign Up with Facebook Login | FE/BE | S | UC-001 | Not Started |
+| **UC-003** | Sign Up with Email and Password | FE/BE | S | UC-001 | Not Started |
+| **UC-004** | Sign Up with Phone OTP | FE/BE | M | UC-001 | Not Started |
+| **UC-005** | Sign In (All Methods) | FE/BE | S | UC-001, UC-003, UC-004 | Not Started |
+| **UC-006** | Forgot Password & Reset Flow | FE/BE | S | UC-003 | Not Started |
+| **UC-007** | Complete Profile Setup | FE/BE | S | UC-001 | Not Started |
+| **UC-008** | View and Edit Profile | FE/BE | S | UC-007 | Not Started |
+| **UC-009** | Silent Token Refresh | FE/BE | M | UC-005 | Not Started |
+| **UC-010** | Role-Based Navigation Rendering | FE | S | UC-005 | Not Started |
+| **UC-011** | Session-Expired Forced Re-Authentication | FE/BE | S | UC-009 | Not Started |
+| **UC-012** | Splash Screen with Auto-Navigation | FE | S | UC-009 | Not Started |
+| **UC-013** | Welcome & Onboarding Carousel | FE | S | none | Not Started |
+| **UC-014** | Auto-Create Personal Organization | BE | S | UC-001 | Not Started |
+| **UC-015** | View & Switch Active Organization | FE/BE | S | UC-014 | Not Started |
+| **UC-016** | View Organization Member List & Roles | FE/BE | S | UC-014 | Not Started |
+| **UC-024** | Add Vehicle with Typeahead Lookup | FE/BE | M | UC-014 | Not Started |
+| **UC-025** | View Vehicle List | FE/BE | S | UC-024 | Not Started |
+| **UC-026** | View Vehicle Detail Screen | FE/BE | S | UC-025 | Not Started |
+| **UC-027** | Edit Vehicle Information | FE/BE | S | UC-026 | Not Started |
+| **UC-034** | View Pre-Populated Maintenance Schedule | FE/BE | M | UC-024 | Not Started |
+| **UC-035** | Customize Maintenance Schedule Items | FE/BE | S | UC-034 | Not Started |
+| **UC-036** | Log Service Record | FE/BE | M | UC-034 | Not Started |
+| **UC-037** | View Service History | FE/BE | S | UC-036 | Not Started |
+| **UC-038** | Bulk Accept Maintenance Schedule | FE/BE | S | UC-034 | Not Started |
+| **UC-064** | Consumer Dashboard with Vehicle Summary Cards | FE/BE | M | UC-025, UC-034 | Not Started |
+| **UC-118** | Database Migration & Schema Seeding Infrastructure | BE | L | none | Not Started |
+
+**Sprint 1 Goal:** Core minimum value loop functional. Sign up → Add vehicle → Pre-populated maintenance schedule → Log service. (27 Tickets)
 
 ---
 
-## 6. Next Stage Handoff
+### Sprint 2: Consumer Data Entry Loop — Fuel, Trip, Expense & Push Notifications (Days 16–30)
 
-Upon review and approval of this roadmap:
-- **Next Stage:** `★ SPECIFICATION INTEGRITY REVIEW` (producing `product-specs/07b-integrity-review.md`).
-- **Persona:** Principal TPM / Devil's Advocate.
-- **Focus:** Cross-artifact dependency audit across all 10 product specs before generating the final Master PRD.
+**Goal:** Complete data entry logging for fuel, trips, and expenses. FCM push notification pipeline operational for upcoming service alerts.
+
+| Ticket | Use Case | Owner | Estimate | Depends on | Status |
+|:---|:---|:---|:---|:---|:---|
+| **UC-046** | Log Fuel Entry | FE/BE | M | UC-024 | Not Started |
+| **UC-047** | View Fuel Log History | FE/BE | S | UC-046 | Not Started |
+| **UC-048** | Edit Fuel Entry | FE/BE | S | UC-047 | Not Started |
+| **UC-049** | Delete Fuel Entry | FE/BE | S | UC-047 | Not Started |
+| **UC-050** | Calculate Fuel Efficiency (MPG / L/100km) | BE | M | UC-046 | Not Started |
+| **UC-051** | Quick-Log Fuel from Dashboard | FE/BE | S | UC-046, UC-064 | Not Started |
+| **UC-052** | Log Manual Trip Entry | FE/BE | M | UC-024 | Not Started |
+| **UC-053** | View Trip History | FE/BE | S | UC-052 | Not Started |
+| **UC-054** | Edit Trip Entry | FE/BE | S | UC-053 | Not Started |
+| **UC-055** | Delete Trip Entry | FE/BE | S | UC-053 | Not Started |
+| **UC-056** | Quick-Log Trip from Dashboard | FE/BE | S | UC-052, UC-064 | Not Started |
+| **UC-057** | View Distance & Mileage Summary | FE/BE | S | UC-053 | Not Started |
+| **UC-058** | Log Vehicle Expense | FE/BE | M | UC-024 | Not Started |
+| **UC-059** | View Expense History | FE/BE | S | UC-058 | Not Started |
+| **UC-060** | Edit Expense Entry | FE/BE | S | UC-059 | Not Started |
+| **UC-061** | Delete Expense Entry | FE/BE | S | UC-059 | Not Started |
+| **UC-062** | Quick-Log Expense from Dashboard | FE/BE | S | UC-058, UC-064 | Not Started |
+| **UC-063** | Attach Receipt Photo to Expense/Fuel Log | FE/BE | M | UC-046, UC-058 | Not Started |
+| **UC-065** | Cost Breakdown Charts per Vehicle | FE/BE | M | UC-046, UC-058 | Not Started |
+| **UC-066** | Quick Actions Floating Button | FE | S | UC-064 | Not Started |
+| **UC-072** | Request FCM Push Notification Permission | FE | S | UC-001 | Not Started |
+| **UC-073** | Send Maintenance Overdue Push Notification | BE | M | UC-034, UC-072 | Not Started |
+| **UC-074** | Send Maintenance Upcoming Push Notification | BE | M | UC-034, UC-072 | Not Started |
+| **UC-075** | Background FCM Push Notification Handler | FE | S | UC-072 | Not Started |
+
+**Sprint 2 Goal:** Complete consumer logging suite operational. Users can record fuel, trips, expenses, attach receipts, and receive service reminder push alerts. (24 Tickets)
+
+---
+
+### Sprint 3: Offline Sync Engine & Multi-Tenant Fleet Core (Days 31–45)
+
+**Goal:** Mobile client can operate entirely offline with transactional batch sync (`POST /api/v1/sync/batch`). Fleet managers can invite drivers and manage org assets.
+
+| Ticket | Use Case | Owner | Estimate | Depends on | Status |
+|:---|:---|:---|:---|:---|:---|
+| **UC-017** | Edit Organization Profile Details | FE/BE | S | UC-014 | Not Started |
+| **UC-018** | Invite Driver / Manager via Email or Phone | FE/BE | M | UC-016 | Not Started |
+| **UC-019** | Accept Organization Invitation (Existing User) | FE/BE | S | UC-018 | Not Started |
+| **UC-020** | Redeem Org Invitation Code (New User) | FE/BE | M | UC-018 | Not Started |
+| **UC-021** | Remove Member from Organization | FE/BE | S | UC-016 | Not Started |
+| **UC-022** | Cancel Pending Member Invitation | FE/BE | S | UC-018 | Not Started |
+| **UC-023** | Soft Delete Organization | BE | M | UC-014 | Not Started |
+| **UC-028** | Delete Vehicle (Soft Delete & Audit Log) | FE/BE | S | UC-026 | Not Started |
+| **UC-029** | Log Manual Odometer Update | FE/BE | S | UC-026 | Not Started |
+| **UC-030** | Upload Vehicle Documents | FE/BE | M | UC-026 | Not Started |
+| **UC-031** | Recover Deleted Vehicle | FE/BE | S | UC-028 | Not Started |
+| **UC-032** | Assign Primary Driver to Vehicle | FE/BE | S | UC-018, UC-026 | Not Started |
+| **UC-033** | Unassign Driver from Vehicle | FE/BE | S | UC-032 | Not Started |
+| **UC-090** | Queue Local Entity Mutations in Offline SQLite DB | FE | L | UC-024, UC-046 | Not Started |
+| **UC-091** | Background Network Reconnection Sync Listener | FE | M | UC-090 | Not Started |
+| **UC-092** | Display Offline Mode Indicator Banner | FE | S | UC-090 | Not Started |
+| **UC-093** | View Pending Sync Queue Status | FE | S | UC-090 | Not Started |
+| **UC-094** | Client UUID v4 Primary Key Generation | FE | S | UC-090 | Not Started |
+| **UC-095** | Incremental Delta Sync Payload Construction | FE | M | UC-090, UC-094 | Not Started |
+| **UC-096** | Client-Side Sync Conflict Visual Resolution | FE | M | UC-095 | Not Started |
+| **UC-097** | Idempotent Re-Sync Retry Logic | FE/BE | M | UC-095 | Not Started |
+| **UC-119** | Sync Batch Transaction Engine (`POST /api/v1/sync/batch`) | BE | XL | UC-094, UC-095 | Not Started |
+
+**Sprint 3 Goal:** Offline sync batch engine fully verified. Organizations can invite members, assign drivers to vehicles, and process multi-entity offline queues in a single DB transaction. (22 Tickets)
+
+---
+
+### Sprint 4: Monetization — Stripe/Safepay Payments, Ads & Ad-Gate Enforcement (Days 46–60)
+
+**Goal:** Dual payment webhooks (Stripe & Safepay) operational. Free-tier rewarded ad playback unlocks permanent bonus vehicle/driver slots governed by ad-gate middleware.
+
+| Ticket | Use Case | Owner | Estimate | Depends on | Status |
+|:---|:---|:---|:---|:---|:---|
+| **UC-080** | Initiate Pro Tier Subscription (Stripe Checkout) | FE/BE | M | UC-014 | Not Started |
+| **UC-081** | Initiate Pro Tier Subscription (Safepay PK Checkout) | FE/BE | M | UC-014 | Not Started |
+| **UC-082** | Handle Payment Checkout Failure & Cancellation | FE | S | UC-080, UC-081 | Not Started |
+| **UC-083** | View Subscription Status & Billing History | FE/BE | S | UC-080 | Not Started |
+| **UC-084** | Cancel Active Subscription | FE/BE | M | UC-083 | Not Started |
+| **UC-085** | Process Subscription Downgrade (Pro → Free) | BE | L | UC-084 | Not Started |
+| **UC-086** | Vehicle Quota Wall Enforcement Screen | FE/BE | M | UC-024, UC-080 | Not Started |
+| **UC-087** | Driver Quota Wall Enforcement Screen | FE/BE | M | UC-018, UC-080 | Not Started |
+| **UC-088** | Pro Upgrade Celebration Modal | FE | S | UC-080 | Not Started |
+| **UC-089** | Contact Enterprise Sales Inquiry Form | FE/BE | S | UC-086 | Not Started |
+| **UC-098** | Display AdMob Banner Ads (Free Tier Mobile) | FE | S | UC-014 | Not Started |
+| **UC-099** | Play Rewarded Video Ad for Bonus Slot | FE | M | UC-086, UC-087 | Not Started |
+| **UC-100** | Verify Rewarded Ad Completion Signature Token | BE | M | UC-099 | Not Started |
+| **UC-101** | Render Ad-Free Experience for Pro Subscribers | FE | S | UC-080, UC-098 | Not Started |
+| **UC-102** | Ad Delivery Fallback Grace Handler | FE | S | UC-099 | Not Started |
+| **UC-120** | Ad-Rewarded Quota Lifecycle Engine | BE | L | UC-014, UC-022, UC-085, UC-099 | Not Started |
+| **UC-121** | Dual Payment Gateway Webhook Reconciliation Engine | BE | L | UC-080, UC-081, UC-082 | Not Started |
+| **UC-122** | Ad-Gate Signature Enforcement Protocol | BE | M | UC-099, UC-100 | Not Started |
+
+**Sprint 4 Goal:** Platform revenue engine live. Users can purchase subscriptions via Stripe/Safepay or earn ad-rewarded bonus slots with middleware signature verification. (18 Tickets)
+
+---
+
+### Sprint 5: Fleet Intelligence, Driver Safety & Data Export (Days 61–75)
+
+**Goal:** Fleet manager web dashboard operational. Driver safety consistency scoring calculated. Data exports available in PDF/CSV format.
+
+| Ticket | Use Case | Owner | Estimate | Depends on | Status |
+|:---|:---|:---|:---|:---|:---|
+| **UC-039** | Add Custom Maintenance Service Item | FE/BE | S | UC-035 | Not Started |
+| **UC-040** | Edit Existing Service Record | FE/BE | S | UC-037 | Not Started |
+| **UC-041** | Delete Service Record (Soft Delete) | FE/BE | S | UC-037 | Not Started |
+| **UC-042** | Filter & Search Service History | FE/BE | S | UC-037 | Not Started |
+| **UC-043** | Maintenance Vendor Management | FE/BE | M | UC-036 | Not Started |
+| **UC-044** | Perform Vehicle Inspection Checklist | FE/BE | M | UC-026 | Not Started |
+| **UC-045** | Snooze / Defer Maintenance Alert | FE/BE | S | UC-073 | Not Started |
+| **UC-067** | Fleet Manager Web Dashboard Layout | FE/BE | L | UC-014, UC-025 | Not Started |
+| **UC-068** | Fleet Cost Ranking Table & Heatmap | FE/BE | M | UC-067 | Not Started |
+| **UC-069** | Fleet Vehicle Availability Widget | FE/BE | M | UC-067 | Not Started |
+| **UC-070** | Driver Safety Score Leaderboard Widget | FE/BE | M | UC-067, UC-103 | Not Started |
+| **UC-071** | Customize Fleet Dashboard Widget Layout | FE | S | UC-067 | Not Started |
+| **UC-076** | Notification Inbox Screen | FE/BE | S | UC-072 | Not Started |
+| **UC-077** | Notification Preferences & Channel Config | FE/BE | S | UC-076 | Not Started |
+| **UC-078** | Billing & Payment Alert Notifications | BE | S | UC-080, UC-081 | Not Started |
+| **UC-079** | Automatically Purge Stale FCM Tokens | BE | S | UC-072 | Not Started |
+| **UC-103** | Calculate Driver Consistency Score | BE | M | UC-032, UC-046, UC-052 | Not Started |
+| **UC-104** | View Individual Driver Performance Detail | FE/BE | S | UC-103 | Not Started |
+| **UC-105** | Driver Inactivity & Anomaly Alert Trigger | BE | M | UC-103 | Not Started |
+| **UC-106** | Driver Safety Certificate Badge Generation | FE/BE | S | UC-103 | Not Started |
+| **UC-110** | Export Maintenance History to PDF | FE/BE | M | UC-037 | Not Started |
+| **UC-111** | Export Fuel & Expense Logs to CSV | FE/BE | S | UC-047, UC-059 | Not Started |
+| **UC-112** | Generate & Email Monthly Fleet Summary PDF | BE | M | UC-067, UC-110 | Not Started |
+
+**Sprint 5 Goal:** Fleet managers gain complete operational visibility, safety analytics, and automated PDF compliance reporting. (23 Tickets)
+
+---
+
+### Sprint 6: App Polish, Dark Mode, Locales & Final Hardening (Days 76–90)
+
+**Goal:** Slate Teal / Charcoal dark mode implemented, metric/imperial conversions, Urdu RTL support, account deletion compliance, and launch regression testing.
+
+| Ticket | Use Case | Owner | Estimate | Depends on | Status |
+|:---|:---|:---|:---|:---|:---|
+| **UC-107** | Toggle Theme (Light / Slate Teal Dark Mode) | FE | S | none | Not Started |
+| **UC-108** | Apply Slate Teal / Charcoal Dark Palette | FE | S | UC-107 | Not Started |
+| **UC-109** | System Theme Auto-Detection | FE | S | UC-107 | Not Started |
+| **UC-113** | View App Settings Screen | FE | S | none | Not Started |
+| **UC-114** | Configure Unit Preferences (Metric / Imperial) | FE/BE | S | UC-113 | Not Started |
+| **UC-115** | Configure Locale & Language (English / Urdu RTL) | FE/BE | M | UC-113 | Not Started |
+| **UC-116** | Request GDPR Account & Data Deletion | FE/BE | M | UC-001 | Not Started |
+| **UC-117** | In-App Support Ticket Submission | FE/BE | S | UC-113 | Not Started |
+
+**Sprint 6 Goal:** Production polish complete. All 122 tickets pass regression testing. App ready for public app store and web release. (8 Tickets)
+
+---
+
+## Phase 1 Gate — MVP Definition of Done
+
+- [ ] All 122 UC tickets are marked **Done** with 100% automated test pass rate.
+- [ ] Core journey (Sign Up → Add Vehicle → Pre-Populated Schedule → Log Service → Upgrade/Reward) verified.
+- [ ] `POST /api/v1/sync/batch` passes multi-entity transaction ordering tests on SQLite.
+- [ ] Dual payment webhooks (Stripe & Safepay) pass signature validation tests.
+- [ ] Zero critical (P0) or high (P1) bugs open.
+
+---
+
+## Phase 2: Beta (Weeks 16–19)
+
+**Goal:** Onboard 10–50 real vehicle owners and SMB fleet operators in Pakistan and international markets.
+
+### Beta Checklist
+- [ ] Sentry / GlitchTip error logging active for mobile and backend.
+- [ ] PostHog event tracking instrumented for onboarding and quota walls.
+- [ ] Database daily backup and restore verified.
+- [ ] 5 non-technical users complete onboarding without assistance.
+
+---
+
+## Phase 3: Public Launch (Weeks 20–23)
+
+### Pre-Launch Verification
+- [ ] Security audit: CORS headers, JWT secret rotation, API rate limiting.
+- [ ] `.\scripts\gcp_cloud_control.ps1 -Action start` executed for staging verification.
+- [ ] Mobile build signed and submitted to Google Play Store.
+- [ ] Production web app deployed to Cloud Run (scale-to-zero configured).
+
+---
+
+## Phase 4: Post-Launch Backlog & Roadmap
+
+| Feature | Description | Target Phase |
+|:---|:---|:---|
+| **GPS Auto-Tracking** | Background location tracking for automatic trip classification. | Phase 4 (Sprint 7) |
+| **AI Maintenance Predictor** | Machine learning predictions based on historical breakdown data. | Phase 4 (Sprint 8) |
+| **iOS Native App** | iOS build compilation and Apple App Store release. | Phase 4 (Sprint 8) |
+
+---
+
+## Risk Register
+
+| ID | Risk Description | Likelihood | Impact | Early Warning Sign | Mitigation Strategy |
+|:---|:---|:---|:---|:---|:---|
+| **RSK-001** | Offline sync batch transaction failure due to client/server ID drift. | Medium | High | `HTTP 409 Conflict` rate > 2% in logs. | Client generates UUID v4 locally; backend executes single DB transaction with topological order (`UC-119`). |
+| **RSK-002** | Payment gateway (Safepay) webhook failure or signature mismatch. | Low | High | Webhook error log entries; pending subscriptions. | Webhook reconciliation engine (`UC-121`) logs raw payload to `gateway_payload` JSONB and permits idempotent re-processing. |
+| **RSK-003** | Ad-gate signature bypass on ad-rewarded vehicles. | Medium | High | Vehicle mutations occurring without ad completion tokens. | FastAPI middleware (`UC-122`) intercepts and cryptographically validates `X-Ad-Reward-Token` prior to DB handler. |
+| **RSK-004** | Solo developer velocity shortfall on 122 tickets. | Medium | Medium | Sprint completion rate < 80% at Sprint 3. | Sprints 5–6 contain lower-complexity UI polish (Theme, Settings); non-critical tickets can shift without breaking critical path. |
+
+---
+
+## Decision Log
+
+| Date | Decision | Made By | Rationale |
+|:---|:---|:---|:---|
+| 2026-08-01 | All 122 UC tickets assigned across 6 two-week sprints. | Programme Mgr | Maintains 90-day timeline with zero feature cuts. |
+| 2026-08-01 | Core Infra tickets (`UC-118`..`UC-122`) placed at critical dependency junctions. | Staff Architect | Ensures infrastructure logic is tested before dependent feature tickets ship. |

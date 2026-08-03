@@ -1,44 +1,30 @@
-# Veltrics — 07 Big Picture Master Tracker
+# Master Tracker: Veltrics Fleet & Vehicle Management Platform
 
-> **Master Roadmap:** [07-roadmap.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/07-roadmap.md)  
-> **Cost Plan:** [07c-gcp-cost-minimization-and-skill-plan.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/07c-gcp-cost-minimization-and-skill-plan.md)  
-> **Target Launch Date:** January 1, 2027  
-> **Overall Progress:** `[░░░░░░░░░░] 0% (0 / 10 Sprints Completed)`  
-
----
-
-## 1. Stage Overview & High-Level Progress
-
-| Stage ID | Stage Name | Target Completion Date | Status | Linked Stage Tracker |
-| :--- | :--- | :--- | :--- | :--- |
-| **07.01** | Stage 1 — Foundation, Auth & Data Sync Core | August 28, 2026 | 🔄 In Progress | [07.01-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/07.01-tracker.md) |
-| **07.02** | Stage 2 — Fleet Assets & Driver Management | September 11, 2026 | ⏳ Pending | `trackers/stage-02/07.02-tracker.md` |
-| **07.03** | Stage 3 — Fuel Refill & KPL Efficiency Engine | September 25, 2026 | ⏳ Pending | `trackers/stage-03/07.03-tracker.md` |
-| **07.04** | Stage 4 — Maintenance Schedules & Work Orders | October 09, 2026 | ⏳ Pending | `trackers/stage-04/07.04-tracker.md` |
-| **07.05** | Stage 5 — Billing, Quota Wall & Ad Slot System | November 06, 2026 | ⏳ Pending | `trackers/stage-05/07.05-tracker.md` |
-| **07.06** | Stage 6 — Trip Logs, Expenses & Staging QA | December 04, 2026 | ⏳ Pending | `trackers/stage-06/07.06-tracker.md` |
-| **07.07** | Stage 7 — Production Hardening & App Launch | December 25, 2026 | ⏳ Pending | `trackers/stage-07/07.07-tracker.md` |
+> **Status:** Active  
+> **Master Spec:** [08-master-prd.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/08-master-prd.md)  
+> **Roadmap:** [07-roadmap.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/07-roadmap.md)  
+> **Backlog:** [06a-use-case-tickets.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/06a-use-case-tickets.md)  
 
 ---
 
-## 2. Sprint Schedule & Completion Dashboard
+## Overall Progress Summary
 
-| Sprint ID | Sprint Focus | Start Date | Target Finish | Status | Lagging Alert | Sprint Tracker Link |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **07.01.01** | FastAPI Skeleton, Local DB & Auth API | 2026-08-01 | 2026-08-14 | 🔄 Active | 🟢 On Schedule | [07.01.01-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.01-tracker.md) |
-| **07.01.02** | Flutter Hive Local Store & Sync Engine | 2026-08-15 | 2026-08-28 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-01/sprints/07.01.02-tracker.md` |
-| **07.02.03** | Vehicles & Drivers Fleet Core APIs | 2026-08-29 | 2026-09-11 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-02/sprints/07.02.03-tracker.md` |
-| **07.03.04** | Fuel Logs & Automatic KPL Engine | 2026-09-12 | 2026-09-25 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-03/sprints/07.03.04-tracker.md` |
-| **07.04.05** | Maintenance Alert State Machine | 2026-09-26 | 2026-10-09 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-04/sprints/07.04.05-tracker.md` |
-| **07.05.06** | Safepay Billing Gateway & Quota Wall | 2026-10-10 | 2026-10-23 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-05/sprints/07.05.06-tracker.md` |
-| **07.05.07** | Rewarded Video Ads & Audit Logging | 2026-10-24 | 2026-11-06 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-05/sprints/07.05.07-tracker.md` |
-| **07.06.08** | Trip Logs, Expenses & Resource Tuning | 2026-11-07 | 2026-11-20 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-06/sprints/07.06.08-tracker.md` |
-| **07.06.09** | GCP Staging & E2E Sync Load Test | 2026-11-21 | 2026-12-04 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-06/sprints/07.06.09-tracker.md` |
-| **07.07.10** | Prod Hardening & App Store Release | 2026-12-05 | 2026-12-25 | ⏳ Scheduled| 🟢 On Schedule | `trackers/stage-07/sprints/07.07.10-tracker.md` |
+- **Total Backlog:** 122 Implementation Tickets (`UC-001` .. `UC-122`)
+- **Completed:** 0 / 122 Tickets (0%)
+- **Current Active Sprint:** Sprint 1 — Foundation (Auth, Org Baseline, Vehicle CRUD & Maintenance Core)
+- **Last Updated:** 2026-08-02 — Initialized by Stage 07a Engineering Charter
 
 ---
 
-## 3. High-Level Risk & Schedule Variance Log
+## Phase & Sprint Rollup Table
 
-- **Current Status:** On Track for January 1, 2027 Production Release.
-- **Active Sprint:** Sprint 07.01.01 (FastAPI Core & Auth API).
+| Phase | Sprint Tracker | Theme / Focus | Ticket Range | Count | Done | % Complete | Status |
+|:---|:---|:---|:---|:---|:---|:---|:---|
+| **Phase 0** | Foundation | Environment Setup, SQLite, Auth Emulator | — | 0 | 0 | 100% | ✅ Complete |
+| **Phase 1** | [07.01.01-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.01-tracker.md) | Sprint 1: Auth, Org, Vehicle, Mnt Core, DB Seed | UC-001..016, UC-024..027, UC-034..038, UC-064, UC-118 | 27 | 0 | 0% | 🚀 In Progress |
+| **Phase 1** | [07.01.02-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.02-tracker.md) | Sprint 2: Fuel, Trip, Expense, Push Notifications | UC-046..063, UC-065..066, UC-072..075 | 24 | 0 | 0% | ⏳ Pending |
+| **Phase 1** | [07.01.03-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.03-tracker.md) | Sprint 3: Offline Sync Engine & Multi-Tenant Core | UC-017..023, UC-028..033, UC-090..097, UC-119 | 22 | 0 | 0% | ⏳ Pending |
+| **Phase 1** | [07.01.04-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.04-tracker.md) | Sprint 4: Monetization, Payments, Ads, Ad-Gate | UC-080..089, UC-098..102, UC-120..122 | 18 | 0 | 0% | ⏳ Pending |
+| **Phase 1** | [07.01.05-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.05-tracker.md) | Sprint 5: Fleet Intelligence, Scoring & Export | UC-039..045, UC-067..071, UC-076..079, UC-103..106, UC-110..112 | 23 | 0 | 0% | ⏳ Pending |
+| **Phase 1** | [07.01.06-tracker.md](file:///e:/Non_Office/Dev_Space/vibe_skool/veltrics/trackers/stage-01/sprints/07.01.06-tracker.md) | Sprint 6: Dark Mode, Locales, Settings & Polish | UC-107..109, UC-113..117 | 8 | 0 | 0% | ⏳ Pending |
+| **TOTAL** | — | **Full Product Backlog** | **UC-001 .. UC-122** | **122** | **0** | **0%** | **Phase 1 Active** |
