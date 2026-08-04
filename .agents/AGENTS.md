@@ -18,7 +18,7 @@
 ---
 
 ## 2. Phase 0 Scaffolding & Firebase Multi-Env Baseline
-- **Flutter Scaffolding:** Create Flutter project boilerplate inside `/src/mobile_frontend` (`cd src; flutter create mobile_frontend`) before active ticket implementation. Apply theme tokens from `product-specs/05b-flutter-theme.dart`.
+- **Flutter Scaffolding:** Create Flutter project boilerplate inside `/src/frontend` (`cd src; flutter create frontend`) before active ticket implementation. Apply theme tokens from `product-specs/05b-flutter-theme.dart`.
 - **Firebase Binding:** Link Firebase projects for Dev, Staging, and Production environments (`flutterfire configure`):
   - **Dev:** Local auth emulator / `veltrics-dev` Firebase bindings.
   - **Staging:** `veltrics-staging` Firebase bindings.
@@ -86,6 +86,6 @@ veltrics/
 ├── trackers/                      # Live hierarchical backlog trackers
 └── src/                           # Single container for all application code
     ├── backend/                   # Python FastAPI Backend
-    ├── mobile_frontend/           # Flutter Client App
+    ├── frontend/                      # Flutter Client App (Web / Mobile / Desktop)
     └── tests/                     # Automated Test Suite
 ```

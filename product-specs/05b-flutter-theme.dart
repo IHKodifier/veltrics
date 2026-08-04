@@ -18,7 +18,6 @@
 // All spacing, typography, motion, and component themes are palette-agnostic.
 // =============================================================================
 
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -236,27 +235,42 @@ class VeltricsTextStyles {
     required double height,
     Color? color,
     double? letterSpacing,
-  }) =>
-      GoogleFonts.inter(
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        height: height,
-        color: color,
-        letterSpacing: letterSpacing,
-      );
+  }) => GoogleFonts.inter(
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    height: height,
+    color: color,
+    letterSpacing: letterSpacing,
+  );
 
-  static TextStyle get displayXl => _inter(fontSize: 36, fontWeight: FontWeight.w800, height: 1.2);
-  static TextStyle get displayLg => _inter(fontSize: 30, fontWeight: FontWeight.w700, height: 1.25);
-  static TextStyle get displayMd => _inter(fontSize: 24, fontWeight: FontWeight.w700, height: 1.3);
-  static TextStyle get titleLg => _inter(fontSize: 20, fontWeight: FontWeight.w600, height: 1.35);
-  static TextStyle get titleMd => _inter(fontSize: 18, fontWeight: FontWeight.w600, height: 1.4);
-  static TextStyle get titleSm => _inter(fontSize: 16, fontWeight: FontWeight.w600, height: 1.4);
-  static TextStyle get bodyLg => _inter(fontSize: 16, fontWeight: FontWeight.w400, height: 1.6);
-  static TextStyle get bodyMd => _inter(fontSize: 14, fontWeight: FontWeight.w400, height: 1.6);
-  static TextStyle get bodySm => _inter(fontSize: 12, fontWeight: FontWeight.w400, height: 1.5);
-  static TextStyle get labelLg => _inter(fontSize: 14, fontWeight: FontWeight.w500, height: 1.2);
-  static TextStyle get labelMd => _inter(fontSize: 12, fontWeight: FontWeight.w500, height: 1.2);
-  static TextStyle get labelSm => _inter(fontSize: 10, fontWeight: FontWeight.w600, height: 1.2, letterSpacing: 0.08);
+  static TextStyle get displayXl =>
+      _inter(fontSize: 36, fontWeight: FontWeight.w800, height: 1.2);
+  static TextStyle get displayLg =>
+      _inter(fontSize: 30, fontWeight: FontWeight.w700, height: 1.25);
+  static TextStyle get displayMd =>
+      _inter(fontSize: 24, fontWeight: FontWeight.w700, height: 1.3);
+  static TextStyle get titleLg =>
+      _inter(fontSize: 20, fontWeight: FontWeight.w600, height: 1.35);
+  static TextStyle get titleMd =>
+      _inter(fontSize: 18, fontWeight: FontWeight.w600, height: 1.4);
+  static TextStyle get titleSm =>
+      _inter(fontSize: 16, fontWeight: FontWeight.w600, height: 1.4);
+  static TextStyle get bodyLg =>
+      _inter(fontSize: 16, fontWeight: FontWeight.w400, height: 1.6);
+  static TextStyle get bodyMd =>
+      _inter(fontSize: 14, fontWeight: FontWeight.w400, height: 1.6);
+  static TextStyle get bodySm =>
+      _inter(fontSize: 12, fontWeight: FontWeight.w400, height: 1.5);
+  static TextStyle get labelLg =>
+      _inter(fontSize: 14, fontWeight: FontWeight.w500, height: 1.2);
+  static TextStyle get labelMd =>
+      _inter(fontSize: 12, fontWeight: FontWeight.w500, height: 1.2);
+  static TextStyle get labelSm => _inter(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    height: 1.2,
+    letterSpacing: 0.08,
+  );
 
   static const TextStyle mono = TextStyle(
     fontFamily: 'RobotoMono',
@@ -266,28 +280,29 @@ class VeltricsTextStyles {
     fontFeatures: [FontFeature.tabularFigures()],
   );
 
-  static TextStyle get dashboardMetric => displayXl.copyWith(
-        fontFeatures: const [FontFeature.tabularFigures()],
-      );
+  static TextStyle get dashboardMetric =>
+      displayXl.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
 
   static TextTheme buildTextTheme({Color? bodyColor, Color? displayColor}) {
-    return GoogleFonts.interTextTheme(TextTheme(
-      displayLarge: displayXl.copyWith(color: displayColor),
-      displayMedium: displayLg.copyWith(color: displayColor),
-      displaySmall: displayMd.copyWith(color: displayColor),
-      headlineLarge: titleLg.copyWith(color: displayColor),
-      headlineMedium: titleMd.copyWith(color: displayColor),
-      headlineSmall: titleSm.copyWith(color: displayColor),
-      titleLarge: titleLg.copyWith(color: bodyColor),
-      titleMedium: titleMd.copyWith(color: bodyColor),
-      titleSmall: titleSm.copyWith(color: bodyColor),
-      bodyLarge: bodyLg.copyWith(color: bodyColor),
-      bodyMedium: bodyMd.copyWith(color: bodyColor),
-      bodySmall: bodySm.copyWith(color: bodyColor),
-      labelLarge: labelLg.copyWith(color: bodyColor),
-      labelMedium: labelMd.copyWith(color: bodyColor),
-      labelSmall: labelSm.copyWith(color: bodyColor),
-    ));
+    return GoogleFonts.interTextTheme(
+      TextTheme(
+        displayLarge: displayXl.copyWith(color: displayColor),
+        displayMedium: displayLg.copyWith(color: displayColor),
+        displaySmall: displayMd.copyWith(color: displayColor),
+        headlineLarge: titleLg.copyWith(color: displayColor),
+        headlineMedium: titleMd.copyWith(color: displayColor),
+        headlineSmall: titleSm.copyWith(color: displayColor),
+        titleLarge: titleLg.copyWith(color: bodyColor),
+        titleMedium: titleMd.copyWith(color: bodyColor),
+        titleSmall: titleSm.copyWith(color: bodyColor),
+        bodyLarge: bodyLg.copyWith(color: bodyColor),
+        bodyMedium: bodyMd.copyWith(color: bodyColor),
+        bodySmall: bodySm.copyWith(color: bodyColor),
+        labelLarge: labelLg.copyWith(color: bodyColor),
+        labelMedium: labelMd.copyWith(color: bodyColor),
+        labelSmall: labelSm.copyWith(color: bodyColor),
+      ),
+    );
   }
 }
 
@@ -312,7 +327,10 @@ class VeltricsSpacing {
   static const EdgeInsets cardPaddingMobile = EdgeInsets.all(sm);
   static const EdgeInsets cardPaddingWeb = EdgeInsets.all(md);
   static const EdgeInsets pagePadding = EdgeInsets.symmetric(horizontal: sm);
-  static const EdgeInsets listItemPadding = EdgeInsets.symmetric(horizontal: sm, vertical: xs3);
+  static const EdgeInsets listItemPadding = EdgeInsets.symmetric(
+    horizontal: sm,
+    vertical: xs3,
+  );
 }
 
 // =============================================================================
@@ -360,18 +378,30 @@ class VeltricsMotion {
 class VeltricsStatusColors {
   VeltricsStatusColors._();
 
-  static Color successBg(bool isDark) => isDark ? const Color(0xFF14532D) : const Color(0xFFDCFCE7);
-  static Color successFg(bool isDark) => isDark ? const Color(0xFF4ADE80) : const Color(0xFF166534);
-  static Color warningBg(bool isDark) => isDark ? const Color(0xFF3F2E00) : const Color(0xFFFEF9C3);
-  static Color warningFg(bool isDark) => isDark ? const Color(0xFFFACC15) : const Color(0xFFCA8A04);
-  static Color errorBg(bool isDark) => isDark ? const Color(0xFF3F0000) : const Color(0xFFFEE2E2);
-  static Color errorFg(bool isDark) => isDark ? const Color(0xFFF87171) : const Color(0xFFDC2626);
-  static Color infoBg(bool isDark) => isDark ? const Color(0xFF1E3A8A) : const Color(0xFFDBEAFE);
-  static Color infoFg(bool isDark) => isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB);
-  static Color proBg(bool isDark) => isDark ? const Color(0xFF2E1065) : const Color(0xFFEDE9FE);
-  static Color proFg(bool isDark) => isDark ? const Color(0xFFA78BFA) : const Color(0xFF7C3AED);
-  static Color adBg(bool isDark) => isDark ? const Color(0xFF3F2000) : const Color(0xFFFEF3C7);
-  static Color adFg(bool isDark) => isDark ? const Color(0xFFFBBF24) : const Color(0xFFB45309);
+  static Color successBg(bool isDark) =>
+      isDark ? const Color(0xFF14532D) : const Color(0xFFDCFCE7);
+  static Color successFg(bool isDark) =>
+      isDark ? const Color(0xFF4ADE80) : const Color(0xFF166534);
+  static Color warningBg(bool isDark) =>
+      isDark ? const Color(0xFF3F2E00) : const Color(0xFFFEF9C3);
+  static Color warningFg(bool isDark) =>
+      isDark ? const Color(0xFFFACC15) : const Color(0xFFCA8A04);
+  static Color errorBg(bool isDark) =>
+      isDark ? const Color(0xFF3F0000) : const Color(0xFFFEE2E2);
+  static Color errorFg(bool isDark) =>
+      isDark ? const Color(0xFFF87171) : const Color(0xFFDC2626);
+  static Color infoBg(bool isDark) =>
+      isDark ? const Color(0xFF1E3A8A) : const Color(0xFFDBEAFE);
+  static Color infoFg(bool isDark) =>
+      isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB);
+  static Color proBg(bool isDark) =>
+      isDark ? const Color(0xFF2E1065) : const Color(0xFFEDE9FE);
+  static Color proFg(bool isDark) =>
+      isDark ? const Color(0xFFA78BFA) : const Color(0xFF7C3AED);
+  static Color adBg(bool isDark) =>
+      isDark ? const Color(0xFF3F2000) : const Color(0xFFFEF3C7);
+  static Color adFg(bool isDark) =>
+      isDark ? const Color(0xFFFBBF24) : const Color(0xFFB45309);
 }
 
 // =============================================================================
@@ -394,74 +424,74 @@ class VeltricsTheme {
   }
 
   static ColorScheme _lightColorScheme(_PaletteSet p) => ColorScheme(
-        brightness: Brightness.light,
-        primary: p.shade500,
-        onPrimary: p.onPrimary,
-        primaryContainer: p.shade100,
-        onPrimaryContainer: p.shade800,
-        secondary: p.secondary500,
-        onSecondary: Colors.white,
-        secondaryContainer: p.shade100,
-        onSecondaryContainer: p.shade700,
-        tertiary: VeltricsColors.proBadgeLight,
-        onTertiary: Colors.white,
-        tertiaryContainer: const Color(0xFFEDE9FE),
-        onTertiaryContainer: const Color(0xFF4C1D95),
-        error: VeltricsColors.errorLight,
-        onError: Colors.white,
-        errorContainer: VeltricsColors.errorBgLight,
-        onErrorContainer: const Color(0xFF7F1D1D),
-        surface: VeltricsColors.surfaceCardLight,
-        onSurface: VeltricsColors.neutral800,
-        surfaceContainerHighest: VeltricsColors.neutral100,
-        surfaceContainerHigh: VeltricsColors.neutral50,
-        surfaceContainer: VeltricsColors.neutral50,
-        surfaceContainerLow: Colors.white,
-        surfaceContainerLowest: Colors.white,
-        onSurfaceVariant: VeltricsColors.neutral500,
-        outline: VeltricsColors.neutral300,
-        outlineVariant: VeltricsColors.neutral200,
-        inverseSurface: VeltricsColors.neutral900,
-        onInverseSurface: VeltricsColors.neutral50,
-        inversePrimary: p.shade300,
-        scrim: Colors.black,
-        shadow: Colors.black,
-      );
+    brightness: Brightness.light,
+    primary: p.shade500,
+    onPrimary: p.onPrimary,
+    primaryContainer: p.shade100,
+    onPrimaryContainer: p.shade800,
+    secondary: p.secondary500,
+    onSecondary: Colors.white,
+    secondaryContainer: p.shade100,
+    onSecondaryContainer: p.shade700,
+    tertiary: VeltricsColors.proBadgeLight,
+    onTertiary: Colors.white,
+    tertiaryContainer: const Color(0xFFEDE9FE),
+    onTertiaryContainer: const Color(0xFF4C1D95),
+    error: VeltricsColors.errorLight,
+    onError: Colors.white,
+    errorContainer: VeltricsColors.errorBgLight,
+    onErrorContainer: const Color(0xFF7F1D1D),
+    surface: VeltricsColors.surfaceCardLight,
+    onSurface: VeltricsColors.neutral800,
+    surfaceContainerHighest: VeltricsColors.neutral100,
+    surfaceContainerHigh: VeltricsColors.neutral50,
+    surfaceContainer: VeltricsColors.neutral50,
+    surfaceContainerLow: Colors.white,
+    surfaceContainerLowest: Colors.white,
+    onSurfaceVariant: VeltricsColors.neutral500,
+    outline: VeltricsColors.neutral300,
+    outlineVariant: VeltricsColors.neutral200,
+    inverseSurface: VeltricsColors.neutral900,
+    onInverseSurface: VeltricsColors.neutral50,
+    inversePrimary: p.shade300,
+    scrim: Colors.black,
+    shadow: Colors.black,
+  );
 
   static ColorScheme _darkColorScheme(_PaletteSet p) => ColorScheme(
-        brightness: Brightness.dark,
-        primary: p.darkPrimary,
-        onPrimary: p.onPrimary,
-        primaryContainer: p.shade800,
-        onPrimaryContainer: p.shade200,
-        secondary: p.secondary500,
-        onSecondary: p.onPrimary,
-        secondaryContainer: p.shade800,
-        onSecondaryContainer: p.shade100,
-        tertiary: VeltricsColors.proBadgeDark,
-        onTertiary: const Color(0xFF1A0050),
-        tertiaryContainer: const Color(0xFF2E1065),
-        onTertiaryContainer: const Color(0xFFEDE9FE),
-        error: VeltricsColors.errorDark,
-        onError: const Color(0xFF450A0A),
-        errorContainer: VeltricsColors.errorBgDark,
-        onErrorContainer: const Color(0xFFFECACA),
-        surface: p.darkSurface1,
-        onSurface: p.onSurfaceDark,
-        surfaceContainerHighest: p.darkSurface3,
-        surfaceContainerHigh: p.darkSurface2,
-        surfaceContainer: p.darkSurface1,
-        surfaceContainerLow: VeltricsColors.surfaceBgDark,
-        surfaceContainerLowest: VeltricsColors.surfaceBgDark,
-        onSurfaceVariant: p.onSurfaceMutedDark,
-        outline: VeltricsColors.neutralD300,
-        outlineVariant: VeltricsColors.neutralD200,
-        inverseSurface: VeltricsColors.neutral100,
-        onInverseSurface: VeltricsColors.neutral900,
-        inversePrimary: p.shade600,
-        scrim: Colors.black,
-        shadow: Colors.black,
-      );
+    brightness: Brightness.dark,
+    primary: p.darkPrimary,
+    onPrimary: p.onPrimary,
+    primaryContainer: p.shade800,
+    onPrimaryContainer: p.shade200,
+    secondary: p.secondary500,
+    onSecondary: p.onPrimary,
+    secondaryContainer: p.shade800,
+    onSecondaryContainer: p.shade100,
+    tertiary: VeltricsColors.proBadgeDark,
+    onTertiary: const Color(0xFF1A0050),
+    tertiaryContainer: const Color(0xFF2E1065),
+    onTertiaryContainer: const Color(0xFFEDE9FE),
+    error: VeltricsColors.errorDark,
+    onError: const Color(0xFF450A0A),
+    errorContainer: VeltricsColors.errorBgDark,
+    onErrorContainer: const Color(0xFFFECACA),
+    surface: p.darkSurface1,
+    onSurface: p.onSurfaceDark,
+    surfaceContainerHighest: p.darkSurface3,
+    surfaceContainerHigh: p.darkSurface2,
+    surfaceContainer: p.darkSurface1,
+    surfaceContainerLow: VeltricsColors.surfaceBgDark,
+    surfaceContainerLowest: VeltricsColors.surfaceBgDark,
+    onSurfaceVariant: p.onSurfaceMutedDark,
+    outline: VeltricsColors.neutralD300,
+    outlineVariant: VeltricsColors.neutralD200,
+    inverseSurface: VeltricsColors.neutral100,
+    onInverseSurface: VeltricsColors.neutral900,
+    inversePrimary: p.shade600,
+    scrim: Colors.black,
+    shadow: Colors.black,
+  );
 
   static ThemeData _buildTheme({
     required ColorScheme colorScheme,
@@ -472,9 +502,16 @@ class VeltricsTheme {
     final onPrimary = colorScheme.onPrimary;
     final onSurface = colorScheme.onSurface;
 
-    final bodyColor = isDark ? palette.onSurfaceDark : VeltricsColors.neutral700;
-    final displayColor = isDark ? palette.onSurfaceDark : VeltricsColors.neutral800;
-    final textTheme = VeltricsTextStyles.buildTextTheme(bodyColor: bodyColor, displayColor: displayColor);
+    final bodyColor = isDark
+        ? palette.onSurfaceDark
+        : VeltricsColors.neutral700;
+    final displayColor = isDark
+        ? palette.onSurfaceDark
+        : VeltricsColors.neutral800;
+    final textTheme = VeltricsTextStyles.buildTextTheme(
+      bodyColor: bodyColor,
+      displayColor: displayColor,
+    );
 
     return ThemeData(
       useMaterial3: true,
@@ -482,9 +519,13 @@ class VeltricsTheme {
       colorScheme: colorScheme,
       textTheme: textTheme,
       primaryTextTheme: textTheme,
-      scaffoldBackgroundColor: isDark ? VeltricsColors.surfaceBgDark : VeltricsColors.surfaceBgLight,
+      scaffoldBackgroundColor: isDark
+          ? VeltricsColors.surfaceBgDark
+          : VeltricsColors.surfaceBgLight,
       appBarTheme: AppBarTheme(
-        backgroundColor: isDark ? palette.darkSurface1 : VeltricsColors.surfaceCardLight,
+        backgroundColor: isDark
+            ? palette.darkSurface1
+            : VeltricsColors.surfaceCardLight,
         foregroundColor: onSurface,
         elevation: 0,
         scrolledUnderElevation: 1,
@@ -499,21 +540,33 @@ class VeltricsTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith((s) {
-            if (s.contains(WidgetState.disabled)) return isDark ? VeltricsColors.neutralD200 : VeltricsColors.neutral200;
+            if (s.contains(WidgetState.disabled))
+              return isDark
+                  ? VeltricsColors.neutralD200
+                  : VeltricsColors.neutral200;
             if (s.contains(WidgetState.pressed)) return palette.shade700;
             if (s.contains(WidgetState.hovered)) return palette.shade600;
             return primary;
           }),
           foregroundColor: WidgetStateProperty.resolveWith((s) {
-            if (s.contains(WidgetState.disabled)) return isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400;
+            if (s.contains(WidgetState.disabled))
+              return isDark
+                  ? VeltricsColors.neutralD400
+                  : VeltricsColors.neutral400;
             return onPrimary;
           }),
           overlayColor: WidgetStateProperty.all(Colors.white10),
-          elevation: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.pressed) ? 0 : 2),
+          elevation: WidgetStateProperty.resolveWith(
+            (s) => s.contains(WidgetState.pressed) ? 0 : 2,
+          ),
           shadowColor: WidgetStateProperty.all(primary.withOpacity(0.35)),
           minimumSize: WidgetStateProperty.all(const Size(64, 48)),
-          padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 24, vertical: 14)),
-          shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: VeltricsRadius.pillAll)),
+          padding: WidgetStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          ),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(borderRadius: VeltricsRadius.pillAll),
+          ),
           textStyle: WidgetStateProperty.all(VeltricsTextStyles.labelLg),
           animationDuration: VeltricsMotion.fast,
         ),
@@ -521,7 +574,10 @@ class VeltricsTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
           foregroundColor: WidgetStateProperty.resolveWith((s) {
-            if (s.contains(WidgetState.disabled)) return isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400;
+            if (s.contains(WidgetState.disabled))
+              return isDark
+                  ? VeltricsColors.neutralD400
+                  : VeltricsColors.neutral400;
             return primary;
           }),
           backgroundColor: WidgetStateProperty.resolveWith((s) {
@@ -529,13 +585,23 @@ class VeltricsTheme {
             if (s.contains(WidgetState.hovered)) return palette.shade50;
             return Colors.transparent;
           }),
-          side: WidgetStateProperty.resolveWith((s) => BorderSide(
-                color: s.contains(WidgetState.disabled) ? (isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral300) : primary,
-                width: 1.5,
-              )),
+          side: WidgetStateProperty.resolveWith(
+            (s) => BorderSide(
+              color: s.contains(WidgetState.disabled)
+                  ? (isDark
+                        ? VeltricsColors.neutralD300
+                        : VeltricsColors.neutral300)
+                  : primary,
+              width: 1.5,
+            ),
+          ),
           minimumSize: WidgetStateProperty.all(const Size(64, 48)),
-          padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 24, vertical: 14)),
-          shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: VeltricsRadius.pillAll)),
+          padding: WidgetStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          ),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(borderRadius: VeltricsRadius.pillAll),
+          ),
           textStyle: WidgetStateProperty.all(VeltricsTextStyles.labelLg),
           animationDuration: VeltricsMotion.fast,
         ),
@@ -545,8 +611,12 @@ class VeltricsTheme {
           foregroundColor: WidgetStateProperty.all(primary),
           overlayColor: WidgetStateProperty.all(primary.withOpacity(0.08)),
           minimumSize: WidgetStateProperty.all(const Size(36, 36)),
-          padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 8, vertical: 8)),
-          shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll)),
+          padding: WidgetStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          ),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll),
+          ),
           textStyle: WidgetStateProperty.all(VeltricsTextStyles.labelLg),
           animationDuration: VeltricsMotion.fast,
         ),
@@ -564,15 +634,28 @@ class VeltricsTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: isDark ? palette.darkSurface2 : Colors.white,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
         constraints: const BoxConstraints(minHeight: 56),
         border: OutlineInputBorder(
           borderRadius: VeltricsRadius.smAll,
-          borderSide: BorderSide(color: isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral300, width: 1.5),
+          borderSide: BorderSide(
+            color: isDark
+                ? VeltricsColors.neutralD300
+                : VeltricsColors.neutral300,
+            width: 1.5,
+          ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: VeltricsRadius.smAll,
-          borderSide: BorderSide(color: isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral300, width: 1.5),
+          borderSide: BorderSide(
+            color: isDark
+                ? VeltricsColors.neutralD300
+                : VeltricsColors.neutral300,
+            width: 1.5,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: VeltricsRadius.smAll,
@@ -580,31 +663,68 @@ class VeltricsTheme {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: VeltricsRadius.smAll,
-          borderSide: BorderSide(color: isDark ? VeltricsColors.errorDark : VeltricsColors.errorLight, width: 2),
+          borderSide: BorderSide(
+            color: isDark
+                ? VeltricsColors.errorDark
+                : VeltricsColors.errorLight,
+            width: 2,
+          ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: VeltricsRadius.smAll,
-          borderSide: BorderSide(color: isDark ? VeltricsColors.errorDark : VeltricsColors.errorLight, width: 2),
+          borderSide: BorderSide(
+            color: isDark
+                ? VeltricsColors.errorDark
+                : VeltricsColors.errorLight,
+            width: 2,
+          ),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: VeltricsRadius.smAll,
-          borderSide: BorderSide(color: isDark ? VeltricsColors.neutralD200 : VeltricsColors.neutral200, width: 1.5),
+          borderSide: BorderSide(
+            color: isDark
+                ? VeltricsColors.neutralD200
+                : VeltricsColors.neutral200,
+            width: 1.5,
+          ),
         ),
-        labelStyle: VeltricsTextStyles.bodyMd.copyWith(color: isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500),
-        hintStyle: VeltricsTextStyles.bodyMd.copyWith(color: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400),
-        errorStyle: VeltricsTextStyles.bodySm.copyWith(color: isDark ? VeltricsColors.errorDark : VeltricsColors.errorLight),
-        helperStyle: VeltricsTextStyles.bodySm.copyWith(color: isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500),
+        labelStyle: VeltricsTextStyles.bodyMd.copyWith(
+          color: isDark
+              ? VeltricsColors.neutralD500
+              : VeltricsColors.neutral500,
+        ),
+        hintStyle: VeltricsTextStyles.bodyMd.copyWith(
+          color: isDark
+              ? VeltricsColors.neutralD400
+              : VeltricsColors.neutral400,
+        ),
+        errorStyle: VeltricsTextStyles.bodySm.copyWith(
+          color: isDark ? VeltricsColors.errorDark : VeltricsColors.errorLight,
+        ),
+        helperStyle: VeltricsTextStyles.bodySm.copyWith(
+          color: isDark
+              ? VeltricsColors.neutralD500
+              : VeltricsColors.neutral500,
+        ),
         floatingLabelStyle: VeltricsTextStyles.bodyMd.copyWith(color: primary),
-        prefixIconColor: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400,
-        suffixIconColor: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400,
+        prefixIconColor: isDark
+            ? VeltricsColors.neutralD400
+            : VeltricsColors.neutral400,
+        suffixIconColor: isDark
+            ? VeltricsColors.neutralD400
+            : VeltricsColors.neutral400,
       ),
       cardTheme: CardThemeData(
         color: colorScheme.surface,
-        shadowColor: isDark ? Colors.transparent : Colors.black.withOpacity(0.08),
+        shadowColor: isDark
+            ? Colors.transparent
+            : Colors.black.withOpacity(0.08),
         elevation: isDark ? 0 : 2,
         shape: RoundedRectangleBorder(
           borderRadius: VeltricsRadius.mdAll,
-          side: isDark ? BorderSide(color: palette.darkSurface3, width: 1) : BorderSide.none,
+          side: isDark
+              ? BorderSide(color: palette.darkSurface3, width: 1)
+              : BorderSide.none,
         ),
         margin: EdgeInsets.zero,
         surfaceTintColor: Colors.transparent,
@@ -613,7 +733,9 @@ class VeltricsTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: isDark ? palette.darkSurface1 : Colors.white,
         selectedItemColor: primary,
-        unselectedItemColor: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400,
+        unselectedItemColor: isDark
+            ? VeltricsColors.neutralD400
+            : VeltricsColors.neutral400,
         showSelectedLabels: true,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
@@ -624,24 +746,49 @@ class VeltricsTheme {
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: isDark ? palette.darkSurface1 : Colors.white,
         indicatorColor: primary.withOpacity(0.12),
-        iconTheme: WidgetStateProperty.resolveWith((s) => IconThemeData(
-              color: s.contains(WidgetState.selected) ? primary : (isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400),
-              size: 24,
-            )),
-        labelTextStyle: WidgetStateProperty.resolveWith((s) => VeltricsTextStyles.labelMd.copyWith(
-              color: s.contains(WidgetState.selected) ? primary : (isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400),
-            )),
+        iconTheme: WidgetStateProperty.resolveWith(
+          (s) => IconThemeData(
+            color: s.contains(WidgetState.selected)
+                ? primary
+                : (isDark
+                      ? VeltricsColors.neutralD400
+                      : VeltricsColors.neutral400),
+            size: 24,
+          ),
+        ),
+        labelTextStyle: WidgetStateProperty.resolveWith(
+          (s) => VeltricsTextStyles.labelMd.copyWith(
+            color: s.contains(WidgetState.selected)
+                ? primary
+                : (isDark
+                      ? VeltricsColors.neutralD400
+                      : VeltricsColors.neutral400),
+          ),
+        ),
         height: 56,
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
       ),
       navigationRailTheme: NavigationRailThemeData(
-        backgroundColor: isDark ? palette.darkSurface1 : VeltricsColors.neutral50,
+        backgroundColor: isDark
+            ? palette.darkSurface1
+            : VeltricsColors.neutral50,
         selectedIconTheme: IconThemeData(color: primary, size: 24),
-        unselectedIconTheme: IconThemeData(color: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400, size: 24),
-        selectedLabelTextStyle: VeltricsTextStyles.labelLg.copyWith(color: primary),
-        unselectedLabelTextStyle: VeltricsTextStyles.labelLg.copyWith(color: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400),
+        unselectedIconTheme: IconThemeData(
+          color: isDark
+              ? VeltricsColors.neutralD400
+              : VeltricsColors.neutral400,
+          size: 24,
+        ),
+        selectedLabelTextStyle: VeltricsTextStyles.labelLg.copyWith(
+          color: primary,
+        ),
+        unselectedLabelTextStyle: VeltricsTextStyles.labelLg.copyWith(
+          color: isDark
+              ? VeltricsColors.neutralD400
+              : VeltricsColors.neutral400,
+        ),
         indicatorColor: primary.withOpacity(0.12),
         elevation: 0,
         useIndicator: true,
@@ -651,27 +798,54 @@ class VeltricsTheme {
         labelType: NavigationRailLabelType.selected,
       ),
       navigationDrawerTheme: NavigationDrawerThemeData(
-        backgroundColor: isDark ? palette.darkSurface1 : VeltricsColors.neutral50,
+        backgroundColor: isDark
+            ? palette.darkSurface1
+            : VeltricsColors.neutral50,
         indicatorColor: primary.withOpacity(0.10),
-        indicatorShape: RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll),
-        labelTextStyle: WidgetStateProperty.resolveWith((s) => VeltricsTextStyles.labelLg.copyWith(
-              color: s.contains(WidgetState.selected) ? primary : (isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500),
-            )),
-        iconTheme: WidgetStateProperty.resolveWith((s) => IconThemeData(
-              color: s.contains(WidgetState.selected) ? primary : (isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400),
-              size: 24,
-            )),
+        indicatorShape: RoundedRectangleBorder(
+          borderRadius: VeltricsRadius.smAll,
+        ),
+        labelTextStyle: WidgetStateProperty.resolveWith(
+          (s) => VeltricsTextStyles.labelLg.copyWith(
+            color: s.contains(WidgetState.selected)
+                ? primary
+                : (isDark
+                      ? VeltricsColors.neutralD500
+                      : VeltricsColors.neutral500),
+          ),
+        ),
+        iconTheme: WidgetStateProperty.resolveWith(
+          (s) => IconThemeData(
+            color: s.contains(WidgetState.selected)
+                ? primary
+                : (isDark
+                      ? VeltricsColors.neutralD400
+                      : VeltricsColors.neutral400),
+            size: 24,
+          ),
+        ),
         tileHeight: 48,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         shadowColor: Colors.transparent,
       ),
       chipTheme: ChipThemeData(
-        backgroundColor: isDark ? palette.darkSurface2 : VeltricsColors.neutral100,
+        backgroundColor: isDark
+            ? palette.darkSurface2
+            : VeltricsColors.neutral100,
         selectedColor: palette.shade100,
-        disabledColor: isDark ? VeltricsColors.neutralD100 : VeltricsColors.neutral100,
-        deleteIconColor: isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500,
-        side: BorderSide(color: isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral200, width: 1),
+        disabledColor: isDark
+            ? VeltricsColors.neutralD100
+            : VeltricsColors.neutral100,
+        deleteIconColor: isDark
+            ? VeltricsColors.neutralD500
+            : VeltricsColors.neutral500,
+        side: BorderSide(
+          color: isDark
+              ? VeltricsColors.neutralD300
+              : VeltricsColors.neutral200,
+          width: 1,
+        ),
         shape: RoundedRectangleBorder(borderRadius: VeltricsRadius.pillAll),
         labelStyle: VeltricsTextStyles.labelMd,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -685,7 +859,9 @@ class VeltricsTheme {
         elevation: 24,
         titleTextStyle: VeltricsTextStyles.titleLg.copyWith(color: onSurface),
         contentTextStyle: VeltricsTextStyles.bodyMd.copyWith(
-          color: isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500,
+          color: isDark
+              ? VeltricsColors.neutralD500
+              : VeltricsColors.neutral500,
         ),
         insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
         alignment: Alignment.center,
@@ -695,19 +871,27 @@ class VeltricsTheme {
         backgroundColor: isDark ? palette.darkSurface1 : Colors.white,
         modalBackgroundColor: isDark ? palette.darkSurface1 : Colors.white,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(VeltricsRadius.lg)),
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(VeltricsRadius.lg),
+          ),
         ),
         elevation: 0,
         modalElevation: 0,
-        dragHandleColor: isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral300,
+        dragHandleColor: isDark
+            ? VeltricsColors.neutralD300
+            : VeltricsColors.neutral300,
         dragHandleSize: const Size(40, 4),
         showDragHandle: true,
         clipBehavior: Clip.antiAlias,
         surfaceTintColor: Colors.transparent,
       ),
       snackBarTheme: SnackBarThemeData(
-        backgroundColor: isDark ? VeltricsColors.neutral100 : VeltricsColors.neutral900,
-        contentTextStyle: VeltricsTextStyles.bodyMd.copyWith(color: isDark ? VeltricsColors.neutral900 : Colors.white),
+        backgroundColor: isDark
+            ? VeltricsColors.neutral100
+            : VeltricsColors.neutral900,
+        contentTextStyle: VeltricsTextStyles.bodyMd.copyWith(
+          color: isDark ? VeltricsColors.neutral900 : Colors.white,
+        ),
         actionTextColor: primary,
         shape: RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll),
         behavior: SnackBarBehavior.floating,
@@ -717,14 +901,18 @@ class VeltricsTheme {
       listTileTheme: ListTileThemeData(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         minVerticalPadding: 12,
-        iconColor: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral400,
+        iconColor: isDark
+            ? VeltricsColors.neutralD400
+            : VeltricsColors.neutral400,
         textColor: isDark ? palette.onSurfaceDark : VeltricsColors.neutral700,
         selectedColor: primary,
         selectedTileColor: primary.withOpacity(0.08),
         shape: RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll),
         titleTextStyle: VeltricsTextStyles.bodyLg,
         subtitleTextStyle: VeltricsTextStyles.bodyMd.copyWith(
-          color: isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500,
+          color: isDark
+              ? VeltricsColors.neutralD500
+              : VeltricsColors.neutral500,
         ),
       ),
       dividerTheme: DividerThemeData(
@@ -737,19 +925,45 @@ class VeltricsTheme {
         size: 24,
       ),
       switchTheme: SwitchThemeData(
-        thumbColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? onPrimary : (isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral400)),
-        trackColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? primary : (isDark ? VeltricsColors.neutralD200 : VeltricsColors.neutral200)),
+        thumbColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.selected)
+              ? onPrimary
+              : (isDark
+                    ? VeltricsColors.neutralD300
+                    : VeltricsColors.neutral400),
+        ),
+        trackColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.selected)
+              ? primary
+              : (isDark
+                    ? VeltricsColors.neutralD200
+                    : VeltricsColors.neutral200),
+        ),
         trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
       ),
       checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? primary : Colors.transparent),
+        fillColor: WidgetStateProperty.resolveWith(
+          (s) =>
+              s.contains(WidgetState.selected) ? primary : Colors.transparent,
+        ),
         checkColor: WidgetStateProperty.all(onPrimary),
-        side: BorderSide(color: isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral300, width: 1.5),
+        side: BorderSide(
+          color: isDark
+              ? VeltricsColors.neutralD300
+              : VeltricsColors.neutral300,
+          width: 1.5,
+        ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         overlayColor: WidgetStateProperty.all(primary.withOpacity(0.08)),
       ),
       radioTheme: RadioThemeData(
-        fillColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? primary : (isDark ? VeltricsColors.neutralD300 : VeltricsColors.neutral400)),
+        fillColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.selected)
+              ? primary
+              : (isDark
+                    ? VeltricsColors.neutralD300
+                    : VeltricsColors.neutral400),
+        ),
         overlayColor: WidgetStateProperty.all(primary.withOpacity(0.08)),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
@@ -763,37 +977,66 @@ class VeltricsTheme {
           color: isDark ? VeltricsColors.neutral100 : VeltricsColors.neutral900,
           borderRadius: VeltricsRadius.smAll,
         ),
-        textStyle: VeltricsTextStyles.bodySm.copyWith(color: isDark ? VeltricsColors.neutral900 : Colors.white),
+        textStyle: VeltricsTextStyles.bodySm.copyWith(
+          color: isDark ? VeltricsColors.neutral900 : Colors.white,
+        ),
         waitDuration: const Duration(milliseconds: 400),
         showDuration: const Duration(milliseconds: 1500),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       ),
       tabBarTheme: TabBarThemeData(
         labelColor: primary,
-        unselectedLabelColor: isDark ? VeltricsColors.neutralD400 : VeltricsColors.neutral500,
+        unselectedLabelColor: isDark
+            ? VeltricsColors.neutralD400
+            : VeltricsColors.neutral500,
         labelStyle: VeltricsTextStyles.labelLg,
         unselectedLabelStyle: VeltricsTextStyles.labelLg,
-        indicator: UnderlineTabIndicator(borderSide: BorderSide(color: primary, width: 2)),
+        indicator: UnderlineTabIndicator(
+          borderSide: BorderSide(color: primary, width: 2),
+        ),
         indicatorSize: TabBarIndicatorSize.tab,
         overlayColor: WidgetStateProperty.all(primary.withOpacity(0.08)),
-        dividerColor: isDark ? VeltricsColors.neutralD200 : VeltricsColors.neutral200,
+        dividerColor: isDark
+            ? VeltricsColors.neutralD200
+            : VeltricsColors.neutral200,
         dividerHeight: 1,
       ),
       dataTableTheme: DataTableThemeData(
         decoration: BoxDecoration(
           color: isDark ? palette.darkSurface1 : Colors.white,
           borderRadius: VeltricsRadius.mdAll,
-          border: isDark ? Border.all(color: palette.darkSurface3, width: 1) : null,
-          boxShadow: isDark ? null : [const BoxShadow(color: Color(0x14000000), blurRadius: 4, offset: Offset(0, 1))],
+          border: isDark
+              ? Border.all(color: palette.darkSurface3, width: 1)
+              : null,
+          boxShadow: isDark
+              ? null
+              : [
+                  const BoxShadow(
+                    color: Color(0x14000000),
+                    blurRadius: 4,
+                    offset: Offset(0, 1),
+                  ),
+                ],
         ),
-        headingRowColor: WidgetStateProperty.all(isDark ? palette.darkSurface2 : VeltricsColors.neutral50),
+        headingRowColor: WidgetStateProperty.all(
+          isDark ? palette.darkSurface2 : VeltricsColors.neutral50,
+        ),
         dataRowColor: WidgetStateProperty.resolveWith((s) {
-          if (s.contains(WidgetState.selected)) return primary.withOpacity(0.08);
-          if (s.contains(WidgetState.hovered)) return isDark ? palette.darkSurface2 : VeltricsColors.neutral50;
+          if (s.contains(WidgetState.selected))
+            return primary.withOpacity(0.08);
+          if (s.contains(WidgetState.hovered))
+            return isDark ? palette.darkSurface2 : VeltricsColors.neutral50;
           return Colors.transparent;
         }),
-        headingTextStyle: VeltricsTextStyles.titleSm.copyWith(color: isDark ? VeltricsColors.neutralD500 : VeltricsColors.neutral500, letterSpacing: 0.04),
-        dataTextStyle: VeltricsTextStyles.bodyMd.copyWith(color: isDark ? palette.onSurfaceDark : VeltricsColors.neutral700),
+        headingTextStyle: VeltricsTextStyles.titleSm.copyWith(
+          color: isDark
+              ? VeltricsColors.neutralD500
+              : VeltricsColors.neutral500,
+          letterSpacing: 0.04,
+        ),
+        dataTextStyle: VeltricsTextStyles.bodyMd.copyWith(
+          color: isDark ? palette.onSurfaceDark : VeltricsColors.neutral700,
+        ),
         headingRowHeight: 48,
         dataRowMinHeight: 48,
         dataRowMaxHeight: 56,
@@ -810,12 +1053,14 @@ class VeltricsTheme {
         largeSize: 20,
         alignment: AlignmentDirectional.topEnd,
       ),
-      pageTransitionsTheme: const PageTransitionsTheme(builders: {
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
-        TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
-        TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
-      }),
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
+          TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
+          TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
+        },
+      ),
       platform: TargetPlatform.android,
       visualDensity: VisualDensity.standard,
       materialTapTargetSize: MaterialTapTargetSize.padded,
@@ -838,23 +1083,72 @@ class VeltricsStatusPill extends StatelessWidget {
   });
 
   factory VeltricsStatusPill.healthy({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'HEALTHY', backgroundColor: VeltricsStatusColors.successBg(isDark), textColor: VeltricsStatusColors.successFg(isDark), icon: Icons.check_circle_outline);
+      VeltricsStatusPill._(
+        text: 'HEALTHY',
+        backgroundColor: VeltricsStatusColors.successBg(isDark),
+        textColor: VeltricsStatusColors.successFg(isDark),
+        icon: Icons.check_circle_outline,
+      );
   factory VeltricsStatusPill.attention({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'ATTENTION', backgroundColor: VeltricsStatusColors.warningBg(isDark), textColor: VeltricsStatusColors.warningFg(isDark), icon: Icons.warning_amber_outlined);
+      VeltricsStatusPill._(
+        text: 'ATTENTION',
+        backgroundColor: VeltricsStatusColors.warningBg(isDark),
+        textColor: VeltricsStatusColors.warningFg(isDark),
+        icon: Icons.warning_amber_outlined,
+      );
   factory VeltricsStatusPill.overdue({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'OVERDUE', backgroundColor: VeltricsStatusColors.errorBg(isDark), textColor: VeltricsStatusColors.errorFg(isDark), icon: Icons.alarm_outlined);
+      VeltricsStatusPill._(
+        text: 'OVERDUE',
+        backgroundColor: VeltricsStatusColors.errorBg(isDark),
+        textColor: VeltricsStatusColors.errorFg(isDark),
+        icon: Icons.alarm_outlined,
+      );
   factory VeltricsStatusPill.synced({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'SYNCED', backgroundColor: VeltricsStatusColors.successBg(isDark), textColor: VeltricsStatusColors.successFg(isDark), icon: Icons.cloud_done_outlined);
+      VeltricsStatusPill._(
+        text: 'SYNCED',
+        backgroundColor: VeltricsStatusColors.successBg(isDark),
+        textColor: VeltricsStatusColors.successFg(isDark),
+        icon: Icons.cloud_done_outlined,
+      );
   factory VeltricsStatusPill.pending({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'PENDING', backgroundColor: VeltricsStatusColors.warningBg(isDark), textColor: VeltricsStatusColors.warningFg(isDark), icon: Icons.sync_outlined);
+      VeltricsStatusPill._(
+        text: 'PENDING',
+        backgroundColor: VeltricsStatusColors.warningBg(isDark),
+        textColor: VeltricsStatusColors.warningFg(isDark),
+        icon: Icons.sync_outlined,
+      );
   factory VeltricsStatusPill.conflict({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'CONFLICT', backgroundColor: VeltricsStatusColors.errorBg(isDark), textColor: VeltricsStatusColors.errorFg(isDark), icon: Icons.sync_problem_outlined);
+      VeltricsStatusPill._(
+        text: 'CONFLICT',
+        backgroundColor: VeltricsStatusColors.errorBg(isDark),
+        textColor: VeltricsStatusColors.errorFg(isDark),
+        icon: Icons.sync_problem_outlined,
+      );
   factory VeltricsStatusPill.proBadge({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'PRO', backgroundColor: VeltricsStatusColors.proBg(isDark), textColor: VeltricsStatusColors.proFg(isDark), icon: Icons.star_outline);
+      VeltricsStatusPill._(
+        text: 'PRO',
+        backgroundColor: VeltricsStatusColors.proBg(isDark),
+        textColor: VeltricsStatusColors.proFg(isDark),
+        icon: Icons.star_outline,
+      );
   factory VeltricsStatusPill.adBadge({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'AD', backgroundColor: VeltricsStatusColors.adBg(isDark), textColor: VeltricsStatusColors.adFg(isDark), icon: Icons.videocam_outlined);
-  factory VeltricsStatusPill.custom({required String text, required Color backgroundColor, required Color textColor, IconData? icon}) =>
-      VeltricsStatusPill._(text: text, backgroundColor: backgroundColor, textColor: textColor, icon: icon);
+      VeltricsStatusPill._(
+        text: 'AD',
+        backgroundColor: VeltricsStatusColors.adBg(isDark),
+        textColor: VeltricsStatusColors.adFg(isDark),
+        icon: Icons.videocam_outlined,
+      );
+  factory VeltricsStatusPill.custom({
+    required String text,
+    required Color backgroundColor,
+    required Color textColor,
+    IconData? icon,
+  }) => VeltricsStatusPill._(
+    text: text,
+    backgroundColor: backgroundColor,
+    textColor: textColor,
+    icon: icon,
+  );
 
   final String text;
   final Color backgroundColor, textColor;
@@ -864,11 +1158,23 @@ class VeltricsStatusPill extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(color: backgroundColor, borderRadius: VeltricsRadius.pillAll),
-      child: Row(mainAxisSize: MainAxisSize.min, children: [
-        if (icon != null) ...[Icon(icon, size: 12, color: textColor), const SizedBox(width: 4)],
-        Text(text.toUpperCase(), style: VeltricsTextStyles.labelSm.copyWith(color: textColor)),
-      ]),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: VeltricsRadius.pillAll,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            Icon(icon, size: 12, color: textColor),
+            const SizedBox(width: 4),
+          ],
+          Text(
+            text.toUpperCase(),
+            style: VeltricsTextStyles.labelSm.copyWith(color: textColor),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -881,7 +1187,9 @@ class VeltricsOfflineBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final warnColor = isDark ? VeltricsColors.warningDark : VeltricsColors.warningLight;
+    final warnColor = isDark
+        ? VeltricsColors.warningDark
+        : VeltricsColors.warningLight;
     return AnimatedSlide(
       offset: isVisible ? Offset.zero : const Offset(0, -1),
       duration: VeltricsMotion.normal,
@@ -895,20 +1203,24 @@ class VeltricsOfflineBanner extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: VeltricsSpacing.sm),
           decoration: BoxDecoration(
             color: warnColor.withOpacity(0.12),
-            border: Border(bottom: BorderSide(color: warnColor.withOpacity(0.4), width: 1)),
-          ),
-          child: Row(children: [
-            Icon(Icons.wifi_off_outlined, size: 16, color: warnColor),
-            const SizedBox(width: VeltricsSpacing.xs2),
-            Expanded(
-              child: Text(
-                "You're offline — entries will save locally and sync when connected.",
-                style: VeltricsTextStyles.bodySm.copyWith(color: warnColor),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
+            border: Border(
+              bottom: BorderSide(color: warnColor.withOpacity(0.4), width: 1),
             ),
-          ]),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.wifi_off_outlined, size: 16, color: warnColor),
+              const SizedBox(width: VeltricsSpacing.xs2),
+              Expanded(
+                child: Text(
+                  "You're offline — entries will save locally and sync when connected.",
+                  style: VeltricsTextStyles.bodySm.copyWith(color: warnColor),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
