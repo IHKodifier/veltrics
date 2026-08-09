@@ -1,11 +1,22 @@
 from typing import Optional, List
 from pydantic import BaseModel, EmailStr, ConfigDict
 
-class GoogleRegisterRequest(BaseModel):
-    id_token: str
+class RegisterRequest(BaseModel):
+    id_token: Optional[str] = None
     email: Optional[EmailStr] = None
+    password: Optional[str] = None
     full_name: Optional[str] = None
     photo_url: Optional[str] = None
+    firebase_uid: Optional[str] = None
+    auth_provider: str = "google"
+
+# Alias for backwards compatibility
+GoogleRegisterRequest = RegisterRequest
+
+class LoginRequest(BaseModel):
+    email: EmailStr
+    password: str
+    id_token: Optional[str] = None
     firebase_uid: Optional[str] = None
 
 class UserDTO(BaseModel):
@@ -13,11 +24,17 @@ class UserDTO(BaseModel):
     firebase_uid: str
     email: str
     full_name: Optional[str] = None
+    phone_number: Optional[str] = None
+    city: Optional[str] = None
+    job_role: Optional[str] = None
     photo_url: Optional[str] = None
+    avatar_url: Optional[str] = None
     auth_provider: str
     linked_providers: List[str] = []
+    is_super_admin: bool = False
 
     model_config = ConfigDict(from_attributes=True)
+
 
 class OrganizationDTO(BaseModel):
     id: str
@@ -35,3 +52,18 @@ class AuthSessionDTO(BaseModel):
     token_type: str = "bearer"
     user: UserDTO
     organization: OrganizationDTO
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+class ForgotPasswordResponse(BaseModel):
+    message: str
+    reset_token: Optional[str] = None
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
+
+class ResetPasswordResponse(BaseModel):
+    message: str
+

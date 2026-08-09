@@ -510,8 +510,12 @@ class VeltricsStatusPill extends StatelessWidget {
     this.icon,
   });
 
-  factory VeltricsStatusPill.healthy({bool isDark = false}) =>
-      VeltricsStatusPill._(text: 'HEALTHY', backgroundColor: VeltricsStatusColors.successBg(isDark), textColor: VeltricsStatusColors.successFg(isDark), icon: Icons.check_circle_outline);
+  factory VeltricsStatusPill.healthy({String text = 'ACTIVE', bool isDark = false}) =>
+      VeltricsStatusPill._(text: text, backgroundColor: VeltricsStatusColors.successBg(isDark), textColor: VeltricsStatusColors.successFg(isDark), icon: Icons.check_circle_outline);
+  factory VeltricsStatusPill.warning({String text = 'MAINTENANCE', bool isDark = false}) =>
+      VeltricsStatusPill._(text: text, backgroundColor: VeltricsStatusColors.warningBg(isDark), textColor: VeltricsStatusColors.warningFg(isDark), icon: Icons.warning_amber_rounded);
+  factory VeltricsStatusPill.error({String text = 'INACTIVE', bool isDark = false}) =>
+      VeltricsStatusPill._(text: text, backgroundColor: VeltricsStatusColors.errorBg(isDark), textColor: VeltricsStatusColors.errorFg(isDark), icon: Icons.error_outline);
   factory VeltricsStatusPill.proBadge({bool isDark = false}) =>
       VeltricsStatusPill._(text: 'PRO', backgroundColor: VeltricsStatusColors.proBg(isDark), textColor: VeltricsStatusColors.proFg(isDark), icon: Icons.star_outline);
 

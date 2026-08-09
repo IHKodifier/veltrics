@@ -77,6 +77,7 @@ veltrics/
 ├── .agents/                       # Custom agent skills & local rules
 │   └── AGENTS.md                  # Canonical engineering governance rules
 ├── .github/                       # GitHub Actions workflows & PR templates
+├── docs/                          # Developer & system guides (e.g. DB Seeding)
 ├── handoff-prompts/               # Stage & Sprint handoff prompts
 │   ├── specs-planning/
 │   └── sprints/

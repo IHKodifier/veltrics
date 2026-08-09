@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
 import 'features/auth/presentation/screens/login_screen.dart';
-import 'features/counter/counter_screen.dart';
+import 'features/dashboard/presentation/screens/dashboard_screen.dart';
+import 'features/vehicle/presentation/screens/vehicle_list_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,8 +36,9 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = const [
+    DashboardScreen(),
+    VehicleListScreen(),
     LoginScreen(),
-    CounterScreen(),
   ];
 
   @override
@@ -55,14 +57,19 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.security),
-            selectedIcon: Icon(Icons.security_rounded),
-            label: 'Veltrics Auth',
+            icon: Icon(Icons.dashboard_outlined),
+            selectedIcon: Icon(Icons.dashboard),
+            label: 'Dashboard',
           ),
           NavigationDestination(
-            icon: Icon(Icons.add_circle_outline),
-            selectedIcon: Icon(Icons.add_circle),
-            label: 'Counter Demo',
+            icon: Icon(Icons.directions_car_outlined),
+            selectedIcon: Icon(Icons.directions_car),
+            label: 'Fleet',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.security),
+            selectedIcon: Icon(Icons.security_rounded),
+            label: 'Auth',
           ),
         ],
       ),

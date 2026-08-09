@@ -5,6 +5,7 @@ class UserModel {
   final String? fullName;
   final String? photoUrl;
   final String authProvider;
+  final List<String> linkedProviders;
 
   UserModel({
     required this.id,
@@ -13,9 +14,11 @@ class UserModel {
     this.fullName,
     this.photoUrl,
     required this.authProvider,
+    this.linkedProviders = const [],
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
+    final rawLinked = json['linked_providers'] as List<dynamic>?;
     return UserModel(
       id: json['id'] as String,
       firebaseUid: json['firebase_uid'] as String,
@@ -23,6 +26,9 @@ class UserModel {
       fullName: json['full_name'] as String?,
       photoUrl: json['photo_url'] as String?,
       authProvider: json['auth_provider'] as String? ?? 'google',
+      linkedProviders: rawLinked != null
+          ? rawLinked.map((e) => e.toString()).toList()
+          : const [],
     );
   }
 }
