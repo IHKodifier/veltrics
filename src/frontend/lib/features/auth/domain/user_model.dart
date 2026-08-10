@@ -81,3 +81,24 @@ class AuthSession {
     );
   }
 }
+
+class RefreshTokenTokens {
+  final String accessToken;
+  final String refreshToken;
+  final String tokenType;
+
+  RefreshTokenTokens({
+    required this.accessToken,
+    required this.refreshToken,
+    this.tokenType = 'bearer',
+  });
+
+  factory RefreshTokenTokens.fromJson(Map<String, dynamic> json) {
+    return RefreshTokenTokens(
+      accessToken: json['access_token'] as String,
+      refreshToken: json['refresh_token'] as String,
+      tokenType: json['token_type'] as String? ?? 'bearer',
+    );
+  }
+}
+

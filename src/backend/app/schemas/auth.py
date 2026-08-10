@@ -67,3 +67,19 @@ class ResetPasswordRequest(BaseModel):
 class ResetPasswordResponse(BaseModel):
     message: str
 
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str
+
+class RefreshTokenResponse(BaseModel):
+    access_token: str
+    refresh_token: str
+    token_type: str = "bearer"
+
+class LogoutRequest(BaseModel):
+    refresh_token: str
+
+class LogoutResponse(BaseModel):
+    message: str = "Successfully logged out and token revoked."
+
+
+

@@ -1,6 +1,6 @@
 # Handoff Prompt: Execute Ticket UC-009 — Silent Token Refresh
 
-We are working on the **Veltrics Fleet & Vehicle Management Platform** (Python FastAPI Backend + Flutter Frontend).
+We are working on the **Veltrics Fleet & Vehicle. Management Platform** (Python FastAPI Backend + Flutter Frontend).
 Sprint 01 is active in Stage 01.
 
 ---

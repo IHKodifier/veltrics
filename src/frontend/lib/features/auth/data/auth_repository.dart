@@ -275,4 +275,56 @@ class AuthRepository {
       throw Exception('Auth Failed ($authProvider): ${response.body}');
     }
   }
+
+  Future<RefreshTokenTokens> refreshToken({required String refreshToken}) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/auth/refresh'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'refresh_token': refreshToken}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return RefreshTokenTokens.fromJson(data);
+    } else {
+      final errorMap = jsonDecode(response.body);
+      final detail = errorMap is Map ? errorMap['detail'] : response.body;
+      throw Exception(detail ?? 'Token Refresh Failed');
+    }
+  }
+
+  Future<RefreshTokenTokens> silentRefresh({required String refreshToken}) =>
+      this.refreshToken(refreshToken: refreshToken);
+
+  Future<void> logout({required String refreshToken}) async {
+    try {
+      await http.post(
+        Uri.parse('$baseUrl/auth/logout'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'refresh_token': refreshToken}),
+      );
+    } catch (_) {
+      // Network failure during API logout -> Client forces local credential purge regardless.
+    }
+  }
+
+  Future<void> deleteAccount({required String userId}) async {
+    final response = await http.delete(
+      Uri.parse('$baseUrl/users/me'),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-ID': userId,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return;
+    } else {
+      final errorMap = jsonDecode(response.body);
+      final detail = errorMap is Map ? errorMap['detail'] : response.body;
+      throw Exception(detail ?? 'Failed to delete account');
+    }
+  }
 }
+
+

@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from typing import List
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
@@ -7,9 +8,11 @@ from app.models.user import User
 from app.models.organization import Organization
 from app.schemas.user import UserProfileUpdate, ProfileCompletionRequest, UserProfileResponse
 from app.schemas.auth import AuthSessionDTO, UserDTO, OrganizationDTO
-from app.services.auth_service import create_jwt_token, timedelta
+from app.schemas.session import UserSessionDTO, SessionRevokeResponse
+from app.services.auth_service import AuthService, create_jwt_token, timedelta
 
-router = APIRouter(prefix="/users", tags=["User Profiles"])
+router = APIRouter(prefix="/users", tags=["User Profiles & Sessions"])
+
 
 @router.get("/me", response_model=UserProfileResponse, status_code=status.HTTP_200_OK)
 def get_user_profile(
@@ -169,3 +172,52 @@ def tenant_role_check(
         "organization_id": tenant_context["organization"].id,
         "user_id": tenant_context["user"].id
     }
+
+@router.delete("/me", status_code=status.HTTP_200_OK)
+def delete_user_account(
+    request: Request,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-011: Account Deletion (GDPR Right to be Forgotten).
+    Soft-deletes user record, anonymizes PII, revokes active sessions, and records audit log.
+    """
+    return AuthService.delete_account(db, current_user, request=request)
+
+@router.get("/me/sessions", response_model=List[UserSessionDTO], status_code=status.HTTP_200_OK)
+def get_active_sessions(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-013: Active Session Management & Device Tracking
+    Returns list of active refresh token sessions (device model, OS, IP address, last active time).
+    """
+    return AuthService.get_user_sessions(db, current_user.id)
+
+@router.delete("/me/sessions/{session_id}", response_model=SessionRevokeResponse, status_code=status.HTTP_200_OK)
+def revoke_session(
+    session_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-013: Revoke Specific Device Session
+    Revokes the specified refresh token session server-side.
+    """
+    return AuthService.revoke_user_session(db, current_user.id, session_id)
+
+@router.post("/me/sessions/revoke-others", response_model=SessionRevokeResponse, status_code=status.HTTP_200_OK)
+def revoke_all_other_sessions(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-013 Alternate Flow A1: Revoke All Other Sessions
+    Revokes all active sessions for current user except active session.
+    """
+    return AuthService.revoke_all_other_sessions(db, current_user.id)
+
+
+

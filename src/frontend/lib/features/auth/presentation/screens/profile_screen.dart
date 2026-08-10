@@ -4,16 +4,20 @@ import '../../data/auth_repository.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String userId;
+  final String? refreshToken;
   final AuthRepository authRepository;
   final VoidCallback? onProfileUpdated;
   final VoidCallback? onBackPressed;
+  final VoidCallback? onSignOut;
 
   const ProfileScreen({
     Key? key,
     required this.userId,
+    this.refreshToken,
     required this.authRepository,
     this.onProfileUpdated,
     this.onBackPressed,
+    this.onSignOut,
   }) : super(key: key);
 
   @override
@@ -341,6 +345,86 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  void _showSignOutConfirmation() {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Sign Out'),
+        content: const Text('Are you sure you want to sign out of Veltrics?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            key: const Key('confirm_logout_btn'),
+            style: ElevatedButton.styleFrom(backgroundColor: VeltricsColors.errorLight),
+            onPressed: () async {
+              Navigator.of(ctx).pop();
+              if (widget.refreshToken != null) {
+                await widget.authRepository.logout(refreshToken: widget.refreshToken!);
+              }
+              if (widget.onSignOut != null) {
+                widget.onSignOut!();
+              }
+            },
+            child: const Text('Sign Out', style: TextStyle(color: Colors.white)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showDeleteAccountConfirmation() {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Delete Account'),
+        content: const Text(
+          'Are you sure you want to permanently delete your account? '
+          'This action is IRREVERSIBLE. Your personal identifying data will be anonymized per GDPR standards.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            key: const Key('confirm_delete_account_btn'),
+            style: ElevatedButton.styleFrom(backgroundColor: VeltricsColors.errorLight),
+            onPressed: () async {
+              Navigator.of(ctx).pop();
+              try {
+                await widget.authRepository.deleteAccount(userId: widget.userId);
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Account successfully deleted and anonymized.'),
+                      backgroundColor: VeltricsColors.successLight,
+                    ),
+                  );
+                  if (widget.onSignOut != null) {
+                    widget.onSignOut!();
+                  }
+                }
+              } catch (e) {
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(e.toString().replaceAll('Exception: ', '')),
+                      backgroundColor: VeltricsColors.errorLight,
+                    ),
+                  );
+                }
+              }
+            },
+            child: const Text('Delete Account', style: TextStyle(color: Colors.white)),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildViewDetailsCard(bool isDark) {
     final phone = _profileData?['phone_number'] ?? 'Not provided';
     final city = _profileData?['city'] ?? 'Not specified';
@@ -390,11 +474,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 14),
               _buildDetailRow(Icons.admin_panel_settings_outlined, 'System Role', 'Super Administrator'),
             ],
+            const Divider(height: 32),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                key: const Key('sign_out_btn'),
+                onPressed: _showSignOutConfirmation,
+                icon: const Icon(Icons.logout, color: VeltricsColors.errorLight),
+                label: const Text('Sign Out', style: TextStyle(color: VeltricsColors.errorLight)),
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: VeltricsColors.errorLight),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton.icon(
+                key: const Key('delete_account_btn'),
+                onPressed: _showDeleteAccountConfirmation,
+                icon: const Icon(Icons.delete_forever, color: VeltricsColors.errorLight),
+                label: const Text('Delete Account (GDPR)', style: TextStyle(color: VeltricsColors.errorLight, fontWeight: FontWeight.bold)),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+
 
   Widget _buildDetailRow(IconData icon, String label, String value) {
     return Row(
