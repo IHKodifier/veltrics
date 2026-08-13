@@ -9,6 +9,7 @@ from app.api.v1.maintenance import router as maintenance_router
 from app.api.v1.dashboard import router as dashboard_router
 from app.api.v1.organizations import router as organizations_router
 from app.api.v1.users import router as users_router
+from app.api.v1.fuel import router as fuel_router
 
 
 from sqlalchemy import text
@@ -57,6 +58,7 @@ app.include_router(maintenance_router, prefix=settings.API_V1_STR)
 app.include_router(dashboard_router, prefix=settings.API_V1_STR)
 app.include_router(organizations_router, prefix=settings.API_V1_STR)
 app.include_router(users_router, prefix=settings.API_V1_STR)
+app.include_router(fuel_router, prefix=settings.API_V1_STR)
 
 
 

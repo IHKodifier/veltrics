@@ -8,6 +8,8 @@ from app.models.maintenance import MaintenanceSchedule, ServiceRecord
 from app.models.audit_log import AuditLog
 from app.models.revoked_token import RevokedToken
 from app.models.user_session import UserSession
+from app.models.fuel_log import FuelLog
+from app.models.expense_log import ExpenseLog
 
 __all__ = [
     "User",
@@ -22,6 +24,8 @@ __all__ = [
     "AuditLog",
     "RevokedToken",
     "UserSession",
+    "FuelLog",
+    "ExpenseLog",
 ]
 
 
