@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
@@ -11,34 +12,37 @@ from app.api.v1.organizations import router as organizations_router
 from app.api.v1.users import router as users_router
 from app.api.v1.fuel import router as fuel_router
 
-
 from sqlalchemy import text
 
-# Auto-create SQLite/DB tables on startup
-Base.metadata.create_all(bind=engine)
 
-with engine.connect() as conn:
-    for statement in [
-        "ALTER TABLE vehicles ADD COLUMN registration_province VARCHAR(50) DEFAULT 'Punjab'",
-        "ALTER TABLE vehicles ADD COLUMN photo_url VARCHAR(1024)",
-        "ALTER TABLE users ADD COLUMN phone_number VARCHAR(32)",
-        "ALTER TABLE users ADD COLUMN city VARCHAR(128)",
-        "ALTER TABLE users ADD COLUMN job_role VARCHAR(128)",
-        "ALTER TABLE users ADD COLUMN avatar_url VARCHAR(1024)",
-        "ALTER TABLE users ADD COLUMN is_super_admin BOOLEAN DEFAULT 0"
-    ]:
-        try:
-            conn.execute(text(statement))
-            conn.commit()
-        except Exception:
-            pass
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Auto-create SQLite/DB tables on startup
+    Base.metadata.create_all(bind=engine)
 
+    with engine.connect() as conn:
+        for statement in [
+            "ALTER TABLE vehicles ADD COLUMN registration_province VARCHAR(50) DEFAULT 'Punjab'",
+            "ALTER TABLE vehicles ADD COLUMN photo_url VARCHAR(1024)",
+            "ALTER TABLE users ADD COLUMN phone_number VARCHAR(32)",
+            "ALTER TABLE users ADD COLUMN city VARCHAR(128)",
+            "ALTER TABLE users ADD COLUMN job_role VARCHAR(128)",
+            "ALTER TABLE users ADD COLUMN avatar_url VARCHAR(1024)",
+            "ALTER TABLE users ADD COLUMN is_super_admin BOOLEAN DEFAULT 0"
+        ]:
+            try:
+                conn.execute(text(statement))
+                conn.commit()
+            except Exception:
+                pass
+    yield
 
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
-    docs_url=f"{settings.API_V1_STR}/docs"
+    docs_url=f"{settings.API_V1_STR}/docs",
+    lifespan=lifespan
 )
 
 # CORS Middleware

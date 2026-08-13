@@ -4,6 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 
 # Add src/backend to python sys.path
 backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../backend"))
@@ -12,13 +13,18 @@ if backend_path not in sys.path:
 
 from app.main import app
 from app.db.session import Base, get_db
+import app.models as models
 from app.models.user import User
 from app.models.organization import Organization
 
 # In-memory SQLite database for testing
 SQLALCHEMY_TEST_DATABASE_URL = "sqlite:///:memory:"
-engine = create_engine(SQLALCHEMY_TEST_DATABASE_URL, connect_args={"check_same_thread": False})
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+engine = create_engine(
+    SQLALCHEMY_TEST_DATABASE_URL,
+    connect_args={"check_same_thread": False},
+    poolclass=StaticPool
+)
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, expire_on_commit=False)
 
 def override_get_db():
     try:
@@ -103,6 +109,9 @@ def test_uc001_existing_user_google_one_tap_returns_existing_data(client):
     assert resp1.status_code == 200
     user_id_1 = resp1.json()["user"]["id"]
     org_id_1 = resp1.json()["organization"]["id"]
+
+    import time
+    time.sleep(1)
 
     # Second login call with same credentials
     resp2 = client.post("/api/v1/auth/register", json=payload)
