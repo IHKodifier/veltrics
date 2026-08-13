@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, root_validator
 
 class FuelLogCreate(BaseModel):
@@ -46,6 +46,28 @@ class FuelLogCreate(BaseModel):
     class Config:
         allow_population_by_field_name = True
 
+class FuelLogUpdate(BaseModel):
+    vehicle_id: Optional[str] = None
+    odometer: Optional[float] = None
+    odometer_km: Optional[float] = None
+    fuel_amount_liters: Optional[float] = None
+    quantity_liters: Optional[float] = None
+    cost_amount: Optional[float] = None
+    total_cost: Optional[float] = None
+    fuel_type: Optional[str] = None
+    fill_date: Optional[datetime] = None
+    log_date: Optional[datetime] = None
+    is_full_tank: Optional[bool] = None
+    driver_id: Optional[str] = None
+    station_name: Optional[str] = None
+    receipt_image_url: Optional[str] = None
+    receipt_photo_url: Optional[str] = None
+    price_per_liter: Optional[float] = None
+
+    class Config:
+        allow_population_by_field_name = True
+
+
 class FuelLogResponse(BaseModel):
     id: str
     organization_id: str
@@ -64,7 +86,34 @@ class FuelLogResponse(BaseModel):
     calculated_efficiency_kpl: Optional[float] = None
     distance_km: Optional[float] = None
     is_leak_alert: bool = False
+    anomaly_detected: bool = False
+    anomaly_reason: Optional[str] = None
+    is_verified: bool = False
     created_at: datetime
 
     class Config:
         orm_mode = True
+
+class FuelMonthlyTrend(BaseModel):
+    month: str
+    total_cost: float
+    total_liters: float
+    avg_efficiency_kpl: Optional[float] = None
+
+class FuelTrendsResponse(BaseModel):
+    vehicle_id: Optional[str] = None
+    vehicle_avg_efficiency_kpl: Optional[float] = None
+    fleet_avg_efficiency_kpl: float = 0.0
+    total_cost: float = 0.0
+    total_liters: float = 0.0
+    total_logs_count: int = 0
+    monthly_trends: list[FuelMonthlyTrend] = []
+
+class FuelPaginatedResponse(BaseModel):
+    items: list[FuelLogResponse]
+    total: int
+    page: int
+    limit: int
+    pages: int
+    fleet_avg_efficiency_kpl: float = 0.0
+

@@ -9,6 +9,8 @@ from app.models.vehicle import Vehicle
 from app.models.driver import Driver
 from app.models.maintenance import MaintenanceSchedule, ServiceRecord
 from app.schemas.dashboard import DashboardSummaryResponse
+from app.schemas.cost_breakdown import CostBreakdownResponse
+from app.services import dashboard_service
 
 router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
 
@@ -93,3 +95,21 @@ def get_dashboard_summary(
         upcoming_maintenance_count=upcoming_count,
         overdue_maintenance_count=overdue_count
     )
+
+@router.get("/cost-breakdown", response_model=CostBreakdownResponse)
+def get_cost_breakdown(
+    timeframe: str = Query("6m", description="Timeframe option (1m, 3m, 6m, 1y)"),
+    vehicle_id: Optional[str] = Query(None, description="Optional single vehicle filter"),
+    org_id: str = Depends(verify_organization_header),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses).
+    """
+    return dashboard_service.get_cost_breakdown(
+        db=db,
+        organization_id=org_id,
+        vehicle_id=vehicle_id,
+        timeframe=timeframe
+    )
+

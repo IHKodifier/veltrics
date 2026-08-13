@@ -34,6 +34,7 @@ class Vehicle(Base):
     current_odometer_km = Column(Float, nullable=False, default=0.0)
     status = Column(String(32), nullable=False, default="ACTIVE")  # ACTIVE, MAINTENANCE, INACTIVE
     photo_url = Column(String(1024), nullable=True)
+    fuel_tank_capacity = Column(Float, nullable=True, default=60.0)
     is_ad_rewarded = Column(Boolean, nullable=False, default=False)
     custom_specs = Column(JSON, nullable=False, default=dict)
     created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)

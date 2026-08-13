@@ -16,6 +16,9 @@ class FuelLogModel {
   final double? calculatedEfficiencyKpl;
   final double? distanceKm;
   final bool isLeakAlert;
+  final bool anomalyDetected;
+  final String? anomalyReason;
+  final bool isVerified;
   final DateTime createdAt;
 
   FuelLogModel({
@@ -36,6 +39,9 @@ class FuelLogModel {
     this.calculatedEfficiencyKpl,
     this.distanceKm,
     this.isLeakAlert = false,
+    this.anomalyDetected = false,
+    this.anomalyReason,
+    this.isVerified = false,
     required this.createdAt,
   });
 
@@ -62,6 +68,9 @@ class FuelLogModel {
           ? (json['distance_km'] as num).toDouble()
           : null,
       isLeakAlert: json['is_leak_alert'] as bool? ?? false,
+      anomalyDetected: json['anomaly_detected'] as bool? ?? false,
+      anomalyReason: json['anomaly_reason'] as String?,
+      isVerified: json['is_verified'] as bool? ?? false,
       createdAt: DateTime.parse(json['created_at'] as String),
     );
   }
@@ -81,3 +90,66 @@ class FuelLogModel {
     };
   }
 }
+
+class FuelMonthlyTrendModel {
+  final String month;
+  final double totalCost;
+  final double totalLiters;
+  final double? avgEfficiencyKpl;
+
+  FuelMonthlyTrendModel({
+    required this.month,
+    required this.totalCost,
+    required this.totalLiters,
+    this.avgEfficiencyKpl,
+  });
+
+  factory FuelMonthlyTrendModel.fromJson(Map<String, dynamic> json) {
+    return FuelMonthlyTrendModel(
+      month: json['month'] as String,
+      totalCost: (json['total_cost'] as num).toDouble(),
+      totalLiters: (json['total_liters'] as num).toDouble(),
+      avgEfficiencyKpl: json['avg_efficiency_kpl'] != null
+          ? (json['avg_efficiency_kpl'] as num).toDouble()
+          : null,
+    );
+  }
+}
+
+class FuelTrendsModel {
+  final String? vehicleId;
+  final double? vehicleAvgEfficiencyKpl;
+  final double fleetAvgEfficiencyKpl;
+  final double totalCost;
+  final double totalLiters;
+  final int totalLogsCount;
+  final List<FuelMonthlyTrendModel> monthlyTrends;
+
+  FuelTrendsModel({
+    this.vehicleId,
+    this.vehicleAvgEfficiencyKpl,
+    required this.fleetAvgEfficiencyKpl,
+    required this.totalCost,
+    required this.totalLiters,
+    required this.totalLogsCount,
+    required this.monthlyTrends,
+  });
+
+  factory FuelTrendsModel.fromJson(Map<String, dynamic> json) {
+    return FuelTrendsModel(
+      vehicleId: json['vehicle_id'] as String?,
+      vehicleAvgEfficiencyKpl: json['vehicle_avg_efficiency_kpl'] != null
+          ? (json['vehicle_avg_efficiency_kpl'] as num).toDouble()
+          : null,
+      fleetAvgEfficiencyKpl: (json['fleet_avg_efficiency_kpl'] as num? ?? 0.0).toDouble(),
+      totalCost: (json['total_cost'] as num? ?? 0.0).toDouble(),
+      totalLiters: (json['total_liters'] as num? ?? 0.0).toDouble(),
+      totalLogsCount: (json['total_logs_count'] as num? ?? 0).toInt(),
+      monthlyTrends: (json['monthly_trends'] as List<dynamic>?)
+              ?.map((item) => FuelMonthlyTrendModel.fromJson(item as Map<String, dynamic>))
+              .toList() ??
+          [],
+    );
+  }
+}
+
