@@ -26,6 +26,7 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
   final FuelRepository _repository = FuelRepository();
 
   List<FuelLogModel> _fuelLogs = [];
+  FuelTrendsModel? _trends;
   bool _isLoading = true;
   String? _errorMessage;
 
@@ -46,8 +47,17 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
         vehicleId: widget.vehicleId,
         organizationId: widget.organizationId,
       );
+      FuelTrendsModel? trends;
+      try {
+        trends = await _repository.getFuelTrends(
+          vehicleId: widget.vehicleId,
+          organizationId: widget.organizationId,
+        );
+      } catch (_) {}
+
       setState(() {
         _fuelLogs = logs;
+        _trends = trends;
         _isLoading = false;
       });
     } catch (e) {
@@ -59,6 +69,9 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
   }
 
   double _calculateAverageEfficiency() {
+    if (_trends != null && _trends!.vehicleAvgEfficiencyKpl != null && _trends!.vehicleAvgEfficiencyKpl! > 0) {
+      return _trends!.vehicleAvgEfficiencyKpl!;
+    }
     final validEfficiencies = _fuelLogs
         .where((log) => log.isFullTank && log.calculatedEfficiencyKpl != null)
         .map((log) => log.calculatedEfficiencyKpl!)
@@ -68,11 +81,17 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
   }
 
   double _calculateTotalCost() {
+    if (_trends != null && _trends!.totalCost > 0) {
+      return _trends!.totalCost;
+    }
     if (_fuelLogs.isEmpty) return 0.0;
     return _fuelLogs.fold(0.0, (sum, item) => sum + item.totalCost);
   }
 
   double _calculateTotalLiters() {
+    if (_trends != null && _trends!.totalLiters > 0) {
+      return _trends!.totalLiters;
+    }
     if (_fuelLogs.isEmpty) return 0.0;
     return _fuelLogs.fold(0.0, (sum, item) => sum + item.quantityLiters);
   }
@@ -84,6 +103,171 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
     return '${dt.day} ${months[dt.month - 1]} ${dt.year} • $hour:$min';
   }
 
+  Future<void> _confirmDeleteLog(FuelLogModel log) async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete Fuel Fill-Up Log'),
+        content: Text(
+          'Are you sure you want to delete this fill-up entry (${log.odometerKm.toStringAsFixed(0)} km • ${log.quantityLiters.toStringAsFixed(1)} L)? This will recalculate the fuel efficiency chain.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: VeltricsColors.errorLight),
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirm == true) {
+      try {
+        await _repository.deleteFuelLog(
+          fuelLogId: log.id,
+          organizationId: widget.organizationId,
+        );
+        if (mounted) {
+          Navigator.pop(context); // Close detail dialog
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Fuel log entry deleted successfully')),
+          );
+          _fetchFuelHistory();
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Failed to delete log: $e')),
+          );
+        }
+      }
+    }
+  }
+
+  void _showLogDetailDialog(FuelLogModel log, ThemeData theme, bool isDark) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: VeltricsRadius.mdAll),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.local_gas_station, color: theme.colorScheme.primary),
+                  const SizedBox(width: 8),
+                  const Text('Fuel Fill-Up Detail', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ],
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _buildDetailRow('Fill-Up Date:', _formatDate(log.logDate)),
+                _buildDetailRow('Odometer:', '${log.odometerKm.toStringAsFixed(0)} km'),
+                _buildDetailRow('Fuel Quantity:', '${log.quantityLiters.toStringAsFixed(1)} L (${log.fuelType})'),
+                _buildDetailRow('Rate:', 'Rs. ${log.pricePerLiter.toStringAsFixed(1)} / L'),
+                _buildDetailRow('Total Cost:', 'Rs. ${log.totalCost.toStringAsFixed(0)} ${log.currency}'),
+                _buildDetailRow('Tank Fill Type:', log.isFullTank ? 'Full Tank' : 'Partial Fill'),
+                if (log.calculatedEfficiencyKpl != null)
+                  _buildDetailRow('Calculated Efficiency:', '${log.calculatedEfficiencyKpl!.toStringAsFixed(1)} km/L'),
+                if (log.distanceKm != null)
+                  _buildDetailRow('Distance Traveled:', '+${log.distanceKm!.toStringAsFixed(1)} km'),
+                if (log.stationName != null && log.stationName!.isNotEmpty)
+                  _buildDetailRow('Station Name:', log.stationName!),
+                if (log.isLeakAlert) ...[
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: VeltricsColors.errorLight.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(Icons.warning_amber, color: VeltricsColors.errorLight, size: 16),
+                        SizedBox(width: 6),
+                        Expanded(
+                          child: Text(
+                            'Fuel Leak Alert: Efficiency >30% below vehicle baseline.',
+                            style: TextStyle(fontSize: 11, color: VeltricsColors.errorLight, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                if (log.receiptPhotoUrl != null && log.receiptPhotoUrl!.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  const Text('Receipt Image Attachment:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                  const SizedBox(height: 6),
+                  Container(
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      color: isDark ? VeltricsColors.neutralD800 : Colors.grey.shade200,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.grey.withValues(alpha: 0.3)),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(
+                        log.receiptPhotoUrl!,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.receipt_long, size: 36, color: Colors.grey),
+                              SizedBox(height: 4),
+                              Text('Receipt attachment present', style: TextStyle(fontSize: 11, color: Colors.grey)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          actions: [
+            TextButton.icon(
+              icon: const Icon(Icons.delete_outline, color: VeltricsColors.errorLight, size: 18),
+              label: const Text('Delete', style: TextStyle(color: VeltricsColors.errorLight)),
+              onPressed: () => _confirmDeleteLog(log),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildDetailRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+          Text(value, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -93,6 +277,7 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
     final totalCost = _calculateTotalCost();
     final totalLiters = _calculateTotalLiters();
     final leakAlertCount = _fuelLogs.where((l) => l.isLeakAlert).length;
+    final fleetAvg = _trends?.fleetAvgEfficiencyKpl ?? 0.0;
 
     return Scaffold(
       appBar: AppBar(
@@ -209,7 +394,7 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
                             padding: VeltricsSpacing.pagePadding,
                             children: [
                               // 1. Ticket identifier caption
-                              Text('SCR-FUEL-001 • Fuel Log History & Efficiency', style: VeltricsTextStyles.labelSm),
+                              Text('SCR-FUEL-001 • Fuel Log History & Efficiency Trends', style: VeltricsTextStyles.labelSm),
                               const SizedBox(height: VeltricsSpacing.xs2),
 
                               // 2. Fuel Anomaly Banner if alerts exist
@@ -248,14 +433,23 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
                               ],
 
                               // 3. Overall Fuel Efficiency Metrics Summary Card
-                              _buildSummaryMetricsCard(theme, isDark, avgEfficiency, totalCost, totalLiters),
-                              const SizedBox(height: VeltricsSpacing.md),
+                              _buildSummaryMetricsCard(theme, isDark, avgEfficiency, totalCost, totalLiters, fleetAvg),
+                              const SizedBox(height: VeltricsSpacing.sm),
+
+                              // 4. Monthly Spend & Efficiency Breakdown Card (UC-048)
+                              if (_trends != null && _trends!.monthlyTrends.isNotEmpty) ...[
+                                _buildMonthlyTrendsCard(theme, isDark),
+                                const SizedBox(height: VeltricsSpacing.md),
+                              ],
 
                               Text('Fill-Up Log Timeline (${_fuelLogs.length})', style: VeltricsTextStyles.titleLg),
                               const SizedBox(height: VeltricsSpacing.xs2),
 
-                              // 4. Fuel Log Cards List
-                              ..._fuelLogs.map((log) => _buildFuelLogCard(log, theme, isDark)),
+                              // 5. Fuel Log Cards List
+                              ..._fuelLogs.map((log) => InkWell(
+                                    onTap: () => _showLogDetailDialog(log, theme, isDark),
+                                    child: _buildFuelLogCard(log, theme, isDark),
+                                  )),
                               const SizedBox(height: 80),
                             ],
                           ),
@@ -270,7 +464,14 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
     double avgEfficiency,
     double totalCost,
     double totalLiters,
+    double fleetAvg,
   ) {
+    final hasFleetBenchmark = fleetAvg > 0;
+    final isBetterThanFleet = hasFleetBenchmark && avgEfficiency >= fleetAvg;
+    final diffPct = hasFleetBenchmark && fleetAvg > 0
+        ? (((avgEfficiency - fleetAvg) / fleetAvg) * 100).abs().toStringAsFixed(1)
+        : '0.0';
+
     return Card(
       child: Padding(
         padding: VeltricsSpacing.cardPaddingMobile,
@@ -280,7 +481,7 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('EFFICIENCY OVERVIEW', style: VeltricsTextStyles.labelSm),
+                Text('EFFICIENCY & FLEET BENCHMARK', style: VeltricsTextStyles.labelSm),
                 Icon(Icons.analytics_outlined, color: theme.colorScheme.primary, size: 20),
               ],
             ),
@@ -318,6 +519,98 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
                 ),
               ],
             ),
+            if (hasFleetBenchmark) ...[
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                decoration: BoxDecoration(
+                  color: isBetterThanFleet
+                      ? VeltricsColors.successLight.withValues(alpha: 0.12)
+                      : VeltricsColors.warningLight.withValues(alpha: 0.12),
+                  borderRadius: VeltricsRadius.smAll,
+                  border: Border.all(
+                    color: isBetterThanFleet
+                        ? VeltricsColors.successLight.withValues(alpha: 0.3)
+                        : VeltricsColors.warningLight.withValues(alpha: 0.3),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      isBetterThanFleet ? Icons.trending_up : Icons.trending_down,
+                      size: 18,
+                      color: isBetterThanFleet ? VeltricsColors.successLight : VeltricsColors.warningLight,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Fleet Aggregate Avg: ${fleetAvg.toStringAsFixed(1)} km/L (${isBetterThanFleet ? '+' : '-'}$diffPct% vs fleet)',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: isBetterThanFleet ? VeltricsColors.successLight : VeltricsColors.warningLight,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMonthlyTrendsCard(ThemeData theme, bool isDark) {
+    final trends = _trends!.monthlyTrends;
+    final maxCost = trends.fold(0.0, (max, item) => item.totalCost > max ? item.totalCost : max);
+
+    return Card(
+      child: Padding(
+        padding: VeltricsSpacing.cardPaddingMobile,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('MONTHLY SPEND & EFFICIENCY TRENDS', style: VeltricsTextStyles.labelSm),
+                const Icon(Icons.bar_chart, color: VeltricsColors.infoLight, size: 20),
+              ],
+            ),
+            const SizedBox(height: 12),
+            ...trends.map((m) {
+              final pct = maxCost > 0 ? (m.totalCost / maxCost) : 0.0;
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(m.month, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                        Text(
+                          'Rs. ${m.totalCost.toStringAsFixed(0)} • ${m.totalLiters.toStringAsFixed(1)} L${m.avgEfficiencyKpl != null ? ' (${m.avgEfficiencyKpl!.toStringAsFixed(1)} km/L)' : ''}',
+                          style: const TextStyle(fontSize: 11, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(4),
+                      child: LinearProgressIndicator(
+                        value: pct.clamp(0.05, 1.0),
+                        minHeight: 8,
+                        backgroundColor: isDark ? VeltricsColors.neutralD800 : Colors.grey.shade200,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }),
           ],
         ),
       ),
@@ -457,7 +750,7 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
             ),
 
             // Efficiency & Distance badges section
-            if (hasEfficiency || hasDistance || isLeak) ...[
+            if (hasEfficiency || hasDistance || isLeak || log.receiptPhotoUrl != null) ...[
               const SizedBox(height: 12),
               Container(
                 width: double.infinity,
@@ -524,16 +817,13 @@ class _FuelHistoryScreenState extends State<FuelHistoryScreen> {
                         ],
                       ],
                     ),
-                    if (isLeak)
+                    if (log.receiptPhotoUrl != null && log.receiptPhotoUrl!.isNotEmpty)
                       const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.warning_amber, size: 14, color: VeltricsColors.errorLight),
-                          SizedBox(width: 4),
-                          Text(
-                            'Leak Alert (>30% drop)',
-                            style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: VeltricsColors.errorLight),
-                          ),
+                          Icon(Icons.receipt, size: 12, color: VeltricsColors.infoLight),
+                          SizedBox(width: 2),
+                          Text('Receipt Attached', style: TextStyle(fontSize: 11, color: VeltricsColors.infoLight)),
                         ],
                       ),
                   ],

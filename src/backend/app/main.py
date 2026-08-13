@@ -11,6 +11,11 @@ from app.api.v1.dashboard import router as dashboard_router
 from app.api.v1.organizations import router as organizations_router
 from app.api.v1.users import router as users_router
 from app.api.v1.fuel import router as fuel_router
+from app.api.v1.trips import router as trips_router
+from app.api.v1.expenses import router as expenses_router
+from app.api.v1.uploads import router as uploads_router, UPLOAD_DIR
+from app.api.v1.notifications import router as notifications_router
+from fastapi.staticfiles import StaticFiles
 
 from sqlalchemy import text
 
@@ -63,6 +68,12 @@ app.include_router(dashboard_router, prefix=settings.API_V1_STR)
 app.include_router(organizations_router, prefix=settings.API_V1_STR)
 app.include_router(users_router, prefix=settings.API_V1_STR)
 app.include_router(fuel_router, prefix=settings.API_V1_STR)
+app.include_router(trips_router, prefix=settings.API_V1_STR)
+app.include_router(expenses_router, prefix=settings.API_V1_STR)
+app.include_router(uploads_router, prefix=settings.API_V1_STR)
+app.include_router(notifications_router, prefix=settings.API_V1_STR)
+
+app.mount("/uploads/receipts", StaticFiles(directory=UPLOAD_DIR), name="receipts")
 
 
 

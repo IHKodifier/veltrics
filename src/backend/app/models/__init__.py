@@ -10,6 +10,7 @@ from app.models.revoked_token import RevokedToken
 from app.models.user_session import UserSession
 from app.models.fuel_log import FuelLog
 from app.models.expense_log import ExpenseLog
+from app.models.trip import Trip
 
 __all__ = [
     "User",
@@ -26,6 +27,7 @@ __all__ = [
     "UserSession",
     "FuelLog",
     "ExpenseLog",
+    "Trip",
 ]
 
 
