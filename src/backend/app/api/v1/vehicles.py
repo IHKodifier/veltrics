@@ -176,6 +176,8 @@ def list_vehicles(
             (Vehicle.vin.ilike(search_pattern))
         )
 
+    return query.all()
+
 from app.models.driver import Driver
 from app.models.maintenance import MaintenanceSchedule, ServiceRecord
 from app.models.audit_log import AuditLog

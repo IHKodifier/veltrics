@@ -32,7 +32,7 @@ def seed_database(db: Session) -> dict:
     Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance Templates.
     """
     # Ensure tables are created
-    Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=db.get_bind())
 
     seeded_types = 0
     updated_types = 0

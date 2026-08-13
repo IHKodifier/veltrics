@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../theme/app_theme.dart';
+import '../../../fuel/presentation/screens/fuel_history_screen.dart';
+import '../../../fuel/presentation/screens/log_fuel_screen.dart';
 import '../../../maintenance/presentation/screens/log_maintenance_screen.dart';
 import '../../../maintenance/presentation/screens/maintenance_schedule_screen.dart';
 import '../../../maintenance/presentation/screens/service_history_screen.dart';
@@ -545,6 +547,31 @@ class _VehicleDetailScreenState extends State<VehicleDetailScreen> {
     final detail = _detail;
     return Column(
       children: [
+        ListTile(
+          shape: RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll),
+          tileColor: theme.cardTheme.color,
+          leading: Icon(Icons.local_gas_station, color: theme.colorScheme.primary),
+          title: const Text("Fuel Log History"),
+          subtitle: const Text("View fuel fill-ups, efficiency & leak alerts"),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: detail == null
+              ? null
+              : () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => FuelHistoryScreen(
+                        vehicleId: widget.vehicleId,
+                        organizationId: widget.organizationId,
+                        vehicleTitle: "${detail.year} ${detail.make} ${detail.model}",
+                        currentOdometer: detail.currentOdometerKm,
+                      ),
+                    ),
+                  );
+                  _fetchVehicleDetail();
+                },
+        ),
+        const SizedBox(height: 8),
         ListTile(
           shape: RoundedRectangleBorder(borderRadius: VeltricsRadius.smAll),
           tileColor: theme.cardTheme.color,

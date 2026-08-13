@@ -45,10 +45,12 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
         pass
     return hashlib.sha256(plain_password.encode('utf-8')).hexdigest() == hashed_password
 
+import uuid
+
 def create_jwt_token(data: dict, expires_delta: timedelta) -> str:
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + expires_delta
-    to_encode.update({"exp": expire})
+    to_encode.update({"exp": expire, "jti": str(uuid.uuid4())})
     encoded_jwt = jwt.encode(to_encode, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
     return encoded_jwt
 

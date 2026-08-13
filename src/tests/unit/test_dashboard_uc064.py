@@ -5,6 +5,7 @@ from datetime import date, timedelta
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 
 backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../backend"))
 if backend_path not in sys.path:
@@ -12,6 +13,7 @@ if backend_path not in sys.path:
 
 from app.main import app
 from app.db.session import Base, get_db
+import app.models as models
 from app.models.organization import Organization
 from app.models.vehicle import Vehicle
 from app.models.driver import Driver
@@ -19,8 +21,8 @@ from app.models.maintenance import MaintenanceSchedule, ServiceRecord
 from app.db.seed import seed_database
 
 SQLALCHEMY_TEST_DATABASE_URL = "sqlite:///:memory:"
-engine = create_engine(SQLALCHEMY_TEST_DATABASE_URL, connect_args={"check_same_thread": False})
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+engine = create_engine(SQLALCHEMY_TEST_DATABASE_URL, connect_args={"check_same_thread": False}, poolclass=StaticPool)
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, expire_on_commit=False)
 
 def override_get_db():
     try:
