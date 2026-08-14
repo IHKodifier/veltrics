@@ -1,13 +1,16 @@
 # Community 39
 
-> 4 nodes · cohesion 0.50
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 
-- [fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (3 connections)
-- [FuelLogModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
-- [FuelMonthlyTrendModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
-- [FuelTrendsModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [test_trip_uc054_055.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L1) (7 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L64) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L28) (1 connections)
+- [test_delete_nonexistent_trip_returns_404()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L139) (1 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L68) (1 connections)
+- [test_soft_delete_trip_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L113) (1 connections)
+- [test_update_trip_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py#L74) (1 connections)
 
 ## Relationships
 
@@ -15,11 +18,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\fuel\domain\fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_trip_uc054_055.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc054_055.py)
 
 ## Audit Trail
 
-- EXTRACTED: 6 (100%)
+- EXTRACTED: 13 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

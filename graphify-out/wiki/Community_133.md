@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py#L99) (0 connections)
+- [UC-064: Empty organization returns 0 stats so client can render onboarding card.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py#L207) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc034.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py)
+- [src/tests/unit/test_dashboard_uc064.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py)
 
 ## Audit Trail
 

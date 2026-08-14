@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py#L149) (0 connections)
+- [UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py#L99) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc035.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py)
+- [src/tests/unit/test_maintenance_uc034.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py)
 
 ## Audit Trail
 

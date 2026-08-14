@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-064: Empty organization returns 0 stats so client can render onboarding card.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py#L207) (0 connections)
+- [AC 1: GIVEN an authenticated registered user WHEN they request GET…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py#L41) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_dashboard_uc064.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py)
+- [src/tests/unit/test_auth_uc008.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py)
 
 ## Audit Trail
 

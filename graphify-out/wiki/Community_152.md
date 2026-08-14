@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py#L140) (0 connections)
+- [UC-036: Enforces X-Organization-ID header presence and cross-tenant access…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py#L261) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc038.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py)
+- [src/tests/unit/test_maintenance_uc036.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py)
 
 ## Audit Trail
 

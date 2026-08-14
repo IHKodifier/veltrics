@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/db/seed.py#L31) (0 connections)
+- [UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L19) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/backend/app/db/seed.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/db/seed.py)
+- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
 
 ## Audit Trail
 

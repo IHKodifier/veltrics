@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py#L224) (0 connections)
+- [AC 2: GIVEN an authenticated user updating their profile details WHEN they…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py#L71) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_dashboard_uc064.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py)
+- [src/tests/unit/test_auth_uc008.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py)
 
 ## Audit Trail
 

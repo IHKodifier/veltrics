@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 3: WHEN an existing Email/Password user signs in via POST…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L104) (0 connections)
+- [Edge Case: Incorrect password returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L74) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py)
+- [src/tests/unit/test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
 
 ## Audit Trail
 

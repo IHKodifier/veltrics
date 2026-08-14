@@ -1,21 +1,27 @@
 # Community 18
 
-> 12 nodes · cohesion 0.17
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 
-- [test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L1) (7 connections)
-- [AC 3: GIVEN a profile update request with invalid display name length (< 2 chars](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L114) (3 connections)
-- [AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L133) (3 connections)
-- [AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L44) (3 connections)
-- [AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L87) (3 connections)
-- [test_uc007_display_name_validation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L113) (2 connections)
-- [test_uc007_get_and_patch_user_profile()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L43) (2 connections)
-- [test_uc007_multi_tenant_role_authorization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L132) (2 connections)
-- [test_uc007_profile_completion_endpoint()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L86) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L40) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L24) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L34) (1 connections)
+- [test_org_uc017_023.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L1) (18 connections)
+- [test_uc019_accept_invitation_expired()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L333) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L53) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L37) (1 connections)
+- [setup_database()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L47) (1 connections)
+- [test_uc017_edit_organization_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L214) (1 connections)
+- [test_uc017_edit_organization_invalid_currency()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L198) (1 connections)
+- [test_uc017_edit_organization_profile_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L164) (1 connections)
+- [test_uc018_invite_member_email_and_phone()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L227) (1 connections)
+- [test_uc018_invite_member_missing_contact()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L282) (1 connections)
+- [test_uc018_invite_member_resend_update()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L251) (1 connections)
+- [test_uc019_accept_invitation_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L295) (1 connections)
+- [test_uc020_redeem_invitation_code()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L366) (1 connections)
+- [test_uc021_remove_member_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L390) (1 connections)
+- [test_uc021_remove_owner_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L420) (1 connections)
+- [test_uc022_cancel_invitation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L433) (1 connections)
+- [test_uc023_soft_delete_organization_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L456) (1 connections)
+- [test_uc023_soft_delete_personal_org_blocked()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L482) (1 connections)
 
 ## Relationships
 
@@ -23,12 +29,12 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_org_uc017_023.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py)
 
 ## Audit Trail
 
-- EXTRACTED: 22 (73%)
-- INFERRED: 8 (27%)
+- EXTRACTED: 35 (97%)
+- INFERRED: 1 (3%)
 - AMBIGUOUS: 0 (0%)
 
 ---

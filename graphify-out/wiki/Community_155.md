@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-038: Headers and cross-tenant boundaries are strictly enforced.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py#L195) (0 connections)
+- [UC-037: Returns 404 when vehicle_id does not exist in active organization.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc037.py#L192) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc038.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py)
+- [src/tests/unit/test_maintenance_uc037.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc037.py)
 
 ## Audit Trail
 

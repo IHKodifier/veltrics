@@ -150,13 +150,67 @@ class OrganizationRepository {
     }
   }
 
+  Future<OrganizationModel> updateOrganizationProfile({
+    required String organizationId,
+    required String userId,
+    String? name,
+    String? address,
+    String? phone,
+    String? taxId,
+    String? currency,
+    String? website,
+    String? logoUrl,
+  }) async {
+    final uri = Uri.parse('$baseUrl/organizations/$organizationId');
+
+    final payload = <String, dynamic>{};
+    if (name != null) payload['name'] = name;
+    if (address != null) payload['address'] = address;
+    if (phone != null) payload['phone'] = phone;
+    if (taxId != null) payload['tax_id'] = taxId;
+    if (currency != null) payload['currency'] = currency;
+    if (website != null) payload['website'] = website;
+    if (logoUrl != null) payload['logo_url'] = logoUrl;
+
+    final response = await http.patch(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-ID': userId,
+      },
+      body: jsonEncode(payload),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return OrganizationModel.fromJson(data);
+    } else {
+      final error = jsonDecode(response.body);
+      if (error is Map && error.containsKey('detail')) {
+        if (error['detail'] is List) {
+          final first = error['detail'][0];
+          throw Exception(first['msg'] ?? 'Validation error updating organization profile');
+        }
+        throw Exception(error['detail']);
+      }
+      throw Exception('Failed to update organization profile');
+    }
+  }
+
   Future<OrganizationInvitationModel> inviteTeamMember({
     required String organizationId,
-    required String email,
+    String? email,
+    String? phone,
     required String role,
     required String userId,
   }) async {
     final uri = Uri.parse('$baseUrl/organizations/$organizationId/invitations');
+
+    final payload = <String, dynamic>{
+      'role': role,
+    };
+    if (email != null) payload['email'] = email;
+    if (phone != null) payload['phone'] = phone;
 
     final response = await http.post(
       uri,
@@ -164,10 +218,7 @@ class OrganizationRepository {
         'Content-Type': 'application/json',
         'X-User-ID': userId,
       },
-      body: jsonEncode({
-        'email': email,
-        'role': role,
-      }),
+      body: jsonEncode(payload),
     );
 
     if (response.statusCode == 201) {
@@ -210,5 +261,114 @@ class OrganizationRepository {
       throw Exception(error['detail'] ?? 'Failed to fetch pending invitations');
     }
   }
-}
 
+  Future<Map<String, dynamic>> acceptInvitation({
+    required String token,
+    required String userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/invitations/$token/accept');
+
+    final response = await http.post(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-ID': userId,
+      },
+      body: jsonEncode({'user_id': userId}),
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to accept invitation');
+    }
+  }
+
+  Future<Map<String, dynamic>> redeemInvitationCode({
+    required String invitationCode,
+    required String userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/invitations/redeem');
+
+    final response = await http.post(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode({
+        'invitation_code': invitationCode,
+        'user_id': userId,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to redeem invitation code');
+    }
+  }
+
+  Future<void> removeMember({
+    required String organizationId,
+    required String memberUserId,
+    required String actorUserId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/organizations/$organizationId/members/$memberUserId');
+
+    final response = await http.delete(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-ID': actorUserId,
+      },
+    );
+
+    if (response.statusCode != 200 && response.statusCode != 204) {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to remove member from organization');
+    }
+  }
+
+  Future<void> cancelInvitation({
+    required String organizationId,
+    required String invitationId,
+    required String actorUserId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/organizations/$organizationId/invitations/$invitationId');
+
+    final response = await http.delete(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-ID': actorUserId,
+      },
+    );
+
+    if (response.statusCode != 200 && response.statusCode != 204) {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to cancel invitation');
+    }
+  }
+
+  Future<void> softDeleteOrganization({
+    required String organizationId,
+    required String actorUserId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/organizations/$organizationId');
+
+    final response = await http.delete(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-ID': actorUserId,
+      },
+    );
+
+    if (response.statusCode != 200 && response.statusCode != 204) {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to soft delete organization');
+    }
+  }
+}

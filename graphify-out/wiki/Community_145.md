@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-036: Rejects negative cost, negative odometer, whitespace service_type, or…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py#L203) (0 connections)
+- [UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py#L149) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc036.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py)
+- [src/tests/unit/test_maintenance_uc035.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py)
 
 ## Audit Trail
 

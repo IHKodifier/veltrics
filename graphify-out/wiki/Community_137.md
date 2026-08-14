@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py#L104) (0 connections)
+- [Test 3: Verify POST /api/v1/admin/seed endpoint.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_db_seeding_uc118.py#L129) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc035.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py)
+- [src/tests/unit/test_db_seeding_uc118.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_db_seeding_uc118.py)
 
 ## Audit Trail
 

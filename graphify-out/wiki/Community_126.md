@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-064: Requests for Org 2 return only Org 2's metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py#L190) (0 connections)
+- [AC 4: GIVEN tenant-scoped requests THE SYSTEM SHALL enforce multi-tenant role-…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L131) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_dashboard_uc064.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py)
+- [src/tests/unit/test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py)
 
 ## Audit Trail
 

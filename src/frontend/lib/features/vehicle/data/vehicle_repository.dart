@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../domain/vehicle_model.dart';
+import '../domain/vehicle_document_model.dart';
 
 class VehicleRepository {
   final String baseUrl;
@@ -171,6 +172,191 @@ class VehicleRepository {
       throw Exception(error['detail'] ?? 'Failed to update vehicle details');
     }
   }
+
+  Future<void> deleteVehicle({
+    required String vehicleId,
+    required String organizationId,
+    String? userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (userId != null) headers['X-User-ID'] = userId;
+
+    final response = await http.delete(uri, headers: headers);
+
+    if (response.statusCode != 200 && response.statusCode != 204) {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to soft delete vehicle');
+    }
+  }
+
+  Future<VehicleModel> updateOdometer({
+    required String vehicleId,
+    required String organizationId,
+    required double currentOdometerKm,
+    bool isCorrection = false,
+    String? userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId/odometer').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (userId != null) headers['X-User-ID'] = userId;
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: jsonEncode({
+        'current_odometer_km': currentOdometerKm,
+        'is_correction': isCorrection,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return VehicleModel.fromJson(data);
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to update odometer reading');
+    }
+  }
+
+  Future<VehicleDocumentModel> uploadDocument({
+    required String vehicleId,
+    required String organizationId,
+    required String documentType,
+    required String documentUrl,
+    String? fileName,
+    DateTime? expirationDate,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId/documents').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final response = await http.post(
+      uri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'document_type': documentType,
+        'document_url': documentUrl,
+        'file_name': fileName,
+        'expiration_date': expirationDate?.toIso8601String(),
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return VehicleDocumentModel.fromJson(data);
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to upload vehicle document');
+    }
+  }
+
+  Future<List<VehicleDocumentModel>> getVehicleDocuments({
+    required String vehicleId,
+    required String organizationId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId/documents').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> list = jsonDecode(response.body);
+      return list.map((json) => VehicleDocumentModel.fromJson(json as Map<String, dynamic>)).toList();
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to fetch vehicle documents');
+    }
+  }
+
+  Future<VehicleModel> restoreVehicle({
+    required String vehicleId,
+    required String organizationId,
+    String? userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId/restore').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (userId != null) headers['X-User-ID'] = userId;
+
+    final response = await http.post(uri, headers: headers);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return VehicleModel.fromJson(data);
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to restore vehicle');
+    }
+  }
+
+  Future<VehicleModel> assignDriver({
+    required String vehicleId,
+    required String organizationId,
+    required String driverId,
+    String? userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId/assign-driver').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (userId != null) headers['X-User-ID'] = userId;
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: jsonEncode({'driver_id': driverId}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return VehicleModel.fromJson(data);
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to assign driver');
+    }
+  }
+
+  Future<VehicleModel> unassignDriver({
+    required String vehicleId,
+    required String organizationId,
+    String? userId,
+  }) async {
+    final uri = Uri.parse('$baseUrl/vehicles/$vehicleId/unassign-driver').replace(queryParameters: {
+      'organization_id': organizationId,
+    });
+
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (userId != null) headers['X-User-ID'] = userId;
+
+    final response = await http.post(uri, headers: headers);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return VehicleModel.fromJson(data);
+    } else {
+      final error = jsonDecode(response.body);
+      throw Exception(error['detail'] ?? 'Failed to unassign driver');
+    }
+  }
 }
-
-

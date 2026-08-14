@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-015: POST /api/v1/organizations/switch switches active context for valid…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L101) (0 connections)
+- [UC-038: Headers and cross-tenant boundaries are strictly enforced.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py#L195) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_organizations_uc015.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py)
+- [src/tests/unit/test_maintenance_uc038.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py)
 
 ## Audit Trail
 

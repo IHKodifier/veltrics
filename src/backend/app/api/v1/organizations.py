@@ -8,8 +8,18 @@ from app.db.session import get_db
 from app.models.user import User
 from app.models.organization import Organization
 from app.models.organization_invitation import OrganizationInvitation
+from app.models.user_organization import UserOrganization
+from app.models.vehicle import Vehicle
+from app.models.driver import Driver
+from app.models.fuel_log import FuelLog
+from app.models.trip import Trip
+from app.models.expense_log import ExpenseLog
+from app.models.maintenance import MaintenanceSchedule, ServiceRecord
+from app.models.audit_log import AuditLog
+
 from app.schemas.organization import (
     OrganizationCreate,
+    OrganizationUpdate,
     PersonalOrganizationCreate,
     OrganizationResponse,
     SwitchOrganizationRequest,
@@ -21,6 +31,20 @@ from app.schemas.organization_invitation import (
 )
 
 router = APIRouter(prefix="/organizations", tags=["Organizations"])
+
+def check_org_admin_permission(org: Organization, user_id: Optional[str], db: Session) -> bool:
+    if not user_id:
+        return False
+    if org.owner_id == user_id:
+        return True
+    membership = db.query(UserOrganization).filter(
+        UserOrganization.organization_id == org.id,
+        UserOrganization.user_id == user_id,
+        UserOrganization.status == "active"
+    ).first()
+    if membership and membership.role in ["owner", "admin"]:
+        return True
+    return False
 
 @router.post("", response_model=OrganizationResponse, status_code=status.HTTP_201_CREATED)
 def create_organization(
@@ -50,6 +74,17 @@ def create_organization(
     )
     db.add(org)
     db.commit()
+
+    if owner_id:
+        member = UserOrganization(
+            user_id=owner_id,
+            organization_id=org.id,
+            role="owner",
+            status="active"
+        )
+        db.add(member)
+        db.commit()
+
     db.refresh(org)
     return org
 
@@ -68,7 +103,6 @@ def auto_create_personal_organization(
             detail="User not found"
         )
 
-    # Return existing personal org if already provisioned
     existing_org = db.query(Organization).filter(
         Organization.owner_id == payload.user_id,
         Organization.is_personal == True,
@@ -90,6 +124,16 @@ def auto_create_personal_organization(
     )
     db.add(org)
     db.commit()
+
+    member = UserOrganization(
+        user_id=user.id,
+        organization_id=org.id,
+        role="owner",
+        status="active"
+    )
+    db.add(member)
+    db.commit()
+
     db.refresh(org)
     return org
 
@@ -132,7 +176,20 @@ def switch_organization_context(
             detail="Organization not found"
         )
 
-    if not user_id or org.owner_id != user_id:
+    if not user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User does not have access to target organization"
+        )
+
+    is_owner = org.owner_id == user_id
+    is_member = db.query(UserOrganization).filter(
+        UserOrganization.organization_id == org.id,
+        UserOrganization.user_id == user_id,
+        UserOrganization.status == "active"
+    ).first() is not None
+
+    if not (is_owner or is_member):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="User does not have access to target organization"
@@ -166,6 +223,17 @@ def get_active_organization(
     ).first()
 
     if not org:
+        membership = db.query(UserOrganization).filter(
+            UserOrganization.user_id == target_user_id,
+            UserOrganization.status == "active"
+        ).first()
+        if membership:
+            org = db.query(Organization).filter(
+                Organization.id == membership.organization_id,
+                Organization.deleted_at == None
+            ).first()
+
+    if not org:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Active organization not found"
@@ -194,16 +262,16 @@ def get_organization_by_id(
 
     return org
 
-@router.post("/{organization_id}/invitations", response_model=OrganizationInvitationResponse, status_code=status.HTTP_201_CREATED)
-def create_organization_invitation(
+@router.patch("/{organization_id}", response_model=OrganizationResponse)
+def update_organization_profile(
     organization_id: str,
-    payload: OrganizationInvitationCreate,
+    payload: OrganizationUpdate,
     x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
     db: Session = Depends(get_db)
 ):
     """
-    UC-016: Invite Team Member to Organization.
-    Generates a secure 64-character token with 7-day TTL.
+    UC-017: Edit Organization Profile Details.
+    Enforces ISO 4217 currency validation, owner/admin check, and audit logging.
     """
     org = db.query(Organization).filter(
         Organization.id == organization_id,
@@ -216,31 +284,94 @@ def create_organization_invitation(
             detail="Organization not found"
         )
 
-    if not x_user_id or org.owner_id != x_user_id:
+    if not check_org_admin_permission(org, x_user_id, db):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User does not have permission to modify this organization"
+        )
+
+    update_data = payload.model_dump(exclude_unset=True)
+    for field, value in update_data.items():
+        if value is not None:
+            setattr(org, field, value)
+
+    org.updated_at = datetime.now(timezone.utc)
+
+    audit_log = AuditLog(
+        organization_id=org.id,
+        actor_id=x_user_id,
+        action="EDIT_ORGANIZATION_PROFILE",
+        payload={"target_entity": "organizations", "target_id": org.id, "updates": update_data}
+    )
+    db.add(audit_log)
+
+    db.commit()
+    db.refresh(org)
+    return org
+
+@router.post("/{organization_id}/invitations", response_model=OrganizationInvitationResponse, status_code=status.HTTP_201_CREATED)
+def create_organization_invitation(
+    organization_id: str,
+    payload: OrganizationInvitationCreate,
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-018: Invite Driver / Manager via Email or Phone.
+    Generates a secure 64-character token with 7-day TTL. Updates existing pending invitation if re-invited.
+    """
+    org = db.query(Organization).filter(
+        Organization.id == organization_id,
+        Organization.deleted_at == None
+    ).first()
+
+    if not org:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Organization not found"
+        )
+
+    if not check_org_admin_permission(org, x_user_id, db):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="User does not have access to manage invitations for this organization"
         )
 
+    if not payload.email and not payload.phone:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Must provide email or phone for invitation"
+        )
+
     token = secrets.token_hex(32)
     expires_at = datetime.now(timezone.utc) + timedelta(days=7)
 
-    existing_invitation = db.query(OrganizationInvitation).filter(
+    query = db.query(OrganizationInvitation).filter(
         OrganizationInvitation.organization_id == organization_id,
-        OrganizationInvitation.email == payload.email,
         OrganizationInvitation.status == "PENDING"
-    ).first()
+    )
+    if payload.email:
+        query = query.filter(OrganizationInvitation.email == payload.email)
+    elif payload.phone:
+        query = query.filter(OrganizationInvitation.phone == payload.phone)
+
+    existing_invitation = query.first()
 
     if existing_invitation:
         existing_invitation.token = token
         existing_invitation.role = payload.role
         existing_invitation.expires_at = expires_at
         existing_invitation.updated_at = datetime.now(timezone.utc)
+        if payload.email:
+            existing_invitation.email = payload.email
+        if payload.phone:
+            existing_invitation.phone = payload.phone
         invitation = existing_invitation
     else:
         invitation = OrganizationInvitation(
             organization_id=organization_id,
             email=payload.email,
+            phone=payload.phone,
             role=payload.role,
             token=token,
             status="PENDING",
@@ -248,6 +379,14 @@ def create_organization_invitation(
             expires_at=expires_at
         )
         db.add(invitation)
+
+    audit_log = AuditLog(
+        organization_id=org.id,
+        actor_id=x_user_id,
+        action="INVITE_ORG_MEMBER",
+        payload={"target_entity": "organization_invitations", "target_id": organization_id, "recipient": payload.email or payload.phone, "role": payload.role}
+    )
+    db.add(audit_log)
 
     db.commit()
     db.refresh(invitation)
@@ -260,7 +399,7 @@ def get_organization_invitations(
     db: Session = Depends(get_db)
 ):
     """
-    UC-016: List pending organization invitations.
+    UC-018: List pending organization invitations.
     """
     org = db.query(Organization).filter(
         Organization.id == organization_id,
@@ -273,7 +412,7 @@ def get_organization_invitations(
             detail="Organization not found"
         )
 
-    if not x_user_id or org.owner_id != x_user_id:
+    if not check_org_admin_permission(org, x_user_id, db):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="User does not have access to view invitations for this organization"
@@ -285,3 +424,182 @@ def get_organization_invitations(
 
     return invitations
 
+@router.delete("/{organization_id}/members/{user_id}")
+def remove_organization_member(
+    organization_id: str,
+    user_id: str,
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-021: Remove Member from Organization.
+    Prevents owner removal. Unassigns user from vehicles.
+    """
+    org = db.query(Organization).filter(
+        Organization.id == organization_id,
+        Organization.deleted_at == None
+    ).first()
+
+    if not org:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Organization not found"
+        )
+
+    if org.owner_id == user_id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Cannot remove organization owner"
+        )
+
+    is_self = x_user_id == user_id
+    is_admin = check_org_admin_permission(org, x_user_id, db)
+    if not (is_self or is_admin):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User does not have authority to remove this member"
+        )
+
+    membership = db.query(UserOrganization).filter(
+        UserOrganization.organization_id == organization_id,
+        UserOrganization.user_id == user_id
+    ).first()
+
+    if not membership:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User is not a member of this organization"
+        )
+
+    db.delete(membership)
+
+    drivers = db.query(Driver).filter(
+        Driver.organization_id == organization_id,
+        Driver.user_id == user_id
+    ).all()
+    driver_ids = [d.id for d in drivers] + [user_id]
+
+    vehicles = db.query(Vehicle).filter(
+        Vehicle.organization_id == organization_id,
+        Vehicle.assigned_driver_id.in_(driver_ids)
+    ).all()
+    for v in vehicles:
+        v.assigned_driver_id = None
+
+    audit_log = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="REMOVE_ORG_MEMBER",
+        payload={"target_entity": "user_organizations", "target_id": user_id, "removed_user_id": user_id}
+    )
+    db.add(audit_log)
+
+    db.commit()
+    return {"message": "Member removed successfully"}
+
+@router.delete("/{organization_id}/invitations/{invitation_id}")
+def cancel_organization_invitation(
+    organization_id: str,
+    invitation_id: str,
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-022: Cancel Pending Member Invitation.
+    """
+    org = db.query(Organization).filter(
+        Organization.id == organization_id,
+        Organization.deleted_at == None
+    ).first()
+
+    if not org:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Organization not found"
+        )
+
+    if not check_org_admin_permission(org, x_user_id, db):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User does not have access to cancel invitations for this organization"
+        )
+
+    invitation = db.query(OrganizationInvitation).filter(
+        OrganizationInvitation.id == invitation_id,
+        OrganizationInvitation.organization_id == organization_id
+    ).first()
+
+    if not invitation:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Invitation not found"
+        )
+
+    invitation.status = "REVOKED"
+    invitation.updated_at = datetime.now(timezone.utc)
+
+    audit_log = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="CANCEL_ORG_INVITATION",
+        payload={"target_entity": "organization_invitations", "target_id": invitation_id}
+    )
+    db.add(audit_log)
+
+    db.commit()
+    return {"message": "Invitation cancelled successfully"}
+
+@router.delete("/{organization_id}")
+def soft_delete_organization(
+    organization_id: str,
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-023: Soft Delete Organization & Child Entities.
+    Rejects personal org deletion with HTTP 400 Bad Request.
+    """
+    org = db.query(Organization).filter(
+        Organization.id == organization_id,
+        Organization.deleted_at == None
+    ).first()
+
+    if not org:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Organization not found"
+        )
+
+    if org.is_personal:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Personal organization cannot be deleted"
+        )
+
+    if not x_user_id or org.owner_id != x_user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only organization owner can delete the organization"
+        )
+
+    now = datetime.now(timezone.utc)
+    org.deleted_at = now
+
+    db.query(Vehicle).filter(Vehicle.organization_id == organization_id, Vehicle.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+    db.query(Driver).filter(Driver.organization_id == organization_id, Driver.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+    db.query(FuelLog).filter(FuelLog.organization_id == organization_id, FuelLog.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+    db.query(Trip).filter(Trip.organization_id == organization_id, Trip.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+    db.query(ExpenseLog).filter(ExpenseLog.organization_id == organization_id, ExpenseLog.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+    db.query(MaintenanceSchedule).filter(MaintenanceSchedule.organization_id == organization_id, MaintenanceSchedule.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+    db.query(ServiceRecord).filter(ServiceRecord.organization_id == organization_id, ServiceRecord.deleted_at == None).update({"deleted_at": now}, synchronize_session=False)
+
+    audit_log = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="DELETE_ORGANIZATION",
+        payload={"target_entity": "organizations", "target_id": organization_id}
+    )
+    db.add(audit_log)
+
+    db.commit()
+    return {"message": "Organization soft-deleted successfully"}

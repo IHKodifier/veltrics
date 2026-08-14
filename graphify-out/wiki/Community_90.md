@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL create…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L43) (0 connections)
+- [UC-024: Register New Vehicle with organization quota validation & duplicate VIN…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L72) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc001.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py)
+- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
 
 ## Audit Trail
 

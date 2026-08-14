@@ -1,11 +1,12 @@
 # Community 54
 
-> 2 nodes · cohesion 1.00
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 
-- [dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart) (1 connections)
-- [DashboardSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart) (1 connections)
+- [expense_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (2 connections)
+- [ExpenseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (1 connections)
+- [ExpenseSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (1 connections)
 
 ## Relationships
 
@@ -13,11 +14,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\expense\domain\expense_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 2 (100%)
+- EXTRACTED: 4 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

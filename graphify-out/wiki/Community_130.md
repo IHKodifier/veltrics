@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 2: Verify database seeding populates master vehicle catalogue idempotently.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_db_seeding_uc118.py#L105) (0 connections)
+- [AC 4: GIVEN an unauthenticated request to profile endpoints without user…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py#L134) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_db_seeding_uc118.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_db_seeding_uc118.py)
+- [src/tests/unit/test_auth_uc008.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py)
 
 ## Audit Trail
 

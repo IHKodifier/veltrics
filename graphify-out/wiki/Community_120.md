@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 4: GIVEN tenant-scoped requests THE SYSTEM SHALL enforce multi-tenant role-…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L131) (0 connections)
+- [AC 3: WHEN a user submits a valid reset token and strong new password THE…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc006.py#L76) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py)
+- [src/tests/unit/test_auth_uc006.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc006.py)
 
 ## Audit Trail
 

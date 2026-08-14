@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-016: Re-inviting same email updates existing invitation token and TTL…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py#L143) (0 connections)
+- [UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L134) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_organizations_uc016.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py)
+- [src/tests/unit/test_organizations_uc015.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py)
 
 ## Audit Trail
 

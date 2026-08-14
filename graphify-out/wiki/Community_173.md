@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py#L56) (0 connections)
+- [UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py#L115) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc024.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py)
+- [src/tests/unit/test_organizations_uc016.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py)
 
 ## Audit Trail
 

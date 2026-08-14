@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 1: WHEN an existing Google user signs in, THE SYSTEM SHALL return HTTP 200…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L43) (0 connections)
+- [Edge Case: Missing email or missing password for email auth provider returns…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L144) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py)
+- [src/tests/unit/test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py)
 
 ## Audit Trail
 

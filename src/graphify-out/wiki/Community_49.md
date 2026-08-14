@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- [notification_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart) (2 connections)
-- [NotificationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart) (1 connections)
-- [NotificationPaginatedModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart) (1 connections)
+- [deps.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py#L1) (2 connections)
+- [get_current_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py#L15) (1 connections)
+- [require_organization_role()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py#L54) (1 connections)
 
 ## Relationships
 
@@ -14,7 +14,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\notification\domain\notification_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\deps.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py)
 
 ## Audit Trail
 

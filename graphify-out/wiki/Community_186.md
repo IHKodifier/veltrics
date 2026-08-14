@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py#L105) (0 connections)
+- [Test 3: Verify filtering by province (e.g. Sindh).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc025.py#L115) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc027.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py)
+- [src/tests/unit/test_vehicles_uc025.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc025.py)
 
 ## Audit Trail
 

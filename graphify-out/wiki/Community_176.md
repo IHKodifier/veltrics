@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py#L124) (0 connections)
+- [UC-016: Non-owner caller attempting to send invitation yields HTTP 403…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py#L180) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc024.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py)
+- [src/tests/unit/test_organizations_uc016.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py)
 
 ## Audit Trail
 

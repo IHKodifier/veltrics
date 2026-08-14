@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L266) (0 connections)
+- [UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L86) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
+- [src/backend/app/api/v1/users.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py)
 
 ## Audit Trail
 

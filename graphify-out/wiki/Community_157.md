@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-014: POST /api/v1/organizations/personal auto-creates personal organization…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L92) (0 connections)
+- [UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py#L121) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_organizations_uc014.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py)
+- [src/tests/unit/test_maintenance_uc038.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py)
 
 ## Audit Trail
 

@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L134) (0 connections)
+- [UC-014: POST /api/v1/organizations/personal auto-creates personal organization…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L92) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_organizations_uc015.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py)
+- [src/tests/unit/test_organizations_uc014.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py)
 
 ## Audit Trail
 

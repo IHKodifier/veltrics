@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py#L143) (0 connections)
+- [UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py#L224) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc034.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py)
+- [src/tests/unit/test_dashboard_uc064.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py)
 
 ## Audit Trail
 

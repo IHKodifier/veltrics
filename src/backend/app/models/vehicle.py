@@ -44,3 +44,4 @@ class Vehicle(Base):
     # Relationships
     maintenance_schedules = relationship("MaintenanceSchedule", back_populates="vehicle", cascade="all, delete-orphan")
     service_records = relationship("ServiceRecord", back_populates="vehicle", cascade="all, delete-orphan")
+    documents = relationship("VehicleDocument", back_populates="vehicle", cascade="all, delete-orphan")

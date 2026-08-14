@@ -1,6 +1,6 @@
 # Community 14
 
-> 26 nodes · cohesion 0.17
+> 27 nodes · cohesion 0.16
 
 ## Key Concepts
 
@@ -20,6 +20,7 @@
 - [mark_all_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L64) (4 connections)
 - [mark_notification_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L50) (4 connections)
 - [resolve_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L17) (4 connections)
+- [AppNotification](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L18) (3 connections)
 - [register_device_token()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L10) (3 connections)
 - [UserDevice](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L6) (3 connections)
 - [get_notifications()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L35) (3 connections)
@@ -28,13 +29,15 @@
 - [notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L1) (2 connections)
 - [mark_all_as_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L77) (2 connections)
 - [mark_as_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L58) (2 connections)
-- [update_notification_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L96) (2 connections)
-- *... and 1 more nodes in this community*
+- *... and 2 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
+    class AppNotification {
+        +notification.py()
+    }
     class DeviceTokenCreate {
         +notification.py()
     }
@@ -68,8 +71,8 @@ classDiagram
 
 ## Audit Trail
 
-- EXTRACTED: 57 (49%)
-- INFERRED: 60 (51%)
+- EXTRACTED: 59 (49%)
+- INFERRED: 61 (51%)
 - AMBIGUOUS: 0 (0%)
 
 ---

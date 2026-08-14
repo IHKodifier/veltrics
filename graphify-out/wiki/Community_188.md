@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 4: Verify manual odometer update with discrepancy > 500 km generates an…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py#L127) (0 connections)
+- [Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py#L94) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc027.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py)
+- [src/tests/unit/test_vehicles_uc026.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py)
 
 ## Audit Trail
 

@@ -1,34 +1,37 @@
 # Community 21
 
-> 12 nodes · cohesion 0.17
+> 15 nodes · cohesion 0.13
 
 ## Key Concepts
 
-- [test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L1) (7 connections)
-- [Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit) retu](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L115) (3 connections)
-- [Edge Case: Missing email or missing password for email auth provider returns HTT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L146) (3 connections)
-- [AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return HT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L44) (3 connections)
-- [Alternate Flow A1: Account Linking     If user signed up via Google, submitting](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L83) (3 connections)
-- [test_uc003_account_linking_email()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L82) (2 connections)
-- [test_uc003_email_registration_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L43) (2 connections)
-- [test_uc003_missing_email_or_password()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L145) (2 connections)
-- [test_uc003_weak_password_validation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L114) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L40) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L24) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L34) (1 connections)
+- [test_organizations_uc014.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L1) (9 connections)
+- [UC-014: Blank or whitespace organization name rejected with HTTP 422.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L119) (3 connections)
+- [UC-014: GET /api/v1/organizations?user_id={id} returns list of user organization](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L132) (3 connections)
+- [UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L152) (3 connections)
+- [UC-014: POST /api/v1/organizations creates commercial organization and sets owne](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L73) (3 connections)
+- [UC-014: POST /api/v1/organizations/personal auto-creates personal organization f](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L94) (3 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L34) (2 connections)
+- [test_auto_create_personal_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L93) (2 connections)
+- [test_create_commercial_organization_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L72) (2 connections)
+- [test_create_organization_blank_name_rejected()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L118) (2 connections)
+- [test_get_organization_by_id_success_and_not_found()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L151) (2 connections)
+- [test_get_organizations_filtered_by_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L131) (2 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L47) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L43) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L24) (1 connections)
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 1]] (5 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc014.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py)
 
 ## Audit Trail
 
-- EXTRACTED: 22 (73%)
-- INFERRED: 8 (27%)
+- EXTRACTED: 28 (70%)
+- INFERRED: 12 (30%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 4: GIVEN an unauthenticated request to profile endpoints without user…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py#L134) (0 connections)
+- [AC 2: GIVEN a user completing onboarding on SCR-AUTH-007 WHEN they submit POST…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L85) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc008.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py)
+- [src/tests/unit/test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py)
 
 ## Audit Trail
 

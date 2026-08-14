@@ -1,10 +1,11 @@
 # Community 61
 
-> 1 nodes · cohesion 1.00
+> 2 nodes · cohesion 1.00
 
 ## Key Concepts
 
-- [UC-004: User Password Authentication & Session Initiation Authenticates…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L23) (0 connections)
+- [organization_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/domain/organization_model.dart) (1 connections)
+- [OrganizationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/domain/organization_model.dart) (1 connections)
 
 ## Relationships
 
@@ -12,11 +13,11 @@
 
 ## Source Files
 
-- [src/backend/app/api/v1/auth.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\organization\domain\organization_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/domain/organization_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 0 (0%)
+- EXTRACTED: 2 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

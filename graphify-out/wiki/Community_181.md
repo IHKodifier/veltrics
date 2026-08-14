@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py#L74) (0 connections)
+- [Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py#L101) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc026.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py)
+- [src/tests/unit/test_vehicles_uc024.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py)
 
 ## Audit Trail
 

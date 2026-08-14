@@ -4,17 +4,17 @@
 
 ## Key Concepts
 
-- [notification_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart) (2 connections)
-- [NotificationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart) (1 connections)
-- [NotificationPaginatedModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart) (1 connections)
+- [upload_receipt()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py#L11) (2 connections)
+- [uploads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py#L1) (1 connections)
+- [UC-063: Upload receipt image file.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py#L12) (1 connections)
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 42]] (1 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\notification\domain\notification_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/notification/domain/notification_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\uploads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py)
 
 ## Audit Trail
 

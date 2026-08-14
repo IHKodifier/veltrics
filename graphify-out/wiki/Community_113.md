@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 2: WHEN a reset request is submitted for a non-existent email THE SYSTEM…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc006.py#L66) (0 connections)
+- [AC 4 (Account Linking Flow A1): WHEN an existing user registered via email…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L132) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc006.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc006.py)
+- [src/tests/unit/test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py)
 
 ## Audit Trail
 

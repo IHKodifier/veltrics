@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py#L220) (0 connections)
+- [UC-016: Owner can create organization invitation, generating a secure 64-char…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py#L93) (0 connections)
 
 ## Relationships
 

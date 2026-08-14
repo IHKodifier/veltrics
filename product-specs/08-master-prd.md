@@ -31,7 +31,8 @@ If vehicle owners and fleet managers are provided with pre-populated maintenance
 | **12 Months** | 5,000+ managed vehicles across Pakistan & South Asia. | > 60% conversion on rewarded video ad bonus quota triggers. |
 
 ### 1.4 Scale Profile
-- **Target Market:** Pakistan (local payment via Safepay, Urdu RTL locale) and International (Stripe USD billing, English locale).
+### 1.4 Scale Profile
+- **Target Market:** Pakistan and International fleet owners (Safepay unified payment gateway supporting PKR and international credit card/wallet billing, English and Urdu RTL locale).
 - **Scale Profile:** Regional MVP scaling to 100k+ concurrent connected devices. Architecture enforces dialect-agnostic SQLAlchemy models (SQLite local, PostgreSQL staging/prod on Cloud Run + Cloud SQL).
 
 ---
@@ -54,7 +55,7 @@ Vehicle owners and fleet managers lack an intuitive, localized platform to track
 
 ### 2.4 Competitive Differentiation
 1. **Ad-Rewarded Quota Expansion:** Free users can earn +2 vehicle and +2 driver slots via rewarded video ads, unlocking up to 5 free vehicles/drivers without paying subscription fees.
-2. **Dual Gateway Localization:** Native integration with Safepay (PKR) alongside Stripe (International USD).
+2. **Safepay Unified Gateway:** Native integration with Safepay handling both local PKR and international credit card / wallet payments.
 3. **Offline-First Transaction Sync:** Full mobile functionality without internet connection, syncing seamlessly upon reconnect via `POST /api/v1/sync/batch`.
 
 ---
@@ -83,7 +84,7 @@ Vehicle owners and fleet managers lack an intuitive, localized platform to track
 - **Local Dev Database:** SQLite (`sqlite:///./dev.db`). Zero Docker required.
 - **Staging / Prod Database:** Managed PostgreSQL on GCP Cloud SQL (dialect-agnostic SQLAlchemy models).
 - **Authentication:** Firebase Auth SDK on mobile with FastAPI JWT mock middleware for local dev.
-- **Payment Gateways:** Stripe Webhooks + Safepay Webhooks writing to unified `subscriptions` table.
+- **Payment Gateway:** Safepay Webhooks writing to unified `subscriptions` table.
 
 ### 4.2 Local-First Execution & Git Branch Protocol
 - **Git Branch Hierarchy:** `main` (Production) → `dev` (Staging) → `sprint/sprint-XX` (Feature/Ticket Work).
@@ -106,14 +107,14 @@ The complete backlog consists of **122 implementation-ready tickets** (`UC-001` 
 - **EP-EXP (UC-058..063):** Expense Records, Receipt Attachments, Categorization.
 - **EP-DASH (UC-064..071):** Consumer & Fleet Manager Web Dashboards, Cost Rankings, Availability Widgets, Leaderboards.
 - **EP-NOTIF (UC-072..079):** Push Notification Registration, Overdue Service Alerts, Preference Toggles, Token Cleanup.
-- **EP-PAY (UC-080..089):** Stripe & Safepay Checkout Flows, Quota Wall Enforcement, Downgrade Processing, Enterprise Form.
+- **EP-PAY (UC-080..089):** Safepay Checkout Flows, Quota Wall Enforcement, Downgrade Processing, Enterprise Form.
 - **EP-SYNC (UC-090..097):** Offline SQLite Queueing, Client UUID v4 Keys, Delta Payload Construction, Conflict Resolution.
 - **EP-AD (UC-098..102):** AdMob Banners, Rewarded Video Ad Playback, Bonus Slot Lifecycle, Ad-Free Pro Enforcement.
 - **EP-DRV (UC-103..106):** Driver Consistency Safety Scoring, Anomaly Alerts, Certificate Badges.
 - **EP-THEME (UC-107..109):** Light / Slate Teal Dark Mode Theme Engine.
 - **EP-EXPORT (UC-110..112):** PDF Maintenance History, CSV Data Export, Scheduled Monthly Email Reports.
 - **EP-SET (UC-113..118):** Settings, Unit Conversions (Metric/Imperial), English/Urdu RTL Locale, Support Ticket, DB Seeding (`UC-118`).
-- **CORE INFRA (UC-119..122):** Sync Batch Transaction Engine (`UC-119`), Ad-Rewarded Quota Lifecycle Engine (`UC-120`), Dual Webhook Reconciliation Engine (`UC-121`), Ad-Gate Signature Enforcement Protocol (`UC-122`).
+- **CORE INFRA (UC-119..122):** Sync Batch Transaction Engine (`UC-119`), Ad-Rewarded Quota Lifecycle Engine (`UC-120`), Safepay Webhook Reconciliation Engine (`UC-121`), Ad-Gate Signature Enforcement Protocol (`UC-122`).
 
 ---
 
@@ -123,7 +124,7 @@ The complete backlog consists of **122 implementation-ready tickets** (`UC-001` 
 - **Sprint 1 (Days 1–15):** Auth, Org Baseline, Vehicle CRUD, Maintenance Core (`UC-001`..`UC-016`, `UC-024`..`UC-027`, `UC-034`..`UC-038`, `UC-064`, `UC-118` — 27 Tickets).
 - **Sprint 2 (Days 16–30):** Fuel, Trip, Expense Logging, Push Notifications (`UC-046`..`UC-063`, `UC-065`..`UC-066`, `UC-072`..`UC-075` — 24 Tickets).
 - **Sprint 3 (Days 31–45):** Offline Sync Batch Engine & Multi-Tenant Core (`UC-017`..`UC-023`, `UC-028`..`UC-033`, `UC-090`..`UC-097`, `UC-119` — 22 Tickets).
-- **Sprint 4 (Days 46–60):** Stripe/Safepay Payments, Ad Engine & Ad-Gate Middleware (`UC-080`..`UC-089`, `UC-098`..`UC-102`, `UC-120`..`UC-122` — 18 Tickets).
+- **Sprint 4 (Days 46–60):** Safepay Payments, Ad Engine & Ad-Gate Middleware (`UC-080`..`UC-089`, `UC-098`..`UC-102`, `UC-120`..`UC-122` — 18 Tickets).
 - **Sprint 5 (Days 61–75):** Fleet Intelligence Dashboard, Driver Safety Scoring & PDF/CSV Export (`UC-039`..`UC-045`, `UC-067`..`UC-071`, `UC-076`..`UC-079`, `UC-103`..`UC-106`, `UC-110`..`UC-112` — 23 Tickets).
 - **Sprint 6 (Days 76–90):** Dark Mode, Unit Conversion, Urdu Locale, Account Deletion & Hardening (`UC-107`..`UC-109`, `UC-113`..`UC-117` — 8 Tickets).
 

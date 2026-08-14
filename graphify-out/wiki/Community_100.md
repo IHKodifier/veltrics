@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Edge Case: Incorrect password returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L74) (0 connections)
+- [Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py#L124) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
+- [src/tests/unit/test_auth_uc002.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py)
 
 ## Audit Trail
 

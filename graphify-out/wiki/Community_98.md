@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Edge Case: Missing email or missing password for email auth provider returns…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L144) (0 connections)
+- [AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook"…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py#L42) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py)
+- [src/tests/unit/test_auth_uc002.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py)
 
 ## Audit Trail
 

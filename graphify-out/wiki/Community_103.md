@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L132) (0 connections)
+- [Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit)…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L113) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
+- [src/tests/unit/test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py)
 
 ## Audit Trail
 

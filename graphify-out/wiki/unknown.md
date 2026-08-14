@@ -1,10 +1,11 @@
 # unknown
 
-> 1 nodes · cohesion 1.00
+> 2 nodes · cohesion 1.00
 
 ## Key Concepts
 
-- [run_tests.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/run_tests.py#L1) (0 connections)
+- [dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart) (1 connections)
+- [DashboardSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart) (1 connections)
 
 ## Relationships
 
@@ -12,11 +13,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\run_tests.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/run_tests.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 0 (0%)
+- EXTRACTED: 2 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

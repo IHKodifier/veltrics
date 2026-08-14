@@ -1,12 +1,13 @@
 # Community 46
 
-> 3 nodes · cohesion 0.67
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 
-- [cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (2 connections)
-- [CostBreakdownItemModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
-- [CostBreakdownModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
+- [fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (3 connections)
+- [FuelLogModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [FuelMonthlyTrendModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [FuelTrendsModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
 
 ## Relationships
 
@@ -14,11 +15,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\fuel\domain\fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 4 (100%)
+- EXTRACTED: 6 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

@@ -2,35 +2,35 @@
   "hotspots": [
     {
       "label": "AuthService",
-      "risk": 0.635,
+      "risk": 0.63,
       "type": "CLASS"
     },
     {
+      "label": "execute_sync_batch()",
+      "risk": 0.216,
+      "type": "FUNCTION"
+    },
+    {
       "label": "Organization",
-      "risk": 0.212,
+      "risk": 0.214,
       "type": "CLASS"
     },
     {
       "label": "register_or_login()",
-      "risk": 0.201,
+      "risk": 0.199,
       "type": "FUNCTION"
     },
     {
       "label": "log_fuel_entry()",
-      "risk": 0.164,
-      "type": "FUNCTION"
-    },
-    {
-      "label": "update_vehicle()",
-      "risk": 0.143,
+      "risk": 0.163,
       "type": "FUNCTION"
     }
   ],
   "blast_radius": {
-    "Organization": 199,
-    "User": 115,
-    "Vehicle": 102,
-    "MaintenanceSchedule": 53,
-    "ServiceRecord": 40
+    "Organization": 233,
+    "User": 149,
+    "Vehicle": 136,
+    "MaintenanceSchedule": 82,
+    "AuditLog": 76
   }
 }

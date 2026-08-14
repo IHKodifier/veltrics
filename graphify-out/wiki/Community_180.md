@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 3: Verify filtering by province (e.g. Sindh).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc025.py#L115) (0 connections)
+- [Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py#L67) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc025.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc025.py)
+- [src/tests/unit/test_vehicles_uc024.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py)
 
 ## Audit Trail
 

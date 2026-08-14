@@ -1,12 +1,12 @@
 # Graph Report - E:\Non_Office\Dev_Space\vibe_skool\veltrics  (2026-08-14)
 
 ## Corpus Check
-- 156 files · ~584,662 words
+- 158 files · ~594,004 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1572 nodes · 2717 edges · 190 communities detected
-- Extraction: 56% EXTRACTED · 44% INFERRED · 0% AMBIGUOUS · INFERRED: 1187 edges (avg confidence: 0.54)
+- 1621 nodes · 3049 edges · 196 communities detected
+- Extraction: 52% EXTRACTED · 48% INFERRED · 0% AMBIGUOUS · INFERRED: 1469 edges (avg confidence: 0.54)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -200,77 +200,83 @@
 - [[_COMMUNITY_Community 187|Community 187]]
 - [[_COMMUNITY_Community 188|Community 188]]
 - [[_COMMUNITY_Community 189|Community 189]]
+- [[_COMMUNITY_Community 190|Community 190]]
+- [[_COMMUNITY_Community 191|Community 191]]
+- [[_COMMUNITY_Community 192|Community 192]]
+- [[_COMMUNITY_Community 193|Community 193]]
+- [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Organization` - 199 edges
-2. `User` - 115 edges
-3. `Vehicle` - 102 edges
-4. `MaintenanceSchedule` - 53 edges
-5. `ServiceRecord` - 40 edges
-6. `AuthService` - 35 edges
-7. `package:flutter/material.dart` - 33 edges
-8. `AuditLog` - 32 edges
-9. `../../../../theme/app_theme.dart` - 28 edges
-10. `seed_database()` - 23 edges
+1. `Organization` - 215 edges
+2. `User` - 131 edges
+3. `Vehicle` - 115 edges
+4. `MaintenanceSchedule` - 65 edges
+5. `AuditLog` - 54 edges
+6. `ServiceRecord` - 52 edges
+7. `AuthService` - 35 edges
+8. `OrganizationInvitation` - 34 edges
+9. `package:flutter/material.dart` - 33 edges
+10. `Driver` - 31 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc046.py
+- `seed_database()` --calls--> `setup_db()`  [INFERRED]
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc047.py
+- `seed_database()` --calls--> `setup_db()`  [INFERRED]
   E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc048.py
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc014.py
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc051.py
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc015.py
-- `UC-064: Get high-level KPI dashboard metrics summary for active organization.` --uses--> `CostBreakdownResponse`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\dashboard.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\cost_breakdown.py
-- `UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses).` --uses--> `CostBreakdownResponse`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\dashboard.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\cost_breakdown.py
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc014.py
 
 ## Communities
 
 ### Community 0 - "Community 0"
 
-Cohesion: 0.02
-Nodes (198): AuditLog, UC-012: Audit Log Recording for Authentication Events.         Extracts event m, Base, DashboardSummaryResponse, get_cost_breakdown(), get_dashboard_summary(), UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses)., UC-064: Get high-level KPI dashboard metrics summary for active organization. (+190 more)
+Cohesion: 0.01
+Nodes (196): add_vehicle_screen.dart, dart:convert, ../../data/auth_repository.dart, ../../data/expense_repository.dart, ../../data/trip_repository.dart, ../../data/vehicle_repository.dart, ../../domain/expense_model.dart, ../../domain/notification_model.dart (+188 more)
 
 ### Community 1 - "Community 1"
 
-Cohesion: 0.02
-Nodes (132): OrganizationInvitation, OrganizationInvitationCreate, OrganizationInvitationResponse, OrganizationCreate, OrganizationResponse, PersonalOrganizationCreate, SwitchOrganizationRequest, SwitchOrganizationResponse (+124 more)
+Cohesion: 0.03
+Nodes (170): AuditLog, AuditService, UC-012: Audit Log Recording for Authentication Events.         Extracts event m, Base, ExpenseLog, FuelLog, log_fuel_entry(), accept_organization_invitation() (+162 more)
 
 ### Community 2 - "Community 2"
 
-Cohesion: 0.01
-Nodes (143): ../../data/expense_repository.dart, ../../data/maintenance_repository.dart, ../../data/trip_repository.dart, ../../domain/maintenance_model.dart, build, CounterScreen, _CounterScreenState, _incrementCounter (+135 more)
+Cohesion: 0.02
+Nodes (139): CostBreakdownResponse, DashboardSummaryResponse, get_cost_breakdown(), get_dashboard_summary(), UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses)., UC-064: Get high-level KPI dashboard metrics summary for active organization., Driver, MaintenanceSchedule (+131 more)
 
 ### Community 3 - "Community 3"
 
-Cohesion: 0.02
-Nodes (79): add_vehicle_screen.dart, ../../data/vehicle_repository.dart, ../../domain/vehicle_model.dart, build, _buildActionButton, Column, dispose, initState (+71 more)
+Cohesion: 0.07
+Nodes (77): log_event(), AuthSessionDTO, forgot_password(), ForgotPasswordRequest, ForgotPasswordResponse, login(), LoginRequest, logout() (+69 more)
 
 ### Community 4 - "Community 4"
 
-Cohesion: 0.09
-Nodes (71): AuditService, log_event(), AuthSessionDTO, forgot_password(), ForgotPasswordRequest, ForgotPasswordResponse, login(), LoginRequest (+63 more)
+Cohesion: 0.03
+Nodes (69): adBg, adFg, AnimatedSlide, BoxShadow, build, buildTextTheme, _buildTheme, Container (+61 more)
 
 ### Community 5 - "Community 5"
 
-Cohesion: 0.03
-Nodes (61): dart:convert, ../../data/organization_repository.dart, ../../domain/expense_model.dart, ../../domain/notification_model.dart, ../../domain/organization_invitation_model.dart, ../../domain/organization_model.dart, ../../domain/trip_model.dart, ../../domain/user_model.dart (+53 more)
+Cohesion: 0.05
+Nodes (42): ../../data/maintenance_repository.dart, ../../domain/maintenance_model.dart, Exception, MaintenanceRepository, build, dispose, initState, LogMaintenanceScreen (+34 more)
 
 ### Community 6 - "Community 6"
 
-Cohesion: 0.04
-Nodes (41): ../../data/auth_repository.dart, AlertDialog, build, dispose, LoginScreen, _LoginScreenState, Scaffold, _showForgotPasswordDialog (+33 more)
+Cohesion: 0.11
+Nodes (33): create_fuel_log(), delete_fuel_log(), get_fuel_trends(), list_fuel_anomalies(), list_fuel_logs(), Config, FuelLogCreate, FuelLogResponse (+25 more)
 
 ### Community 7 - "Community 7"
 
-Cohesion: 0.14
-Nodes (34): Config, MileageSummaryResponse, QuickTripCreate, create_trip(), get_trips(), quick_log_trip(), start_trip(), Trip (+26 more)
+Cohesion: 0.05
+Nodes (41): build, _buildActionButton, Column, dispose, initState, ScaleTransition, SizedBox, _toggle (+33 more)
 
 ### Community 8 - "Community 8"
 
-Cohesion: 0.11
-Nodes (33): create_fuel_log(), delete_fuel_log(), get_fuel_trends(), list_fuel_anomalies(), list_fuel_logs(), Config, FuelLogCreate, FuelLogResponse (+25 more)
+Cohesion: 0.16
+Nodes (33): Config, MileageSummaryResponse, QuickTripCreate, create_trip(), get_trips(), quick_log_trip(), start_trip(), TripCreate (+25 more)
 
 ### Community 9 - "Community 9"
 
@@ -279,23 +285,23 @@ Nodes (36): ../../data/fuel_repository.dart, ../../domain/fuel_log_model.dart, E
 
 ### Community 10 - "Community 10"
 
-Cohesion: 0.05
-Nodes (36): adBg, adFg, AnimatedSlide, BoxShadow, build, buildTextTheme, _buildTheme, Container (+28 more)
-
-### Community 11 - "Community 11"
-
 Cohesion: 0.06
 Nodes (30): ../../data/dashboard_repository.dart, ../../domain/cost_breakdown_model.dart, ../../domain/dashboard_model.dart, DashboardRepository, Exception, build, _buildKpiCard, _buildOnboardingCard (+22 more)
 
+### Community 11 - "Community 11"
+
+Cohesion: 0.07
+Nodes (26): ../../data/organization_repository.dart, ../../domain/organization_invitation_model.dart, ../../domain/organization_model.dart, Exception, jsonDecode, OrganizationRepository, AlertDialog, build (+18 more)
+
 ### Community 12 - "Community 12"
-
-Cohesion: 0.06
-Nodes (33): adBg, adFg, build, buildTextTheme, _buildTheme, Container, dark, _darkColorScheme (+25 more)
-
-### Community 13 - "Community 13"
 
 Cohesion: 0.17
 Nodes (23): Config, ExpenseLogCreate, ExpenseLogResponse, ExpenseLogUpdate, ExpensePaginatedResponse, ExpenseSummaryResponse, QuickExpenseCreate, get_expenses() (+15 more)
+
+### Community 13 - "Community 13"
+
+Cohesion: 0.07
+Nodes (17): setup_db(), test_create_fuel_log_success(), test_efficiency_calculation_on_subsequent_full_tank(), test_linked_expense_auto_creation(), test_reject_lower_odometer(), test_setup(), setup_db(), test_distance_and_efficiency_calculation() (+9 more)
 
 ### Community 14 - "Community 14"
 
@@ -314,198 +320,198 @@ Nodes (19): bulk_accept_maintenance_schedules(), BulkAcceptSchedulesRequest, cre
 
 ### Community 17 - "Community 17"
 
-Cohesion: 0.12
-Nodes (13): Exception, AC 3: System records USER_PASSWORD_RESET_REQUEST and USER_PASSWORD_RESET_SUCCESS, AC 4: System records USER_LOGOUT audit entry upon session termination., Edge Case: Audit log DB write exception is handled safely and does not block use, AC 1: System creates immutable AuditLog entry upon user registration., AC 2: System records USER_LOGIN_SUCCESS audit entry with IP & User-Agent metadat, A1: Unauthenticated attempt records USER_LOGIN_FAILURE with actor_id = None., test_uc012_audit_log_login_failure_unauthenticated() (+5 more)
+Cohesion: 0.09
+Nodes (20): AlertDialog, build, _buildDetailRow, _buildMetricTile, _buildSummaryMetricsCard, _buildTripCard, Card, Container (+12 more)
 
 ### Community 18 - "Community 18"
 
-Cohesion: 0.17
-Nodes (8): AC 3: GIVEN a profile update request with invalid display name length (< 2 chars, AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro, AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u, AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P, test_uc007_display_name_validation(), test_uc007_get_and_patch_user_profile(), test_uc007_multi_tenant_role_authorization(), test_uc007_profile_completion_endpoint()
+Cohesion: 0.11
+Nodes (1): test_uc019_accept_invitation_expired()
 
 ### Community 19 - "Community 19"
 
-Cohesion: 0.17
-Nodes (8): AC 3: GIVEN a malformed or invalid refresh token     WHEN submitted to POST /ap, AC 4: GIVEN a refresh token that has already been revoked     WHEN logout is ca, AC 1: GIVEN an authenticated user session with a valid refresh token     WHEN s, AC 2: GIVEN a revoked refresh token     WHEN submitted to POST /api/v1/auth/ref, test_uc010_invalid_or_malformed_logout_token(), test_uc010_repeat_logout_idempotency(), test_uc010_revoked_token_refresh_rejection(), test_uc010_successful_logout_and_revocation()
+Cohesion: 0.13
+Nodes (12): Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403 For, Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found., Test 4: Verify manual odometer update with discrepancy > 500 km generates an Aud, Test 5: Verify non-dictionary custom_specs payload returns HTTP 422 Unprocessabl, Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle, setup_db(), test_setup(), test_update_vehicle_invalid_custom_specs() (+4 more)
 
 ### Community 20 - "Community 20"
 
-Cohesion: 0.21
-Nodes (7): AC 3: GIVEN a soft-deleted user account     WHEN attempting to authenticate, ac, AC 1: GIVEN an authenticated user     WHEN DELETE /api/v1/users/me is invoked, AC 2: GIVEN a user who is the sole owner of an active non-personal organization, test_uc011_post_deletion_auth_rejection(), test_uc011_sole_owner_blocking(), test_uc011_successful_account_deletion_and_anonymization(), UserOrganization
+Cohesion: 0.14
+Nodes (10): AC 4: WHEN an invalid token or token of wrong type (e.g. access token) is submit, AC 5: WHEN a new password does not satisfy password policy (min 8 chars, 1 upper, AC 1: WHEN a registered user requests a password reset link/token for their emai, AC 2: WHEN a reset request is submitted for a non-existent email     THE SYSTEM, AC 3: WHEN a user submits a valid reset token and strong new password     THE S, test_uc006_forgot_password_success(), test_uc006_forgot_password_user_not_found(), test_uc006_reset_password_invalid_or_wrong_token() (+2 more)
 
 ### Community 21 - "Community 21"
 
-Cohesion: 0.2
-Nodes (6): Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad Requ, AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook" insid, Alternate Flow A1: Account Linking     If email matches existing account with d, test_uc002_account_linking_facebook(), test_uc002_facebook_missing_email_returns_400(), test_uc002_new_user_facebook_registration()
+Cohesion: 0.17
+Nodes (8): AC 3: GIVEN a profile update request with invalid full name length (< 2 characte, AC 4: GIVEN an unauthenticated request to profile endpoints without user identit, AC 1: GIVEN an authenticated registered user     WHEN they request GET /api/v1/, AC 2: GIVEN an authenticated user updating their profile details     WHEN they, test_uc008_get_user_profile(), test_uc008_patch_user_profile(), test_uc008_profile_field_validation(), test_uc008_unauthenticated_access()
 
 ### Community 22 - "Community 22"
 
-Cohesion: 0.2
-Nodes (1): setup_db()
+Cohesion: 0.17
+Nodes (8): AC 4: GIVEN a newly issued access token from POST /api/v1/auth/refresh     WHEN, AC 1: GIVEN a valid active refresh token     WHEN submitted to POST /api/v1/aut, AC 2: GIVEN an invalid, expired, or non-refresh token (e.g. access or reset toke, AC 3: GIVEN a refresh token for a disabled or soft-deleted user account     WHE, test_uc009_access_token_authorization(), test_uc009_disabled_user_refresh_rejection(), test_uc009_invalid_or_expired_refresh_token(), test_uc009_valid_token_refresh()
 
 ### Community 23 - "Community 23"
 
-Cohesion: 0.25
-Nodes (4): AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL     cr, AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL, test_uc001_existing_user_google_one_tap_returns_existing_data(), test_uc001_new_user_google_one_tap_creates_user_and_personal_org()
+Cohesion: 0.18
+Nodes (7): Exception, test_uc012_audit_log_login_failure_unauthenticated(), test_uc012_audit_log_login_success(), test_uc012_audit_log_logout(), test_uc012_audit_log_password_reset_flow(), test_uc012_audit_log_registration(), test_uc012_non_blocking_audit_error_handling()
 
 ### Community 24 - "Community 24"
 
-Cohesion: 0.25
-Nodes (5): UC-048 Main Flow: App queries GET /api/v1/fuel with pagination (page=1, limit=2), setup_db(), test_fleet_aggregate_average_efficiency(), test_fuel_efficiency_trends_monthly_aggregation(), test_get_fuel_logs_paginated()
+Cohesion: 0.18
+Nodes (8): UC-048 Acceptance Criterion: System returns fleet aggregate average efficiency a, UC-048 Efficiency Trends: Monthly fuel cost totals and efficiency trends per veh, UC-048 Main Flow: App queries GET /api/v1/fuel with pagination (page=1, limit=2), setup_db(), test_fleet_aggregate_average_efficiency(), test_fuel_efficiency_trends_monthly_aggregation(), test_get_fuel_logs_paginated(), test_setup()
 
 ### Community 25 - "Community 25"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (0): 
 
 ### Community 26 - "Community 26"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.22
+Nodes (1): setup_db()
 
 ### Community 27 - "Community 27"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.25
+Nodes (4): test_uc003_account_linking_email(), test_uc003_email_registration_success(), test_uc003_missing_email_or_password(), test_uc003_weak_password_validation()
 
 ### Community 28 - "Community 28"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.25
+Nodes (4): test_uc007_display_name_validation(), test_uc007_get_and_patch_user_profile(), test_uc007_multi_tenant_role_authorization(), test_uc007_profile_completion_endpoint()
 
 ### Community 29 - "Community 29"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.25
+Nodes (4): test_uc010_invalid_or_malformed_logout_token(), test_uc010_repeat_logout_idempotency(), test_uc010_revoked_token_refresh_rejection(), test_uc010_successful_logout_and_revocation()
 
 ### Community 30 - "Community 30"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.25
+Nodes (1): setup_db()
 
 ### Community 31 - "Community 31"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
-Nodes (0): 
+Cohesion: 0.25
+Nodes (1): setup_db()
 
 ### Community 32 - "Community 32"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.33
-Nodes (0): 
+Cohesion: 0.25
+Nodes (1): setup_db()
 
 ### Community 33 - "Community 33"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.33
-Nodes (0): 
+Cohesion: 0.25
+Nodes (1): setup_db()
 
 ### Community 34 - "Community 34"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.33
-Nodes (0): 
+Cohesion: 0.25
+Nodes (1): setup_db()
 
 ### Community 35 - "Community 35"
 _Unable to determine domain due to missing code entities._
+Cohesion: 0.29
+Nodes (3): test_uc002_account_linking_facebook(), test_uc002_facebook_missing_email_returns_400(), test_uc002_new_user_facebook_registration()
+
+### Community 36 - "Community 36"
+
+Cohesion: 0.29
+Nodes (1): setup_db()
+
+### Community 37 - "Community 37"
+
+Cohesion: 0.29
+Nodes (0): 
+
+### Community 38 - "Community 38"
+
+Cohesion: 0.29
+Nodes (1): setup_db()
+
+### Community 39 - "Community 39"
+
+Cohesion: 0.29
+Nodes (1): setup_db()
+
+### Community 40 - "Community 40"
+_Unable to determine domain due to missing code entities._
+Cohesion: 0.33
+Nodes (2): test_uc001_existing_user_google_one_tap_returns_existing_data(), test_uc001_new_user_google_one_tap_creates_user_and_personal_org()
+
+### Community 41 - "Community 41"
+
+Cohesion: 0.33
+Nodes (2): test_uc011_post_deletion_auth_rejection(), test_uc011_successful_account_deletion_and_anonymization()
+
+### Community 42 - "Community 42"
+
 Cohesion: 0.33
 Nodes (0): 
 
-### Community 36 - "Community 36"
+### Community 43 - "Community 43"
 
 Cohesion: 0.4
 Nodes (4): AuthSession, OrganizationModel, RefreshTokenTokens, UserModel
 
-### Community 37 - "Community 37"
-
+### Community 44 - "Community 44"
+_Automatically registers Flutter plugins with the platform activity so Dart code can access native plugin functionalities._
 Cohesion: 0.5
 Nodes (3): FuelLogModel, FuelMonthlyTrendModel, FuelTrendsModel
 
-### Community 38 - "Community 38"
+### Community 45 - "Community 45"
 
 Cohesion: 0.5
 Nodes (3): MileageSummaryModel, TripModel, TripSummaryModel
 
-### Community 39 - "Community 39"
+### Community 46 - "Community 46"
 
 Cohesion: 0.5
 Nodes (3): VehicleDetailModel, VehicleModel, VehicleTypeModel
 
-### Community 40 - "Community 40"
-_Unable to determine domain due to missing code entities._
-Cohesion: 0.67
-Nodes (0): 
-
-### Community 41 - "Community 41"
-
-Cohesion: 0.67
-Nodes (2): UC-118: Trigger Database Migration & Master Seeding Infrastructure.     Pre-pop, trigger_seed_database()
-
-### Community 42 - "Community 42"
-
-Cohesion: 0.67
-Nodes (2): UC-063: Upload receipt image file., upload_receipt()
-
-### Community 43 - "Community 43"
-
-Cohesion: 0.67
-Nodes (2): BaseSettings, Settings
-
-### Community 44 - "Community 44"
-_Automatically registers Flutter plugins with the platform activity so Dart code can access native plugin functionalities._
-Cohesion: 0.67
-Nodes (1): GeneratedPluginRegistrant
-
-### Community 45 - "Community 45"
-
-Cohesion: 0.67
-Nodes (2): CostBreakdownItemModel, CostBreakdownModel
-
-### Community 46 - "Community 46"
-
-Cohesion: 0.67
-Nodes (2): ExpenseModel, ExpenseSummaryModel
-
 ### Community 47 - "Community 47"
 
 Cohesion: 0.67
-Nodes (2): MaintenanceScheduleModel, ServiceRecordModel
+Nodes (0): 
 
 ### Community 48 - "Community 48"
 
 Cohesion: 0.67
-Nodes (2): NotificationModel, NotificationPaginatedModel
+Nodes (2): UC-063: Upload receipt image file., upload_receipt()
 
 ### Community 49 - "Community 49"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.67
-Nodes (0): 
+Nodes (2): BaseSettings, Settings
 
 ### Community 50 - "Community 50"
 _Unable to determine domain due to missing code entities._
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (1): GeneratedPluginRegistrant
 
 ### Community 51 - "Community 51"
 _Unable to determine domain due to missing code entities._
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (2): CostBreakdownItemModel, CostBreakdownModel
 
 ### Community 52 - "Community 52"
 _Handles the primary screen and user interactions at app launch._
-Cohesion: 1.0
-Nodes (1): MainActivity
+Cohesion: 0.67
+Nodes (2): ExpenseModel, ExpenseSummaryModel
 
 ### Community 53 - "Community 53"
 
-Cohesion: 1.0
-Nodes (1): DashboardSummaryModel
+Cohesion: 0.67
+Nodes (2): MaintenanceScheduleModel, ServiceRecordModel
 
 ### Community 54 - "Community 54"
 
-Cohesion: 1.0
-Nodes (1): OrganizationInvitationModel
+Cohesion: 0.67
+Nodes (2): NotificationModel, NotificationPaginatedModel
 
 ### Community 55 - "Community 55"
 
-Cohesion: 1.0
-Nodes (1): OrganizationModel
+Cohesion: 0.67
+Nodes (0): 
 
 ### Community 56 - "Community 56"
 _Unable to determine domain due to missing code entities._
@@ -520,943 +526,973 @@ Nodes (0):
 ### Community 58 - "Community 58"
 _Unable to determine domain due to missing code entities._
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): MainActivity
 
 ### Community 59 - "Community 59"
 _Unable to determine domain due to missing code entities._
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): DashboardSummaryModel
 
 ### Community 60 - "Community 60"
 
 Cohesion: 1.0
-Nodes (1): UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)…
+Nodes (1): OrganizationInvitationModel
 
 ### Community 61 - "Community 61"
 
 Cohesion: 1.0
-Nodes (1): UC-004: User Password Authentication & Session Initiation Authenticates…
+Nodes (1): OrganizationModel
 
 ### Community 62 - "Community 62"
 
 Cohesion: 1.0
-Nodes (1): UC-006: Forgot Password Request Issues a password reset JWT token with 5-minute…
+Nodes (0): 
 
 ### Community 63 - "Community 63"
 
 Cohesion: 1.0
-Nodes (1): UC-006: Password Reset Execution Verifies reset token, validates password…
+Nodes (0): 
 
 ### Community 64 - "Community 64"
 
 Cohesion: 1.0
-Nodes (1): UC-064: Get high-level KPI dashboard metrics summary for active organization.
+Nodes (0): 
 
 ### Community 65 - "Community 65"
 
 Cohesion: 1.0
-Nodes (1): UC-035: Create custom maintenance schedule task item for a vehicle.
+Nodes (0): 
 
 ### Community 66 - "Community 66"
 
 Cohesion: 1.0
-Nodes (1): UC-035: Update schedule parameters (intervals, task name, active status) and…
+Nodes (1): UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)…
 
 ### Community 67 - "Community 67"
 
 Cohesion: 1.0
-Nodes (1): UC-035: Soft-delete schedule item.
+Nodes (1): UC-004: User Password Authentication & Session Initiation Authenticates…
 
 ### Community 68 - "Community 68"
 
 Cohesion: 1.0
-Nodes (1): UC-037: Retrieve chronological service records for a vehicle within the active…
+Nodes (1): UC-006: Forgot Password Request Issues a password reset JWT token with 5-minute…
 
 ### Community 69 - "Community 69"
 
 Cohesion: 1.0
-Nodes (1): UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.
+Nodes (1): UC-006: Password Reset Execution Verifies reset token, validates password…
 
 ### Community 70 - "Community 70"
 
 Cohesion: 1.0
-Nodes (1): UC-014: Provision commercial or custom organization.
+Nodes (1): UC-064: Get high-level KPI dashboard metrics summary for active organization.
 
 ### Community 71 - "Community 71"
 
 Cohesion: 1.0
-Nodes (1): UC-014: Auto-provision personal organization for a user during registration or…
+Nodes (1): UC-035: Create custom maintenance schedule task item for a vehicle.
 
 ### Community 72 - "Community 72"
 
 Cohesion: 1.0
-Nodes (1): Retrieve organizations list.
+Nodes (1): UC-035: Update schedule parameters (intervals, task name, active status) and…
 
 ### Community 73 - "Community 73"
 
 Cohesion: 1.0
-Nodes (1): UC-015: Switch active organization context for user.
+Nodes (1): UC-035: Soft-delete schedule item.
 
 ### Community 74 - "Community 74"
 
 Cohesion: 1.0
-Nodes (1): UC-015: Get active organization for user.
+Nodes (1): UC-037: Retrieve chronological service records for a vehicle within the active…
 
 ### Community 75 - "Community 75"
 
 Cohesion: 1.0
-Nodes (1): Retrieve organization details by ID.
+Nodes (1): UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.
 
 ### Community 76 - "Community 76"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Invite Team Member to Organization. Generates a secure 64-character…
+Nodes (1): UC-014: Provision commercial or custom organization.
 
 ### Community 77 - "Community 77"
 
 Cohesion: 1.0
-Nodes (1): UC-016: List pending organization invitations.
+Nodes (1): UC-014: Auto-provision personal organization for a user during registration or…
 
 ### Community 78 - "Community 78"
 
 Cohesion: 1.0
-Nodes (1): UC-118: Trigger Database Migration & Master Seeding Infrastructure. Pre-…
+Nodes (1): Retrieve organizations list.
 
 ### Community 79 - "Community 79"
 
 Cohesion: 1.0
-Nodes (1): UC-007: Fetch current user profile details.
+Nodes (1): UC-015: Switch active organization context for user.
 
 ### Community 80 - "Community 80"
 
 Cohesion: 1.0
-Nodes (1): UC-007: Update current user profile (full name, phone, city, job role, avatar).
+Nodes (1): UC-015: Get active organization for user.
 
 ### Community 81 - "Community 81"
 
 Cohesion: 1.0
-Nodes (1): UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated…
+Nodes (1): Retrieve organization details by ID.
 
 ### Community 82 - "Community 82"
 
 Cohesion: 1.0
-Nodes (1): UC-007: Multi-tenant authorization boundary verification endpoint.
+Nodes (1): UC-016: Invite Team Member to Organization. Generates a secure 64-character…
 
 ### Community 83 - "Community 83"
 
 Cohesion: 1.0
-Nodes (1): UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.…
+Nodes (1): UC-016: List pending organization invitations.
 
 ### Community 84 - "Community 84"
 
 Cohesion: 1.0
-Nodes (1): UC-024: Register New Vehicle with organization quota validation & duplicate VIN…
+Nodes (1): UC-118: Trigger Database Migration & Master Seeding Infrastructure. Pre-…
 
 ### Community 85 - "Community 85"
 
 Cohesion: 1.0
-Nodes (1): UC-025: List Organization Vehicles directory with status, search, fuel type,…
+Nodes (1): UC-007: Fetch current user profile details.
 
 ### Community 86 - "Community 86"
 
 Cohesion: 1.0
-Nodes (1): UC-026: View Vehicle Detailed Overview. Enforces tenant isolation and returns…
+Nodes (1): UC-007: Update current user profile (full name, phone, city, job role, avatar).
 
 ### Community 87 - "Community 87"
 
 Cohesion: 1.0
-Nodes (1): UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).
+Nodes (1): UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated…
 
 ### Community 88 - "Community 88"
 
 Cohesion: 1.0
-Nodes (1): UC-027: Update Vehicle Metadata & Specifications. Validates organization…
+Nodes (1): UC-007: Multi-tenant authorization boundary verification endpoint.
 
 ### Community 89 - "Community 89"
 
 Cohesion: 1.0
-Nodes (1): Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance…
+Nodes (1): UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.…
 
 ### Community 90 - "Community 90"
 
 Cohesion: 1.0
-Nodes (1): AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL create…
+Nodes (1): UC-024: Register New Vehicle with organization quota validation & duplicate VIN…
 
 ### Community 91 - "Community 91"
 
 Cohesion: 1.0
-Nodes (1): AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL…
+Nodes (1): UC-025: List Organization Vehicles directory with status, search, fuel type,…
 
 ### Community 92 - "Community 92"
 
 Cohesion: 1.0
-Nodes (1): AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook"…
+Nodes (1): UC-026: View Vehicle Detailed Overview. Enforces tenant isolation and returns…
 
 ### Community 93 - "Community 93"
 
 Cohesion: 1.0
-Nodes (1): Alternate Flow A1: Account Linking If email matches existing account with…
+Nodes (1): UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).
 
 ### Community 94 - "Community 94"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad…
+Nodes (1): UC-027: Update Vehicle Metadata & Specifications. Validates organization…
 
 ### Community 95 - "Community 95"
 
 Cohesion: 1.0
-Nodes (1): AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return…
+Nodes (1): Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance…
 
 ### Community 96 - "Community 96"
 
 Cohesion: 1.0
-Nodes (1): Alternate Flow A1: Account Linking If user signed up via Google, submitting…
+Nodes (1): AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL create…
 
 ### Community 97 - "Community 97"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit)…
+Nodes (1): AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL…
 
 ### Community 98 - "Community 98"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Missing email or missing password for email auth provider returns…
+Nodes (1): AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook"…
 
 ### Community 99 - "Community 99"
 
 Cohesion: 1.0
-Nodes (1): AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP…
+Nodes (1): Alternate Flow A1: Account Linking If email matches existing account with…
 
 ### Community 100 - "Community 100"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Incorrect password returns HTTP 401 Unauthorized.
+Nodes (1): Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad…
 
 ### Community 101 - "Community 101"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Unregistered email returns HTTP 401 Unauthorized.
+Nodes (1): AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return…
 
 ### Community 102 - "Community 102"
 
 Cohesion: 1.0
-Nodes (1): Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…
+Nodes (1): Alternate Flow A1: Account Linking If user signed up via Google, submitting…
 
 ### Community 103 - "Community 103"
 
 Cohesion: 1.0
-Nodes (1): Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…
+Nodes (1): Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit)…
 
 ### Community 104 - "Community 104"
 
 Cohesion: 1.0
-Nodes (1): AC 1: WHEN an existing Google user signs in, THE SYSTEM SHALL return HTTP 200…
+Nodes (1): Edge Case: Missing email or missing password for email auth provider returns…
 
 ### Community 105 - "Community 105"
 
 Cohesion: 1.0
-Nodes (1): AC 2: WHEN an existing Facebook user signs in, THE SYSTEM SHALL return HTTP 200…
+Nodes (1): AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP…
 
 ### Community 106 - "Community 106"
 
 Cohesion: 1.0
-Nodes (1): AC 3: WHEN an existing Email/Password user signs in via POST…
+Nodes (1): Edge Case: Incorrect password returns HTTP 401 Unauthorized.
 
 ### Community 107 - "Community 107"
 
 Cohesion: 1.0
-Nodes (1): AC 4 (Account Linking Flow A1): WHEN an existing user registered via email…
+Nodes (1): Edge Case: Unregistered email returns HTTP 401 Unauthorized.
 
 ### Community 108 - "Community 108"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.
+Nodes (1): Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…
 
 ### Community 109 - "Community 109"
 
 Cohesion: 1.0
-Nodes (1): Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.
+Nodes (1): Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…
 
 ### Community 110 - "Community 110"
 
 Cohesion: 1.0
-Nodes (1): Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…
+Nodes (1): AC 1: WHEN an existing Google user signs in, THE SYSTEM SHALL return HTTP 200…
 
 ### Community 111 - "Community 111"
 
 Cohesion: 1.0
-Nodes (1): Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…
+Nodes (1): AC 2: WHEN an existing Facebook user signs in, THE SYSTEM SHALL return HTTP 200…
 
 ### Community 112 - "Community 112"
 
 Cohesion: 1.0
-Nodes (1): AC 1: WHEN a registered user requests a password reset link/token for their…
+Nodes (1): AC 3: WHEN an existing Email/Password user signs in via POST…
 
 ### Community 113 - "Community 113"
 
 Cohesion: 1.0
-Nodes (1): AC 2: WHEN a reset request is submitted for a non-existent email THE SYSTEM…
+Nodes (1): AC 4 (Account Linking Flow A1): WHEN an existing user registered via email…
 
 ### Community 114 - "Community 114"
 
 Cohesion: 1.0
-Nodes (1): AC 3: WHEN a user submits a valid reset token and strong new password THE…
+Nodes (1): Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.
 
 ### Community 115 - "Community 115"
 
 Cohesion: 1.0
-Nodes (1): AC 4: WHEN an invalid token or token of wrong type (e.g. access token) is…
+Nodes (1): Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.
 
 ### Community 116 - "Community 116"
 
 Cohesion: 1.0
-Nodes (1): AC 5: WHEN a new password does not satisfy password policy (min 8 chars, 1…
+Nodes (1): Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…
 
 ### Community 117 - "Community 117"
 
 Cohesion: 1.0
-Nodes (1): AC 1: GIVEN an authenticated user WHEN they query GET /api/v1/users/me or…
+Nodes (1): Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…
 
 ### Community 118 - "Community 118"
 
 Cohesion: 1.0
-Nodes (1): AC 2: GIVEN a user completing onboarding on SCR-AUTH-007 WHEN they submit POST…
+Nodes (1): AC 1: WHEN a registered user requests a password reset link/token for their…
 
 ### Community 119 - "Community 119"
 
 Cohesion: 1.0
-Nodes (1): AC 3: GIVEN a profile update request with invalid display name length (< 2…
+Nodes (1): AC 2: WHEN a reset request is submitted for a non-existent email THE SYSTEM…
 
 ### Community 120 - "Community 120"
 
 Cohesion: 1.0
-Nodes (1): AC 4: GIVEN tenant-scoped requests THE SYSTEM SHALL enforce multi-tenant role-…
+Nodes (1): AC 3: WHEN a user submits a valid reset token and strong new password THE…
 
 ### Community 121 - "Community 121"
 
 Cohesion: 1.0
-Nodes (1): AC 1: GIVEN an authenticated registered user WHEN they request GET…
+Nodes (1): AC 4: WHEN an invalid token or token of wrong type (e.g. access token) is…
 
 ### Community 122 - "Community 122"
 
 Cohesion: 1.0
-Nodes (1): AC 2: GIVEN an authenticated user updating their profile details WHEN they…
+Nodes (1): AC 5: WHEN a new password does not satisfy password policy (min 8 chars, 1…
 
 ### Community 123 - "Community 123"
 
 Cohesion: 1.0
-Nodes (1): AC 3: GIVEN a profile update request with invalid full name length (< 2…
+Nodes (1): AC 1: GIVEN an authenticated user WHEN they query GET /api/v1/users/me or…
 
 ### Community 124 - "Community 124"
 
 Cohesion: 1.0
-Nodes (1): AC 4: GIVEN an unauthenticated request to profile endpoints without user…
+Nodes (1): AC 2: GIVEN a user completing onboarding on SCR-AUTH-007 WHEN they submit POST…
 
 ### Community 125 - "Community 125"
 
 Cohesion: 1.0
-Nodes (1): UC-064: GET /api/v1/dashboard/summary calculates total_vehicles, total_drivers,…
+Nodes (1): AC 3: GIVEN a profile update request with invalid display name length (< 2…
 
 ### Community 126 - "Community 126"
 
 Cohesion: 1.0
-Nodes (1): UC-064: Requests for Org 2 return only Org 2's metrics.
+Nodes (1): AC 4: GIVEN tenant-scoped requests THE SYSTEM SHALL enforce multi-tenant role-…
 
 ### Community 127 - "Community 127"
 
 Cohesion: 1.0
-Nodes (1): UC-064: Empty organization returns 0 stats so client can render onboarding card.
+Nodes (1): AC 1: GIVEN an authenticated registered user WHEN they request GET…
 
 ### Community 128 - "Community 128"
 
 Cohesion: 1.0
-Nodes (1): UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is…
+Nodes (1): AC 2: GIVEN an authenticated user updating their profile details WHEN they…
 
 ### Community 129 - "Community 129"
 
 Cohesion: 1.0
-Nodes (1): Test 1: Verify all 7 core data models instantiate clean database tables.
+Nodes (1): AC 3: GIVEN a profile update request with invalid full name length (< 2…
 
 ### Community 130 - "Community 130"
 
 Cohesion: 1.0
-Nodes (1): Test 2: Verify database seeding populates master vehicle catalogue idempotently.
+Nodes (1): AC 4: GIVEN an unauthenticated request to profile endpoints without user…
 
 ### Community 131 - "Community 131"
 
 Cohesion: 1.0
-Nodes (1): Test 3: Verify POST /api/v1/admin/seed endpoint.
+Nodes (1): UC-064: GET /api/v1/dashboard/summary calculates total_vehicles, total_drivers,…
 
 ### Community 132 - "Community 132"
 
 Cohesion: 1.0
-Nodes (1): UC-034: GET /api/v1/maintenance/schedules should auto-populate schedule…
+Nodes (1): UC-064: Requests for Org 2 return only Org 2's metrics.
 
 ### Community 133 - "Community 133"
 
 Cohesion: 1.0
-Nodes (1): UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets…
+Nodes (1): UC-064: Empty organization returns 0 stats so client can render onboarding card.
 
 ### Community 134 - "Community 134"
 
 Cohesion: 1.0
-Nodes (1): UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.
+Nodes (1): UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is…
 
 ### Community 135 - "Community 135"
 
 Cohesion: 1.0
-Nodes (1): UC-034: Tenant cross-access rejected.
+Nodes (1): Test 1: Verify all 7 core data models instantiate clean database tables.
 
 ### Community 136 - "Community 136"
 
 Cohesion: 1.0
-Nodes (1): UC-035: POST /api/v1/maintenance/schedules creates custom schedule with default…
+Nodes (1): Test 2: Verify database seeding populates master vehicle catalogue idempotently.
 
 ### Community 137 - "Community 137"
 
 Cohesion: 1.0
-Nodes (1): UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and…
+Nodes (1): Test 3: Verify POST /api/v1/admin/seed endpoint.
 
 ### Community 138 - "Community 138"
 
 Cohesion: 1.0
-Nodes (1): UC-035: Rejects zero/negative intervals or empty task names with 422.
+Nodes (1): UC-034: GET /api/v1/maintenance/schedules should auto-populate schedule…
 
 ### Community 139 - "Community 139"
 
 Cohesion: 1.0
-Nodes (1): UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and…
+Nodes (1): UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets…
 
 ### Community 140 - "Community 140"
 
 Cohesion: 1.0
-Nodes (1): UC-035: DELETE /api/v1/maintenance/schedules/{id} soft-deletes schedule task.
+Nodes (1): UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.
 
 ### Community 141 - "Community 141"
 
 Cohesion: 1.0
-Nodes (1): UC-035: Header validation and tenant cross-access isolation.
+Nodes (1): UC-034: Tenant cross-access rejected.
 
 ### Community 142 - "Community 142"
 
 Cohesion: 1.0
-Nodes (1): UC-036: POST /api/v1/maintenance logs service record and updates linked…
+Nodes (1): UC-035: POST /api/v1/maintenance/schedules creates custom schedule with default…
 
 ### Community 143 - "Community 143"
 
 Cohesion: 1.0
-Nodes (1): UC-036: Odometer reading > current_odometer_km updates vehicle…
+Nodes (1): UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and…
 
 ### Community 144 - "Community 144"
 
 Cohesion: 1.0
-Nodes (1): UC-036: Omitting maintenance_schedule_id matches schedule item by task name…
+Nodes (1): UC-035: Rejects zero/negative intervals or empty task names with 422.
 
 ### Community 145 - "Community 145"
 
 Cohesion: 1.0
-Nodes (1): UC-036: Rejects negative cost, negative odometer, whitespace service_type, or…
+Nodes (1): UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and…
 
 ### Community 146 - "Community 146"
 
 Cohesion: 1.0
-Nodes (1): UC-036: Enforces X-Organization-ID header presence and cross-tenant access…
+Nodes (1): UC-035: DELETE /api/v1/maintenance/schedules/{id} soft-deletes schedule task.
 
 ### Community 147 - "Community 147"
 
 Cohesion: 1.0
-Nodes (1): UC-037: GET /api/v1/maintenance/records retrieves service records sorted by…
+Nodes (1): UC-035: Header validation and tenant cross-access isolation.
 
 ### Community 148 - "Community 148"
 
 Cohesion: 1.0
-Nodes (1): UC-037: Pagination limit and offset parameters operate correctly.
+Nodes (1): UC-036: POST /api/v1/maintenance logs service record and updates linked…
 
 ### Community 149 - "Community 149"
 
 Cohesion: 1.0
-Nodes (1): UC-037: Returns 404 when vehicle_id does not exist in active organization.
+Nodes (1): UC-036: Odometer reading > current_odometer_km updates vehicle…
 
 ### Community 150 - "Community 150"
 
 Cohesion: 1.0
-Nodes (1): UC-037: Header requirements and cross-tenant boundaries are strictly enforced.
+Nodes (1): UC-036: Omitting maintenance_schedule_id matches schedule item by task name…
 
 ### Community 151 - "Community 151"
 
 Cohesion: 1.0
-Nodes (1): UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids…
+Nodes (1): UC-036: Rejects negative cost, negative odometer, whitespace service_type, or…
 
 ### Community 152 - "Community 152"
 
 Cohesion: 1.0
-Nodes (1): UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific…
+Nodes (1): UC-036: Enforces X-Organization-ID header presence and cross-tenant access…
 
 ### Community 153 - "Community 153"
 
 Cohesion: 1.0
-Nodes (1): UC-038: Returns 404 when vehicle_id is not found in active organization.
+Nodes (1): UC-037: GET /api/v1/maintenance/records retrieves service records sorted by…
 
 ### Community 154 - "Community 154"
 
 Cohesion: 1.0
-Nodes (1): UC-038: Returns 404 when one or more schedule_ids do not belong to the vehicle.
+Nodes (1): UC-037: Pagination limit and offset parameters operate correctly.
 
 ### Community 155 - "Community 155"
 
 Cohesion: 1.0
-Nodes (1): UC-038: Headers and cross-tenant boundaries are strictly enforced.
+Nodes (1): UC-037: Returns 404 when vehicle_id does not exist in active organization.
 
 ### Community 156 - "Community 156"
 
 Cohesion: 1.0
-Nodes (1): UC-014: POST /api/v1/organizations creates commercial organization and sets…
+Nodes (1): UC-037: Header requirements and cross-tenant boundaries are strictly enforced.
 
 ### Community 157 - "Community 157"
 
 Cohesion: 1.0
-Nodes (1): UC-014: POST /api/v1/organizations/personal auto-creates personal organization…
+Nodes (1): UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids…
 
 ### Community 158 - "Community 158"
 
 Cohesion: 1.0
-Nodes (1): UC-014: Blank or whitespace organization name rejected with HTTP 422.
+Nodes (1): UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific…
 
 ### Community 159 - "Community 159"
 
 Cohesion: 1.0
-Nodes (1): UC-014: GET /api/v1/organizations?user_id={id} returns list of user…
+Nodes (1): UC-038: Returns 404 when vehicle_id is not found in active organization.
 
 ### Community 160 - "Community 160"
 
 Cohesion: 1.0
-Nodes (1): UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.
+Nodes (1): UC-038: Returns 404 when one or more schedule_ids do not belong to the vehicle.
 
 ### Community 161 - "Community 161"
 
 Cohesion: 1.0
-Nodes (1): UC-015: POST /api/v1/organizations/switch switches active context for valid…
+Nodes (1): UC-038: Headers and cross-tenant boundaries are strictly enforced.
 
 ### Community 162 - "Community 162"
 
 Cohesion: 1.0
-Nodes (1): UC-015: Switch attempt to organization owned by another user yields HTTP 403…
+Nodes (1): UC-014: POST /api/v1/organizations creates commercial organization and sets…
 
 ### Community 163 - "Community 163"
 
 Cohesion: 1.0
-Nodes (1): UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.
+Nodes (1): UC-014: POST /api/v1/organizations/personal auto-creates personal organization…
 
 ### Community 164 - "Community 164"
 
 Cohesion: 1.0
-Nodes (1): UC-015: GET /api/v1/organizations/active returns current primary organization…
+Nodes (1): UC-014: Blank or whitespace organization name rejected with HTTP 422.
 
 ### Community 165 - "Community 165"
 
 Cohesion: 1.0
-Nodes (1): UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404…
+Nodes (1): UC-014: GET /api/v1/organizations?user_id={id} returns list of user…
 
 ### Community 166 - "Community 166"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Owner can create organization invitation, generating a secure 64-char…
+Nodes (1): UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.
 
 ### Community 167 - "Community 167"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable…
+Nodes (1): UC-015: POST /api/v1/organizations/switch switches active context for valid…
 
 ### Community 168 - "Community 168"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Inviting with unsupported role string yields HTTP 422 Unprocessable…
+Nodes (1): UC-015: Switch attempt to organization owned by another user yields HTTP 403…
 
 ### Community 169 - "Community 169"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Re-inviting same email updates existing invitation token and TTL…
+Nodes (1): UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.
 
 ### Community 170 - "Community 170"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Non-owner caller attempting to send invitation yields HTTP 403…
+Nodes (1): UC-015: GET /api/v1/organizations/active returns current primary organization…
 
 ### Community 171 - "Community 171"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Owner can list all pending invitations for organization.
+Nodes (1): UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404…
 
 ### Community 172 - "Community 172"
 
 Cohesion: 1.0
-Nodes (1): UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.
+Nodes (1): UC-016: Owner can create organization invitation, generating a secure 64-char…
 
 ### Community 173 - "Community 173"
 
 Cohesion: 1.0
-Nodes (1): Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.
+Nodes (1): UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable…
 
 ### Community 174 - "Community 174"
 
 Cohesion: 1.0
-Nodes (1): Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant…
+Nodes (1): UC-016: Inviting with unsupported role string yields HTTP 422 Unprocessable…
 
 ### Community 175 - "Community 175"
 
 Cohesion: 1.0
-Nodes (1): Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.
+Nodes (1): UC-016: Re-inviting same email updates existing invitation token and TTL…
 
 ### Community 176 - "Community 176"
 
 Cohesion: 1.0
-Nodes (1): Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP…
+Nodes (1): UC-016: Non-owner caller attempting to send invitation yields HTTP 403…
 
 ### Community 177 - "Community 177"
 
 Cohesion: 1.0
-Nodes (1): Test 5: Verify custom make/model is dynamically indexed into VehicleType…
+Nodes (1): UC-016: Owner can list all pending invitations for organization.
 
 ### Community 178 - "Community 178"
 
 Cohesion: 1.0
-Nodes (1): Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in…
+Nodes (1): UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.
 
 ### Community 179 - "Community 179"
 
 Cohesion: 1.0
-Nodes (1): Test 2: Verify search query matches license plate, make, or model.
+Nodes (1): Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.
 
 ### Community 180 - "Community 180"
 
 Cohesion: 1.0
-Nodes (1): Test 3: Verify filtering by province (e.g. Sindh).
+Nodes (1): Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant…
 
 ### Community 181 - "Community 181"
 
 Cohesion: 1.0
-Nodes (1): Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle…
+Nodes (1): Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.
 
 ### Community 182 - "Community 182"
 
 Cohesion: 1.0
-Nodes (1): Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.
+Nodes (1): Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP…
 
 ### Community 183 - "Community 183"
 
 Cohesion: 1.0
-Nodes (1): Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.
+Nodes (1): Test 5: Verify custom make/model is dynamically indexed into VehicleType…
 
 ### Community 184 - "Community 184"
 
 Cohesion: 1.0
-Nodes (1): Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle…
+Nodes (1): Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in…
 
 ### Community 185 - "Community 185"
 
 Cohesion: 1.0
-Nodes (1): Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle…
+Nodes (1): Test 2: Verify search query matches license plate, make, or model.
 
 ### Community 186 - "Community 186"
 
 Cohesion: 1.0
-Nodes (1): Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403…
+Nodes (1): Test 3: Verify filtering by province (e.g. Sindh).
 
 ### Community 187 - "Community 187"
 
 Cohesion: 1.0
-Nodes (1): Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found.
+Nodes (1): Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle…
 
 ### Community 188 - "Community 188"
 
 Cohesion: 1.0
-Nodes (1): Test 4: Verify manual odometer update with discrepancy > 500 km generates an…
+Nodes (1): Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.
 
 ### Community 189 - "Community 189"
+
+Cohesion: 1.0
+Nodes (1): Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.
+
+### Community 190 - "Community 190"
+
+Cohesion: 1.0
+Nodes (1): Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle…
+
+### Community 191 - "Community 191"
+
+Cohesion: 1.0
+Nodes (1): Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle…
+
+### Community 192 - "Community 192"
+
+Cohesion: 1.0
+Nodes (1): Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403…
+
+### Community 193 - "Community 193"
+
+Cohesion: 1.0
+Nodes (1): Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found.
+
+### Community 194 - "Community 194"
+
+Cohesion: 1.0
+Nodes (1): Test 4: Verify manual odometer update with discrepancy > 500 km generates an…
+
+### Community 195 - "Community 195"
 
 Cohesion: 1.0
 Nodes (1): Test 5: Verify non-dictionary custom_specs payload returns HTTP 422…
 
 ## Knowledge Gaps
-- **617 isolated node(s):** `_PaletteSet`, `VeltricsColors`, `VeltricsTextStyles`, `VeltricsSpacing`, `VeltricsRadius` (+612 more)
+- **618 isolated node(s):** `_PaletteSet`, `VeltricsColors`, `VeltricsTextStyles`, `VeltricsSpacing`, `VeltricsRadius` (+613 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 50`** (2 nodes): `session.py`, `get_db()`
+- **Thin community `Community 56`** (2 nodes): `session.py`, `get_db()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (2 nodes): `get_cost_breakdown()`, `dashboard_service.py`
+- **Thin community `Community 57`** (2 nodes): `get_cost_breakdown()`, `dashboard_service.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (2 nodes): `MainActivity.kt`, `MainActivity`
+- **Thin community `Community 58`** (2 nodes): `MainActivity.kt`, `MainActivity`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (2 nodes): `dashboard_model.dart`, `DashboardSummaryModel`
+- **Thin community `Community 59`** (2 nodes): `dashboard_model.dart`, `DashboardSummaryModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (2 nodes): `organization_invitation_model.dart`, `OrganizationInvitationModel`
+- **Thin community `Community 60`** (2 nodes): `organization_invitation_model.dart`, `OrganizationInvitationModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (2 nodes): `organization_model.dart`, `OrganizationModel`
+- **Thin community `Community 61`** (2 nodes): `organization_model.dart`, `OrganizationModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (1 nodes): `__init__.py`
+- **Thin community `Community 62`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `__init__.py`
+- **Thin community `Community 63`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `run_and_report.py`
+- **Thin community `Community 64`** (1 nodes): `run_and_report.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `run_tests.py`
+- **Thin community `Community 65`** (1 nodes): `run_tests.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)…`
+- **Thin community `Community 66`** (1 nodes): `UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (1 nodes): `UC-004: User Password Authentication & Session Initiation Authenticates…`
+- **Thin community `Community 67`** (1 nodes): `UC-004: User Password Authentication & Session Initiation Authenticates…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (1 nodes): `UC-006: Forgot Password Request Issues a password reset JWT token with 5-minute…`
+- **Thin community `Community 68`** (1 nodes): `UC-006: Forgot Password Request Issues a password reset JWT token with 5-minute…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (1 nodes): `UC-006: Password Reset Execution Verifies reset token, validates password…`
+- **Thin community `Community 69`** (1 nodes): `UC-006: Password Reset Execution Verifies reset token, validates password…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (1 nodes): `UC-064: Get high-level KPI dashboard metrics summary for active organization.`
+- **Thin community `Community 70`** (1 nodes): `UC-064: Get high-level KPI dashboard metrics summary for active organization.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `UC-035: Create custom maintenance schedule task item for a vehicle.`
+- **Thin community `Community 71`** (1 nodes): `UC-035: Create custom maintenance schedule task item for a vehicle.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (1 nodes): `UC-035: Update schedule parameters (intervals, task name, active status) and…`
+- **Thin community `Community 72`** (1 nodes): `UC-035: Update schedule parameters (intervals, task name, active status) and…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `UC-035: Soft-delete schedule item.`
+- **Thin community `Community 73`** (1 nodes): `UC-035: Soft-delete schedule item.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `UC-037: Retrieve chronological service records for a vehicle within the active…`
+- **Thin community `Community 74`** (1 nodes): `UC-037: Retrieve chronological service records for a vehicle within the active…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (1 nodes): `UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.`
+- **Thin community `Community 75`** (1 nodes): `UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (1 nodes): `UC-014: Provision commercial or custom organization.`
+- **Thin community `Community 76`** (1 nodes): `UC-014: Provision commercial or custom organization.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (1 nodes): `UC-014: Auto-provision personal organization for a user during registration or…`
+- **Thin community `Community 77`** (1 nodes): `UC-014: Auto-provision personal organization for a user during registration or…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 72`** (1 nodes): `Retrieve organizations list.`
+- **Thin community `Community 78`** (1 nodes): `Retrieve organizations list.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (1 nodes): `UC-015: Switch active organization context for user.`
+- **Thin community `Community 79`** (1 nodes): `UC-015: Switch active organization context for user.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (1 nodes): `UC-015: Get active organization for user.`
+- **Thin community `Community 80`** (1 nodes): `UC-015: Get active organization for user.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (1 nodes): `Retrieve organization details by ID.`
+- **Thin community `Community 81`** (1 nodes): `Retrieve organization details by ID.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (1 nodes): `UC-016: Invite Team Member to Organization. Generates a secure 64-character…`
+- **Thin community `Community 82`** (1 nodes): `UC-016: Invite Team Member to Organization. Generates a secure 64-character…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (1 nodes): `UC-016: List pending organization invitations.`
+- **Thin community `Community 83`** (1 nodes): `UC-016: List pending organization invitations.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (1 nodes): `UC-118: Trigger Database Migration & Master Seeding Infrastructure. Pre-…`
+- **Thin community `Community 84`** (1 nodes): `UC-118: Trigger Database Migration & Master Seeding Infrastructure. Pre-…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (1 nodes): `UC-007: Fetch current user profile details.`
+- **Thin community `Community 85`** (1 nodes): `UC-007: Fetch current user profile details.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (1 nodes): `UC-007: Update current user profile (full name, phone, city, job role, avatar).`
+- **Thin community `Community 86`** (1 nodes): `UC-007: Update current user profile (full name, phone, city, job role, avatar).`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (1 nodes): `UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated…`
+- **Thin community `Community 87`** (1 nodes): `UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (1 nodes): `UC-007: Multi-tenant authorization boundary verification endpoint.`
+- **Thin community `Community 88`** (1 nodes): `UC-007: Multi-tenant authorization boundary verification endpoint.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (1 nodes): `UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.…`
+- **Thin community `Community 89`** (1 nodes): `UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (1 nodes): `UC-024: Register New Vehicle with organization quota validation & duplicate VIN…`
+- **Thin community `Community 90`** (1 nodes): `UC-024: Register New Vehicle with organization quota validation & duplicate VIN…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (1 nodes): `UC-025: List Organization Vehicles directory with status, search, fuel type,…`
+- **Thin community `Community 91`** (1 nodes): `UC-025: List Organization Vehicles directory with status, search, fuel type,…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 86`** (1 nodes): `UC-026: View Vehicle Detailed Overview. Enforces tenant isolation and returns…`
+- **Thin community `Community 92`** (1 nodes): `UC-026: View Vehicle Detailed Overview. Enforces tenant isolation and returns…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (1 nodes): `UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).`
+- **Thin community `Community 93`** (1 nodes): `UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (1 nodes): `UC-027: Update Vehicle Metadata & Specifications. Validates organization…`
+- **Thin community `Community 94`** (1 nodes): `UC-027: Update Vehicle Metadata & Specifications. Validates organization…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (1 nodes): `Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance…`
+- **Thin community `Community 95`** (1 nodes): `Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 90`** (1 nodes): `AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL create…`
+- **Thin community `Community 96`** (1 nodes): `AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL create…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 91`** (1 nodes): `AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL…`
+- **Thin community `Community 97`** (1 nodes): `AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 92`** (1 nodes): `AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook"…`
+- **Thin community `Community 98`** (1 nodes): `AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook"…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 93`** (1 nodes): `Alternate Flow A1: Account Linking If email matches existing account with…`
+- **Thin community `Community 99`** (1 nodes): `Alternate Flow A1: Account Linking If email matches existing account with…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 94`** (1 nodes): `Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad…`
+- **Thin community `Community 100`** (1 nodes): `Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (1 nodes): `AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return…`
+- **Thin community `Community 101`** (1 nodes): `AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (1 nodes): `Alternate Flow A1: Account Linking If user signed up via Google, submitting…`
+- **Thin community `Community 102`** (1 nodes): `Alternate Flow A1: Account Linking If user signed up via Google, submitting…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (1 nodes): `Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit)…`
+- **Thin community `Community 103`** (1 nodes): `Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit)…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (1 nodes): `Edge Case: Missing email or missing password for email auth provider returns…`
+- **Thin community `Community 104`** (1 nodes): `Edge Case: Missing email or missing password for email auth provider returns…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (1 nodes): `AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP…`
+- **Thin community `Community 105`** (1 nodes): `AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 100`** (1 nodes): `Edge Case: Incorrect password returns HTTP 401 Unauthorized.`
+- **Thin community `Community 106`** (1 nodes): `Edge Case: Incorrect password returns HTTP 401 Unauthorized.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 101`** (1 nodes): `Edge Case: Unregistered email returns HTTP 401 Unauthorized.`
+- **Thin community `Community 107`** (1 nodes): `Edge Case: Unregistered email returns HTTP 401 Unauthorized.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 102`** (1 nodes): `Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…`
+- **Thin community `Community 108`** (1 nodes): `Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 103`** (1 nodes): `Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…`
+- **Thin community `Community 109`** (1 nodes): `Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 104`** (1 nodes): `AC 1: WHEN an existing Google user signs in, THE SYSTEM SHALL return HTTP 200…`
+- **Thin community `Community 110`** (1 nodes): `AC 1: WHEN an existing Google user signs in, THE SYSTEM SHALL return HTTP 200…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 105`** (1 nodes): `AC 2: WHEN an existing Facebook user signs in, THE SYSTEM SHALL return HTTP 200…`
+- **Thin community `Community 111`** (1 nodes): `AC 2: WHEN an existing Facebook user signs in, THE SYSTEM SHALL return HTTP 200…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 106`** (1 nodes): `AC 3: WHEN an existing Email/Password user signs in via POST…`
+- **Thin community `Community 112`** (1 nodes): `AC 3: WHEN an existing Email/Password user signs in via POST…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 107`** (1 nodes): `AC 4 (Account Linking Flow A1): WHEN an existing user registered via email…`
+- **Thin community `Community 113`** (1 nodes): `AC 4 (Account Linking Flow A1): WHEN an existing user registered via email…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 108`** (1 nodes): `Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.`
+- **Thin community `Community 114`** (1 nodes): `Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 109`** (1 nodes): `Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.`
+- **Thin community `Community 115`** (1 nodes): `Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 110`** (1 nodes): `Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…`
+- **Thin community `Community 116`** (1 nodes): `Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 111`** (1 nodes): `Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…`
+- **Thin community `Community 117`** (1 nodes): `Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 112`** (1 nodes): `AC 1: WHEN a registered user requests a password reset link/token for their…`
+- **Thin community `Community 118`** (1 nodes): `AC 1: WHEN a registered user requests a password reset link/token for their…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 113`** (1 nodes): `AC 2: WHEN a reset request is submitted for a non-existent email THE SYSTEM…`
+- **Thin community `Community 119`** (1 nodes): `AC 2: WHEN a reset request is submitted for a non-existent email THE SYSTEM…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 114`** (1 nodes): `AC 3: WHEN a user submits a valid reset token and strong new password THE…`
+- **Thin community `Community 120`** (1 nodes): `AC 3: WHEN a user submits a valid reset token and strong new password THE…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 115`** (1 nodes): `AC 4: WHEN an invalid token or token of wrong type (e.g. access token) is…`
+- **Thin community `Community 121`** (1 nodes): `AC 4: WHEN an invalid token or token of wrong type (e.g. access token) is…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 116`** (1 nodes): `AC 5: WHEN a new password does not satisfy password policy (min 8 chars, 1…`
+- **Thin community `Community 122`** (1 nodes): `AC 5: WHEN a new password does not satisfy password policy (min 8 chars, 1…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 117`** (1 nodes): `AC 1: GIVEN an authenticated user WHEN they query GET /api/v1/users/me or…`
+- **Thin community `Community 123`** (1 nodes): `AC 1: GIVEN an authenticated user WHEN they query GET /api/v1/users/me or…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 118`** (1 nodes): `AC 2: GIVEN a user completing onboarding on SCR-AUTH-007 WHEN they submit POST…`
+- **Thin community `Community 124`** (1 nodes): `AC 2: GIVEN a user completing onboarding on SCR-AUTH-007 WHEN they submit POST…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 119`** (1 nodes): `AC 3: GIVEN a profile update request with invalid display name length (< 2…`
+- **Thin community `Community 125`** (1 nodes): `AC 3: GIVEN a profile update request with invalid display name length (< 2…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 120`** (1 nodes): `AC 4: GIVEN tenant-scoped requests THE SYSTEM SHALL enforce multi-tenant role-…`
+- **Thin community `Community 126`** (1 nodes): `AC 4: GIVEN tenant-scoped requests THE SYSTEM SHALL enforce multi-tenant role-…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 121`** (1 nodes): `AC 1: GIVEN an authenticated registered user WHEN they request GET…`
+- **Thin community `Community 127`** (1 nodes): `AC 1: GIVEN an authenticated registered user WHEN they request GET…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 122`** (1 nodes): `AC 2: GIVEN an authenticated user updating their profile details WHEN they…`
+- **Thin community `Community 128`** (1 nodes): `AC 2: GIVEN an authenticated user updating their profile details WHEN they…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 123`** (1 nodes): `AC 3: GIVEN a profile update request with invalid full name length (< 2…`
+- **Thin community `Community 129`** (1 nodes): `AC 3: GIVEN a profile update request with invalid full name length (< 2…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 124`** (1 nodes): `AC 4: GIVEN an unauthenticated request to profile endpoints without user…`
+- **Thin community `Community 130`** (1 nodes): `AC 4: GIVEN an unauthenticated request to profile endpoints without user…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 125`** (1 nodes): `UC-064: GET /api/v1/dashboard/summary calculates total_vehicles, total_drivers,…`
+- **Thin community `Community 131`** (1 nodes): `UC-064: GET /api/v1/dashboard/summary calculates total_vehicles, total_drivers,…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 126`** (1 nodes): `UC-064: Requests for Org 2 return only Org 2's metrics.`
+- **Thin community `Community 132`** (1 nodes): `UC-064: Requests for Org 2 return only Org 2's metrics.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 127`** (1 nodes): `UC-064: Empty organization returns 0 stats so client can render onboarding card.`
+- **Thin community `Community 133`** (1 nodes): `UC-064: Empty organization returns 0 stats so client can render onboarding card.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 128`** (1 nodes): `UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is…`
+- **Thin community `Community 134`** (1 nodes): `UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 129`** (1 nodes): `Test 1: Verify all 7 core data models instantiate clean database tables.`
+- **Thin community `Community 135`** (1 nodes): `Test 1: Verify all 7 core data models instantiate clean database tables.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 130`** (1 nodes): `Test 2: Verify database seeding populates master vehicle catalogue idempotently.`
+- **Thin community `Community 136`** (1 nodes): `Test 2: Verify database seeding populates master vehicle catalogue idempotently.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 131`** (1 nodes): `Test 3: Verify POST /api/v1/admin/seed endpoint.`
+- **Thin community `Community 137`** (1 nodes): `Test 3: Verify POST /api/v1/admin/seed endpoint.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 132`** (1 nodes): `UC-034: GET /api/v1/maintenance/schedules should auto-populate schedule…`
+- **Thin community `Community 138`** (1 nodes): `UC-034: GET /api/v1/maintenance/schedules should auto-populate schedule…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 133`** (1 nodes): `UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets…`
+- **Thin community `Community 139`** (1 nodes): `UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 134`** (1 nodes): `UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.`
+- **Thin community `Community 140`** (1 nodes): `UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 135`** (1 nodes): `UC-034: Tenant cross-access rejected.`
+- **Thin community `Community 141`** (1 nodes): `UC-034: Tenant cross-access rejected.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 136`** (1 nodes): `UC-035: POST /api/v1/maintenance/schedules creates custom schedule with default…`
+- **Thin community `Community 142`** (1 nodes): `UC-035: POST /api/v1/maintenance/schedules creates custom schedule with default…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 137`** (1 nodes): `UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and…`
+- **Thin community `Community 143`** (1 nodes): `UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 138`** (1 nodes): `UC-035: Rejects zero/negative intervals or empty task names with 422.`
+- **Thin community `Community 144`** (1 nodes): `UC-035: Rejects zero/negative intervals or empty task names with 422.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 139`** (1 nodes): `UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and…`
+- **Thin community `Community 145`** (1 nodes): `UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 140`** (1 nodes): `UC-035: DELETE /api/v1/maintenance/schedules/{id} soft-deletes schedule task.`
+- **Thin community `Community 146`** (1 nodes): `UC-035: DELETE /api/v1/maintenance/schedules/{id} soft-deletes schedule task.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 141`** (1 nodes): `UC-035: Header validation and tenant cross-access isolation.`
+- **Thin community `Community 147`** (1 nodes): `UC-035: Header validation and tenant cross-access isolation.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 142`** (1 nodes): `UC-036: POST /api/v1/maintenance logs service record and updates linked…`
+- **Thin community `Community 148`** (1 nodes): `UC-036: POST /api/v1/maintenance logs service record and updates linked…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 143`** (1 nodes): `UC-036: Odometer reading > current_odometer_km updates vehicle…`
+- **Thin community `Community 149`** (1 nodes): `UC-036: Odometer reading > current_odometer_km updates vehicle…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 144`** (1 nodes): `UC-036: Omitting maintenance_schedule_id matches schedule item by task name…`
+- **Thin community `Community 150`** (1 nodes): `UC-036: Omitting maintenance_schedule_id matches schedule item by task name…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 145`** (1 nodes): `UC-036: Rejects negative cost, negative odometer, whitespace service_type, or…`
+- **Thin community `Community 151`** (1 nodes): `UC-036: Rejects negative cost, negative odometer, whitespace service_type, or…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 146`** (1 nodes): `UC-036: Enforces X-Organization-ID header presence and cross-tenant access…`
+- **Thin community `Community 152`** (1 nodes): `UC-036: Enforces X-Organization-ID header presence and cross-tenant access…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 147`** (1 nodes): `UC-037: GET /api/v1/maintenance/records retrieves service records sorted by…`
+- **Thin community `Community 153`** (1 nodes): `UC-037: GET /api/v1/maintenance/records retrieves service records sorted by…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 148`** (1 nodes): `UC-037: Pagination limit and offset parameters operate correctly.`
+- **Thin community `Community 154`** (1 nodes): `UC-037: Pagination limit and offset parameters operate correctly.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 149`** (1 nodes): `UC-037: Returns 404 when vehicle_id does not exist in active organization.`
+- **Thin community `Community 155`** (1 nodes): `UC-037: Returns 404 when vehicle_id does not exist in active organization.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 150`** (1 nodes): `UC-037: Header requirements and cross-tenant boundaries are strictly enforced.`
+- **Thin community `Community 156`** (1 nodes): `UC-037: Header requirements and cross-tenant boundaries are strictly enforced.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 151`** (1 nodes): `UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids…`
+- **Thin community `Community 157`** (1 nodes): `UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 152`** (1 nodes): `UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific…`
+- **Thin community `Community 158`** (1 nodes): `UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 153`** (1 nodes): `UC-038: Returns 404 when vehicle_id is not found in active organization.`
+- **Thin community `Community 159`** (1 nodes): `UC-038: Returns 404 when vehicle_id is not found in active organization.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 154`** (1 nodes): `UC-038: Returns 404 when one or more schedule_ids do not belong to the vehicle.`
+- **Thin community `Community 160`** (1 nodes): `UC-038: Returns 404 when one or more schedule_ids do not belong to the vehicle.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 155`** (1 nodes): `UC-038: Headers and cross-tenant boundaries are strictly enforced.`
+- **Thin community `Community 161`** (1 nodes): `UC-038: Headers and cross-tenant boundaries are strictly enforced.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 156`** (1 nodes): `UC-014: POST /api/v1/organizations creates commercial organization and sets…`
+- **Thin community `Community 162`** (1 nodes): `UC-014: POST /api/v1/organizations creates commercial organization and sets…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 157`** (1 nodes): `UC-014: POST /api/v1/organizations/personal auto-creates personal organization…`
+- **Thin community `Community 163`** (1 nodes): `UC-014: POST /api/v1/organizations/personal auto-creates personal organization…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 158`** (1 nodes): `UC-014: Blank or whitespace organization name rejected with HTTP 422.`
+- **Thin community `Community 164`** (1 nodes): `UC-014: Blank or whitespace organization name rejected with HTTP 422.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 159`** (1 nodes): `UC-014: GET /api/v1/organizations?user_id={id} returns list of user…`
+- **Thin community `Community 165`** (1 nodes): `UC-014: GET /api/v1/organizations?user_id={id} returns list of user…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 160`** (1 nodes): `UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.`
+- **Thin community `Community 166`** (1 nodes): `UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 161`** (1 nodes): `UC-015: POST /api/v1/organizations/switch switches active context for valid…`
+- **Thin community `Community 167`** (1 nodes): `UC-015: POST /api/v1/organizations/switch switches active context for valid…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 162`** (1 nodes): `UC-015: Switch attempt to organization owned by another user yields HTTP 403…`
+- **Thin community `Community 168`** (1 nodes): `UC-015: Switch attempt to organization owned by another user yields HTTP 403…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 163`** (1 nodes): `UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.`
+- **Thin community `Community 169`** (1 nodes): `UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 164`** (1 nodes): `UC-015: GET /api/v1/organizations/active returns current primary organization…`
+- **Thin community `Community 170`** (1 nodes): `UC-015: GET /api/v1/organizations/active returns current primary organization…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 165`** (1 nodes): `UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404…`
+- **Thin community `Community 171`** (1 nodes): `UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 166`** (1 nodes): `UC-016: Owner can create organization invitation, generating a secure 64-char…`
+- **Thin community `Community 172`** (1 nodes): `UC-016: Owner can create organization invitation, generating a secure 64-char…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 167`** (1 nodes): `UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable…`
+- **Thin community `Community 173`** (1 nodes): `UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 168`** (1 nodes): `UC-016: Inviting with unsupported role string yields HTTP 422 Unprocessable…`
+- **Thin community `Community 174`** (1 nodes): `UC-016: Inviting with unsupported role string yields HTTP 422 Unprocessable…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 169`** (1 nodes): `UC-016: Re-inviting same email updates existing invitation token and TTL…`
+- **Thin community `Community 175`** (1 nodes): `UC-016: Re-inviting same email updates existing invitation token and TTL…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 170`** (1 nodes): `UC-016: Non-owner caller attempting to send invitation yields HTTP 403…`
+- **Thin community `Community 176`** (1 nodes): `UC-016: Non-owner caller attempting to send invitation yields HTTP 403…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 171`** (1 nodes): `UC-016: Owner can list all pending invitations for organization.`
+- **Thin community `Community 177`** (1 nodes): `UC-016: Owner can list all pending invitations for organization.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 172`** (1 nodes): `UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.`
+- **Thin community `Community 178`** (1 nodes): `UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 173`** (1 nodes): `Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.`
+- **Thin community `Community 179`** (1 nodes): `Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 174`** (1 nodes): `Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant…`
+- **Thin community `Community 180`** (1 nodes): `Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 175`** (1 nodes): `Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.`
+- **Thin community `Community 181`** (1 nodes): `Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 176`** (1 nodes): `Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP…`
+- **Thin community `Community 182`** (1 nodes): `Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 177`** (1 nodes): `Test 5: Verify custom make/model is dynamically indexed into VehicleType…`
+- **Thin community `Community 183`** (1 nodes): `Test 5: Verify custom make/model is dynamically indexed into VehicleType…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 178`** (1 nodes): `Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in…`
+- **Thin community `Community 184`** (1 nodes): `Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 179`** (1 nodes): `Test 2: Verify search query matches license plate, make, or model.`
+- **Thin community `Community 185`** (1 nodes): `Test 2: Verify search query matches license plate, make, or model.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 180`** (1 nodes): `Test 3: Verify filtering by province (e.g. Sindh).`
+- **Thin community `Community 186`** (1 nodes): `Test 3: Verify filtering by province (e.g. Sindh).`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 181`** (1 nodes): `Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle…`
+- **Thin community `Community 187`** (1 nodes): `Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 182`** (1 nodes): `Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.`
+- **Thin community `Community 188`** (1 nodes): `Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 183`** (1 nodes): `Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.`
+- **Thin community `Community 189`** (1 nodes): `Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 184`** (1 nodes): `Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle…`
+- **Thin community `Community 190`** (1 nodes): `Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 185`** (1 nodes): `Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle…`
+- **Thin community `Community 191`** (1 nodes): `Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 186`** (1 nodes): `Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403…`
+- **Thin community `Community 192`** (1 nodes): `Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 187`** (1 nodes): `Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found.`
+- **Thin community `Community 193`** (1 nodes): `Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found.`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 188`** (1 nodes): `Test 4: Verify manual odometer update with discrepancy > 500 km generates an…`
+- **Thin community `Community 194`** (1 nodes): `Test 4: Verify manual odometer update with discrepancy > 500 km generates an…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 189`** (1 nodes): `Test 5: Verify non-dictionary custom_specs payload returns HTTP 422…`
+- **Thin community `Community 195`** (1 nodes): `Test 5: Verify non-dictionary custom_specs payload returns HTTP 422…`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.

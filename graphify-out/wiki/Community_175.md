@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py#L101) (0 connections)
+- [UC-016: Re-inviting same email updates existing invitation token and TTL…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py#L143) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc024.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc024.py)
+- [src/tests/unit/test_organizations_uc016.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc016.py)
 
 ## Audit Trail
 

@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store "facebook"…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py#L42) (0 connections)
+- [UC-026: View Vehicle Detailed Overview. Enforces tenant isolation and returns…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L197) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc002.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py)
+- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
 
 ## Audit Trail
 

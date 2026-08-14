@@ -1,77 +1,50 @@
 # Community 13
 
-> 29 nodes · cohesion 0.17
+> 26 nodes · cohesion 0.07
 
 ## Key Concepts
 
-- [ExpenseLogCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L5) (8 connections)
-- [ExpenseLogResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L14) (8 connections)
-- [ExpenseLogUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L44) (8 connections)
-- [ExpensePaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L31) (8 connections)
-- [ExpenseSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L38) (8 connections)
-- [QuickExpenseCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L53) (8 connections)
-- [UC-061: Soft Delete Expense Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L110) (8 connections)
-- [UC-062: Quick-Log Expense from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L124) (8 connections)
-- [UC-058: Log General Fleet Expense.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L29) (8 connections)
-- [UC-059: Expense Category & Cost Summary Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L43) (8 connections)
-- [UC-059: View Expense History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L66) (8 connections)
-- [UC-060: Edit Expense Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L96) (8 connections)
-- [expenses.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L1) (7 connections)
-- [expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L1) (7 connections)
-- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L12) (7 connections)
-- [expense_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L1) (6 connections)
-- [create_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L24) (4 connections)
-- [list_expenses()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L57) (4 connections)
-- [quick_create_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L119) (4 connections)
-- [log_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L9) (3 connections)
-- [quick_log_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L150) (3 connections)
-- [delete_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L105) (3 connections)
-- [get_expense_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L36) (3 connections)
-- [update_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L90) (3 connections)
-- [get_expenses()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L38) (2 connections)
-- *... and 4 more nodes in this community*
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class Config {
-        +expense_log.py()
-    }
-    class ExpenseLogCreate {
-        +expense_log.py()
-    }
-    class ExpenseLogResponse {
-        +expense_log.py()
-    }
-    class ExpenseLogUpdate {
-        +expense_log.py()
-    }
-    class ExpensePaginatedResponse {
-        +expense_log.py()
-    }
-    class ExpenseSummaryResponse {
-        +expense_log.py()
-    }
-    class QuickExpenseCreate {
-        +expense_log.py()
-    }
-```
+- [test_fuel_uc046.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L1) (8 connections)
+- [test_fuel_uc047.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L1) (8 connections)
+- [test_fuel_uc051.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L1) (7 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L54) (3 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L54) (3 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L53) (3 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L39) (2 connections)
+- [test_create_fuel_log_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L79) (2 connections)
+- [test_efficiency_calculation_on_subsequent_full_tank()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L166) (2 connections)
+- [test_linked_expense_auto_creation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L113) (2 connections)
+- [test_reject_lower_odometer()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L147) (2 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L39) (2 connections)
+- [test_distance_and_efficiency_calculation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L119) (2 connections)
+- [test_fuel_leak_anomaly_detection_alert()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L190) (2 connections)
+- [test_get_fuel_logs_history()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L79) (2 connections)
+- [test_partial_fill_up_skips_efficiency()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L157) (2 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L38) (2 connections)
+- [test_delete_nonexistent_fuel_log_returns_404()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L183) (2 connections)
+- [test_soft_delete_fuel_log_recalculates_chain()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L133) (2 connections)
+- [test_update_fuel_log_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L77) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L50) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py#L31) (1 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L50) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py#L31) (1 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py#L49) (1 connections)
+- *... and 1 more nodes in this community*
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 0]] (11 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\expenses.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\expense_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc046.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc046.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc047.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc051.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc051.py)
 
 ## Audit Trail
 
-- EXTRACTED: 70 (45%)
-- INFERRED: 86 (55%)
+- EXTRACTED: 57 (86%)
+- INFERRED: 9 (14%)
 - AMBIGUOUS: 0 (0%)
 
 ---

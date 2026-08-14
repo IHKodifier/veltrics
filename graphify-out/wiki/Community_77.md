@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-016: List pending organization invitations.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L262) (0 connections)
+- [UC-014: Auto-provision personal organization for a user during registration or…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L61) (0 connections)
 
 ## Relationships
 

@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L193) (0 connections)
+- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L132) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py)
+- [src/tests/unit/test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
 
 ## Audit Trail
 
