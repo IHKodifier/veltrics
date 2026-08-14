@@ -1,0 +1,36 @@
+{
+  "hotspots": [
+    {
+      "label": "AuthService",
+      "risk": 0.635,
+      "type": "CLASS"
+    },
+    {
+      "label": "Organization",
+      "risk": 0.212,
+      "type": "CLASS"
+    },
+    {
+      "label": "UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)\u2026",
+      "risk": 0.208,
+      "type": "UNKNOWN"
+    },
+    {
+      "label": "UC-004: User Password Authentication & Session Initiation Authenticates\u2026",
+      "risk": 0.208,
+      "type": "UNKNOWN"
+    },
+    {
+      "label": "UC-006: Forgot Password Request Issues a password reset JWT token with 5-minute\u2026",
+      "risk": 0.208,
+      "type": "UNKNOWN"
+    }
+  ],
+  "blast_radius": {
+    "Organization": 199,
+    "User": 115,
+    "Vehicle": 102,
+    "MaintenanceSchedule": 53,
+    "ServiceRecord": 40
+  }
+}
