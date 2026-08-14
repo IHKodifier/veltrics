@@ -17,6 +17,9 @@ from app.api.v1.uploads import router as uploads_router, UPLOAD_DIR
 from app.api.v1.notifications import router as notifications_router
 from app.api.v1.invitations import router as invitations_router
 from app.api.v1.sync import router as sync_router
+from app.api.v1.payments import router as payments_router
+from app.api.v1.ads import router as ads_router
+from app.api.v1.drivers import router as drivers_router
 from fastapi.staticfiles import StaticFiles
 
 from sqlalchemy import text
@@ -35,7 +38,10 @@ async def lifespan(app: FastAPI):
             "ALTER TABLE users ADD COLUMN city VARCHAR(128)",
             "ALTER TABLE users ADD COLUMN job_role VARCHAR(128)",
             "ALTER TABLE users ADD COLUMN avatar_url VARCHAR(1024)",
-            "ALTER TABLE users ADD COLUMN is_super_admin BOOLEAN DEFAULT 0"
+            "ALTER TABLE users ADD COLUMN is_super_admin BOOLEAN DEFAULT 0",
+            "ALTER TABLE organizations ADD COLUMN tier VARCHAR(20) DEFAULT 'free'",
+            "ALTER TABLE organizations ADD COLUMN ad_bonus_vehicles INTEGER DEFAULT 0",
+            "ALTER TABLE organizations ADD COLUMN ad_bonus_drivers INTEGER DEFAULT 0",
         ]:
             try:
                 conn.execute(text(statement))
@@ -76,6 +82,9 @@ app.include_router(uploads_router, prefix=settings.API_V1_STR)
 app.include_router(notifications_router, prefix=settings.API_V1_STR)
 app.include_router(invitations_router, prefix=settings.API_V1_STR)
 app.include_router(sync_router, prefix=settings.API_V1_STR)
+app.include_router(payments_router, prefix=settings.API_V1_STR)
+app.include_router(ads_router, prefix=settings.API_V1_STR)
+app.include_router(drivers_router, prefix=settings.API_V1_STR)
 
 app.mount("/uploads/receipts", StaticFiles(directory=UPLOAD_DIR), name="receipts")
 

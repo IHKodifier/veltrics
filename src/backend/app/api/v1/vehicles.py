@@ -84,8 +84,8 @@ def create_vehicle(req: VehicleCreateRequest, db: Session = Depends(get_db)):
 
     if active_vehicle_count >= org.max_vehicles:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Vehicle quota limit reached ({org.max_vehicles} vehicles max for your workspace tier)."
+            status_code=status.HTTP_402_PAYMENT_REQUIRED,
+            detail=f"VEHICLE_QUOTA_EXCEEDED: Vehicle quota limit reached ({org.max_vehicles} vehicles max for your workspace tier)."
         )
 
     # 3. Check duplicate VIN within organization
