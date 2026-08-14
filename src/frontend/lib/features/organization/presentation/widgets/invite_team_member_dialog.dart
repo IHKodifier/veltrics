@@ -305,7 +305,7 @@ class _InviteTeamMemberDialogState extends State<InviteTeamMemberDialog> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    item.email,
+                                    item.email ?? '',
                                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 13),
                                     overflow: TextOverflow.ellipsis,
                                   ),

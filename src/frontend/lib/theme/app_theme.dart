@@ -324,16 +324,16 @@ class VeltricsStatusColors {
 class VeltricsTheme {
   VeltricsTheme._();
 
-  static ThemeData light(VeltricsPalette palette) {
+  static ThemeData light(VeltricsPalette palette, {bool highContrast = false}) {
     final p = VeltricsColors.of(palette);
     final cs = _lightColorScheme(p);
-    return _buildTheme(colorScheme: cs, palette: p, isDark: false);
+    return _buildTheme(colorScheme: cs, palette: p, isDark: false, highContrast: highContrast);
   }
 
-  static ThemeData dark(VeltricsPalette palette) {
+  static ThemeData dark(VeltricsPalette palette, {bool highContrast = false}) {
     final p = VeltricsColors.of(palette);
     final cs = _darkColorScheme(p);
-    return _buildTheme(colorScheme: cs, palette: p, isDark: true);
+    return _buildTheme(colorScheme: cs, palette: p, isDark: true, highContrast: highContrast);
   }
 
   static ColorScheme _lightColorScheme(VeltricsPaletteSet p) => ColorScheme(
@@ -410,6 +410,7 @@ class VeltricsTheme {
     required ColorScheme colorScheme,
     required VeltricsPaletteSet palette,
     required bool isDark,
+    bool highContrast = false,
   }) {
     final primary = colorScheme.primary;
     final onPrimary = colorScheme.onPrimary;
