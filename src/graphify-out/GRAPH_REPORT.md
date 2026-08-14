@@ -1,12 +1,12 @@
 # Graph Report - E:\Non_Office\Dev_Space\vibe_skool\veltrics\src  (2026-08-14)
 
 ## Corpus Check
-- 163 files · ~268,757 words
+- 178 files · ~319,495 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1536 nodes · 3421 edges · 69 communities detected
-- Extraction: 48% EXTRACTED · 52% INFERRED · 0% AMBIGUOUS · INFERRED: 1795 edges (avg confidence: 0.54)
+- 1650 nodes · 3702 edges · 70 communities detected
+- Extraction: 48% EXTRACTED · 52% INFERRED · 0% AMBIGUOUS · INFERRED: 1939 edges (avg confidence: 0.54)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -79,52 +79,53 @@
 - [[_COMMUNITY_Community 66|Community 66]]
 - [[_COMMUNITY_Community 67|Community 67]]
 - [[_COMMUNITY_Community 68|Community 68]]
+- [[_COMMUNITY_Community 69|Community 69]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Organization` - 233 edges
-2. `User` - 149 edges
-3. `Vehicle` - 136 edges
-4. `MaintenanceSchedule` - 82 edges
-5. `AuditLog` - 76 edges
+1. `Organization` - 248 edges
+2. `User` - 169 edges
+3. `Vehicle` - 140 edges
+4. `AuditLog` - 93 edges
+5. `MaintenanceSchedule` - 82 edges
 6. `ServiceRecord` - 68 edges
-7. `Driver` - 48 edges
-8. `UserOrganization` - 42 edges
-9. `AuthService` - 35 edges
-10. `OrganizationInvitation` - 34 edges
+7. `UserOrganization` - 55 edges
+8. `Driver` - 54 edges
+9. `package:flutter/material.dart` - 36 edges
+10. `AuthService` - 35 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc046.py
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc048.py
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc047.py
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc014.py
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc035.py
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc015.py
 - `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc036.py
-- `seed_database()` --calls--> `setup_db()`  [INFERRED]
-  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc038.py
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\db\seed.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc016.py
+- `OrganizationInvitation` --calls--> `test_uc019_accept_invitation_expired()`  [INFERRED]
+  E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\organization_invitation.py → E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_org_uc017_023.py
 
 ## Communities
 
 ### Community 0 - "Community 0"
 
-Cohesion: 0.01
-Nodes (194): dart:convert, ../../data/expense_repository.dart, ../../data/fuel_repository.dart, ../../data/notification_repository.dart, ../../data/trip_repository.dart, ../../domain/expense_model.dart, ../../domain/fuel_log_model.dart, ../../domain/notification_model.dart (+186 more)
+Cohesion: 0.02
+Nodes (208): DashboardSummaryResponse, get_cost_breakdown(), get_dashboard_summary(), UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses)., UC-064: Get high-level KPI dashboard metrics summary for active organization., Driver, MaintenanceSchedule, ServiceRecord (+200 more)
 
 ### Community 1 - "Community 1"
 
-Cohesion: 0.04
-Nodes (157): AuditLog, UC-012: Audit Log Recording for Authentication Events.         Extracts event m, Base, DashboardSummaryResponse, get_cost_breakdown(), get_dashboard_summary(), UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses)., UC-064: Get high-level KPI dashboard metrics summary for active organization. (+149 more)
+Cohesion: 0.01
+Nodes (224): dart:convert, ../../data/expense_repository.dart, ../../data/maintenance_repository.dart, ../../data/notification_repository.dart, ../../data/trip_repository.dart, ../../domain/expense_model.dart, ../../domain/maintenance_model.dart, ../../domain/notification_model.dart (+216 more)
 
 ### Community 2 - "Community 2"
 
-Cohesion: 0.05
-Nodes (100): ExpenseLog, FuelLog, log_fuel_entry(), accept_organization_invitation(), get_invitation_by_token(), is_expired(), UC-020: Redeem Org Invitation Code for new user during signup/onboard., UC-019: Inspect / validate organization invitation token details.     Returns HT (+92 more)
+Cohesion: 0.04
+Nodes (119): AuditLog, AuditService, UC-012: Audit Log Recording for Authentication Events.         Extracts event m, Base, Exception, ExpenseLog, FuelLog, log_fuel_entry() (+111 more)
 
 ### Community 3 - "Community 3"
 
-Cohesion: 0.06
-Nodes (91): AuditService, log_event(), AuthSessionDTO, forgot_password(), ForgotPasswordRequest, ForgotPasswordResponse, login(), LoginRequest (+83 more)
+Cohesion: 0.07
+Nodes (81): log_event(), AuthSessionDTO, forgot_password(), ForgotPasswordRequest, ForgotPasswordResponse, login(), LoginRequest, logout() (+73 more)
 
 ### Community 4 - "Community 4"
 
@@ -133,28 +134,28 @@ Nodes (80): add_vehicle_screen.dart, ../../data/vehicle_repository.dart, ../doma
 
 ### Community 5 - "Community 5"
 
-Cohesion: 0.03
-Nodes (49): UC-118: Trigger Database Migration & Master Seeding Infrastructure.     Pre-pop, Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance T, seed_database(), trigger_seed_database(), setup_db(), test_dashboard_empty_organization(), test_dashboard_missing_header_rejected(), test_dashboard_tenant_isolation() (+41 more)
-
-### Community 6 - "Community 6"
-
 Cohesion: 0.04
 Nodes (46): ../../data/auth_repository.dart, ../../domain/user_model.dart, AuthRepository, Exception, jsonDecode, _register, AlertDialog, build (+38 more)
 
+### Community 6 - "Community 6"
+
+Cohesion: 0.1
+Nodes (40): cancel_subscription(), create_checkout_session(), execute_downgrade_protocol(), get_subscription_status(), PaymentService, reconcile_safepay_webhook(), verify_safepay_signature(), cancel_subscription() (+32 more)
+
 ### Community 7 - "Community 7"
-
-Cohesion: 0.05
-Nodes (42): ../../data/maintenance_repository.dart, ../../domain/maintenance_model.dart, Exception, MaintenanceRepository, build, dispose, initState, LogMaintenanceScreen (+34 more)
-
-### Community 8 - "Community 8"
 
 Cohesion: 0.11
 Nodes (33): create_fuel_log(), delete_fuel_log(), get_fuel_trends(), list_fuel_anomalies(), list_fuel_logs(), Config, FuelLogCreate, FuelLogResponse (+25 more)
 
-### Community 9 - "Community 9"
+### Community 8 - "Community 8"
 
 Cohesion: 0.16
 Nodes (33): Config, MileageSummaryResponse, QuickTripCreate, create_trip(), get_trips(), quick_log_trip(), start_trip(), TripCreate (+25 more)
+
+### Community 9 - "Community 9"
+
+Cohesion: 0.05
+Nodes (36): ../../data/fuel_repository.dart, ../../domain/fuel_log_model.dart, Exception, FuelRepository, AlertDialog, build, _buildDetailRow, _buildFuelLogCard (+28 more)
 
 ### Community 10 - "Community 10"
 
@@ -168,38 +169,38 @@ Nodes (33): adBg, adFg, build, buildTextTheme, _buildTheme, Container, dark, _da
 
 ### Community 12 - "Community 12"
 
+Cohesion: 0.14
+Nodes (25): AdService, submit_enterprise_inquiry(), verify_and_claim_ad_reward(), AdRewardVerifyRequest, AdRewardVerifyResponse, EnterpriseInquiryRequest, EnterpriseInquiryResponse, UC-100 & UC-120 & UC-122: Verify Rewarded Ad Completion Signature Token & Claim (+17 more)
+
+### Community 13 - "Community 13"
+
 Cohesion: 0.07
 Nodes (26): ../../data/organization_repository.dart, ../../domain/organization_invitation_model.dart, ../../domain/organization_model.dart, Exception, jsonDecode, OrganizationRepository, AlertDialog, build (+18 more)
 
-### Community 13 - "Community 13"
+### Community 14 - "Community 14"
 
 Cohesion: 0.17
 Nodes (23): Config, ExpenseLogCreate, ExpenseLogResponse, ExpenseLogUpdate, ExpensePaginatedResponse, ExpenseSummaryResponse, QuickExpenseCreate, get_expenses() (+15 more)
 
-### Community 14 - "Community 14"
-
-Cohesion: 0.16
-Nodes (22): AppNotification, DeviceTokenCreate, DeviceTokenResponse, NotificationPaginatedResponse, NotificationPreferencesUpdate, NotificationResponse, mark_all_as_read(), mark_as_read() (+14 more)
-
 ### Community 15 - "Community 15"
+
+Cohesion: 0.19
+Nodes (20): DeviceTokenCreate, DeviceTokenResponse, NotificationPaginatedResponse, NotificationPreferencesUpdate, NotificationResponse, mark_all_as_read(), mark_as_read(), register_device_token() (+12 more)
+
+### Community 16 - "Community 16"
 
 Cohesion: 0.23
 Nodes (19): bulk_accept_maintenance_schedules(), BulkAcceptSchedulesRequest, create_maintenance_schedule(), delete_maintenance_schedule(), get_maintenance_schedules(), get_service_history(), log_maintenance_task(), MaintenanceScheduleCreate (+11 more)
 
-### Community 16 - "Community 16"
+### Community 17 - "Community 17"
 
 Cohesion: 0.1
 Nodes (16): AC 3: WHEN an existing Email/Password user signs in via POST /api/v1/auth/login,, AC 4 (Account Linking Flow A1): WHEN an existing user registered via email, Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized., Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized., Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F, Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT, AC 1: WHEN an existing Google user signs in,     THE SYSTEM SHALL return HTTP 2, AC 2: WHEN an existing Facebook user signs in,     THE SYSTEM SHALL return HTTP (+8 more)
 
-### Community 17 - "Community 17"
+### Community 18 - "Community 18"
 
 Cohesion: 0.11
 Nodes (1): test_uc019_accept_invitation_expired()
-
-### Community 18 - "Community 18"
-
-Cohesion: 0.26
-Nodes (13): DeltaSyncResponse, execute_sync_batch(), get_delta_sync(), parse_iso_datetime(), UC-119: Offline Sync Batch Transaction Engine.     Processes operation envelopes, UC-096: Delta Sync Payload Fetching (Incremental Catch-up).     Returns active e, Helper to convert SQLAlchemy model instance to dict., serialize_model() (+5 more)
 
 ### Community 19 - "Community 19"
 
@@ -233,28 +234,28 @@ Nodes (10): AC 4: WHEN an invalid token or token of wrong type (e.g. access toke
 
 ### Community 25 - "Community 25"
 
-Cohesion: 0.17
-Nodes (8): Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit) retu, Edge Case: Missing email or missing password for email auth provider returns HTT, AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return HT, Alternate Flow A1: Account Linking     If user signed up via Google, submitting, test_uc003_account_linking_email(), test_uc003_email_registration_success(), test_uc003_missing_email_or_password(), test_uc003_weak_password_validation()
+Cohesion: 0.29
+Nodes (9): create_access_token(), create_test_user_and_org(), generate_admob_ssv_signature(), UC-089: Contact Enterprise Sales Inquiry Submission (>25 Fleets), test_uc086_087_vehicle_and_driver_quota_wall_enforcement(), test_uc089_enterprise_sales_inquiry_submission(), test_uc100_120_verify_ad_reward_signature_and_slot_increment(), test_uc101_pro_tier_ad_suppression_logic() (+1 more)
 
 ### Community 26 - "Community 26"
 
 Cohesion: 0.17
-Nodes (8): AC 3: GIVEN a profile update request with invalid display name length (< 2 chars, AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro, AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u, AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P, test_uc007_display_name_validation(), test_uc007_get_and_patch_user_profile(), test_uc007_multi_tenant_role_authorization(), test_uc007_profile_completion_endpoint()
+Nodes (8): Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit) retu, Edge Case: Missing email or missing password for email auth provider returns HTT, AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return HT, Alternate Flow A1: Account Linking     If user signed up via Google, submitting, test_uc003_account_linking_email(), test_uc003_email_registration_success(), test_uc003_missing_email_or_password(), test_uc003_weak_password_validation()
 
 ### Community 27 - "Community 27"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.17
-Nodes (8): AC 3: GIVEN a profile update request with invalid full name length (< 2 characte, AC 4: GIVEN an unauthenticated request to profile endpoints without user identit, AC 1: GIVEN an authenticated registered user     WHEN they request GET /api/v1/, AC 2: GIVEN an authenticated user updating their profile details     WHEN they, test_uc008_get_user_profile(), test_uc008_patch_user_profile(), test_uc008_profile_field_validation(), test_uc008_unauthenticated_access()
+Nodes (8): AC 3: GIVEN a profile update request with invalid display name length (< 2 chars, AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro, AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u, AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P, test_uc007_display_name_validation(), test_uc007_get_and_patch_user_profile(), test_uc007_multi_tenant_role_authorization(), test_uc007_profile_completion_endpoint()
 
 ### Community 28 - "Community 28"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.17
-Nodes (8): AC 4: GIVEN a newly issued access token from POST /api/v1/auth/refresh     WHEN, AC 1: GIVEN a valid active refresh token     WHEN submitted to POST /api/v1/aut, AC 2: GIVEN an invalid, expired, or non-refresh token (e.g. access or reset toke, AC 3: GIVEN a refresh token for a disabled or soft-deleted user account     WHE, test_uc009_access_token_authorization(), test_uc009_disabled_user_refresh_rejection(), test_uc009_invalid_or_expired_refresh_token(), test_uc009_valid_token_refresh()
+Nodes (8): AC 3: GIVEN a profile update request with invalid full name length (< 2 characte, AC 4: GIVEN an unauthenticated request to profile endpoints without user identit, AC 1: GIVEN an authenticated registered user     WHEN they request GET /api/v1/, AC 2: GIVEN an authenticated user updating their profile details     WHEN they, test_uc008_get_user_profile(), test_uc008_patch_user_profile(), test_uc008_profile_field_validation(), test_uc008_unauthenticated_access()
 
 ### Community 29 - "Community 29"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.17
-Nodes (8): AC 3: GIVEN a malformed or invalid refresh token     WHEN submitted to POST /ap, AC 4: GIVEN a refresh token that has already been revoked     WHEN logout is ca, AC 1: GIVEN an authenticated user session with a valid refresh token     WHEN s, AC 2: GIVEN a revoked refresh token     WHEN submitted to POST /api/v1/auth/ref, test_uc010_invalid_or_malformed_logout_token(), test_uc010_repeat_logout_idempotency(), test_uc010_revoked_token_refresh_rejection(), test_uc010_successful_logout_and_revocation()
+Nodes (8): AC 4: GIVEN a newly issued access token from POST /api/v1/auth/refresh     WHEN, AC 1: GIVEN a valid active refresh token     WHEN submitted to POST /api/v1/aut, AC 2: GIVEN an invalid, expired, or non-refresh token (e.g. access or reset toke, AC 3: GIVEN a refresh token for a disabled or soft-deleted user account     WHE, test_uc009_access_token_authorization(), test_uc009_disabled_user_refresh_rejection(), test_uc009_invalid_or_expired_refresh_token(), test_uc009_valid_token_refresh()
 
 ### Community 30 - "Community 30"
 _Unable to determine domain due to missing code entities._
@@ -264,21 +265,21 @@ Nodes (6): Edge Case: Facebook permission denied for email -> API returns HTTP 4
 ### Community 31 - "Community 31"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.2
-Nodes (1): setup_db()
+Nodes (7): UC-048 Acceptance Criterion: System returns fleet aggregate average efficiency a, UC-048 Efficiency Trends: Monthly fuel cost totals and efficiency trends per veh, UC-048 Main Flow: App queries GET /api/v1/fuel with pagination (page=1, limit=2), setup_db(), test_fleet_aggregate_average_efficiency(), test_fuel_efficiency_trends_monthly_aggregation(), test_get_fuel_logs_paginated()
 
 ### Community 32 - "Community 32"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.25
-Nodes (4): AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL     cr, AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL, test_uc001_existing_user_google_one_tap_returns_existing_data(), test_uc001_new_user_google_one_tap_creates_user_and_personal_org()
+Cohesion: 0.2
+Nodes (1): setup_db()
 
 ### Community 33 - "Community 33"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.25
-Nodes (0): 
+Nodes (4): AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL     cr, AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL, test_uc001_existing_user_google_one_tap_returns_existing_data(), test_uc001_new_user_google_one_tap_creates_user_and_personal_org()
 
 ### Community 34 - "Community 34"
 _Unable to determine domain due to missing code entities._
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (0): 
 
 ### Community 35 - "Community 35"
@@ -308,7 +309,7 @@ Nodes (0):
 
 ### Community 40 - "Community 40"
 
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (0): 
 
 ### Community 41 - "Community 41"
@@ -328,77 +329,77 @@ Nodes (0):
 
 ### Community 44 - "Community 44"
 
-Cohesion: 0.4
-Nodes (4): AuthSession, OrganizationModel, RefreshTokenTokens, UserModel
+Cohesion: 0.33
+Nodes (0): 
 
 ### Community 45 - "Community 45"
 _Automatically registers Flutter plugins with the platform activity so Dart code can access native plugin functionalities._
 Cohesion: 0.4
-Nodes (4): DeltaSyncResponseModel, SyncBatchResponseModel, SyncOperationEnvelopeModel, SyncOperationResultModel
+Nodes (4): AuthSession, OrganizationModel, RefreshTokenTokens, UserModel
 
 ### Community 46 - "Community 46"
 
-Cohesion: 0.5
-Nodes (3): FuelLogModel, FuelMonthlyTrendModel, FuelTrendsModel
+Cohesion: 0.4
+Nodes (4): DeltaSyncResponseModel, SyncBatchResponseModel, SyncOperationEnvelopeModel, SyncOperationResultModel
 
 ### Community 47 - "Community 47"
 
 Cohesion: 0.5
-Nodes (3): MileageSummaryModel, TripModel, TripSummaryModel
+Nodes (3): FuelLogModel, FuelMonthlyTrendModel, FuelTrendsModel
 
 ### Community 48 - "Community 48"
 
 Cohesion: 0.5
-Nodes (3): VehicleDetailModel, VehicleModel, VehicleTypeModel
+Nodes (3): MileageSummaryModel, TripModel, TripSummaryModel
 
 ### Community 49 - "Community 49"
 
-Cohesion: 0.67
-Nodes (0): 
+Cohesion: 0.5
+Nodes (3): VehicleDetailModel, VehicleModel, VehicleTypeModel
 
 ### Community 50 - "Community 50"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.67
-Nodes (2): UC-063: Upload receipt image file., upload_receipt()
+Nodes (0): 
 
 ### Community 51 - "Community 51"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.67
-Nodes (2): BaseSettings, Settings
+Nodes (2): UC-063: Upload receipt image file., upload_receipt()
 
 ### Community 52 - "Community 52"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.67
-Nodes (1): GeneratedPluginRegistrant
+Nodes (2): BaseSettings, Settings
 
 ### Community 53 - "Community 53"
 _Handles the primary screen and user interactions at app launch._
 Cohesion: 0.67
-Nodes (2): CostBreakdownItemModel, CostBreakdownModel
+Nodes (1): GeneratedPluginRegistrant
 
 ### Community 54 - "Community 54"
 
 Cohesion: 0.67
-Nodes (2): ExpenseModel, ExpenseSummaryModel
+Nodes (2): CostBreakdownItemModel, CostBreakdownModel
 
 ### Community 55 - "Community 55"
 
 Cohesion: 0.67
-Nodes (2): MaintenanceScheduleModel, ServiceRecordModel
+Nodes (2): ExpenseModel, ExpenseSummaryModel
 
 ### Community 56 - "Community 56"
 
 Cohesion: 0.67
-Nodes (2): NotificationModel, NotificationPaginatedModel
+Nodes (2): MaintenanceScheduleModel, ServiceRecordModel
 
 ### Community 57 - "Community 57"
 _Unable to determine domain due to missing code entities._
 Cohesion: 0.67
-Nodes (0): 
+Nodes (2): NotificationModel, NotificationPaginatedModel
 
 ### Community 58 - "Community 58"
 _Unable to determine domain due to missing code entities._
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 59 - "Community 59"
@@ -409,32 +410,32 @@ Nodes (0):
 ### Community 60 - "Community 60"
 _Unable to determine domain due to missing code entities._
 Cohesion: 1.0
-Nodes (1): MainActivity
+Nodes (0): 
 
 ### Community 61 - "Community 61"
 
 Cohesion: 1.0
-Nodes (1): DashboardSummaryModel
+Nodes (1): MainActivity
 
 ### Community 62 - "Community 62"
 
 Cohesion: 1.0
-Nodes (1): OrganizationInvitationModel
+Nodes (1): DashboardSummaryModel
 
 ### Community 63 - "Community 63"
 
 Cohesion: 1.0
-Nodes (1): OrganizationModel
+Nodes (1): OrganizationInvitationModel
 
 ### Community 64 - "Community 64"
 
 Cohesion: 1.0
-Nodes (1): VehicleDocumentModel
+Nodes (1): OrganizationModel
 
 ### Community 65 - "Community 65"
 _Unable to determine domain due to missing code entities._
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): VehicleDocumentModel
 
 ### Community 66 - "Community 66"
 _Unable to determine domain due to missing code entities._
@@ -451,28 +452,33 @@ _Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 69 - "Community 69"
+_Unable to determine domain due to missing code entities._
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **464 isolated node(s):** `UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)`, `UC-118: Trigger Database Migration & Master Seeding Infrastructure.     Pre-pop`, `UC-063: Upload receipt image file.`, `Config`, `Config` (+459 more)
+- **491 isolated node(s):** `UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)`, `UC-080: Initiate Pro Subscription Checkout (Safepay)`, `UC-118: Trigger Database Migration & Master Seeding Infrastructure.     Pre-pop`, `UC-063: Upload receipt image file.`, `Config` (+486 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 58`** (2 nodes): `session.py`, `get_db()`
+- **Thin community `Community 59`** (2 nodes): `session.py`, `get_db()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (2 nodes): `get_cost_breakdown()`, `dashboard_service.py`
+- **Thin community `Community 60`** (2 nodes): `get_cost_breakdown()`, `dashboard_service.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (2 nodes): `MainActivity.kt`, `MainActivity`
+- **Thin community `Community 61`** (2 nodes): `MainActivity.kt`, `MainActivity`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (2 nodes): `dashboard_model.dart`, `DashboardSummaryModel`
+- **Thin community `Community 62`** (2 nodes): `dashboard_model.dart`, `DashboardSummaryModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (2 nodes): `organization_invitation_model.dart`, `OrganizationInvitationModel`
+- **Thin community `Community 63`** (2 nodes): `organization_invitation_model.dart`, `OrganizationInvitationModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (2 nodes): `organization_model.dart`, `OrganizationModel`
+- **Thin community `Community 64`** (2 nodes): `organization_model.dart`, `OrganizationModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (2 nodes): `vehicle_document_model.dart`, `VehicleDocumentModel`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `__init__.py`
+- **Thin community `Community 65`** (2 nodes): `vehicle_document_model.dart`, `VehicleDocumentModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 66`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `run_and_report.py`
+- **Thin community `Community 67`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `run_tests.py`
+- **Thin community `Community 68`** (1 nodes): `run_and_report.py`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 69`** (1 nodes): `run_tests.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.

@@ -1,42 +1,70 @@
 # Community 16
 
-> 20 nodes · cohesion 0.10
+> 23 nodes · cohesion 0.23
 
 ## Key Concepts
 
-- [test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L1) (11 connections)
-- [AC 3: WHEN an existing Email/Password user signs in via POST /api/v1/auth/login,](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L106) (3 connections)
-- [AC 4 (Account Linking Flow A1): WHEN an existing user registered via email](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L134) (3 connections)
-- [Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L176) (3 connections)
-- [Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L195) (3 connections)
-- [Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L207) (3 connections)
-- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L234) (3 connections)
-- [AC 1: WHEN an existing Google user signs in,     THE SYSTEM SHALL return HTTP 2](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L45) (3 connections)
-- [AC 2: WHEN an existing Facebook user signs in,     THE SYSTEM SHALL return HTTP](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L76) (3 connections)
-- [test_uc005_account_linking_multi_provider()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L133) (2 connections)
-- [test_uc005_disabled_user_account()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L206) (2 connections)
-- [test_uc005_incorrect_password()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L175) (2 connections)
-- [test_uc005_nonexistent_email()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L194) (2 connections)
-- [test_uc005_sign_in_email_password_existing_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L105) (2 connections)
-- [test_uc005_sign_in_facebook_existing_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L75) (2 connections)
-- [test_uc005_sign_in_google_existing_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L44) (2 connections)
-- [test_uc005_soft_deleted_user_account()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L233) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L41) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L25) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L35) (1 connections)
+- [UC-035: Create custom maintenance schedule task item for a vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L160) (10 connections)
+- [UC-035: Update schedule parameters (intervals, task name, active status) and rec](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L207) (10 connections)
+- [UC-035: Soft-delete schedule item.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L255) (10 connections)
+- [UC-037: Retrieve chronological service records for a vehicle within the active o](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L285) (10 connections)
+- [UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L320) (10 connections)
+- [maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L1) (8 connections)
+- [maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L1) (8 connections)
+- [verify_organization_header()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L22) (8 connections)
+- [BulkAcceptSchedulesRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L54) (7 connections)
+- [MaintenanceScheduleCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L22) (7 connections)
+- [MaintenanceScheduleResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L5) (7 connections)
+- [MaintenanceScheduleUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L38) (7 connections)
+- [ServiceRecordCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L59) (7 connections)
+- [ServiceRecordResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L78) (7 connections)
+- [bulk_accept_maintenance_schedules()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L315) (4 connections)
+- [create_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L155) (4 connections)
+- [delete_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L250) (4 connections)
+- [get_maintenance_schedules()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L31) (3 connections)
+- [get_service_history()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L278) (3 connections)
+- [log_maintenance_task()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L85) (3 connections)
+- [update_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L201) (3 connections)
+- [validate_service_type()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L72) (1 connections)
+- [validate_task_name()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L32) (1 connections)
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class BulkAcceptSchedulesRequest {
+        +maintenance.py()
+    }
+    class MaintenanceScheduleCreate {
+        +maintenance.py()
+    }
+    class MaintenanceScheduleResponse {
+        +maintenance.py()
+    }
+    class MaintenanceScheduleUpdate {
+        +maintenance.py()
+    }
+    class ServiceRecordCreate {
+        +maintenance.py()
+    }
+    class ServiceRecordResponse {
+        +maintenance.py()
+    }
+```
 
 ## Relationships
 
-- [[Community 1]] (8 shared connections)
+- [[Community 15]] (35 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py)
 
 ## Audit Trail
 
-- EXTRACTED: 38 (70%)
-- INFERRED: 16 (30%)
+- EXTRACTED: 62 (44%)
+- INFERRED: 80 (56%)
 - AMBIGUOUS: 0 (0%)
 
 ---

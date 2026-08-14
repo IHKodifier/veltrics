@@ -1,47 +1,27 @@
 # Community 18
 
-> 17 nodes · cohesion 0.26
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 
-- [UC-119: Offline Sync Batch Transaction Engine.     Processes operation envelopes](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L106) (15 connections)
-- [UC-096: Delta Sync Payload Fetching (Incremental Catch-up).     Returns active e](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L268) (15 connections)
-- [Helper to convert SQLAlchemy model instance to dict.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L95) (15 connections)
-- [execute_sync_batch()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L105) (8 connections)
-- [DeltaSyncResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L28) (6 connections)
-- [get_delta_sync()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L263) (6 connections)
-- [SyncBatchResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L24) (6 connections)
-- [SyncOperationResult](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L17) (6 connections)
-- [utc_now()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L10) (6 connections)
-- [sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L1) (5 connections)
-- [SyncBatchRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L13) (5 connections)
-- [sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L1) (4 connections)
-- [serialize_model()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L94) (4 connections)
-- [user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L1) (3 connections)
-- [parse_iso_datetime()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L74) (3 connections)
-- [SyncOperationEnvelope](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L5) (2 connections)
-- [generate_uuid()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L7) (1 connections)
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class DeltaSyncResponse {
-        +sync.py()
-    }
-    class SyncBatchRequest {
-        +sync.py()
-    }
-    class SyncBatchResponse {
-        +sync.py()
-    }
-    class SyncOperationEnvelope {
-        +sync.py()
-    }
-    class SyncOperationResult {
-        +sync.py()
-    }
-```
+- [test_org_uc017_023.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L1) (18 connections)
+- [test_uc019_accept_invitation_expired()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L333) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L53) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L37) (1 connections)
+- [setup_database()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L47) (1 connections)
+- [test_uc017_edit_organization_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L214) (1 connections)
+- [test_uc017_edit_organization_invalid_currency()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L198) (1 connections)
+- [test_uc017_edit_organization_profile_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L164) (1 connections)
+- [test_uc018_invite_member_email_and_phone()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L227) (1 connections)
+- [test_uc018_invite_member_missing_contact()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L282) (1 connections)
+- [test_uc018_invite_member_resend_update()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L251) (1 connections)
+- [test_uc019_accept_invitation_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L295) (1 connections)
+- [test_uc020_redeem_invitation_code()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L366) (1 connections)
+- [test_uc021_remove_member_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L390) (1 connections)
+- [test_uc021_remove_owner_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L420) (1 connections)
+- [test_uc022_cancel_invitation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L433) (1 connections)
+- [test_uc023_soft_delete_organization_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L456) (1 connections)
+- [test_uc023_soft_delete_personal_org_blocked()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L482) (1 connections)
 
 ## Relationships
 
@@ -49,14 +29,12 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_org_uc017_023.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py)
 
 ## Audit Trail
 
-- EXTRACTED: 42 (38%)
-- INFERRED: 68 (62%)
+- EXTRACTED: 35 (97%)
+- INFERRED: 1 (3%)
 - AMBIGUOUS: 0 (0%)
 
 ---

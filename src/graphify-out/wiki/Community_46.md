@@ -1,13 +1,14 @@
 # Community 46
 
-> 4 nodes · cohesion 0.50
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 
-- [fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (3 connections)
-- [FuelLogModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
-- [FuelMonthlyTrendModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
-- [FuelTrendsModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [sync_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (4 connections)
+- [DeltaSyncResponseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
+- [SyncBatchResponseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
+- [SyncOperationEnvelopeModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
+- [SyncOperationResultModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
 
 ## Relationships
 
@@ -15,11 +16,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\fuel\domain\fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\sync\domain\sync_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 6 (100%)
+- EXTRACTED: 8 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

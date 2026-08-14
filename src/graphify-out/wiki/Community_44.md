@@ -1,14 +1,15 @@
 # Community 44
 
-> 5 nodes · cohesion 0.40
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 
-- [user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (4 connections)
-- [AuthSession](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
-- [OrganizationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
-- [RefreshTokenTokens](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
-- [UserModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [test_trip_uc057.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L1) (6 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L64) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L28) (1 connections)
+- [test_get_mileage_summary_all()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L74) (1 connections)
+- [test_get_mileage_summary_filtered_by_vehicle()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L101) (1 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L68) (1 connections)
 
 ## Relationships
 
@@ -16,11 +17,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\domain\user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_trip_uc057.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py)
 
 ## Audit Trail
 
-- EXTRACTED: 8 (100%)
+- EXTRACTED: 11 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

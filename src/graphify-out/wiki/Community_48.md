@@ -4,10 +4,10 @@
 
 ## Key Concepts
 
-- [vehicle_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (3 connections)
-- [VehicleDetailModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (1 connections)
-- [VehicleModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (1 connections)
-- [VehicleTypeModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (1 connections)
+- [trip_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (3 connections)
+- [MileageSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (1 connections)
+- [TripModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (1 connections)
+- [TripSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (1 connections)
 
 ## Relationships
 
@@ -15,7 +15,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\domain\vehicle_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\trip\domain\trip_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart)
 
 ## Audit Trail
 

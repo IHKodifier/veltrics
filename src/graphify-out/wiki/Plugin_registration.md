@@ -4,11 +4,11 @@
 
 ## Key Concepts
 
-- [sync_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (4 connections)
-- [DeltaSyncResponseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
-- [SyncBatchResponseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
-- [SyncOperationEnvelopeModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
-- [SyncOperationResultModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart) (1 connections)
+- [user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (4 connections)
+- [AuthSession](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [OrganizationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [RefreshTokenTokens](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [UserModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
 
 ## Relationships
 
@@ -16,7 +16,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\sync\domain\sync_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/sync/domain/sync_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\domain\user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart)
 
 ## Audit Trail
 

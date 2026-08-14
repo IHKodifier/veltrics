@@ -4,26 +4,26 @@
 
 ## Key Concepts
 
-- [test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L1) (7 connections)
-- [AC 3: GIVEN a profile update request with invalid display name length (< 2 chars](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L114) (3 connections)
-- [AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L133) (3 connections)
-- [AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L44) (3 connections)
-- [AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L87) (3 connections)
-- [test_uc007_display_name_validation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L113) (2 connections)
-- [test_uc007_get_and_patch_user_profile()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L43) (2 connections)
-- [test_uc007_multi_tenant_role_authorization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L132) (2 connections)
-- [test_uc007_profile_completion_endpoint()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L86) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L40) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L24) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L34) (1 connections)
+- [test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L1) (7 connections)
+- [Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit) retu](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L115) (3 connections)
+- [Edge Case: Missing email or missing password for email auth provider returns HTT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L146) (3 connections)
+- [AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return HT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L44) (3 connections)
+- [Alternate Flow A1: Account Linking     If user signed up via Google, submitting](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L83) (3 connections)
+- [test_uc003_account_linking_email()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L82) (2 connections)
+- [test_uc003_email_registration_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L43) (2 connections)
+- [test_uc003_missing_email_or_password()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L145) (2 connections)
+- [test_uc003_weak_password_validation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L114) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L40) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L24) (1 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L34) (1 connections)
 
 ## Relationships
 
-- [[Community 22]] (4 shared connections)
+- [[Community 25]] (4 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py)
 
 ## Audit Trail
 

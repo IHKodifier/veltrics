@@ -11,11 +11,11 @@ sequenceDiagram
     participant P2 as UC-014: Provision commercial or custom organization.
     participant P3 as User
     participant P4 as Vehicle
-    participant P5 as MaintenanceSchedule
-    participant P6 as AuditLog
+    participant P5 as AuditLog
+    participant P6 as MaintenanceSchedule
     participant P7 as ServiceRecord
-    participant P8 as Driver
-    participant P9 as UserOrganization
+    participant P8 as UserOrganization
+    participant P9 as Driver
     participant P10 as OrganizationInvitation
     participant P11 as FuelLog
     participant P12 as ExpenseLog
@@ -56,229 +56,244 @@ sequenceDiagram
     participant P47 as Helper to convert SQLAlchemy model instance to dict.
     participant P48 as UC-119: Offline Sync Batch Transaction Engine.     Processes operation envelopes
     participant P49 as UC-096: Delta Sync Payload Fetching (Incremental Catch-up).     Returns active e
-    participant P50 as UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.
-    participant P51 as UC-024: Register New Vehicle with organization quota validation & duplicate VIN
-    participant P52 as UC-025: List Organization Vehicles directory with status, search, fuel type, and
-    participant P53 as UC-026: View Vehicle Detailed Overview.     Enforces tenant isolation and retur
-    participant P54 as UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).
-    participant P55 as UC-027: Update Vehicle Metadata & Specifications.     Validates organization ow
-    participant P56 as UC-007: Fetch current user profile details.
-    participant P57 as UC-007: Update current user profile (full name, phone, city, job role, avatar).
-    participant P58 as UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated AuthSessio
-    participant P59 as UC-007: Multi-tenant authorization boundary verification endpoint.
-    participant P60 as UC-011: Account Deletion (GDPR Right to be Forgotten).     Soft-deletes user re
-    participant P61 as UC-013: Active Session Management & Device Tracking     Returns list of active
-    participant P62 as UC-013: Revoke Specific Device Session     Revokes the specified refresh token
-    participant P63 as UC-013 Alternate Flow A1: Revoke All Other Sessions     Revokes all active sess
-    participant P64 as UC-053: Get Trip Summary & Tax Deduction Metrics.
-    participant P65 as UC-052: Start GPS Trip Tracking session.
-    participant P66 as UC-052: Stop active GPS Trip Tracking session and calculate distance.
-    participant P67 as UC-052 / UC-053: Create trip entry (Manual or completed GPS trip).
-    participant P68 as UC-053: View Trip History.
-    participant P69 as UC-054: Edit Trip Entry & Classification.
-    participant P70 as UC-055: Soft Delete Trip Entry.
-    participant P71 as UC-056: Quick-Log Trip from Dashboard.
-    participant P72 as UC-057: View Distance & Mileage Summary Analytics.
-    participant P73 as register_or_login()
-    participant P74 as UC-014: Provision commercial or custom organization.
-    participant P75 as UC-014: Auto-provision personal organization for a user during registration or s
-    participant P76 as Retrieve organizations list.
-    participant P77 as UC-015: Switch active organization context for user.
-    participant P78 as UC-015: Get active organization for user.
-    participant P79 as Retrieve organization details by ID.
-    participant P80 as UC-016: Invite Team Member to Organization.     Generates a secure 64-character
-    participant P81 as UC-016: List pending organization invitations.
-    participant P82 as UC-019: Inspect / validate organization invitation token details.     Returns HT
-    participant P83 as UC-019: Accept Organization Invitation for existing authenticated user.
-    participant P84 as UC-020: Redeem Org Invitation Code for new user during signup/onboard.
-    participant P85 as UC-058: Log General Fleet Expense.
-    participant P86 as UC-059: Expense Category & Cost Summary Metrics.
-    participant P87 as UC-059: View Expense History.
-    participant P88 as UC-060: Edit Expense Entry.
-    participant P89 as UC-061: Soft Delete Expense Entry.
-    participant P90 as UC-062: Quick-Log Expense from Dashboard.
-    participant P91 as UC-048: View Fuel Efficiency Trends & Aggregate Metrics.
-    participant P92 as UC-050: Detect Fuel Anomaly & Theft Alerts - Fetch anomaly logs.
-    participant P93 as UC-050 (A1): Manager clears fuel anomaly flag.
-    participant P94 as UC-049: Fuel Receipt OCR Auto-Fill (Pro).
-    participant P95 as UC-046: Log Fuel Fill-Up Entry.     Automatically updates vehicle current odome
-    participant P96 as UC-047 / UC-048: View Fuel Log History with optional pagination.
-    participant P97 as UC-051: Edit Fuel Log Entry.     Updates entry, syncs linked ExpenseLog, and re
-    participant P98 as UC-051: Soft Delete Fuel Log Entry.     Soft-deletes entry and linked ExpenseLo
-    participant P99 as Test 1: Verify all 7 core data models instantiate clean database tables.
-    participant P100 as Test 2: Verify database seeding populates master vehicle catalogue idempotently.
-    participant P101 as Test 3: Verify POST /api/v1/admin/seed endpoint.
-    participant P102 as complete_profile()
-    participant P103 as login()
-    participant P104 as test_uc118_schema_instantiation()
-    participant P105 as UC-064: GET /api/v1/dashboard/summary calculates total_vehicles, total_drivers,
-    participant P106 as UC-064: Requests for Org 2 return only Org 2's metrics.
-    participant P107 as UC-064: Empty organization returns 0 stats so client can render onboarding card.
-    participant P108 as UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is missin
-    participant P109 as refresh_token()
-    participant P110 as setup_db()
-    participant P111 as dashboard_setup()
-    participant P112 as test_data()
-    participant P113 as AC 1: GIVEN an authenticated user     WHEN DELETE /api/v1/users/me is invoked
-    participant P114 as AC 2: GIVEN a user who is the sole owner of an active non-personal organization
-    participant P115 as AC 3: GIVEN a soft-deleted user account     WHEN attempting to authenticate, ac
-    participant P116 as AC 1: System creates immutable AuditLog entry upon user registration.
-    participant P117 as AC 2: System records USER_LOGIN_SUCCESS audit entry with IP & User-Agent metadat
-    participant P118 as A1: Unauthenticated attempt records USER_LOGIN_FAILURE with actor_id = None.
-    participant P119 as AC 3: System records USER_PASSWORD_RESET_REQUEST and USER_PASSWORD_RESET_SUCCESS
-    participant P120 as AC 4: System records USER_LOGOUT audit entry upon session termination.
-    participant P121 as Edge Case: Audit log DB write exception is handled safely and does not block use
-    participant P122 as UC-046: Test successful fuel log creation & vehicle current odometer update.
-    participant P123 as UC-046 Acceptance Criterion: WHEN a fuel log entry is saved     THE SYSTEM SHAL
-    participant P124 as UC-046 Edge Case: Odometer entry lower than vehicle's current odometer -> API re
-    participant P125 as UC-046 & UC-047: Verify calculated km/L efficiency on 2nd full tank fill-up.
-    participant P126 as UC-047: Test retrieving fuel log history via GET /api/v1/fuel.     Should retur
-    participant P127 as UC-047 Acceptance Criterion: WHEN two consecutive full-tank fuel logs are create
-    participant P128 as UC-047 Alternate Flow A1: Partial fill-up (is_full_tank = False) skips efficienc
-    participant P129 as UC-047 Main Flow 5: If efficiency is 30% lower than vehicle baseline average,
-    participant P130 as UC-051 Alternate Flow A1: PATCH /api/v1/fuel/{id} updates entry & recalculates e
-    participant P131 as UC-051 Main Flow: DELETE /api/v1/fuel/{id} soft-deletes log & linked expense and
-    participant P132 as UC-051 Edge Case: Deleting or patching non-existent log returns HTTP 404.
-    participant P133 as UC-034: GET /api/v1/maintenance/schedules should auto-populate schedule template
-    participant P134 as UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets sched
-    participant P135 as UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.
-    participant P136 as UC-034: Tenant cross-access rejected.
-    participant P137 as UC-036: POST /api/v1/maintenance logs service record and updates linked schedule
-    participant P138 as UC-036: Odometer reading > current_odometer_km updates vehicle current_odometer_
-    participant P139 as UC-036: Omitting maintenance_schedule_id matches schedule item by task name subs
-    participant P140 as UC-036: Rejects negative cost, negative odometer, whitespace service_type, or in
-    participant P141 as UC-036: Enforces X-Organization-ID header presence and cross-tenant access prote
-    participant P142 as UC-037: GET /api/v1/maintenance/records retrieves service records sorted by serv
-    participant P143 as UC-037: Pagination limit and offset parameters operate correctly.
-    participant P144 as UC-037: Returns 404 when vehicle_id does not exist in active organization.
-    participant P145 as UC-037: Header requirements and cross-tenant boundaries are strictly enforced.
-    participant P146 as Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.
-    participant P147 as Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant organizat
-    participant P148 as Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.
-    participant P149 as Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP
-    participant P150 as Test 5: Verify custom make/model is dynamically indexed into VehicleType catalog
-    participant P151 as ensure_organization()
-    participant P152 as test_uc011_sole_owner_blocking()
-    participant P153 as test_setup()
-    participant P154 as UC-048 Acceptance Criterion: System returns fleet aggregate average efficiency a
-    participant P155 as UC-048 Efficiency Trends: Monthly fuel cost totals and efficiency trends per veh
-    participant P156 as UC-035: POST /api/v1/maintenance/schedules creates custom schedule with default
-    participant P157 as UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and l
-    participant P158 as UC-035: Rejects zero/negative intervals or empty task names with 422.
-    participant P159 as UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and recalcul
-    participant P160 as UC-035: DELETE /api/v1/maintenance/schedules/{id} soft-deletes schedule task.
-    participant P161 as UC-035: Header validation and tenant cross-access isolation.
-    participant P162 as UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids a
-    participant P163 as UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific schedule_id
-    participant P164 as UC-038: Returns 404 when vehicle_id is not found in active organization.
-    participant P165 as UC-038: Returns 404 when one or more schedule_ids do not belong to the vehicle.
-    participant P166 as UC-038: Headers and cross-tenant boundaries are strictly enforced.
-    participant P167 as UC-016: Owner can create organization invitation, generating a secure 64-char to
-    participant P168 as UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable Entit
-    participant P169 as UC-016: Inviting with unsupported role string yields HTTP 422 Unprocessable Enti
-    participant P170 as UC-016: Re-inviting same email updates existing invitation token and TTL without
-    participant P171 as UC-016: Non-owner caller attempting to send invitation yields HTTP 403 Forbidden
-    participant P172 as UC-016: Owner can list all pending invitations for organization.
-    participant P173 as UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.
-    participant P174 as Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle
-    participant P175 as Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403 For
-    participant P176 as Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found.
-    participant P177 as Test 4: Verify manual odometer update with discrepancy > 500 km generates an Aud
-    participant P178 as Test 5: Verify non-dictionary custom_specs payload returns HTTP 422 Unprocessabl
-    participant P179 as create_organization()
-    participant P180 as auto_create_personal_organization()
-    participant P181 as setup_db()
-    participant P182 as test_setup()
-    participant P183 as test_setup()
-    participant P184 as test_setup()
-    participant P185 as AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL     cr
-    participant P186 as AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL
-    participant P187 as AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store \"facebook\" insid
-    participant P188 as Alternate Flow A1: Account Linking     If email matches existing account with d
-    participant P189 as Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad Requ
-    participant P190 as AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return HT
-    participant P191 as Alternate Flow A1: Account Linking     If user signed up via Google, submitting
-    participant P192 as Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit) retu
-    participant P193 as Edge Case: Missing email or missing password for email auth provider returns HTT
-    participant P194 as AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP 200
-    participant P195 as Edge Case: Incorrect password returns HTTP 401 Unauthorized.
-    participant P196 as Edge Case: Unregistered email returns HTTP 401 Unauthorized.
-    participant P197 as Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F
-    participant P198 as Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT
-    participant P199 as AC 1: WHEN an existing Google user signs in,     THE SYSTEM SHALL return HTTP 2
-    participant P200 as AC 2: WHEN an existing Facebook user signs in,     THE SYSTEM SHALL return HTTP
-    participant P201 as AC 3: WHEN an existing Email/Password user signs in via POST /api/v1/auth/login,
-    participant P202 as AC 4 (Account Linking Flow A1): WHEN an existing user registered via email
-    participant P203 as Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.
-    participant P204 as Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.
-    participant P205 as Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F
-    participant P206 as Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT
-    participant P207 as AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u
-    participant P208 as AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P
-    participant P209 as AC 3: GIVEN a profile update request with invalid display name length (< 2 chars
-    participant P210 as AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro
-    participant P211 as UC-014: POST /api/v1/organizations creates commercial organization and sets owne
-    participant P212 as UC-014: POST /api/v1/organizations/personal auto-creates personal organization f
-    participant P213 as UC-014: Blank or whitespace organization name rejected with HTTP 422.
-    participant P214 as UC-014: GET /api/v1/organizations?user_id={id} returns list of user organization
-    participant P215 as UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.
-    participant P216 as UC-015: POST /api/v1/organizations/switch switches active context for valid user
-    participant P217 as UC-015: Switch attempt to organization owned by another user yields HTTP 403 For
-    participant P218 as UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.
-    participant P219 as UC-015: GET /api/v1/organizations/active returns current primary organization fo
-    participant P220 as UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404 N
-    participant P221 as Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in
-    participant P222 as Test 2: Verify search query matches license plate, make, or model.
-    participant P223 as Test 3: Verify filtering by province (e.g. Sindh).
-    participant P224 as Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle metada
-    participant P225 as Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.
-    participant P226 as Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.
-    participant P227 as Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle status
-    participant P228 as setup_db()
-    participant P229 as setup_db()
-    participant P230 as setup_db()
-    participant P231 as test_setup()
-    participant P232 as test_setup()
-    participant P233 as test_setup()
-    participant P234 as test_setup()
-    participant P235 as test_setup()
-    participant P236 as test_setup()
-    participant P237 as setup_db()
-    participant P238 as test_setup()
-    participant P239 as test_setup()
-    participant P240 as setup_db()
-    participant P241 as setup_db()
-    participant P242 as test_data()
+    participant P50 as PaymentService
+    participant P51 as UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.
+    participant P52 as UC-024: Register New Vehicle with organization quota validation & duplicate VIN
+    participant P53 as UC-025: List Organization Vehicles directory with status, search, fuel type, and
+    participant P54 as UC-026: View Vehicle Detailed Overview.     Enforces tenant isolation and retur
+    participant P55 as UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).
+    participant P56 as UC-027: Update Vehicle Metadata & Specifications.     Validates organization ow
+    participant P57 as UC-007: Fetch current user profile details.
+    participant P58 as UC-007: Update current user profile (full name, phone, city, job role, avatar).
+    participant P59 as UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated AuthSessio
+    participant P60 as UC-007: Multi-tenant authorization boundary verification endpoint.
+    participant P61 as UC-011: Account Deletion (GDPR Right to be Forgotten).     Soft-deletes user re
+    participant P62 as UC-013: Active Session Management & Device Tracking     Returns list of active
+    participant P63 as UC-013: Revoke Specific Device Session     Revokes the specified refresh token
+    participant P64 as UC-013 Alternate Flow A1: Revoke All Other Sessions     Revokes all active sess
+    participant P65 as create_test_user_and_org()
+    participant P66 as UC-053: Get Trip Summary & Tax Deduction Metrics.
+    participant P67 as UC-052: Start GPS Trip Tracking session.
+    participant P68 as UC-052: Stop active GPS Trip Tracking session and calculate distance.
+    participant P69 as UC-052 / UC-053: Create trip entry (Manual or completed GPS trip).
+    participant P70 as UC-053: View Trip History.
+    participant P71 as UC-054: Edit Trip Entry & Classification.
+    participant P72 as UC-055: Soft Delete Trip Entry.
+    participant P73 as UC-056: Quick-Log Trip from Dashboard.
+    participant P74 as UC-057: View Distance & Mileage Summary Analytics.
+    participant P75 as register_or_login()
+    participant P76 as create_test_user_and_org()
+    participant P77 as UC-014: Provision commercial or custom organization.
+    participant P78 as UC-014: Auto-provision personal organization for a user during registration or s
+    participant P79 as Retrieve organizations list.
+    participant P80 as UC-015: Switch active organization context for user.
+    participant P81 as UC-015: Get active organization for user.
+    participant P82 as Retrieve organization details by ID.
+    participant P83 as UC-016: Invite Team Member to Organization.     Generates a secure 64-character
+    participant P84 as UC-016: List pending organization invitations.
+    participant P85 as UC-019: Inspect / validate organization invitation token details.     Returns HT
+    participant P86 as UC-019: Accept Organization Invitation for existing authenticated user.
+    participant P87 as UC-020: Redeem Org Invitation Code for new user during signup/onboard.
+    participant P88 as AdService
+    participant P89 as UC-058: Log General Fleet Expense.
+    participant P90 as UC-059: Expense Category & Cost Summary Metrics.
+    participant P91 as UC-059: View Expense History.
+    participant P92 as UC-060: Edit Expense Entry.
+    participant P93 as UC-061: Soft Delete Expense Entry.
+    participant P94 as UC-062: Quick-Log Expense from Dashboard.
+    participant P95 as UC-048: View Fuel Efficiency Trends & Aggregate Metrics.
+    participant P96 as UC-050: Detect Fuel Anomaly & Theft Alerts - Fetch anomaly logs.
+    participant P97 as UC-050 (A1): Manager clears fuel anomaly flag.
+    participant P98 as UC-049: Fuel Receipt OCR Auto-Fill (Pro).
+    participant P99 as UC-046: Log Fuel Fill-Up Entry.     Automatically updates vehicle current odome
+    participant P100 as UC-047 / UC-048: View Fuel Log History with optional pagination.
+    participant P101 as UC-051: Edit Fuel Log Entry.     Updates entry, syncs linked ExpenseLog, and re
+    participant P102 as UC-051: Soft Delete Fuel Log Entry.     Soft-deletes entry and linked ExpenseLo
+    participant P103 as Test 1: Verify all 7 core data models instantiate clean database tables.
+    participant P104 as Test 2: Verify database seeding populates master vehicle catalogue idempotently.
+    participant P105 as Test 3: Verify POST /api/v1/admin/seed endpoint.
+    participant P106 as UC-086 & UC-087: Vehicle and Driver Quota Wall Enforcement
+    participant P107 as UC-100 & UC-120: Verify Rewarded Ad Completion & Increment Bonus Quota
+    participant P108 as UC-122: Ad-Gate Signature Forgery & Token Replay Prevention
+    participant P109 as UC-101: Render Ad-Free Experience & Unlimited Quota for Pro Subscribers
+    participant P110 as complete_profile()
+    participant P111 as login()
+    participant P112 as test_uc118_schema_instantiation()
+    participant P113 as UC-087 & UC-018: Register Driver with organization driver quota enforcement.
+    participant P114 as UC-064: GET /api/v1/dashboard/summary calculates total_vehicles, total_drivers,
+    participant P115 as UC-064: Requests for Org 2 return only Org 2's metrics.
+    participant P116 as UC-064: Empty organization returns 0 stats so client can render onboarding card.
+    participant P117 as UC-064: GET /api/v1/dashboard/summary returns 400 if X-Organization-ID is missin
+    participant P118 as UC-081 & UC-121: Safepay Webhook Processing & Entitlement Activation
+    participant P119 as UC-082 & UC-121: Handle Payment Checkout Failure & Grace Period
+    participant P120 as UC-083: View Subscription Status & Billing History
+    participant P121 as UC-084: Cancel Active Subscription
+    participant P122 as UC-085 & UC-120: Pro-to-Free Downgrade & Bonus Slot Preservation Protocol
+    participant P123 as UC-121: Safepay Webhook Idempotency & Unrecognized Event Logging
+    participant P124 as refresh_token()
+    participant P125 as setup_db()
+    participant P126 as dashboard_setup()
+    participant P127 as test_data()
+    participant P128 as AC 1: GIVEN an authenticated user     WHEN DELETE /api/v1/users/me is invoked
+    participant P129 as AC 2: GIVEN a user who is the sole owner of an active non-personal organization
+    participant P130 as AC 3: GIVEN a soft-deleted user account     WHEN attempting to authenticate, ac
+    participant P131 as AC 1: System creates immutable AuditLog entry upon user registration.
+    participant P132 as AC 2: System records USER_LOGIN_SUCCESS audit entry with IP & User-Agent metadat
+    participant P133 as A1: Unauthenticated attempt records USER_LOGIN_FAILURE with actor_id = None.
+    participant P134 as AC 3: System records USER_PASSWORD_RESET_REQUEST and USER_PASSWORD_RESET_SUCCESS
+    participant P135 as AC 4: System records USER_LOGOUT audit entry upon session termination.
+    participant P136 as Edge Case: Audit log DB write exception is handled safely and does not block use
+    participant P137 as UC-046: Test successful fuel log creation & vehicle current odometer update.
+    participant P138 as UC-046 Acceptance Criterion: WHEN a fuel log entry is saved     THE SYSTEM SHAL
+    participant P139 as UC-046 Edge Case: Odometer entry lower than vehicle's current odometer -> API re
+    participant P140 as UC-046 & UC-047: Verify calculated km/L efficiency on 2nd full tank fill-up.
+    participant P141 as UC-047: Test retrieving fuel log history via GET /api/v1/fuel.     Should retur
+    participant P142 as UC-047 Acceptance Criterion: WHEN two consecutive full-tank fuel logs are create
+    participant P143 as UC-047 Alternate Flow A1: Partial fill-up (is_full_tank = False) skips efficienc
+    participant P144 as UC-047 Main Flow 5: If efficiency is 30% lower than vehicle baseline average,
+    participant P145 as UC-051 Alternate Flow A1: PATCH /api/v1/fuel/{id} updates entry & recalculates e
+    participant P146 as UC-051 Main Flow: DELETE /api/v1/fuel/{id} soft-deletes log & linked expense and
+    participant P147 as UC-051 Edge Case: Deleting or patching non-existent log returns HTTP 404.
+    participant P148 as UC-034: GET /api/v1/maintenance/schedules should auto-populate schedule template
+    participant P149 as UC-034: POST /api/v1/maintenance logs record, updates odometer, and resets sched
+    participant P150 as UC-034: POST /api/v1/maintenance rejects negative cost with HTTP 422.
+    participant P151 as UC-034: Tenant cross-access rejected.
+    participant P152 as UC-036: POST /api/v1/maintenance logs service record and updates linked schedule
+    participant P153 as UC-036: Odometer reading > current_odometer_km updates vehicle current_odometer_
+    participant P154 as UC-036: Omitting maintenance_schedule_id matches schedule item by task name subs
+    participant P155 as UC-036: Rejects negative cost, negative odometer, whitespace service_type, or in
+    participant P156 as UC-036: Enforces X-Organization-ID header presence and cross-tenant access prote
+    participant P157 as UC-037: GET /api/v1/maintenance/records retrieves service records sorted by serv
+    participant P158 as UC-037: Pagination limit and offset parameters operate correctly.
+    participant P159 as UC-037: Returns 404 when vehicle_id does not exist in active organization.
+    participant P160 as UC-037: Header requirements and cross-tenant boundaries are strictly enforced.
+    participant P161 as Test 1: Verify GET /api/v1/vehicles/types?q=Toyota returns seeded Toyota models.
+    participant P162 as Test 2: Verify POST /api/v1/vehicles registers new vehicle with tenant organizat
+    participant P163 as Test 3: Verify duplicate VIN within same organization returns HTTP 409 Conflict.
+    participant P164 as Test 4: Verify exceeding max_vehicles quota (max=2 for sample_org) returns HTTP
+    participant P165 as Test 5: Verify custom make/model is dynamically indexed into VehicleType catalog
+    participant P166 as ensure_organization()
+    participant P167 as test_uc011_sole_owner_blocking()
+    participant P168 as test_setup()
+    participant P169 as UC-048 Acceptance Criterion: System returns fleet aggregate average efficiency a
+    participant P170 as UC-048 Efficiency Trends: Monthly fuel cost totals and efficiency trends per veh
+    participant P171 as UC-035: POST /api/v1/maintenance/schedules creates custom schedule with default
+    participant P172 as UC-035: POST /api/v1/maintenance/schedules uses provided last_performed_km and l
+    participant P173 as UC-035: Rejects zero/negative intervals or empty task names with 422.
+    participant P174 as UC-035: PATCH /api/v1/maintenance/schedules/{id} updates parameters and recalcul
+    participant P175 as UC-035: DELETE /api/v1/maintenance/schedules/{id} soft-deletes schedule task.
+    participant P176 as UC-035: Header validation and tenant cross-access isolation.
+    participant P177 as UC-038: POST /api/v1/maintenance/schedules/bulk-accept with empty schedule_ids a
+    participant P178 as UC-038: POST /api/v1/maintenance/schedules/bulk-accept with specific schedule_id
+    participant P179 as UC-038: Returns 404 when vehicle_id is not found in active organization.
+    participant P180 as UC-038: Returns 404 when one or more schedule_ids do not belong to the vehicle.
+    participant P181 as UC-038: Headers and cross-tenant boundaries are strictly enforced.
+    participant P182 as UC-016: Owner can create organization invitation, generating a secure 64-char to
+    participant P183 as UC-016: Inviting with invalid or blank email yields HTTP 422 Unprocessable Entit
+    participant P184 as UC-016: Inviting with unsupported role string yields HTTP 422 Unprocessable Enti
+    participant P185 as UC-016: Re-inviting same email updates existing invitation token and TTL without
+    participant P186 as UC-016: Non-owner caller attempting to send invitation yields HTTP 403 Forbidden
+    participant P187 as UC-016: Owner can list all pending invitations for organization.
+    participant P188 as UC-016: Listing invitations for non-existent org yields HTTP 404 Not Found.
+    participant P189 as Test 1: Verify PATCH /api/v1/vehicles/{vehicle_id} successfully updates vehicle
+    participant P190 as Test 2: Verify updating vehicle under wrong organization_id returns HTTP 403 For
+    participant P191 as Test 3: Verify updating non-existent vehicle returns HTTP 404 Not Found.
+    participant P192 as Test 4: Verify manual odometer update with discrepancy > 500 km generates an Aud
+    participant P193 as Test 5: Verify non-dictionary custom_specs payload returns HTTP 422 Unprocessabl
+    participant P194 as create_organization()
+    participant P195 as auto_create_personal_organization()
+    participant P196 as setup_db()
+    participant P197 as test_setup()
+    participant P198 as test_setup()
+    participant P199 as test_setup()
+    participant P200 as AC 1: WHEN a new user authenticates with Google One-Tap THE SYSTEM SHALL     cr
+    participant P201 as AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL
+    participant P202 as AC 1: WHEN a user registers via Facebook THE SYSTEM SHALL store \"facebook\" insid
+    participant P203 as Alternate Flow A1: Account Linking     If email matches existing account with d
+    participant P204 as Edge Case: Facebook permission denied for email -> API returns HTTP 400 Bad Requ
+    participant P205 as AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return HT
+    participant P206 as Alternate Flow A1: Account Linking     If user signed up via Google, submitting
+    participant P207 as Edge Case: Weak passwords (less than 8 chars, missing upper, missing digit) retu
+    participant P208 as Edge Case: Missing email or missing password for email auth provider returns HTT
+    participant P209 as AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP 200
+    participant P210 as Edge Case: Incorrect password returns HTTP 401 Unauthorized.
+    participant P211 as Edge Case: Unregistered email returns HTTP 401 Unauthorized.
+    participant P212 as Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F
+    participant P213 as Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT
+    participant P214 as AC 1: WHEN an existing Google user signs in,     THE SYSTEM SHALL return HTTP 2
+    participant P215 as AC 2: WHEN an existing Facebook user signs in,     THE SYSTEM SHALL return HTTP
+    participant P216 as AC 3: WHEN an existing Email/Password user signs in via POST /api/v1/auth/login,
+    participant P217 as AC 4 (Account Linking Flow A1): WHEN an existing user registered via email
+    participant P218 as Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.
+    participant P219 as Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.
+    participant P220 as Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F
+    participant P221 as Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT
+    participant P222 as AC 1: GIVEN an authenticated user     WHEN they query GET /api/v1/users/me or u
+    participant P223 as AC 2: GIVEN a user completing onboarding on SCR-AUTH-007     WHEN they submit P
+    participant P224 as AC 3: GIVEN a profile update request with invalid display name length (< 2 chars
+    participant P225 as AC 4: GIVEN tenant-scoped requests     THE SYSTEM SHALL enforce multi-tenant ro
+    participant P226 as UC-014: POST /api/v1/organizations creates commercial organization and sets owne
+    participant P227 as UC-014: POST /api/v1/organizations/personal auto-creates personal organization f
+    participant P228 as UC-014: Blank or whitespace organization name rejected with HTTP 422.
+    participant P229 as UC-014: GET /api/v1/organizations?user_id={id} returns list of user organization
+    participant P230 as UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.
+    participant P231 as UC-015: POST /api/v1/organizations/switch switches active context for valid user
+    participant P232 as UC-015: Switch attempt to organization owned by another user yields HTTP 403 For
+    participant P233 as UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.
+    participant P234 as UC-015: GET /api/v1/organizations/active returns current primary organization fo
+    participant P235 as UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404 N
+    participant P236 as Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in
+    participant P237 as Test 2: Verify search query matches license plate, make, or model.
+    participant P238 as Test 3: Verify filtering by province (e.g. Sindh).
+    participant P239 as Test 1: Verify GET /api/v1/vehicles/{vehicle_id} returns detailed vehicle metada
+    participant P240 as Test 2: Verify non-existent vehicle ID returns HTTP 404 Not Found.
+    participant P241 as Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.
+    participant P242 as Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle status
     participant P243 as setup_db()
     participant P244 as setup_db()
     participant P245 as setup_db()
-    participant P246 as setup_db()
-    participant P247 as sample_fleet()
+    participant P246 as test_setup()
+    participant P247 as test_setup()
     participant P248 as test_setup()
     participant P249 as test_setup()
-    participant P250 as sample_org()
-    participant P251 as AuthSessionDTO
-    participant P252 as SessionRevokeResponse
-    participant P253 as UC-004: User Password Authentication & Session Initiation     Authenticates reg
-    participant P254 as UC-006: Forgot Password Request     Issues a password reset JWT token with 5-mi
-    participant P255 as UC-006: Password Reset Execution     Verifies reset token, validates password p
-    participant P256 as UC-009: Session Refresh & Access Token Renewal     Validates active refresh tok
-    participant P257 as UC-010: User Sign Out & Token Revocation     Revokes the provided refresh token
-    participant P258 as UserDTO
-    participant P259 as OrganizationDTO
-    participant P260 as UserSessionDTO
-    participant P261 as AuditService
-    participant P262 as ForgotPasswordResponse
-    participant P263 as ResetPasswordResponse
-    participant P264 as RefreshTokenResponse
-    participant P265 as LogoutResponse
-    participant P266 as UserSession
-    participant P267 as RegisterRequest
-    participant P268 as LoginRequest
-    participant P269 as ForgotPasswordRequest
-    participant P270 as ResetPasswordRequest
-    participant P271 as RefreshTokenRequest
-    participant P272 as LogoutRequest
+    participant P250 as test_setup()
+    participant P251 as test_setup()
+    participant P252 as setup_db()
+    participant P253 as test_setup()
+    participant P254 as test_setup()
+    participant P255 as setup_db()
+    participant P256 as setup_db()
+    participant P257 as test_data()
+    participant P258 as setup_db()
+    participant P259 as setup_db()
+    participant P260 as setup_db()
+    participant P261 as setup_db()
+    participant P262 as sample_fleet()
+    participant P263 as test_setup()
+    participant P264 as test_setup()
+    participant P265 as sample_org()
+    participant P266 as AuthSessionDTO
+    participant P267 as SessionRevokeResponse
+    participant P268 as UC-004: User Password Authentication & Session Initiation     Authenticates reg
+    participant P269 as UC-006: Forgot Password Request     Issues a password reset JWT token with 5-mi
+    participant P270 as UC-006: Password Reset Execution     Verifies reset token, validates password p
+    participant P271 as UC-009: Session Refresh & Access Token Renewal     Validates active refresh tok
+    participant P272 as UC-010: User Sign Out & Token Revocation     Revokes the provided refresh token
+    participant P273 as UserDTO
+    participant P274 as OrganizationDTO
+    participant P275 as UserSessionDTO
+    participant P276 as AuditService
+    participant P277 as ForgotPasswordResponse
+    participant P278 as ResetPasswordResponse
+    participant P279 as RefreshTokenResponse
+    participant P280 as LogoutResponse
+    participant P281 as UserSession
+    participant P282 as RegisterRequest
+    participant P283 as LoginRequest
+    participant P284 as ForgotPasswordRequest
+    participant P285 as ResetPasswordRequest
+    participant P286 as RefreshTokenRequest
+    participant P287 as LogoutRequest
     P0->>+ P1: uses
     P1-->>- P0: return
     P1->>+ P0: uses
@@ -411,7 +426,7 @@ sequenceDiagram
     P63-->>- P1: return
     P1->>+ P64: uses
     P64-->>- P1: return
-    P1->>+ P65: uses
+    P1->>+ P65: calls
     P65-->>- P1: return
     P1->>+ P66: uses
     P66-->>- P1: return
@@ -427,13 +442,13 @@ sequenceDiagram
     P71-->>- P1: return
     P1->>+ P72: uses
     P72-->>- P1: return
-    P1->>+ P73: calls
+    P1->>+ P73: uses
     P73-->>- P1: return
     P1->>+ P74: uses
     P74-->>- P1: return
-    P1->>+ P75: uses
+    P1->>+ P75: calls
     P75-->>- P1: return
-    P1->>+ P76: uses
+    P1->>+ P76: calls
     P76-->>- P1: return
     P1->>+ P77: uses
     P77-->>- P1: return
@@ -485,11 +500,11 @@ sequenceDiagram
     P100-->>- P1: return
     P1->>+ P101: uses
     P101-->>- P1: return
-    P1->>+ P102: calls
+    P1->>+ P102: uses
     P102-->>- P1: return
-    P1->>+ P103: calls
+    P1->>+ P103: uses
     P103-->>- P1: return
-    P1->>+ P104: calls
+    P1->>+ P104: uses
     P104-->>- P1: return
     P1->>+ P105: uses
     P105-->>- P1: return
@@ -499,7 +514,7 @@ sequenceDiagram
     P107-->>- P1: return
     P1->>+ P108: uses
     P108-->>- P1: return
-    P1->>+ P109: calls
+    P1->>+ P109: uses
     P109-->>- P1: return
     P1->>+ P110: calls
     P110-->>- P1: return
@@ -529,13 +544,13 @@ sequenceDiagram
     P122-->>- P1: return
     P1->>+ P123: uses
     P123-->>- P1: return
-    P1->>+ P124: uses
+    P1->>+ P124: calls
     P124-->>- P1: return
-    P1->>+ P125: uses
+    P1->>+ P125: calls
     P125-->>- P1: return
-    P1->>+ P126: uses
+    P1->>+ P126: calls
     P126-->>- P1: return
-    P1->>+ P127: uses
+    P1->>+ P127: calls
     P127-->>- P1: return
     P1->>+ P128: uses
     P128-->>- P1: return
@@ -583,11 +598,11 @@ sequenceDiagram
     P149-->>- P1: return
     P1->>+ P150: uses
     P150-->>- P1: return
-    P1->>+ P151: calls
+    P1->>+ P151: uses
     P151-->>- P1: return
-    P1->>+ P152: calls
+    P1->>+ P152: uses
     P152-->>- P1: return
-    P1->>+ P153: calls
+    P1->>+ P153: uses
     P153-->>- P1: return
     P1->>+ P154: uses
     P154-->>- P1: return
@@ -613,11 +628,11 @@ sequenceDiagram
     P164-->>- P1: return
     P1->>+ P165: uses
     P165-->>- P1: return
-    P1->>+ P166: uses
+    P1->>+ P166: calls
     P166-->>- P1: return
-    P1->>+ P167: uses
+    P1->>+ P167: calls
     P167-->>- P1: return
-    P1->>+ P168: uses
+    P1->>+ P168: calls
     P168-->>- P1: return
     P1->>+ P169: uses
     P169-->>- P1: return
@@ -639,17 +654,17 @@ sequenceDiagram
     P177-->>- P1: return
     P1->>+ P178: uses
     P178-->>- P1: return
-    P1->>+ P179: calls
+    P1->>+ P179: uses
     P179-->>- P1: return
-    P1->>+ P180: calls
+    P1->>+ P180: uses
     P180-->>- P1: return
-    P1->>+ P181: calls
+    P1->>+ P181: uses
     P181-->>- P1: return
-    P1->>+ P182: calls
+    P1->>+ P182: uses
     P182-->>- P1: return
-    P1->>+ P183: calls
+    P1->>+ P183: uses
     P183-->>- P1: return
-    P1->>+ P184: calls
+    P1->>+ P184: uses
     P184-->>- P1: return
     P1->>+ P185: uses
     P185-->>- P1: return
@@ -669,17 +684,17 @@ sequenceDiagram
     P192-->>- P1: return
     P1->>+ P193: uses
     P193-->>- P1: return
-    P1->>+ P194: uses
+    P1->>+ P194: calls
     P194-->>- P1: return
-    P1->>+ P195: uses
+    P1->>+ P195: calls
     P195-->>- P1: return
-    P1->>+ P196: uses
+    P1->>+ P196: calls
     P196-->>- P1: return
-    P1->>+ P197: uses
+    P1->>+ P197: calls
     P197-->>- P1: return
-    P1->>+ P198: uses
+    P1->>+ P198: calls
     P198-->>- P1: return
-    P1->>+ P199: uses
+    P1->>+ P199: calls
     P199-->>- P1: return
     P1->>+ P200: uses
     P200-->>- P1: return
@@ -737,35 +752,35 @@ sequenceDiagram
     P226-->>- P1: return
     P1->>+ P227: uses
     P227-->>- P1: return
-    P1->>+ P228: calls
+    P1->>+ P228: uses
     P228-->>- P1: return
-    P1->>+ P229: calls
+    P1->>+ P229: uses
     P229-->>- P1: return
-    P1->>+ P230: calls
+    P1->>+ P230: uses
     P230-->>- P1: return
-    P1->>+ P231: calls
+    P1->>+ P231: uses
     P231-->>- P1: return
-    P1->>+ P232: calls
+    P1->>+ P232: uses
     P232-->>- P1: return
-    P1->>+ P233: calls
+    P1->>+ P233: uses
     P233-->>- P1: return
-    P1->>+ P234: calls
+    P1->>+ P234: uses
     P234-->>- P1: return
-    P1->>+ P235: calls
+    P1->>+ P235: uses
     P235-->>- P1: return
-    P1->>+ P236: calls
+    P1->>+ P236: uses
     P236-->>- P1: return
-    P1->>+ P237: calls
+    P1->>+ P237: uses
     P237-->>- P1: return
-    P1->>+ P238: calls
+    P1->>+ P238: uses
     P238-->>- P1: return
-    P1->>+ P239: calls
+    P1->>+ P239: uses
     P239-->>- P1: return
-    P1->>+ P240: calls
+    P1->>+ P240: uses
     P240-->>- P1: return
-    P1->>+ P241: calls
+    P1->>+ P241: uses
     P241-->>- P1: return
-    P1->>+ P242: calls
+    P1->>+ P242: uses
     P242-->>- P1: return
     P1->>+ P243: calls
     P243-->>- P1: return
@@ -783,58 +798,42 @@ sequenceDiagram
     P249-->>- P1: return
     P1->>+ P250: calls
     P250-->>- P1: return
+    P1->>+ P251: calls
+    P251-->>- P1: return
+    P1->>+ P252: calls
+    P252-->>- P1: return
+    P1->>+ P253: calls
+    P253-->>- P1: return
+    P1->>+ P254: calls
+    P254-->>- P1: return
+    P1->>+ P255: calls
+    P255-->>- P1: return
+    P1->>+ P256: calls
+    P256-->>- P1: return
+    P1->>+ P257: calls
+    P257-->>- P1: return
+    P1->>+ P258: calls
+    P258-->>- P1: return
+    P1->>+ P259: calls
+    P259-->>- P1: return
+    P1->>+ P260: calls
+    P260-->>- P1: return
+    P1->>+ P261: calls
+    P261-->>- P1: return
+    P1->>+ P262: calls
+    P262-->>- P1: return
+    P1->>+ P263: calls
+    P263-->>- P1: return
+    P1->>+ P264: calls
+    P264-->>- P1: return
+    P1->>+ P265: calls
+    P265-->>- P1: return
     P0->>+ P3: uses
     P3-->>- P0: return
-    P0->>+ P6: uses
-    P6-->>- P0: return
-    P0->>+ P9: uses
-    P9-->>- P0: return
-    P0->>+ P251: uses
-    P251-->>- P0: return
-    P0->>+ P252: uses
-    P252-->>- P0: return
-    P0->>+ P253: uses
-    P253-->>- P0: return
-    P0->>+ P254: uses
-    P254-->>- P0: return
-    P0->>+ P255: uses
-    P255-->>- P0: return
-    P0->>+ P256: uses
-    P256-->>- P0: return
-    P0->>+ P257: uses
-    P257-->>- P0: return
-    P0->>+ P258: uses
-    P258-->>- P0: return
-    P0->>+ P259: uses
-    P259-->>- P0: return
-    P0->>+ P260: uses
-    P260-->>- P0: return
-    P0->>+ P56: uses
-    P56-->>- P0: return
-    P0->>+ P57: uses
-    P57-->>- P0: return
-    P0->>+ P58: uses
-    P58-->>- P0: return
-    P0->>+ P59: uses
-    P59-->>- P0: return
-    P0->>+ P60: uses
-    P60-->>- P0: return
-    P0->>+ P61: uses
-    P61-->>- P0: return
-    P0->>+ P62: uses
-    P62-->>- P0: return
-    P0->>+ P63: uses
-    P63-->>- P0: return
-    P0->>+ P261: uses
-    P261-->>- P0: return
-    P0->>+ P262: uses
-    P262-->>- P0: return
-    P0->>+ P263: uses
-    P263-->>- P0: return
-    P0->>+ P264: uses
-    P264-->>- P0: return
-    P0->>+ P265: uses
-    P265-->>- P0: return
+    P0->>+ P5: uses
+    P5-->>- P0: return
+    P0->>+ P8: uses
+    P8-->>- P0: return
     P0->>+ P266: uses
     P266-->>- P0: return
     P0->>+ P267: uses
@@ -849,6 +848,52 @@ sequenceDiagram
     P271-->>- P0: return
     P0->>+ P272: uses
     P272-->>- P0: return
+    P0->>+ P273: uses
+    P273-->>- P0: return
+    P0->>+ P274: uses
+    P274-->>- P0: return
+    P0->>+ P275: uses
+    P275-->>- P0: return
+    P0->>+ P57: uses
+    P57-->>- P0: return
+    P0->>+ P58: uses
+    P58-->>- P0: return
+    P0->>+ P59: uses
+    P59-->>- P0: return
+    P0->>+ P60: uses
+    P60-->>- P0: return
+    P0->>+ P61: uses
+    P61-->>- P0: return
+    P0->>+ P62: uses
+    P62-->>- P0: return
+    P0->>+ P63: uses
+    P63-->>- P0: return
+    P0->>+ P64: uses
+    P64-->>- P0: return
+    P0->>+ P276: uses
+    P276-->>- P0: return
+    P0->>+ P277: uses
+    P277-->>- P0: return
+    P0->>+ P278: uses
+    P278-->>- P0: return
+    P0->>+ P279: uses
+    P279-->>- P0: return
+    P0->>+ P280: uses
+    P280-->>- P0: return
+    P0->>+ P281: uses
+    P281-->>- P0: return
+    P0->>+ P282: uses
+    P282-->>- P0: return
+    P0->>+ P283: uses
+    P283-->>- P0: return
+    P0->>+ P284: uses
+    P284-->>- P0: return
+    P0->>+ P285: uses
+    P285-->>- P0: return
+    P0->>+ P286: uses
+    P286-->>- P0: return
+    P0->>+ P287: uses
+    P287-->>- P0: return
 ```
 
 ## Connections by Relation

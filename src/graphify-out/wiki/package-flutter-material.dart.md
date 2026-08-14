@@ -1,6 +1,6 @@
 # package:flutter/material.dart
 
-> God node · 32 connections · [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\theme\app_theme.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/theme/app_theme.dart)
+> God node · 36 connections · [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\theme\app_theme.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/theme/app_theme.dart)
 
 ## Connections by Relation
 

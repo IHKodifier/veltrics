@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- [maintenance_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/domain/maintenance_model.dart) (2 connections)
-- [MaintenanceScheduleModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/domain/maintenance_model.dart) (1 connections)
-- [ServiceRecordModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/domain/maintenance_model.dart) (1 connections)
+- [expense_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (2 connections)
+- [ExpenseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (1 connections)
+- [ExpenseSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (1 connections)
 
 ## Relationships
 
@@ -14,7 +14,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\maintenance\domain\maintenance_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/domain/maintenance_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\expense\domain\expense_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart)
 
 ## Audit Trail
 
