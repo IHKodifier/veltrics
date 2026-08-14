@@ -1,12 +1,13 @@
 # Community 49
 
-> 3 nodes · cohesion 0.67
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 
-- [deps.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py#L1) (2 connections)
-- [get_current_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py#L15) (1 connections)
-- [require_organization_role()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py#L54) (1 connections)
+- [vehicle_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (3 connections)
+- [VehicleDetailModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (1 connections)
+- [VehicleModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (1 connections)
+- [VehicleTypeModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart) (1 connections)
 
 ## Relationships
 
@@ -14,11 +15,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\deps.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/deps.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\domain\vehicle_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/domain/vehicle_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 4 (100%)
+- EXTRACTED: 6 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

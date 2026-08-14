@@ -4,10 +4,10 @@
 
 ## Key Concepts
 
-- [trip_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (3 connections)
-- [MileageSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (1 connections)
-- [TripModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (1 connections)
-- [TripSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart) (1 connections)
+- [fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (3 connections)
+- [FuelLogModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [FuelMonthlyTrendModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [FuelTrendsModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
 
 ## Relationships
 
@@ -15,7 +15,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\trip\domain\trip_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/domain/trip_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\fuel\domain\fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart)
 
 ## Audit Trail
 

@@ -1,45 +1,54 @@
 # Community 18
 
-> 17 nodes · cohesion 0.26
+> 20 nodes · cohesion 0.18
 
 ## Key Concepts
 
-- [UC-119: Offline Sync Batch Transaction Engine.     Processes operation envelopes](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L106) (15 connections)
-- [UC-096: Delta Sync Payload Fetching (Incremental Catch-up).     Returns active e](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L268) (15 connections)
-- [Helper to convert SQLAlchemy model instance to dict.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L95) (15 connections)
-- [execute_sync_batch()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L105) (8 connections)
-- [DeltaSyncResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L28) (6 connections)
-- [get_delta_sync()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L263) (6 connections)
-- [SyncBatchResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L24) (6 connections)
-- [SyncOperationResult](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L17) (6 connections)
-- [utc_now()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L10) (6 connections)
-- [sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L1) (5 connections)
-- [SyncBatchRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L13) (5 connections)
-- [sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L1) (4 connections)
-- [serialize_model()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L94) (4 connections)
-- [user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L1) (3 connections)
-- [parse_iso_datetime()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L74) (3 connections)
-- [SyncOperationEnvelope](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L5) (2 connections)
-- [generate_uuid()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L7) (1 connections)
+- [driver_analytics.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L1) (7 connections)
+- [get_user_org_id()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py#L19) (5 connections)
+- [get_organization_driver_leaderboard()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py#L196) (5 connections)
+- [driver_analytics.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py#L1) (5 connections)
+- [driver_analytics_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py#L1) (5 connections)
+- [calculate_driver_metrics()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py#L19) (4 connections)
+- [detect_driver_anomalies()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py#L108) (4 connections)
+- [generate_safety_certificate()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py#L160) (4 connections)
+- [get_driver_performance_detail()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py#L71) (4 connections)
+- [detect_anomalies()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py#L42) (3 connections)
+- [DriverAnomalyItem](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L27) (3 connections)
+- [DriverAnomalyScanResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L34) (3 connections)
+- [DriverLeaderboardEntry](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L50) (3 connections)
+- [DriverLeaderboardResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L59) (3 connections)
+- [DriverPerformanceDetailResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L14) (3 connections)
+- [DriverSafetyCertificateResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L40) (3 connections)
+- [get_driver_certificate()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py#L51) (3 connections)
+- [get_driver_leaderboard()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py#L61) (3 connections)
+- [get_driver_performance()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py#L32) (3 connections)
+- [DriverSafetyScoreResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py#L5) (2 connections)
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
-    class DeltaSyncResponse {
-        +sync.py()
+    class DriverAnomalyItem {
+        +driver_analytics.py()
     }
-    class SyncBatchRequest {
-        +sync.py()
+    class DriverAnomalyScanResponse {
+        +driver_analytics.py()
     }
-    class SyncBatchResponse {
-        +sync.py()
+    class DriverLeaderboardEntry {
+        +driver_analytics.py()
     }
-    class SyncOperationEnvelope {
-        +sync.py()
+    class DriverLeaderboardResponse {
+        +driver_analytics.py()
     }
-    class SyncOperationResult {
-        +sync.py()
+    class DriverPerformanceDetailResponse {
+        +driver_analytics.py()
+    }
+    class DriverSafetyCertificateResponse {
+        +driver_analytics.py()
+    }
+    class DriverSafetyScoreResponse {
+        +driver_analytics.py()
     }
 ```
 
@@ -49,14 +58,14 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\driver_analytics.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/driver_analytics.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\driver_analytics.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver_analytics.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\driver_analytics_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/driver_analytics_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 42 (38%)
-- INFERRED: 68 (62%)
+- EXTRACTED: 55 (73%)
+- INFERRED: 20 (27%)
 - AMBIGUOUS: 0 (0%)
 
 ---

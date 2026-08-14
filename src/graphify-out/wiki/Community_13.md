@@ -1,77 +1,86 @@
 # Community 13
 
-> 29 nodes · cohesion 0.17
+> 41 nodes · cohesion 0.16
 
 ## Key Concepts
 
-- [ExpenseLogCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L5) (8 connections)
-- [ExpenseLogResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L14) (8 connections)
-- [ExpenseLogUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L44) (8 connections)
-- [ExpensePaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L31) (8 connections)
-- [ExpenseSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L38) (8 connections)
-- [QuickExpenseCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L53) (8 connections)
-- [UC-061: Soft Delete Expense Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L110) (8 connections)
-- [UC-062: Quick-Log Expense from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L124) (8 connections)
-- [UC-058: Log General Fleet Expense.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L29) (8 connections)
-- [UC-059: Expense Category & Cost Summary Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L43) (8 connections)
-- [UC-059: View Expense History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L66) (8 connections)
-- [UC-060: Edit Expense Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L96) (8 connections)
-- [expenses.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L1) (7 connections)
-- [expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L1) (7 connections)
-- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L12) (7 connections)
-- [expense_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L1) (6 connections)
-- [create_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L24) (4 connections)
-- [list_expenses()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L57) (4 connections)
-- [quick_create_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L119) (4 connections)
-- [log_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L9) (3 connections)
-- [quick_log_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L150) (3 connections)
-- [delete_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L105) (3 connections)
-- [get_expense_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L36) (3 connections)
-- [update_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L90) (3 connections)
-- [get_expenses()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L38) (2 connections)
-- *... and 4 more nodes in this community*
+- [MileageSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L95) (11 connections)
+- [QuickTripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L86) (11 connections)
+- [TripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L20) (11 connections)
+- [TripPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L71) (11 connections)
+- [TripResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L48) (11 connections)
+- [TripStart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L5) (11 connections)
+- [TripStop](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L13) (11 connections)
+- [TripSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L78) (11 connections)
+- [TripUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L34) (11 connections)
+- [UC-054: Edit Trip Entry & Classification.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L116) (11 connections)
+- [UC-055: Soft Delete Trip Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L130) (11 connections)
+- [UC-056: Quick-Log Trip from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L144) (11 connections)
+- [UC-057: View Distance & Mileage Summary Analytics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L160) (11 connections)
+- [UC-053: Get Trip Summary & Tax Deduction Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L29) (11 connections)
+- [UC-052: Start GPS Trip Tracking session.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L43) (11 connections)
+- [UC-052: Stop active GPS Trip Tracking session and calculate distance.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L56) (11 connections)
+- [UC-052 / UC-053: Create trip entry (Manual or completed GPS trip).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L69) (11 connections)
+- [UC-053: View Trip History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L86) (11 connections)
+- [trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L1) (10 connections)
+- [trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L1) (10 connections)
+- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L12) (10 connections)
+- [trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L1) (9 connections)
+- [list_trips()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L77) (4 connections)
+- [quick_create_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L139) (4 connections)
+- [quick_log_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L271) (3 connections)
+- *... and 16 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
     class Config {
-        +expense_log.py()
+        +trip.py()
     }
-    class ExpenseLogCreate {
-        +expense_log.py()
+    class MileageSummaryResponse {
+        +trip.py()
     }
-    class ExpenseLogResponse {
-        +expense_log.py()
+    class QuickTripCreate {
+        +trip.py()
     }
-    class ExpenseLogUpdate {
-        +expense_log.py()
+    class TripCreate {
+        +trip.py()
     }
-    class ExpensePaginatedResponse {
-        +expense_log.py()
+    class TripPaginatedResponse {
+        +trip.py()
     }
-    class ExpenseSummaryResponse {
-        +expense_log.py()
+    class TripResponse {
+        +trip.py()
     }
-    class QuickExpenseCreate {
-        +expense_log.py()
+    class TripStart {
+        +trip.py()
+    }
+    class TripStop {
+        +trip.py()
+    }
+    class TripSummaryResponse {
+        +trip.py()
+    }
+    class TripUpdate {
+        +trip.py()
     }
 ```
 
 ## Relationships
 
-- [[Community 12]] (42 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\expenses.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\expense_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 70 (45%)
-- INFERRED: 86 (55%)
+- EXTRACTED: 103 (37%)
+- INFERRED: 178 (63%)
 - AMBIGUOUS: 0 (0%)
 
 ---

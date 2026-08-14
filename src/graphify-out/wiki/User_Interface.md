@@ -4,9 +4,19 @@
 
 ## Key Concepts
 
-- [cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (2 connections)
-- [CostBreakdownItemModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
-- [CostBreakdownModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
+- [GeneratedPluginRegistrant](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java#L14) (2 connections)
+- [GeneratedPluginRegistrant.java](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java#L1) (1 connections)
+- [.registerWith()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java#L17) (1 connections)
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class GeneratedPluginRegistrant {
+        +GeneratedPluginRegistrant.java()
+        +.registerWith()
+    }
+```
 
 ## Relationships
 
@@ -14,7 +24,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java)
 
 ## Audit Trail
 

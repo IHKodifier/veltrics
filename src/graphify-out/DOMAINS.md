@@ -71,3 +71,9 @@
 | 66 | Community 66 | Unable to determine domain due to missing code entities. |
 | 67 | Community 67 | Unable to determine domain due to missing code entities. |
 | 68 | Community 68 | Unable to determine domain due to missing code entities. |
+| 69 | Community 69 | Unable to determine domain due to missing code entities. |
+| 70 | Community 70 |  |
+| 71 | Community 71 |  |
+| 72 | Community 72 |  |
+| 73 | Community 73 |  |
+| 74 | Community 74 |  |

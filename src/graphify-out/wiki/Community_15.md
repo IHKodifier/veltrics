@@ -1,70 +1,88 @@
 # Community 15
 
-> 23 nodes · cohesion 0.23
+> 33 nodes · cohesion 0.15
 
 ## Key Concepts
 
-- [UC-035: Create custom maintenance schedule task item for a vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L160) (10 connections)
-- [UC-035: Update schedule parameters (intervals, task name, active status) and rec](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L207) (10 connections)
-- [UC-035: Soft-delete schedule item.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L255) (10 connections)
-- [UC-037: Retrieve chronological service records for a vehicle within the active o](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L285) (10 connections)
-- [UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L320) (10 connections)
-- [maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L1) (8 connections)
-- [maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L1) (8 connections)
-- [verify_organization_header()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L22) (8 connections)
-- [BulkAcceptSchedulesRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L54) (7 connections)
-- [MaintenanceScheduleCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L22) (7 connections)
-- [MaintenanceScheduleResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L5) (7 connections)
-- [MaintenanceScheduleUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L38) (7 connections)
-- [ServiceRecordCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L59) (7 connections)
-- [ServiceRecordResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L78) (7 connections)
-- [bulk_accept_maintenance_schedules()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L315) (4 connections)
-- [create_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L155) (4 connections)
-- [delete_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L250) (4 connections)
-- [get_maintenance_schedules()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L31) (3 connections)
-- [get_service_history()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L278) (3 connections)
-- [log_maintenance_task()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L85) (3 connections)
-- [update_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L201) (3 connections)
-- [validate_service_type()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L72) (1 connections)
-- [validate_task_name()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L32) (1 connections)
+- [UC-067: Fleet Manager Web Dashboard Layout & Aggregation.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L113) (13 connections)
+- [UC-068: Fleet Cost Ranking Table & Heatmap.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L124) (13 connections)
+- [UC-069: Fleet Vehicle Availability Widget.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L135) (13 connections)
+- [UC-071: Get customized dashboard layout preferences for current user.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L145) (13 connections)
+- [UC-071: Save customized dashboard layout preferences for current user.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L156) (13 connections)
+- [UC-064: Get high-level KPI dashboard metrics summary for active organization.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L43) (13 connections)
+- [DashboardSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard.py#L3) (11 connections)
+- [CostBreakdownResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/cost_breakdown.py#L11) (10 connections)
+- [DashboardLayoutConfigResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L48) (10 connections)
+- [ManagerDashboardKpiResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L4) (9 connections)
+- [VehicleAvailabilityResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L32) (9 connections)
+- [VehicleCostRankingResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L27) (9 connections)
+- [DashboardLayoutConfigRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L45) (8 connections)
+- [dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L1) (7 connections)
+- [dashboard_manager.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L1) (7 connections)
+- [manager_dashboard_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L1) (5 connections)
+- [WidgetItem](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L40) (4 connections)
+- [get_dashboard_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L39) (3 connections)
+- [get_manager_kpi_dashboard()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L109) (3 connections)
+- [get_vehicle_availability_widget()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L131) (3 connections)
+- [VehicleCostRankingItem](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L16) (3 connections)
+- [get_cost_ranking_table()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L75) (3 connections)
+- [get_dashboard_layout()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L157) (3 connections)
+- [get_manager_kpis()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L23) (3 connections)
+- [get_vehicle_availability()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L128) (3 connections)
+- *... and 8 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
-    class BulkAcceptSchedulesRequest {
-        +maintenance.py()
+    class CostBreakdownItem {
+        +cost_breakdown.py()
     }
-    class MaintenanceScheduleCreate {
-        +maintenance.py()
+    class CostBreakdownResponse {
+        +cost_breakdown.py()
     }
-    class MaintenanceScheduleResponse {
-        +maintenance.py()
+    class DashboardSummaryResponse {
+        +dashboard.py()
     }
-    class MaintenanceScheduleUpdate {
-        +maintenance.py()
+    class DashboardLayoutConfigRequest {
+        +dashboard_manager.py()
     }
-    class ServiceRecordCreate {
-        +maintenance.py()
+    class DashboardLayoutConfigResponse {
+        +dashboard_manager.py()
     }
-    class ServiceRecordResponse {
-        +maintenance.py()
+    class ManagerDashboardKpiResponse {
+        +dashboard_manager.py()
+    }
+    class VehicleAvailabilityResponse {
+        +dashboard_manager.py()
+    }
+    class VehicleCostRankingItem {
+        +dashboard_manager.py()
+    }
+    class VehicleCostRankingResponse {
+        +dashboard_manager.py()
+    }
+    class WidgetItem {
+        +dashboard_manager.py()
     }
 ```
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 2]] (4 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\cost_breakdown.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/cost_breakdown.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\dashboard_manager.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\manager_dashboard_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 62 (44%)
-- INFERRED: 80 (56%)
+- EXTRACTED: 66 (32%)
+- INFERRED: 140 (68%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -1,65 +1,35 @@
 # Community 8
 
-> 43 nodes · cohesion 0.11
+> 52 nodes · cohesion 0.04
 
 ## Key Concepts
 
-- [fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L1) (12 connections)
-- [fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py#L1) (10 connections)
-- [FuelLogCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L5) (10 connections)
-- [FuelLogResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L71) (10 connections)
-- [FuelLogUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L49) (10 connections)
-- [FuelPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L112) (10 connections)
-- [FuelTrendsResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L103) (10 connections)
-- [ReceiptOcrResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ocr_receipt.py#L4) (10 connections)
-- [fuel.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L1) (9 connections)
-- [UC-051: Edit Fuel Log Entry.     Updates entry, syncs linked ExpenseLog, and re](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L123) (8 connections)
-- [UC-051: Soft Delete Fuel Log Entry.     Soft-deletes entry and linked ExpenseLo](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L138) (8 connections)
-- [UC-048: View Fuel Efficiency Trends & Aggregate Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L28) (8 connections)
-- [UC-050: Detect Fuel Anomaly & Theft Alerts - Fetch anomaly logs.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L40) (8 connections)
-- [UC-050 (A1): Manager clears fuel anomaly flag.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L51) (8 connections)
-- [UC-049: Fuel Receipt OCR Auto-Fill (Pro).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L60) (8 connections)
-- [UC-046: Log Fuel Fill-Up Entry.     Automatically updates vehicle current odome](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L75) (8 connections)
-- [UC-047 / UC-048: View Fuel Log History with optional pagination.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L92) (8 connections)
-- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L12) (7 connections)
-- [list_fuel_logs()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L84) (5 connections)
-- [create_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L70) (4 connections)
-- [delete_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L133) (4 connections)
-- [get_fuel_trends()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L23) (4 connections)
-- [list_fuel_anomalies()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L35) (4 connections)
-- [update_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L117) (4 connections)
-- [ocr_scan_receipt()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L57) (3 connections)
-- *... and 18 more nodes in this community*
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class Config {
-        +fuel_log.py()
-    }
-    class FuelLogCreate {
-        +fuel_log.py()
-    }
-    class FuelLogResponse {
-        +fuel_log.py()
-    }
-    class FuelLogUpdate {
-        +fuel_log.py()
-    }
-    class FuelMonthlyTrend {
-        +fuel_log.py()
-    }
-    class FuelPaginatedResponse {
-        +fuel_log.py()
-    }
-    class FuelTrendsResponse {
-        +fuel_log.py()
-    }
-    class ReceiptOcrResponse {
-        +ocr_receipt.py()
-    }
-```
+- [profile_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart) (24 connections)
+- [login_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (14 connections)
+- [profile_setup_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_setup_screen.dart) (14 connections)
+- [auth_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/data/auth_repository.dart) (7 connections)
+- [../../data/auth_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_setup_screen.dart) (3 connections)
+- [../../domain/user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_setup_screen.dart) (3 connections)
+- [AuthRepository](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/data/auth_repository.dart) (1 connections)
+- [Exception](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/data/auth_repository.dart) (1 connections)
+- [jsonDecode](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/data/auth_repository.dart) (1 connections)
+- [_register](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/data/auth_repository.dart) (1 connections)
+- [AlertDialog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [dispose](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [LoginScreen](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [_LoginScreenState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [Scaffold](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [_showForgotPasswordDialog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [SizedBox](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [StatefulBuilder](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [Text](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart) (1 connections)
+- [_buildDetailRow](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart) (1 connections)
+- [_buildEditForm](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart) (1 connections)
+- [_buildHeaderCard](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart) (1 connections)
+- [_buildViewDetailsCard](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart) (1 connections)
+- *... and 27 more nodes in this community*
 
 ## Relationships
 
@@ -67,15 +37,15 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\fuel.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\ocr_receipt.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ocr_receipt.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\data\auth_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/data/auth_repository.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\presentation\screens\login_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/login_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\presentation\screens\profile_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\presentation\screens\profile_setup_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/presentation/screens/profile_setup_screen.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 104 (47%)
-- INFERRED: 119 (53%)
+- EXTRACTED: 111 (100%)
+- INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 
 ---

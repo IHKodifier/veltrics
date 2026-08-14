@@ -1,27 +1,62 @@
 # Community 17
 
-> 18 nodes · cohesion 0.11
+> 28 nodes · cohesion 0.16
 
 ## Key Concepts
 
-- [test_org_uc017_023.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L1) (18 connections)
-- [test_uc019_accept_invitation_expired()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L333) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L53) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L37) (1 connections)
-- [setup_database()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L47) (1 connections)
-- [test_uc017_edit_organization_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L214) (1 connections)
-- [test_uc017_edit_organization_invalid_currency()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L198) (1 connections)
-- [test_uc017_edit_organization_profile_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L164) (1 connections)
-- [test_uc018_invite_member_email_and_phone()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L227) (1 connections)
-- [test_uc018_invite_member_missing_contact()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L282) (1 connections)
-- [test_uc018_invite_member_resend_update()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L251) (1 connections)
-- [test_uc019_accept_invitation_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L295) (1 connections)
-- [test_uc020_redeem_invitation_code()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L366) (1 connections)
-- [test_uc021_remove_member_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L390) (1 connections)
-- [test_uc021_remove_owner_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L420) (1 connections)
-- [test_uc022_cancel_invitation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L433) (1 connections)
-- [test_uc023_soft_delete_organization_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L456) (1 connections)
-- [test_uc023_soft_delete_personal_org_blocked()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py#L482) (1 connections)
+- [BillingAlertResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L24) (9 connections)
+- [NotificationItemResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L5) (9 connections)
+- [NotificationPreferenceDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L14) (9 connections)
+- [PurgeTokenResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L30) (9 connections)
+- [BillingAlertCreateRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L20) (8 connections)
+- [UC-079: Automatically Purge Stale FCM Tokens (>90 days inactive).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L104) (7 connections)
+- [UC-076: Get In-App Notification Inbox messages.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L28) (7 connections)
+- [UC-076: Mark notification as read.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L50) (7 connections)
+- [UC-077: Get Notification Channel Preferences.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L65) (7 connections)
+- [UC-077: Update Notification Channel Preferences.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L76) (7 connections)
+- [UC-078: Billing & Payment Alert Notifications.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L88) (7 connections)
+- [notifications.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L1) (6 connections)
+- [notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L1) (5 connections)
+- [notification_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L1) (5 connections)
+- [create_billing_alert()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L84) (4 connections)
+- [AppNotification](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L18) (3 connections)
+- [UserDevice](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L6) (3 connections)
+- [get_notification_inbox()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L25) (3 connections)
+- [get_notification_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L62) (3 connections)
+- [mark_notification_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L46) (3 connections)
+- [purge_stale_fcm_tokens()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L101) (3 connections)
+- [notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L1) (2 connections)
+- [mark_as_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L58) (2 connections)
+- [register_device_token()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L10) (2 connections)
+- [update_notification_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L72) (2 connections)
+- *... and 3 more nodes in this community*
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class AppNotification {
+        +notification.py()
+    }
+    class BillingAlertCreateRequest {
+        +notification.py()
+    }
+    class BillingAlertResponse {
+        +notification.py()
+    }
+    class NotificationItemResponse {
+        +notification.py()
+    }
+    class NotificationPreferenceDTO {
+        +notification.py()
+    }
+    class PurgeTokenResponse {
+        +notification.py()
+    }
+    class UserDevice {
+        +notification.py()
+    }
+```
 
 ## Relationships
 
@@ -29,12 +64,15 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_org_uc017_023.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_org_uc017_023.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\notifications.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\notification_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 35 (97%)
-- INFERRED: 1 (3%)
+- EXTRACTED: 55 (41%)
+- INFERRED: 80 (59%)
 - AMBIGUOUS: 0 (0%)
 
 ---

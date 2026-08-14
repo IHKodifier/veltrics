@@ -4,9 +4,9 @@
 
 ## Key Concepts
 
-- [expense_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (2 connections)
-- [ExpenseModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (1 connections)
-- [ExpenseSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart) (1 connections)
+- [cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (2 connections)
+- [CostBreakdownItemModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
+- [CostBreakdownModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
 
 ## Relationships
 
@@ -14,7 +14,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\expense\domain\expense_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/expense/domain/expense_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart)
 
 ## Audit Trail
 

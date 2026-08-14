@@ -4,8 +4,17 @@
 
 ## Key Concepts
 
-- [dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart) (1 connections)
-- [DashboardSummaryModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart) (1 connections)
+- [MainActivity.kt](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/kotlin/com/veltrics/frontend/MainActivity.kt#L1) (1 connections)
+- [MainActivity](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/kotlin/com/veltrics/frontend/MainActivity.kt#L5) (1 connections)
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class MainActivity {
+        +MainActivity.kt()
+    }
+```
 
 ## Relationships
 
@@ -13,7 +22,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/dashboard_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\android\app\src\main\kotlin\com\veltrics\frontend\MainActivity.kt](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/kotlin/com/veltrics/frontend/MainActivity.kt)
 
 ## Audit Trail
 

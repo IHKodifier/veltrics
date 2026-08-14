@@ -1,43 +1,32 @@
+from typing import Optional, List
 from datetime import datetime
-from typing import List, Optional
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 
-class DeviceTokenCreate(BaseModel):
-    user_id: Optional[str] = None
-    device_token: str
-    device_type: str = "ANDROID"
-
-class DeviceTokenResponse(BaseModel):
+class NotificationItemResponse(BaseModel):
     id: str
     user_id: str
-    device_token: str
-    device_type: str
-    created_at: datetime
-
-    model_config = ConfigDict(from_attributes=True)
-
-class NotificationResponse(BaseModel):
-    id: str
-    user_id: str
-    organization_id: Optional[str] = None
     title: str
-    body: str
-    category: str
-    is_read: bool
-    read_at: Optional[datetime] = None
-    action_url: Optional[str] = None
+    message: str
+    category: str = "GENERAL"
+    is_read: bool = False
     created_at: datetime
 
-    model_config = ConfigDict(from_attributes=True)
+class NotificationPreferenceDTO(BaseModel):
+    push_enabled: bool = True
+    email_enabled: bool = True
+    maintenance_alerts: bool = True
+    billing_alerts: bool = True
 
-class NotificationPaginatedResponse(BaseModel):
-    unread_count: int
-    total: int
-    items: List[NotificationResponse]
+class BillingAlertCreateRequest(BaseModel):
+    alert_type: str
+    message: str
 
-class NotificationPreferencesUpdate(BaseModel):
-    user_id: Optional[str] = None
-    maintenance_reminders: bool = True
-    document_expirations: bool = True
-    quota_alerts: bool = True
-    system_news: bool = True
+class BillingAlertResponse(BaseModel):
+    id: str
+    alert_type: str
+    message: str
+    created_at: datetime
+
+class PurgeTokenResponse(BaseModel):
+    status: str = "success"
+    purged_count: int

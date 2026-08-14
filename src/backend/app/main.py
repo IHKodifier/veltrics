@@ -20,6 +20,11 @@ from app.api.v1.sync import router as sync_router
 from app.api.v1.payments import router as payments_router
 from app.api.v1.ads import router as ads_router
 from app.api.v1.drivers import router as drivers_router
+from app.api.v1.driver_analytics import router as driver_analytics_router
+from app.api.v1.vendors import router as vendors_router
+from app.api.v1.inspections import router as inspections_router
+from app.api.v1.exports import router as exports_router
+from app.api.v1.notifications import router as notifications_router
 from fastapi.staticfiles import StaticFiles
 
 from sqlalchemy import text
@@ -85,6 +90,11 @@ app.include_router(sync_router, prefix=settings.API_V1_STR)
 app.include_router(payments_router, prefix=settings.API_V1_STR)
 app.include_router(ads_router, prefix=settings.API_V1_STR)
 app.include_router(drivers_router, prefix=settings.API_V1_STR)
+app.include_router(driver_analytics_router, prefix=f"{settings.API_V1_STR}/driver-analytics", tags=["Driver Analytics"])
+app.include_router(vendors_router, prefix=settings.API_V1_STR)
+app.include_router(inspections_router, prefix=settings.API_V1_STR)
+app.include_router(exports_router, prefix=settings.API_V1_STR)
+app.include_router(notifications_router, prefix=settings.API_V1_STR)
 
 app.mount("/uploads/receipts", StaticFiles(directory=UPLOAD_DIR), name="receipts")
 

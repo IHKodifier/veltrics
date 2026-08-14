@@ -1,36 +1,51 @@
 # Community 23
 
-> 14 nodes · cohesion 0.14
+> 15 nodes · cohesion 0.20
 
 ## Key Concepts
 
-- [test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L1) (8 connections)
-- [Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L107) (3 connections)
-- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L134) (3 connections)
-- [AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP 200](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L45) (3 connections)
-- [Edge Case: Incorrect password returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L76) (3 connections)
-- [Edge Case: Unregistered email returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L95) (3 connections)
-- [test_uc004_disabled_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L106) (2 connections)
-- [test_uc004_incorrect_password()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L75) (2 connections)
-- [test_uc004_login_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L44) (2 connections)
-- [test_uc004_soft_deleted_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L133) (2 connections)
-- [test_uc004_unregistered_email()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L94) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L41) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L25) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L35) (1 connections)
+- [ExportEmailResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/export.py#L7) (6 connections)
+- [ExportEmailRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/export.py#L4) (5 connections)
+- [exports.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L1) (4 connections)
+- [UC-110: Export Maintenance History to PDF.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L26) (4 connections)
+- [UC-111: Export Fuel & Expense Logs to CSV.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L43) (4 connections)
+- [UC-112: Generate & Email Monthly Fleet Summary PDF.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L61) (4 connections)
+- [export_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/export_service.py#L1) (3 connections)
+- [export_fuel_expenses_csv()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L38) (3 connections)
+- [export_maintenance_pdf()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L21) (3 connections)
+- [export.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/export.py#L1) (2 connections)
+- [email_monthly_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/export_service.py#L80) (2 connections)
+- [generate_fuel_expenses_csv()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/export_service.py#L34) (2 connections)
+- [generate_maintenance_pdf()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/export_service.py#L11) (2 connections)
+- [email_monthly_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L55) (2 connections)
+- [verify_org_header()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py#L14) (1 connections)
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class ExportEmailRequest {
+        +export.py()
+    }
+    class ExportEmailResponse {
+        +export.py()
+    }
+```
 
 ## Relationships
 
-- [[Community 19]] (5 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\exports.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/exports.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\export.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/export.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\export_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/export_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 26 (72%)
-- INFERRED: 10 (28%)
+- EXTRACTED: 26 (55%)
+- INFERRED: 21 (45%)
 - AMBIGUOUS: 0 (0%)
 
 ---

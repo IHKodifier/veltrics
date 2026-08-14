@@ -1,37 +1,38 @@
 # Community 21
 
-> 15 nodes · cohesion 0.13
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 
-- [test_organizations_uc014.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L1) (9 connections)
-- [UC-014: Blank or whitespace organization name rejected with HTTP 422.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L119) (3 connections)
-- [UC-014: GET /api/v1/organizations?user_id={id} returns list of user organization](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L132) (3 connections)
-- [UC-014: GET /api/v1/organizations/{id} returns detail or 404 if not found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L152) (3 connections)
-- [UC-014: POST /api/v1/organizations creates commercial organization and sets owne](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L73) (3 connections)
-- [UC-014: POST /api/v1/organizations/personal auto-creates personal organization f](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L94) (3 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L34) (2 connections)
-- [test_auto_create_personal_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L93) (2 connections)
-- [test_create_commercial_organization_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L72) (2 connections)
-- [test_create_organization_blank_name_rejected()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L118) (2 connections)
-- [test_get_organization_by_id_success_and_not_found()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L151) (2 connections)
-- [test_get_organizations_filtered_by_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L131) (2 connections)
-- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L47) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L43) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py#L24) (1 connections)
+- [test_vehicles_uc028_033.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L1) (16 connections)
+- [test_uc031_restore_vehicle_quota_exceeded()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L292) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L42) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L27) (1 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L35) (1 connections)
+- [test_uc028_soft_delete_vehicle_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L172) (1 connections)
+- [test_uc028_soft_delete_vehicle_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L155) (1 connections)
+- [test_uc029_update_odometer_correction_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L212) (1 connections)
+- [test_uc029_update_odometer_lower_reading_rejected()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L200) (1 connections)
+- [test_uc029_update_odometer_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L182) (1 connections)
+- [test_uc030_get_vehicle_documents()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L252) (1 connections)
+- [test_uc030_upload_vehicle_document()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L235) (1 connections)
+- [test_uc031_restore_deleted_vehicle_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L270) (1 connections)
+- [test_uc032_assign_driver_cross_tenant_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L344) (1 connections)
+- [test_uc032_assign_primary_driver_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L328) (1 connections)
+- [test_uc033_unassign_driver_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L353) (1 connections)
 
 ## Relationships
 
-- [[Community 1]] (5 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc014.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc014.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_vehicles_uc028_033.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py)
 
 ## Audit Trail
 
-- EXTRACTED: 28 (70%)
-- INFERRED: 12 (30%)
+- EXTRACTED: 31 (97%)
+- INFERRED: 1 (3%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -274,41 +274,164 @@ def delete_maintenance_schedule(
 
     return {"message": "Maintenance schedule deleted successfully"}
 
-@router.get("/records", response_model=List[ServiceRecordResponse])
-def get_service_history(
-    vehicle_id: str = Query(..., description="ID of vehicle to retrieve service history for"),
-    limit: int = Query(50, ge=1, le=500, description="Maximum number of service records to return"),
-    offset: int = Query(0, ge=0, description="Number of records to skip"),
+@router.post("/schedules/custom", response_model=MaintenanceScheduleResponse, status_code=status.HTTP_201_CREATED)
+def add_custom_maintenance_schedule(
+    payload: MaintenanceScheduleCreate,
     x_organization_id: Optional[str] = Header(None, alias="X-Organization-ID"),
     db: Session = Depends(get_db)
 ):
     """
-    UC-037: Retrieve chronological service records for a vehicle within the active organization.
+    UC-039: Add Custom Maintenance Service Item.
     """
-    org_id = verify_organization_header(x_organization_id)
+    org_id = x_organization_id
+    if not org_id:
+        vehicle = db.query(Vehicle).filter(Vehicle.id == payload.vehicle_id).first()
+        if vehicle:
+            org_id = vehicle.organization_id
+        else:
+            raise HTTPException(status_code=400, detail="X-Organization-ID required")
 
-    vehicle = db.query(Vehicle).filter(
-        Vehicle.id == vehicle_id,
-        Vehicle.organization_id == org_id,
-        Vehicle.deleted_at == None
+    last_performed_km = payload.last_performed_km if payload.last_performed_km is not None else 0.0
+    last_performed_date = payload.last_performed_date if payload.last_performed_date is not None else date.today()
+
+    schedule = MaintenanceSchedule(
+        organization_id=org_id,
+        vehicle_id=payload.vehicle_id,
+        task_name=payload.task_name,
+        interval_km=payload.interval_km,
+        interval_days=payload.interval_days,
+        last_performed_km=last_performed_km,
+        last_performed_date=last_performed_date,
+        next_due_km=last_performed_km + payload.interval_km,
+        next_due_date=last_performed_date + timedelta(days=payload.interval_days),
+        is_custom=True,
+        is_active=True,
+    )
+    db.add(schedule)
+    db.commit()
+    db.refresh(schedule)
+    return schedule
+
+@router.put("/records/{record_id}", response_model=ServiceRecordResponse)
+def update_service_record(
+    record_id: str,
+    payload: dict,
+    x_organization_id: Optional[str] = Header(None, alias="X-Organization-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-040: Edit existing service record.
+    """
+    record = db.query(ServiceRecord).filter(
+        ServiceRecord.id == record_id,
+        ServiceRecord.deleted_at.is_(None)
     ).first()
 
-    if not vehicle:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Vehicle not found in active organization"
+    if not record:
+        raise HTTPException(status_code=404, detail="Service record not found")
+
+    if "total_cost" in payload:
+        record.total_cost = payload["total_cost"]
+    if "service_center_name" in payload:
+        record.service_center_name = payload["service_center_name"]
+    if "notes" in payload:
+        record.notes = payload["notes"]
+    if "odometer_km" in payload:
+        record.odometer_km = payload["odometer_km"]
+
+    db.commit()
+    db.refresh(record)
+    return record
+
+@router.delete("/records/{record_id}")
+def delete_service_record(
+    record_id: str,
+    x_organization_id: Optional[str] = Header(None, alias="X-Organization-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-041: Delete service record (soft delete).
+    """
+    record = db.query(ServiceRecord).filter(
+        ServiceRecord.id == record_id,
+        ServiceRecord.deleted_at.is_(None)
+    ).first()
+
+    if not record:
+        raise HTTPException(status_code=404, detail="Service record not found")
+
+    record.deleted_at = utc_now()
+    db.commit()
+    return {"status": "success", "message": "Service record soft-deleted"}
+
+@router.get("/records", response_model=List[ServiceRecordResponse])
+def get_service_history(
+    vehicle_id: Optional[str] = Query(None, description="ID of vehicle to retrieve service history for"),
+    search_query: Optional[str] = Query(None, description="Search query for service center name or notes"),
+    limit: int = Query(50, ge=1, le=500),
+    offset: int = Query(0, ge=0),
+    x_organization_id: Optional[str] = Header(None, alias="X-Organization-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-037 & UC-042: Retrieve & filter service records.
+    """
+    query = db.query(ServiceRecord).filter(ServiceRecord.deleted_at.is_(None))
+
+    if vehicle_id:
+        query = query.filter(ServiceRecord.vehicle_id == vehicle_id)
+
+    if x_organization_id:
+        query = query.filter(ServiceRecord.organization_id == x_organization_id)
+
+    if search_query:
+        search_pattern = f"%{search_query}%"
+        query = query.filter(
+            (ServiceRecord.service_center_name.ilike(search_pattern)) |
+            (ServiceRecord.notes.ilike(search_pattern))
         )
 
-    records = db.query(ServiceRecord).filter(
-        ServiceRecord.organization_id == org_id,
-        ServiceRecord.vehicle_id == vehicle_id,
-        ServiceRecord.deleted_at == None
-    ).order_by(
+    records = query.order_by(
         ServiceRecord.service_date.desc(),
         ServiceRecord.created_at.desc()
     ).offset(offset).limit(limit).all()
 
     return records
+
+@router.post("/schedules/{schedule_id}/snooze")
+def snooze_maintenance_alert(
+    schedule_id: str,
+    payload: dict,
+    x_organization_id: Optional[str] = Header(None, alias="X-Organization-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-045: Snooze / Defer Maintenance Alert.
+    """
+    schedule = db.query(MaintenanceSchedule).filter(
+        MaintenanceSchedule.id == schedule_id,
+        MaintenanceSchedule.deleted_at.is_(None)
+    ).first()
+
+    if not schedule:
+        raise HTTPException(status_code=404, detail="Maintenance schedule not found")
+
+    snooze_days = payload.get("snooze_days", 7)
+    snooze_km = payload.get("snooze_km", 500.0)
+
+    base_date = schedule.next_due_date or date.today()
+    schedule.snoozed_until_date = base_date + timedelta(days=snooze_days)
+    schedule.snoozed_until_km = (schedule.next_due_km or 0.0) + snooze_km
+
+    db.commit()
+    db.refresh(schedule)
+
+    return {
+        "status": "snoozed",
+        "schedule_id": schedule_id,
+        "snoozed_until_date": str(schedule.snoozed_until_date),
+        "snoozed_until_km": schedule.snoozed_until_km,
+    }
 
 
 @router.post("/schedules/bulk-accept", response_model=List[MaintenanceScheduleResponse])
