@@ -1,0 +1,271 @@
+from typing import List
+from fastapi import APIRouter, Depends, HTTPException, Request, status
+from sqlalchemy.orm import Session
+
+from app.db.session import get_db
+from app.api.deps import get_current_user, require_organization_role
+from app.models.user import User
+from app.models.organization import Organization
+from app.schemas.user import UserProfileUpdate, ProfileCompletionRequest, UserProfileResponse, UserPreferencesDTO, UserPreferencesUpdate
+from app.schemas.auth import AuthSessionDTO, UserDTO, OrganizationDTO
+from app.schemas.session import UserSessionDTO, SessionRevokeResponse
+from app.services.auth_service import AuthService, create_jwt_token, timedelta
+
+DEFAULT_PREFERENCES = {
+    "theme": "SYSTEM",
+    "accent_color": "slate_teal",
+    "high_contrast": False,
+    "units": "METRIC",
+    "locale": "en"
+}
+
+router = APIRouter(prefix="/users", tags=["User Profiles & Sessions"])
+
+
+@router.get("/me", response_model=UserProfileResponse, status_code=status.HTTP_200_OK)
+def get_user_profile(
+    current_user: User = Depends(get_current_user)
+):
+    """
+    UC-007: Fetch current user profile details.
+    """
+    return UserProfileResponse(
+        id=current_user.id,
+        firebase_uid=current_user.firebase_uid,
+        email=current_user.email,
+        full_name=current_user.full_name,
+        phone_number=current_user.phone_number,
+        city=current_user.city,
+        job_role=current_user.job_role,
+        photo_url=current_user.photo_url or current_user.avatar_url,
+        avatar_url=current_user.avatar_url or current_user.photo_url,
+        auth_provider=current_user.auth_provider,
+        linked_providers=current_user.linked_providers or [],
+        is_super_admin=current_user.is_super_admin or False,
+        preferences={**DEFAULT_PREFERENCES, **(current_user.preferences or {})},
+        created_at=current_user.created_at,
+        updated_at=current_user.updated_at
+    )
+
+@router.patch("/me", response_model=UserProfileResponse, status_code=status.HTTP_200_OK)
+def update_user_profile(
+    payload: UserProfileUpdate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-007: Update current user profile (full name, phone, city, job role, avatar).
+    """
+    if payload.full_name is not None:
+        current_user.full_name = payload.full_name
+    if payload.phone_number is not None:
+        current_user.phone_number = payload.phone_number
+    if payload.city is not None:
+        current_user.city = payload.city
+    if payload.job_role is not None:
+        current_user.job_role = payload.job_role
+    if payload.avatar_url is not None:
+        current_user.avatar_url = payload.avatar_url
+        current_user.photo_url = payload.avatar_url
+
+    db.add(current_user)
+    db.commit()
+    db.refresh(current_user)
+
+    return UserProfileResponse(
+        id=current_user.id,
+        firebase_uid=current_user.firebase_uid,
+        email=current_user.email,
+        full_name=current_user.full_name,
+        phone_number=current_user.phone_number,
+        city=current_user.city,
+        job_role=current_user.job_role,
+        photo_url=current_user.photo_url or current_user.avatar_url,
+        avatar_url=current_user.avatar_url or current_user.photo_url,
+        auth_provider=current_user.auth_provider,
+        linked_providers=current_user.linked_providers or [],
+        is_super_admin=current_user.is_super_admin or False,
+        preferences={**DEFAULT_PREFERENCES, **(current_user.preferences or {})},
+        created_at=current_user.created_at,
+        updated_at=current_user.updated_at
+    )
+
+@router.post("/me/complete-profile", response_model=AuthSessionDTO, status_code=status.HTTP_200_OK)
+def complete_profile(
+    payload: ProfileCompletionRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated AuthSessionDTO.
+    """
+    if payload.full_name is not None:
+        current_user.full_name = payload.full_name
+    if payload.phone_number is not None:
+        current_user.phone_number = payload.phone_number
+    if payload.city is not None:
+        current_user.city = payload.city
+    if payload.job_role is not None:
+        current_user.job_role = payload.job_role
+    if payload.avatar_url is not None:
+        current_user.avatar_url = payload.avatar_url
+        current_user.photo_url = payload.avatar_url
+
+    db.add(current_user)
+    db.commit()
+    db.refresh(current_user)
+
+    # Fetch active or personal organization
+    org = db.query(Organization).filter(
+        Organization.owner_id == current_user.id,
+        Organization.deleted_at == None
+    ).first()
+
+    if not org:
+        # Fallback to auto-create personal organization
+        org = Organization(
+            name=f"{current_user.full_name or 'User'}'s Personal Org",
+            owner_id=current_user.id,
+            is_personal=True,
+            max_vehicles=3,
+            max_drivers=3
+        )
+        db.add(org)
+        db.commit()
+        db.refresh(org)
+
+    access_token = create_jwt_token({"sub": current_user.id, "email": current_user.email}, timedelta(minutes=1440))
+    refresh_token = create_jwt_token({"sub": current_user.id, "type": "refresh"}, timedelta(days=30))
+
+    user_dto = UserDTO(
+        id=current_user.id,
+        firebase_uid=current_user.firebase_uid,
+        email=current_user.email,
+        full_name=current_user.full_name,
+        phone_number=current_user.phone_number,
+        city=current_user.city,
+        job_role=current_user.job_role,
+        photo_url=current_user.photo_url or current_user.avatar_url,
+        avatar_url=current_user.avatar_url or current_user.photo_url,
+        auth_provider=current_user.auth_provider,
+        linked_providers=current_user.linked_providers or [],
+        is_super_admin=current_user.is_super_admin or False
+    )
+
+    org_dto = OrganizationDTO(
+        id=org.id,
+        name=org.name,
+        owner_id=org.owner_id or current_user.id,
+        is_personal=org.is_personal,
+        max_vehicles=org.max_vehicles,
+        max_drivers=org.max_drivers
+    )
+
+    return AuthSessionDTO(
+        access_token=access_token,
+        refresh_token=refresh_token,
+        token_type="bearer",
+        user=user_dto,
+        organization=org_dto
+    )
+
+@router.get("/me/tenant-check", status_code=status.HTTP_200_OK)
+def tenant_role_check(
+    tenant_context: dict = Depends(require_organization_role())
+):
+    """
+    UC-007: Multi-tenant authorization boundary verification endpoint.
+    """
+    return {
+        "status": "ok",
+        "role": tenant_context["role"],
+        "organization_id": tenant_context["organization"].id,
+        "user_id": tenant_context["user"].id
+    }
+
+@router.delete("/me", status_code=status.HTTP_200_OK)
+def delete_user_account(
+    request: Request,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-011: Account Deletion (GDPR Right to be Forgotten).
+    Soft-deletes user record, anonymizes PII, revokes active sessions, and records audit log.
+    """
+    return AuthService.delete_account(db, current_user, request=request)
+
+@router.get("/me/sessions", response_model=List[UserSessionDTO], status_code=status.HTTP_200_OK)
+def get_active_sessions(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-013: Active Session Management & Device Tracking
+    Returns list of active refresh token sessions (device model, OS, IP address, last active time).
+    """
+    return AuthService.get_user_sessions(db, current_user.id)
+
+@router.delete("/me/sessions/{session_id}", response_model=SessionRevokeResponse, status_code=status.HTTP_200_OK)
+def revoke_session(
+    session_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-013: Revoke Specific Device Session
+    Revokes the specified refresh token session server-side.
+    """
+    return AuthService.revoke_user_session(db, current_user.id, session_id)
+
+@router.post("/me/sessions/revoke-others", response_model=SessionRevokeResponse, status_code=status.HTTP_200_OK)
+def revoke_all_other_sessions(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-013 Alternate Flow A1: Revoke All Other Sessions
+    Revokes all active sessions for current user except active session.
+    """
+    return AuthService.revoke_all_other_sessions(db, current_user.id)
+
+
+@router.get("/me/preferences", response_model=UserPreferencesDTO, status_code=status.HTTP_200_OK)
+def get_user_preferences(
+    current_user: User = Depends(get_current_user)
+):
+    """
+    UC-107, UC-114, UC-115: Fetch user appearance, locale, and regional unit preferences.
+    """
+    user_prefs = current_user.preferences or {}
+    merged = {**DEFAULT_PREFERENCES, **user_prefs}
+    return UserPreferencesDTO(**merged)
+
+
+@router.patch("/me/preferences", response_model=UserPreferencesDTO, status_code=status.HTTP_200_OK)
+def update_user_preferences(
+    payload: UserPreferencesUpdate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-107, UC-114, UC-115: Update user theme, accent color, contrast, units, and locale preferences.
+    """
+    current_prefs = dict(current_user.preferences or {})
+    update_data = payload.model_dump(exclude_unset=True)
+
+    for key, value in update_data.items():
+        if value is not None:
+            current_prefs[key] = value
+
+    current_user.preferences = current_prefs
+    db.add(current_user)
+    db.commit()
+    db.refresh(current_user)
+
+    merged = {**DEFAULT_PREFERENCES, **(current_user.preferences or {})}
+    return UserPreferencesDTO(**merged)
+
+
+
+

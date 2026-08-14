@@ -2959,24 +2959,24 @@ This document defines the complete, implementation-ready backlog of 122 use case
 
 ## 10. EP-PAY — Payments & Subscriptions
 
-### UC-080: Initiate Pro Subscription Checkout (Stripe & Safepay)
+### UC-080: Initiate Pro Subscription Checkout (Safepay)
 
 **Linked story:** FS-PAY-001  
 **Actor(s):** Fleet Owner  
-**Trigger:** Owner selects Pro Tier plan and payment gateway on SCR-PAY-002.  
+**Trigger:** Owner selects Pro Tier plan on SCR-PAY-002.  
 
 **Preconditions**
 - [ ] Actor is organization owner.
 
 **Main flow**
-1. Owner selects billing cycle (`MONTHLY`, `ANNUALLY`) and payment provider (`STRIPE` for international credit cards, `SAFEPAY` for Pakistan local cards/wallets).
-2. App posts request to `POST /api/v1/payments/checkout-session` with `{ organization_id, gateway: "STRIPE" | "SAFEPAY", billing_cycle }`.
-3. Backend creates pending `subscriptions` record and calls selected payment gateway API to create checkout session.
-4. API returns checkout session URL / token payload.
-5. Mobile app opens WebView / Stripe SDK checkout sheet.
+1. Owner selects billing cycle (`MONTHLY`, `ANNUALLY`) and initiates subscription upgrade.
+2. App posts request to `POST /api/v1/payments/checkout-session` with `{ organization_id, gateway: "SAFEPAY", billing_cycle }`.
+3. Backend creates pending `subscriptions` record and calls Safepay Checkout API to generate Checkout Tracker URL (supporting both local PKR and international payments).
+4. API returns Safepay checkout session URL / tracker payload.
+5. Mobile app opens WebView / Safepay checkout page.
 
 **Alternate flows**
-- **A1 — Safepay Gateway Selection:** Backend invokes Safepay API to generate Checkout Tracker URL for PKR transactions.
+- **A1 — Annual Discount Selection:** Billing cycle passed as `ANNUALLY` with annual rate applied.
 
 **Edge cases & error handling**
 - [ ] Gateway API Timeout → Backend returns `HTTP 503 Service Unavailable` ("Payment gateway temporarily unreachable. Please try again.").
@@ -2989,89 +2989,88 @@ This document defines the complete, implementation-ready backlog of 122 use case
 - Endpoint(s): `POST /api/v1/payments/checkout-session`
 
 **Acceptance criteria (testable)**
-- WHEN checkout initiation is requested THE SYSTEM SHALL create a pending `subscriptions` row and return a valid gateway checkout URL.
+- WHEN checkout initiation is requested THE SYSTEM SHALL create a pending `subscriptions` row and return a valid Safepay checkout URL.
 
-**Estimate:** L  
+**Estimate:** M  
 **Depends on:** UC-014, UC-121  
 
 ---
 
-### UC-081: Stripe Payment Webhook Processing & Entitlement Activation
+### UC-081: Safepay Payment Webhook Processing & Entitlement Activation
 
 **Linked story:** FS-PAY-002  
-**Actor(s):** Stripe Payment Gateway / System  
-**Trigger:** Stripe posts webhook event (`checkout.session.completed`, `invoice.payment_succeeded`) to backend.  
+**Actor(s):** Safepay Payment Gateway / System  
+**Trigger:** Safepay posts webhook notification (`payment.completed`) to backend.  
 
 **Preconditions**
 - [ ] Webhook endpoint configured on FastAPI backend.
 
 **Main flow**
-1. Stripe sends HTTP POST to `POST /api/v1/payments/webhooks/stripe`.
-2. Backend verifies Stripe signature header using webhook signing secret.
-3. Backend extracts event type, customer ID, subscription ID, and `organization_id` metadata.
-4. Backend executes dual gateway reconciliation logic (UC-121):
-   - Updates `subscriptions` table: `status = "ACTIVE"`, `gateway = "STRIPE"`, `current_period_end = event.period_end`.
-   - Stores raw Stripe event JSON inside `gateway_payload`.
+1. Safepay sends HTTP POST to `POST /api/v1/payments/webhooks/safepay`.
+2. Backend verifies Safepay HMAC signature header using secret key.
+3. Backend extracts tracker ID, payment status (`PAID`), customer data, and `organization_id` metadata.
+4. Backend executes Safepay reconciliation logic (UC-121):
+   - Updates `subscriptions` table: `status = "ACTIVE"`, `gateway = "SAFEPAY"`, `current_period_end = NOW() + 30 DAYS` (or 365 DAYS).
+   - Stores raw Safepay event JSON inside `gateway_payload`.
    - Upgrades `organizations.tier = "pro"`, `max_vehicles = 25`, `max_drivers = 15`.
 5. Backend logs event in `audit_logs` and sends confirmation email to owner.
 
 **Alternate flows**
-- **A1 — Renewal Success:** `invoice.payment_succeeded` extends `current_period_end` date without re-upgrading tier.
+- **A1 — Renewal Success:** Recurring Safepay payment extends `current_period_end` date without re-upgrading tier.
 
 **Edge cases & error handling**
-- [ ] Invalid Signature → Backend rejects with `HTTP 400 Bad Request` and ignores payload.
+- [ ] Signature Mismatch → Backend rejects with `HTTP 401 Unauthorized` and ignores payload.
 
 **Postconditions**
 - Subscription marked active; organization entitlements upgraded to Pro tier.
 
 **Data & API touchpoints**
 - Entities touched: `subscriptions`, `organizations`, `audit_logs`
-- Endpoint(s): `POST /api/v1/payments/webhooks/stripe`
+- Endpoint(s): `POST /api/v1/payments/webhooks/safepay`
 
 **Acceptance criteria (testable)**
-- WHEN a valid `checkout.session.completed` Stripe webhook is received THE SYSTEM SHALL set subscription `status = "ACTIVE"` and update organization tier to `"pro"` in a single transaction.
+- WHEN a valid Safepay `payment.completed` webhook is received THE SYSTEM SHALL set subscription `status = "ACTIVE"` and update organization tier to `"pro"` in a single transaction.
 
-**Estimate:** L  
+**Estimate:** M  
 **Depends on:** UC-080, UC-121  
 
 ---
 
-### UC-082: Safepay Payment Webhook Processing & Entitlement Activation
+### UC-082: Handle Payment Checkout Failure & Cancellation
 
 **Linked story:** FS-PAY-003  
 **Actor(s):** Safepay Payment Gateway / System  
-**Trigger:** Safepay posts webhook notification (`payment.completed`) to backend.  
+**Trigger:** Safepay posts failure event (`payment.failed`) or user cancels checkout session.  
 
 **Preconditions**
-- [ ] Safepay webhook route configured.
+- [ ] Pending or active subscription session.
 
 **Main flow**
-1. Safepay sends HTTP POST to `POST /api/v1/payments/webhooks/safepay`.
+1. Safepay sends HTTP POST to `POST /api/v1/payments/webhooks/safepay` with status `payment.failed` or app receives cancel callback.
 2. Backend verifies Safepay HMAC signature header.
-3. Backend extracts tracker ID, payment status (`PAID`), and `organization_id` from metadata.
-4. Backend executes dual gateway reconciliation logic (UC-121):
-   - Updates `subscriptions` table: `status = "ACTIVE"`, `gateway = "SAFEPAY"`, `current_period_end = NOW() + 30 DAYS`.
-   - Preserves raw payload inside `gateway_payload` JSON.
-   - Upgrades `organizations.tier = "pro"`, `max_vehicles = 25`, `max_drivers = 15`.
+3. Backend extracts tracker ID and failure reason.
+4. Backend updates `subscriptions` record:
+   - If previous status was `ACTIVE`, sets `status = "PAST_DUE"` and `grace_period_ends_at = NOW() + 7 DAYS`.
+   - If pending checkout, marks status `CANCELED`.
 5. API returns `HTTP 200 OK` to Safepay server.
 
 **Alternate flows**
-- **A1 — Payment Failed:** Safepay sends `payment.failed` → Subscription status set to `PAST_DUE`; notification sent to user.
+- **A1 — Payment Retried:** User retries checkout → New pending session created.
 
 **Edge cases & error handling**
 - [ ] Signature Mismatch → Returns `HTTP 401 Unauthorized`.
 
 **Postconditions**
-- Subscription activated via Safepay; entitlements upgraded.
+- Subscription failure logged; grace period initiated if active or session canceled.
 
 **Data & API touchpoints**
 - Entities touched: `subscriptions`, `organizations`, `audit_logs`
 - Endpoint(s): `POST /api/v1/payments/webhooks/safepay`
 
 **Acceptance criteria (testable)**
-- WHEN a valid Safepay webhook with status `PAID` is received THE SYSTEM SHALL normalize subscription status to `"ACTIVE"` and populate `gateway_payload`.
+- WHEN a Safepay webhook with status `payment.failed` is received for an active subscription THE SYSTEM SHALL mark status `PAST_DUE` with 7-day grace period.
 
-**Estimate:** L  
+**Estimate:** S  
 **Depends on:** UC-080, UC-121  
 
 ---
@@ -4509,47 +4508,47 @@ This document defines the complete, implementation-ready backlog of 122 use case
 
 ---
 
-### UC-121: Dual Payment Gateway Webhook Reconciliation Engine
+### UC-121: Safepay Webhook Reconciliation Engine
 
 **Linked story:** Core Infrastructure / EP-PAY (FS-PAY-001..010)  
-**Actor(s):** Webhook Middleware / Stripe & Safepay Integration Services  
-**Trigger:** Webhook event received from Stripe (`POST /api/v1/payments/webhooks/stripe`) or Safepay (`POST /api/v1/payments/webhooks/safepay`).  
+**Actor(s):** Webhook Middleware / Safepay Integration Service  
+**Trigger:** Webhook event received from Safepay (`POST /api/v1/payments/webhooks/safepay`).  
 
 **Preconditions**
 - [ ] Webhook signature verified.
 
 **Main flow**
-1. Webhook endpoint receives HTTP POST from Stripe or Safepay.
-2. Middleware verifies provider cryptographic signature (Stripe Webhook Secret / Safepay HMAC Key).
+1. Webhook endpoint receives HTTP POST from Safepay.
+2. Middleware verifies Safepay HMAC signature header using secret key.
 3. Payload handler extracts unified fields:
-   - Provider Name (`"STRIPE"` or `"SAFEPAY"`)
-   - Provider Subscription / Transaction ID
+   - Provider Name (`"SAFEPAY"`)
+   - Safepay Tracker / Transaction ID
    - Internal `organization_id`
    - Normalized Event Type (`PAYMENT_SUCCESS`, `PAYMENT_FAILED`, `SUBSCRIPTION_CANCELED`)
 4. Handler updates normalized `subscriptions` table:
    - Sets `status` to normalized state (`"ACTIVE"`, `"PAST_DUE"`, `"CANCELED"`).
    - Sets `current_period_end` timestamp.
-   - Stores raw original event JSON inside `gateway_payload` JSONB column.
+   - Stores raw original event JSON inside `gateway_payload` column.
 5. If status transition is `ACTIVE`, handler updates `organizations.tier = "pro"` and sets Pro quotas (`max_vehicles = 25`, `max_drivers = 15`).
 6. Handler logs event in `audit_logs`.
-7. Endpoint returns `HTTP 200 OK` to payment gateway.
+7. Endpoint returns `HTTP 200 OK` to Safepay server.
 
 **Alternate flows**
-- **A1 — Duplicate Webhook Event:** Handler checks provider event ID in `audit_logs`. If already processed, returns `HTTP 200 OK` immediately without re-mutating state (idempotency enforcement).
+- **A1 — Duplicate Webhook Event:** Handler checks tracker/event ID in `audit_logs`. If already processed, returns `HTTP 200 OK` immediately without re-mutating state (idempotency enforcement).
 
 **Edge cases & error handling**
 - [ ] Unrecognized event type -> Logged in audit trail and returned `HTTP 200 OK` to prevent gateway retry loops.
 
 **Postconditions**
-- Subscription state normalized; raw gateway event saved in JSONB; entitlements updated.
+- Subscription state normalized; raw gateway event saved in JSON; entitlements updated.
 
 **Data & API touchpoints**
 - Entities touched: `subscriptions`, `organizations`, `audit_logs`
-- Endpoint(s): `POST /api/v1/payments/webhooks/stripe`, `POST /api/v1/payments/webhooks/safepay`
+- Endpoint(s): `POST /api/v1/payments/webhooks/safepay`
 
 **Acceptance criteria (testable)**
-- WHEN a valid webhook is received from either Stripe or Safepay THE SYSTEM SHALL normalize subscription status to `ACTIVE`/`PAST_DUE`/`CANCELED` and store the raw payload in `gateway_payload`.
-- WHEN a duplicate webhook event ID is received THE SYSTEM SHALL process it idempotently and return `HTTP 200` without repeating mutations.
+- WHEN a valid webhook is received from Safepay THE SYSTEM SHALL normalize subscription status to `ACTIVE`/`PAST_DUE`/`CANCELED` and store the raw payload in `gateway_payload`.
+- WHEN a duplicate Safepay webhook event ID is received THE SYSTEM SHALL process it idempotently and return `HTTP 200` without repeating mutations.
 
 **Estimate:** L  
 **Depends on:** UC-080, UC-081, UC-082  
