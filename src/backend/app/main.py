@@ -25,6 +25,7 @@ from app.api.v1.vendors import router as vendors_router
 from app.api.v1.inspections import router as inspections_router
 from app.api.v1.exports import router as exports_router
 from app.api.v1.notifications import router as notifications_router
+from app.api.v1.support import router as support_router
 from fastapi.staticfiles import StaticFiles
 
 from sqlalchemy import text
@@ -95,6 +96,7 @@ app.include_router(vendors_router, prefix=settings.API_V1_STR)
 app.include_router(inspections_router, prefix=settings.API_V1_STR)
 app.include_router(exports_router, prefix=settings.API_V1_STR)
 app.include_router(notifications_router, prefix=settings.API_V1_STR)
+app.include_router(support_router, prefix=settings.API_V1_STR)
 
 app.mount("/uploads/receipts", StaticFiles(directory=UPLOAD_DIR), name="receipts")
 

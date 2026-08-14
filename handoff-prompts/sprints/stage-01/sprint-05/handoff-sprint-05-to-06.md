@@ -2,7 +2,7 @@
 
 **Completed Sprint:** Sprint 05 — Fleet Intelligence, Driver Behavior Scoring, Analytics & Data Export  
 **Upcoming Sprint:** Sprint 06 — Dark Mode, Locales & Settings Polish (`UC-107` .. `UC-109`, `UC-113` .. `UC-117`)  
-**Branch Status:** `sprint/sprint-05` (Ready for PR & merge into `dev`)  
+**Branch Status:** `sprint/sprint-06` (Checked out from `dev` after merging `sprint/sprint-05` and pushing upstream)  
 **Test Results:** 34 / 34 Automated Unit Tests Passed (100% Green)
 
 ---

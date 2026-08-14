@@ -51,6 +51,16 @@ def get_current_user(
 
     return user
 
+def get_current_user_optional(
+    db: Session = Depends(get_db),
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    authorization: Optional[str] = Header(None, alias="Authorization")
+) -> Optional[User]:
+    try:
+        return get_current_user(db=db, x_user_id=x_user_id, authorization=authorization)
+    except HTTPException:
+        return None
+
 def require_organization_role(allowed_roles: Optional[List[str]] = None) -> Callable:
     def _checker(
         db: Session = Depends(get_db),

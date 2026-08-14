@@ -27,6 +27,7 @@ class User(Base):
     password_hash = Column(String(255), nullable=True)
     is_active = Column(Boolean, nullable=False, default=True)
     is_super_admin = Column(Boolean, nullable=False, default=False)
+    preferences = Column(JSON, nullable=True, default=dict)
     created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
     updated_at = Column(DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
     deleted_at = Column(DateTime(timezone=True), nullable=True, default=None)

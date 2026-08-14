@@ -6,10 +6,18 @@ from app.db.session import get_db
 from app.api.deps import get_current_user, require_organization_role
 from app.models.user import User
 from app.models.organization import Organization
-from app.schemas.user import UserProfileUpdate, ProfileCompletionRequest, UserProfileResponse
+from app.schemas.user import UserProfileUpdate, ProfileCompletionRequest, UserProfileResponse, UserPreferencesDTO, UserPreferencesUpdate
 from app.schemas.auth import AuthSessionDTO, UserDTO, OrganizationDTO
 from app.schemas.session import UserSessionDTO, SessionRevokeResponse
 from app.services.auth_service import AuthService, create_jwt_token, timedelta
+
+DEFAULT_PREFERENCES = {
+    "theme": "SYSTEM",
+    "accent_color": "slate_teal",
+    "high_contrast": False,
+    "units": "METRIC",
+    "locale": "en"
+}
 
 router = APIRouter(prefix="/users", tags=["User Profiles & Sessions"])
 
@@ -34,6 +42,7 @@ def get_user_profile(
         auth_provider=current_user.auth_provider,
         linked_providers=current_user.linked_providers or [],
         is_super_admin=current_user.is_super_admin or False,
+        preferences={**DEFAULT_PREFERENCES, **(current_user.preferences or {})},
         created_at=current_user.created_at,
         updated_at=current_user.updated_at
     )
@@ -76,6 +85,7 @@ def update_user_profile(
         auth_provider=current_user.auth_provider,
         linked_providers=current_user.linked_providers or [],
         is_super_admin=current_user.is_super_admin or False,
+        preferences={**DEFAULT_PREFERENCES, **(current_user.preferences or {})},
         created_at=current_user.created_at,
         updated_at=current_user.updated_at
     )
@@ -218,6 +228,44 @@ def revoke_all_other_sessions(
     Revokes all active sessions for current user except active session.
     """
     return AuthService.revoke_all_other_sessions(db, current_user.id)
+
+
+@router.get("/me/preferences", response_model=UserPreferencesDTO, status_code=status.HTTP_200_OK)
+def get_user_preferences(
+    current_user: User = Depends(get_current_user)
+):
+    """
+    UC-107, UC-114, UC-115: Fetch user appearance, locale, and regional unit preferences.
+    """
+    user_prefs = current_user.preferences or {}
+    merged = {**DEFAULT_PREFERENCES, **user_prefs}
+    return UserPreferencesDTO(**merged)
+
+
+@router.patch("/me/preferences", response_model=UserPreferencesDTO, status_code=status.HTTP_200_OK)
+def update_user_preferences(
+    payload: UserPreferencesUpdate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-107, UC-114, UC-115: Update user theme, accent color, contrast, units, and locale preferences.
+    """
+    current_prefs = dict(current_user.preferences or {})
+    update_data = payload.model_dump(exclude_unset=True)
+
+    for key, value in update_data.items():
+        if value is not None:
+            current_prefs[key] = value
+
+    current_user.preferences = current_prefs
+    db.add(current_user)
+    db.commit()
+    db.refresh(current_user)
+
+    merged = {**DEFAULT_PREFERENCES, **(current_user.preferences or {})}
+    return UserPreferencesDTO(**merged)
+
 
 
 
