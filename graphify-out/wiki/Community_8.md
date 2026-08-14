@@ -1,81 +1,86 @@
 # Community 8
 
-> 43 nodes · cohesion 0.11
+> 41 nodes · cohesion 0.16
 
 ## Key Concepts
 
-- [fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L1) (12 connections)
-- [fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py#L1) (10 connections)
-- [FuelLogCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L5) (10 connections)
-- [FuelLogResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L71) (10 connections)
-- [FuelLogUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L49) (10 connections)
-- [FuelPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L112) (10 connections)
-- [FuelTrendsResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L103) (10 connections)
-- [ReceiptOcrResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ocr_receipt.py#L4) (10 connections)
-- [fuel.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L1) (9 connections)
-- [UC-051: Edit Fuel Log Entry.     Updates entry, syncs linked ExpenseLog, and re](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L123) (8 connections)
-- [UC-051: Soft Delete Fuel Log Entry.     Soft-deletes entry and linked ExpenseLo](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L138) (8 connections)
-- [UC-048: View Fuel Efficiency Trends & Aggregate Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L28) (8 connections)
-- [UC-050: Detect Fuel Anomaly & Theft Alerts - Fetch anomaly logs.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L40) (8 connections)
-- [UC-050 (A1): Manager clears fuel anomaly flag.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L51) (8 connections)
-- [UC-049: Fuel Receipt OCR Auto-Fill (Pro).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L60) (8 connections)
-- [UC-046: Log Fuel Fill-Up Entry.     Automatically updates vehicle current odome](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L75) (8 connections)
-- [UC-047 / UC-048: View Fuel Log History with optional pagination.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L92) (8 connections)
-- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L12) (7 connections)
-- [list_fuel_logs()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L84) (5 connections)
-- [create_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L70) (4 connections)
-- [delete_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L133) (4 connections)
-- [get_fuel_trends()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L23) (4 connections)
-- [list_fuel_anomalies()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L35) (4 connections)
-- [update_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L117) (4 connections)
-- [ocr_scan_receipt()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L57) (3 connections)
-- *... and 18 more nodes in this community*
+- [MileageSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L95) (11 connections)
+- [QuickTripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L86) (11 connections)
+- [TripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L20) (11 connections)
+- [TripPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L71) (11 connections)
+- [TripResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L48) (11 connections)
+- [TripStart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L5) (11 connections)
+- [TripStop](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L13) (11 connections)
+- [TripSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L78) (11 connections)
+- [TripUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L34) (11 connections)
+- [UC-054: Edit Trip Entry & Classification.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L116) (11 connections)
+- [UC-055: Soft Delete Trip Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L130) (11 connections)
+- [UC-056: Quick-Log Trip from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L144) (11 connections)
+- [UC-057: View Distance & Mileage Summary Analytics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L160) (11 connections)
+- [UC-053: Get Trip Summary & Tax Deduction Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L29) (11 connections)
+- [UC-052: Start GPS Trip Tracking session.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L43) (11 connections)
+- [UC-052: Stop active GPS Trip Tracking session and calculate distance.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L56) (11 connections)
+- [UC-052 / UC-053: Create trip entry (Manual or completed GPS trip).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L69) (11 connections)
+- [UC-053: View Trip History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L86) (11 connections)
+- [trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L1) (10 connections)
+- [trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L1) (10 connections)
+- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L12) (10 connections)
+- [trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L1) (9 connections)
+- [list_trips()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L77) (4 connections)
+- [quick_create_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L139) (4 connections)
+- [quick_log_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L271) (3 connections)
+- *... and 16 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
     class Config {
-        +fuel_log.py()
+        +trip.py()
     }
-    class FuelLogCreate {
-        +fuel_log.py()
+    class MileageSummaryResponse {
+        +trip.py()
     }
-    class FuelLogResponse {
-        +fuel_log.py()
+    class QuickTripCreate {
+        +trip.py()
     }
-    class FuelLogUpdate {
-        +fuel_log.py()
+    class TripCreate {
+        +trip.py()
     }
-    class FuelMonthlyTrend {
-        +fuel_log.py()
+    class TripPaginatedResponse {
+        +trip.py()
     }
-    class FuelPaginatedResponse {
-        +fuel_log.py()
+    class TripResponse {
+        +trip.py()
     }
-    class FuelTrendsResponse {
-        +fuel_log.py()
+    class TripStart {
+        +trip.py()
     }
-    class ReceiptOcrResponse {
-        +ocr_receipt.py()
+    class TripStop {
+        +trip.py()
+    }
+    class TripSummaryResponse {
+        +trip.py()
+    }
+    class TripUpdate {
+        +trip.py()
     }
 ```
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 7]] (90 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\fuel.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\ocr_receipt.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ocr_receipt.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 104 (47%)
-- INFERRED: 119 (53%)
+- EXTRACTED: 103 (37%)
+- INFERRED: 178 (63%)
 - AMBIGUOUS: 0 (0%)
 
 ---

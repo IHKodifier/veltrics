@@ -1,7 +1,8 @@
 class OrganizationInvitationModel {
   final String id;
   final String organizationId;
-  final String email;
+  final String? email;
+  final String? phone;
   final String role;
   final String token;
   final String status;
@@ -13,7 +14,8 @@ class OrganizationInvitationModel {
   OrganizationInvitationModel({
     required this.id,
     required this.organizationId,
-    required this.email,
+    this.email,
+    this.phone,
     required this.role,
     required this.token,
     required this.status,
@@ -27,7 +29,8 @@ class OrganizationInvitationModel {
     return OrganizationInvitationModel(
       id: json['id'] as String,
       organizationId: json['organization_id'] as String,
-      email: json['email'] as String,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
       role: json['role'] as String,
       token: json['token'] as String,
       status: json['status'] as String? ?? 'PENDING',
@@ -43,6 +46,7 @@ class OrganizationInvitationModel {
       'id': id,
       'organization_id': organizationId,
       'email': email,
+      'phone': phone,
       'role': role,
       'token': token,
       'status': status,

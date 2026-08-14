@@ -1,10 +1,13 @@
 # Community 24
 
-> 8 nodes · cohesion 0.25
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 
 - [test_fuel_uc048.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L1) (7 connections)
+- [UC-048 Acceptance Criterion: System returns fleet aggregate average efficiency a](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L134) (4 connections)
+- [UC-048 Efficiency Trends: Monthly fuel cost totals and efficiency trends per veh](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L173) (4 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L52) (3 connections)
 - [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L37) (2 connections)
 - [test_fleet_aggregate_average_efficiency()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L133) (2 connections)
 - [test_fuel_efficiency_trends_monthly_aggregation()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc048.py#L172) (2 connections)
@@ -23,8 +26,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 17 (94%)
-- INFERRED: 1 (6%)
+- EXTRACTED: 20 (69%)
+- INFERRED: 9 (31%)
 - AMBIGUOUS: 0 (0%)
 
 ---

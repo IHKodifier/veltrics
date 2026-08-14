@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 4: Verify PATCH /api/v1/vehicles/{vehicle_id}/status updates vehicle…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py#L114) (0 connections)
+- [Test 1: Verify GET /api/v1/vehicles?status=MAINTENANCE returns only vehicles in…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc025.py#L88) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc026.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py)
+- [src/tests/unit/test_vehicles_uc025.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc025.py)
 
 ## Audit Trail
 

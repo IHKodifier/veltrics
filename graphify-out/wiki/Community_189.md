@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Test 5: Verify non-dictionary custom_specs payload returns HTTP 422…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py#L155) (0 connections)
+- [Test 3: Verify requesting another tenant's vehicle returns HTTP 403 Forbidden.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py#L103) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_vehicles_uc027.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py)
+- [src/tests/unit/test_vehicles_uc026.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc026.py)
 
 ## Audit Trail
 

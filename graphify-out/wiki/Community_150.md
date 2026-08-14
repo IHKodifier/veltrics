@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-037: Header requirements and cross-tenant boundaries are strictly enforced.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc037.py#L201) (0 connections)
+- [UC-036: Omitting maintenance_schedule_id matches schedule item by task name…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py#L178) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_maintenance_uc037.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc037.py)
+- [src/tests/unit/test_maintenance_uc036.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py)
 
 ## Audit Trail
 

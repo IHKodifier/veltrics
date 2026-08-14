@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 1: WHEN valid email/password details are submitted THE SYSTEM SHALL return…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py#L42) (0 connections)
+- [Idempotent seeding script for Vehicle Master Catalogue and Default Maintenance…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/db/seed.py#L31) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc003.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc003.py)
+- [src/backend/app/db/seed.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/db/seed.py)
 
 ## Audit Trail
 

@@ -2,12 +2,12 @@
   "hotspots": [
     {
       "label": "AuthService",
-      "risk": 0.635,
+      "risk": 0.633,
       "type": "CLASS"
     },
     {
       "label": "Organization",
-      "risk": 0.212,
+      "risk": 0.214,
       "type": "CLASS"
     },
     {
@@ -27,10 +27,10 @@
     }
   ],
   "blast_radius": {
-    "Organization": 199,
-    "User": 115,
-    "Vehicle": 102,
-    "MaintenanceSchedule": 53,
-    "ServiceRecord": 40
+    "Organization": 215,
+    "User": 131,
+    "Vehicle": 115,
+    "MaintenanceSchedule": 65,
+    "AuditLog": 54
   }
 }

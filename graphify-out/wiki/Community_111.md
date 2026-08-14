@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L232) (0 connections)
+- [AC 2: WHEN an existing Facebook user signs in, THE SYSTEM SHALL return HTTP 200…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L74) (0 connections)
 
 ## Relationships
 

@@ -1,35 +1,35 @@
 # Community 10
 
-> 37 nodes · cohesion 0.05
+> 34 nodes · cohesion 0.06
 
 ## Key Concepts
 
-- [05b-flutter-theme.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (38 connections)
-- [adBg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [adFg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [AnimatedSlide](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [BoxShadow](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [buildTextTheme](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [_buildTheme](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [Container](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [dark](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [_darkColorScheme](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [errorBg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [errorFg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [infoBg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [infoFg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [_inter](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [light](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [_lightColorScheme](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [of](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [_PaletteSet](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [proBg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [proFg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [SizedBox](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [successBg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- [successFg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart) (1 connections)
-- *... and 12 more nodes in this community*
+- [dashboard_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (18 connections)
+- [cost_breakdown_card.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (16 connections)
+- [dashboard_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/data/dashboard_repository.dart) (6 connections)
+- [../../data/dashboard_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (2 connections)
+- [../../domain/cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (2 connections)
+- [../../domain/dashboard_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (2 connections)
+- [DashboardRepository](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/data/dashboard_repository.dart) (1 connections)
+- [Exception](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/data/dashboard_repository.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [_buildKpiCard](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [_buildOnboardingCard](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [Center](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [Container](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [DashboardScreen](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [_DashboardScreenState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [Icon](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [initState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [_loadSummary](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [Scaffold](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [SingleChildScrollView](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [SizedBox](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (1 connections)
+- [_buildCategoryLegend](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (1 connections)
+- [Card](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (1 connections)
+- [Center](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart) (1 connections)
+- *... and 9 more nodes in this community*
 
 ## Relationships
 
@@ -37,7 +37,9 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\product-specs\05b-flutter-theme.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/product-specs/05b-flutter-theme.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\data\dashboard_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/data/dashboard_repository.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\presentation\screens\dashboard_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/screens/dashboard_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\presentation\widgets\cost_breakdown_card.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/cost_breakdown_card.dart)
 
 ## Audit Trail
 

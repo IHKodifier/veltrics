@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-024: Register New Vehicle with organization quota validation & duplicate VIN…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L72) (0 connections)
+- [UC-118: Trigger Database Migration & Master Seeding Infrastructure. Pre-…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/seed.py#L10) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
+- [src/backend/app/api/v1/seed.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/seed.py)
 
 ## Audit Trail
 

@@ -1,22 +1,13 @@
 # Plugin registration
 
-> 3 nodes · cohesion 0.67
+> 4 nodes · cohesion 0.50
 
 ## Key Concepts
 
-- [GeneratedPluginRegistrant](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java#L14) (2 connections)
-- [GeneratedPluginRegistrant.java](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java#L1) (1 connections)
-- [.registerWith()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java#L17) (1 connections)
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class GeneratedPluginRegistrant {
-        +GeneratedPluginRegistrant.java()
-        +.registerWith()
-    }
-```
+- [fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (3 connections)
+- [FuelLogModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [FuelMonthlyTrendModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
+- [FuelTrendsModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart) (1 connections)
 
 ## Relationships
 
@@ -24,11 +15,11 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\fuel\domain\fuel_log_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/fuel/domain/fuel_log_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 4 (100%)
+- EXTRACTED: 6 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

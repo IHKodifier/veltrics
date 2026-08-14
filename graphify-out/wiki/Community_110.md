@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L205) (0 connections)
+- [AC 1: WHEN an existing Google user signs in, THE SYSTEM SHALL return HTTP 200…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L43) (0 connections)
 
 ## Relationships
 

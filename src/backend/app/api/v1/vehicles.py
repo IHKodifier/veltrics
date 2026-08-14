@@ -1,5 +1,6 @@
+from datetime import datetime, timezone
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, Header, HTTPException, Query, status
 from sqlalchemy.orm import Session
 from app.db.session import get_db
 from app.db.seed import seed_database
@@ -179,12 +180,18 @@ def list_vehicles(
     return query.all()
 
 from app.models.driver import Driver
+from app.models.user_organization import UserOrganization
 from app.models.maintenance import MaintenanceSchedule, ServiceRecord
 from app.models.audit_log import AuditLog
+from app.models.vehicle_document import VehicleDocument
 from app.schemas.vehicle import (
     VehicleCreateRequest,
     VehicleStatusUpdateRequest,
     VehicleUpdateRequest,
+    OdometerUpdateRequest,
+    AssignDriverRequest,
+    VehicleDocumentCreate,
+    VehicleDocumentResponse,
     VehicleResponse,
     VehicleDetailResponse,
     VehicleTypeResponse,
@@ -374,4 +381,353 @@ def update_vehicle(
     db.commit()
     db.refresh(vehicle)
     return vehicle
+
+@router.delete("/{vehicle_id}")
+def delete_vehicle(
+    vehicle_id: str,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-028: Soft Delete Vehicle & Write Audit Log.
+    Frees up 1 vehicle slot in active organization quota.
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id,
+        Vehicle.deleted_at == None
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    now = datetime.now(timezone.utc)
+    vehicle.deleted_at = now
+
+    audit_entry = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="DELETE_VEHICLE",
+        payload={"vehicle_id": vehicle_id}
+    )
+    db.add(audit_entry)
+
+    db.commit()
+    return {"message": "Vehicle soft-deleted successfully", "id": vehicle_id}
+
+@router.post("/{vehicle_id}/odometer", response_model=VehicleResponse)
+def update_vehicle_odometer(
+    vehicle_id: str,
+    req: OdometerUpdateRequest,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-029: Log Manual Odometer Update.
+    Enforces lower-reading guard unless is_correction = true. Checks maintenance threshold alerts.
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id,
+        Vehicle.deleted_at == None
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    if req.current_odometer_km < vehicle.current_odometer_km and not req.is_correction:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"New odometer reading cannot be lower than existing reading of {vehicle.current_odometer_km} km"
+        )
+
+    discrepancy = abs(req.current_odometer_km - vehicle.current_odometer_km)
+    previous_odometer = vehicle.current_odometer_km
+    vehicle.current_odometer_km = req.current_odometer_km
+
+    # Evaluate maintenance schedule thresholds
+    schedules = db.query(MaintenanceSchedule).filter(
+        MaintenanceSchedule.vehicle_id == vehicle_id,
+        MaintenanceSchedule.deleted_at == None
+    ).all()
+    for s in schedules:
+        if s.next_due_km and req.current_odometer_km >= s.next_due_km:
+            s.is_active = True
+
+    if req.is_correction or discrepancy > 500.0:
+        audit_entry = AuditLog(
+            organization_id=organization_id,
+            actor_id=x_user_id,
+            action="ODOMETER_MANUAL_UPDATE",
+            payload={
+                "vehicle_id": vehicle_id,
+                "previous_odometer_km": previous_odometer,
+                "new_odometer_km": req.current_odometer_km,
+                "is_correction": req.is_correction,
+            }
+        )
+        db.add(audit_entry)
+
+    db.commit()
+    db.refresh(vehicle)
+    return vehicle
+
+@router.post("/{vehicle_id}/documents", response_model=VehicleDocumentResponse, status_code=status.HTTP_201_CREATED)
+def upload_vehicle_document(
+    vehicle_id: str,
+    req: VehicleDocumentCreate,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-030: Upload & Manage Vehicle Documents (Registration / Insurance / Permit).
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id,
+        Vehicle.deleted_at == None
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    exp_date = req.expiration_date
+    if isinstance(exp_date, str):
+        try:
+            exp_date = datetime.fromisoformat(exp_date.replace("Z", "+00:00"))
+        except ValueError:
+            exp_date = None
+
+    doc = VehicleDocument(
+        vehicle_id=vehicle_id,
+        organization_id=organization_id,
+        document_type=req.document_type.upper(),
+        document_url=req.document_url,
+        file_name=req.file_name,
+        expiration_date=exp_date
+    )
+    db.add(doc)
+    db.commit()
+    db.refresh(doc)
+    return doc
+
+@router.get("/{vehicle_id}/documents", response_model=List[VehicleDocumentResponse])
+def get_vehicle_documents(
+    vehicle_id: str,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-030: List Vehicle Documents.
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id,
+        Vehicle.deleted_at == None
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    docs = db.query(VehicleDocument).filter(
+        VehicleDocument.vehicle_id == vehicle_id,
+        VehicleDocument.deleted_at == None
+    ).all()
+
+    return docs
+
+@router.post("/{vehicle_id}/restore", response_model=VehicleResponse)
+def restore_deleted_vehicle(
+    vehicle_id: str,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-031: Recover Soft-Deleted Vehicle.
+    Enforces active organization quota limit prior to restoration.
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    if vehicle.deleted_at is None:
+        return vehicle
+
+    org = db.query(Organization).filter_by(id=organization_id).first()
+    active_count = db.query(Vehicle).filter(
+        Vehicle.organization_id == organization_id,
+        Vehicle.deleted_at == None
+    ).count()
+
+    if org and active_count >= org.max_vehicles:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="QUOTA_EXCEEDED"
+        )
+
+    vehicle.deleted_at = None
+
+    audit_entry = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="RECOVER_VEHICLE",
+        payload={"vehicle_id": vehicle_id}
+    )
+    db.add(audit_entry)
+
+    db.commit()
+    db.refresh(vehicle)
+    return vehicle
+
+@router.post("/{vehicle_id}/assign-driver", response_model=VehicleResponse)
+def assign_primary_driver(
+    vehicle_id: str,
+    req: AssignDriverRequest,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-032: Assign Primary Driver to Vehicle.
+    Enforces tenant isolation on assigned driver.
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id,
+        Vehicle.deleted_at == None
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    driver = db.query(Driver).filter(Driver.id == req.driver_id).first()
+    if driver:
+        if driver.organization_id != organization_id:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Target driver belongs to another organization"
+            )
+        driver_id_to_assign = driver.id
+    else:
+        user_org = db.query(UserOrganization).filter(
+            UserOrganization.organization_id == organization_id,
+            UserOrganization.user_id == req.driver_id
+        ).first()
+        if not user_org:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Target driver not found in organization"
+            )
+        driver_id_to_assign = req.driver_id
+
+    vehicle.assigned_driver_id = driver_id_to_assign
+
+    audit_entry = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="ASSIGN_PRIMARY_DRIVER",
+        payload={"vehicle_id": vehicle_id, "driver_id": driver_id_to_assign}
+    )
+    db.add(audit_entry)
+
+    db.commit()
+    db.refresh(vehicle)
+    return vehicle
+
+@router.post("/{vehicle_id}/unassign-driver", response_model=VehicleResponse)
+def unassign_primary_driver(
+    vehicle_id: str,
+    organization_id: str = Query(..., description="Organization ID for tenant isolation"),
+    x_user_id: Optional[str] = Header(None, alias="X-User-ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-033: Unassign Primary Driver from Vehicle.
+    """
+    vehicle = db.query(Vehicle).filter(
+        Vehicle.id == vehicle_id,
+        Vehicle.deleted_at == None
+    ).first()
+
+    if not vehicle:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Vehicle not found"
+        )
+
+    if vehicle.organization_id != organization_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied: Vehicle belongs to a different organization."
+        )
+
+    vehicle.assigned_driver_id = None
+
+    audit_entry = AuditLog(
+        organization_id=organization_id,
+        actor_id=x_user_id,
+        action="UNASSIGN_PRIMARY_DRIVER",
+        payload={"vehicle_id": vehicle_id}
+    )
+    db.add(audit_entry)
+
+    db.commit()
+    db.refresh(vehicle)
+    return vehicle
+
 

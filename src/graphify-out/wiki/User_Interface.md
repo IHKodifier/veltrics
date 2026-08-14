@@ -1,20 +1,12 @@
 # User Interface
 
-> 2 nodes · cohesion 1.00
+> 3 nodes · cohesion 0.67
 
 ## Key Concepts
 
-- [MainActivity.kt](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/kotlin/com/veltrics/frontend/MainActivity.kt#L1) (1 connections)
-- [MainActivity](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/kotlin/com/veltrics/frontend/MainActivity.kt#L5) (1 connections)
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class MainActivity {
-        +MainActivity.kt()
-    }
-```
+- [cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (2 connections)
+- [CostBreakdownItemModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
+- [CostBreakdownModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart) (1 connections)
 
 ## Relationships
 
@@ -22,11 +14,11 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\android\app\src\main\kotlin\com\veltrics\frontend\MainActivity.kt](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/android/app/src/main/kotlin/com/veltrics/frontend/MainActivity.kt)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\domain\cost_breakdown_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/domain/cost_breakdown_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 2 (100%)
+- EXTRACTED: 4 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

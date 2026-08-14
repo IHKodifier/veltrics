@@ -8,7 +8,8 @@ class OrganizationInvitation(Base):
 
     id = Column(String(36), primary_key=True, default=generate_uuid)
     organization_id = Column(String(36), ForeignKey("organizations.id", ondelete="CASCADE"), nullable=False, index=True)
-    email = Column(String(255), nullable=False, index=True)
+    email = Column(String(255), nullable=True, index=True)
+    phone = Column(String(50), nullable=True, index=True)
     role = Column(String(50), nullable=False, default="viewer")
     token = Column(String(64), unique=True, nullable=False, index=True)
     status = Column(String(20), nullable=False, default="PENDING")

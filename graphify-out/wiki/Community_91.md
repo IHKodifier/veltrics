@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 2: WHEN an existing user authenticates with Google One-Tap THE SYSTEM SHALL…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L90) (0 connections)
+- [UC-025: List Organization Vehicles directory with status, search, fuel type,…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L152) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc001.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py)
+- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
 
 ## Audit Trail
 

@@ -1,74 +1,35 @@
 # Community 7
 
-> 44 nodes · cohesion 0.14
+> 46 nodes · cohesion 0.05
 
 ## Key Concepts
 
-- [MileageSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L95) (11 connections)
-- [QuickTripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L86) (11 connections)
-- [TripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L20) (11 connections)
-- [TripPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L71) (11 connections)
-- [TripResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L48) (11 connections)
-- [TripStart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L5) (11 connections)
-- [TripStop](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L13) (11 connections)
-- [TripSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L78) (11 connections)
-- [TripUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L34) (11 connections)
-- [UC-054: Edit Trip Entry & Classification.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L116) (11 connections)
-- [UC-055: Soft Delete Trip Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L130) (11 connections)
-- [UC-056: Quick-Log Trip from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L144) (11 connections)
-- [UC-057: View Distance & Mileage Summary Analytics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L160) (11 connections)
-- [UC-053: Get Trip Summary & Tax Deduction Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L29) (11 connections)
-- [UC-052: Start GPS Trip Tracking session.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L43) (11 connections)
-- [UC-052: Stop active GPS Trip Tracking session and calculate distance.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L56) (11 connections)
-- [UC-052 / UC-053: Create trip entry (Manual or completed GPS trip).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L69) (11 connections)
-- [UC-053: View Trip History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L86) (11 connections)
-- [trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L1) (10 connections)
-- [trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L1) (10 connections)
-- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L12) (10 connections)
-- [trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L1) (9 connections)
-- [Trip](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/trip.py#L9) (5 connections)
-- [list_trips()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L77) (4 connections)
-- [quick_create_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L139) (4 connections)
-- *... and 19 more nodes in this community*
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class Config {
-        +trip.py()
-    }
-    class MileageSummaryResponse {
-        +trip.py()
-    }
-    class QuickTripCreate {
-        +trip.py()
-    }
-    class Trip {
-        +trip.py()
-    }
-    class TripCreate {
-        +trip.py()
-    }
-    class TripPaginatedResponse {
-        +trip.py()
-    }
-    class TripResponse {
-        +trip.py()
-    }
-    class TripStart {
-        +trip.py()
-    }
-    class TripStop {
-        +trip.py()
-    }
-    class TripSummaryResponse {
-        +trip.py()
-    }
-    class TripUpdate {
-        +trip.py()
-    }
-```
+- [maintenance_schedule_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (23 connections)
+- [service_history_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/service_history_screen.dart) (16 connections)
+- [log_maintenance_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (12 connections)
+- [maintenance_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/data/maintenance_repository.dart) (5 connections)
+- [../../domain/maintenance_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/service_history_screen.dart) (4 connections)
+- [../../data/maintenance_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/service_history_screen.dart) (3 connections)
+- [log_maintenance_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/service_history_screen.dart) (2 connections)
+- [Exception](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/data/maintenance_repository.dart) (1 connections)
+- [MaintenanceRepository](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/data/maintenance_repository.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [dispose](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [initState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [LogMaintenanceScreen](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [_LogMaintenanceScreenState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [Scaffold](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [SizedBox](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [SnackBar](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart) (1 connections)
+- [AlertDialog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [_buildBulkAcceptBanner](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [_buildDueStatusPill](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [Card](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [Container](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [dispose](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- [Divider](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart) (1 connections)
+- *... and 21 more nodes in this community*
 
 ## Relationships
 
@@ -76,15 +37,15 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/trip.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\maintenance\data\maintenance_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/data/maintenance_repository.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\maintenance\presentation\screens\log_maintenance_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/log_maintenance_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\maintenance\presentation\screens\maintenance_schedule_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/maintenance_schedule_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\maintenance\presentation\screens\service_history_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/maintenance/presentation/screens/service_history_screen.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 108 (37%)
-- INFERRED: 181 (63%)
+- EXTRACTED: 104 (100%)
+- INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 
 ---

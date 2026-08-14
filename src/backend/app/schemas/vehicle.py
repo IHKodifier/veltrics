@@ -71,3 +71,30 @@ class VehicleDetailResponse(VehicleResponse):
     active_schedules_count: int = 0
     total_service_records_count: int = 0
     total_expenses_cost: float = 0.0
+
+class OdometerUpdateRequest(BaseModel):
+    current_odometer_km: float
+    reading_date: Optional[str] = None
+    is_correction: bool = False
+
+class AssignDriverRequest(BaseModel):
+    driver_id: str
+
+class VehicleDocumentCreate(BaseModel):
+    document_type: str = "REGISTRATION"  # REGISTRATION, INSURANCE, PERMIT, OTHER
+    document_url: str
+    file_name: Optional[str] = None
+    expiration_date: Optional[Any] = None
+
+class VehicleDocumentResponse(BaseModel):
+    id: str
+    vehicle_id: str
+    organization_id: str
+    document_type: str
+    document_url: str
+    file_name: Optional[str] = None
+    expiration_date: Optional[Any] = None
+    created_at: Any
+
+    model_config = ConfigDict(from_attributes=True)
+

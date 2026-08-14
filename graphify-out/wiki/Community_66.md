@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-035: Update schedule parameters (intervals, task name, active status) and…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L207) (0 connections)
+- [UC-001 & UC-002: Register or Log In with OAuth Providers (Google, Facebook)…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L14) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/backend/app/api/v1/maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py)
+- [src/backend/app/api/v1/auth.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py)
 
 ## Audit Trail
 

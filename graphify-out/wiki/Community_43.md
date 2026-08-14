@@ -1,21 +1,14 @@
 # Community 43
 
-> 3 nodes · cohesion 0.67
+> 5 nodes · cohesion 0.40
 
 ## Key Concepts
 
-- [Settings](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/core/config.py#L4) (2 connections)
-- **BaseSettings** (1 connections)
-- [config.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/core/config.py#L1) (1 connections)
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class Settings {
-        +config.py()
-    }
-```
+- [user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (4 connections)
+- [AuthSession](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [OrganizationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [RefreshTokenTokens](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [UserModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
 
 ## Relationships
 
@@ -23,11 +16,11 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\core\config.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/core/config.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\domain\user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 4 (100%)
+- EXTRACTED: 8 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

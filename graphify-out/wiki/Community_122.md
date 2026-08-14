@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 2: GIVEN an authenticated user updating their profile details WHEN they…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py#L71) (0 connections)
+- [AC 5: WHEN a new password does not satisfy password policy (min 8 chars, 1…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc006.py#L135) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc008.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py)
+- [src/tests/unit/test_auth_uc006.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc006.py)
 
 ## Audit Trail
 

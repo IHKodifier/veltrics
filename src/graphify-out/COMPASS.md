@@ -4,16 +4,16 @@
 > This is a token-optimized summary. For deep logic, see GRAPH_REPORT.md.
 
 ## Core Abstractions (God Nodes)
-1. `Organization` (199 edges)
-2. `User` (115 edges)
-3. `Vehicle` (102 edges)
-4. `MaintenanceSchedule` (53 edges)
-5. `ServiceRecord` (40 edges)
-6. `AuthService` (35 edges)
-7. `AuditLog` (32 edges)
-8. `package:flutter/material.dart` (32 edges)
-9. `../../../../theme/app_theme.dart` (28 edges)
-10. `seed_database()` (23 edges)
+1. `Organization` (233 edges)
+2. `User` (149 edges)
+3. `Vehicle` (136 edges)
+4. `MaintenanceSchedule` (82 edges)
+5. `AuditLog` (76 edges)
+6. `ServiceRecord` (68 edges)
+7. `Driver` (48 edges)
+8. `UserOrganization` (42 edges)
+9. `AuthService` (35 edges)
+10. `OrganizationInvitation` (34 edges)
 
 ## System Layers
 - **L0: Global/Entry**: 

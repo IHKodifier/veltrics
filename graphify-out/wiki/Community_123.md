@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 3: GIVEN a profile update request with invalid full name length (< 2…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py#L115) (0 connections)
+- [AC 1: GIVEN an authenticated user WHEN they query GET /api/v1/users/me or…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py#L42) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc008.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc008.py)
+- [src/tests/unit/test_auth_uc007.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc007.py)
 
 ## Audit Trail
 

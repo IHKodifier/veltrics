@@ -1,32 +1,25 @@
 # Community 20
 
-> 14 nodes · cohesion 0.18
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 
-- [UserSession](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user_session.py#L5) (9 connections)
-- [test_auth_uc013.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L1) (7 connections)
-- [A1: User can revoke all other active sessions.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L122) (3 connections)
-- [AC 1: WHEN GET /api/v1/users/me/sessions is called THE SYSTEM SHALL return activ](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L45) (3 connections)
-- [AC 2: User can revoke a specific session.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L70) (3 connections)
-- [Acceptance Criterion: WHEN a session is revoked via API THE SYSTEM SHALL block a](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L98) (3 connections)
-- [test_uc013_list_active_sessions()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L44) (2 connections)
-- [test_uc013_revoke_all_other_sessions()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L121) (2 connections)
-- [test_uc013_revoke_session()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L69) (2 connections)
-- [test_uc013_revoked_session_blocked_on_refresh()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L97) (2 connections)
-- [user_session.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user_session.py#L1) (1 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L41) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L25) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py#L35) (1 connections)
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class UserSession {
-        +user_session.py()
-    }
-```
+- [test_vehicles_uc028_033.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L1) (16 connections)
+- [test_uc031_restore_vehicle_quota_exceeded()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L292) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L42) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L27) (1 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L35) (1 connections)
+- [test_uc028_soft_delete_vehicle_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L172) (1 connections)
+- [test_uc028_soft_delete_vehicle_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L155) (1 connections)
+- [test_uc029_update_odometer_correction_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L212) (1 connections)
+- [test_uc029_update_odometer_lower_reading_rejected()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L200) (1 connections)
+- [test_uc029_update_odometer_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L182) (1 connections)
+- [test_uc030_get_vehicle_documents()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L252) (1 connections)
+- [test_uc030_upload_vehicle_document()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L235) (1 connections)
+- [test_uc031_restore_deleted_vehicle_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L270) (1 connections)
+- [test_uc032_assign_driver_cross_tenant_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L344) (1 connections)
+- [test_uc032_assign_primary_driver_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L328) (1 connections)
+- [test_uc033_unassign_driver_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py#L353) (1 connections)
 
 ## Relationships
 
@@ -34,13 +27,12 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user_session.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user_session.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc013.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_vehicles_uc028_033.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py)
 
 ## Audit Trail
 
-- EXTRACTED: 25 (62%)
-- INFERRED: 15 (38%)
+- EXTRACTED: 31 (97%)
+- INFERRED: 1 (3%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -15,6 +15,8 @@ from app.api.v1.trips import router as trips_router
 from app.api.v1.expenses import router as expenses_router
 from app.api.v1.uploads import router as uploads_router, UPLOAD_DIR
 from app.api.v1.notifications import router as notifications_router
+from app.api.v1.invitations import router as invitations_router
+from app.api.v1.sync import router as sync_router
 from fastapi.staticfiles import StaticFiles
 
 from sqlalchemy import text
@@ -72,6 +74,8 @@ app.include_router(trips_router, prefix=settings.API_V1_STR)
 app.include_router(expenses_router, prefix=settings.API_V1_STR)
 app.include_router(uploads_router, prefix=settings.API_V1_STR)
 app.include_router(notifications_router, prefix=settings.API_V1_STR)
+app.include_router(invitations_router, prefix=settings.API_V1_STR)
+app.include_router(sync_router, prefix=settings.API_V1_STR)
 
 app.mount("/uploads/receipts", StaticFiles(directory=UPLOAD_DIR), name="receipts")
 

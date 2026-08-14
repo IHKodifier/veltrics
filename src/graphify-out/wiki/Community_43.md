@@ -1,12 +1,15 @@
 # Community 43
 
-> 3 nodes · cohesion 0.67
+> 6 nodes · cohesion 0.33
 
 ## Key Concepts
 
-- [upload_receipt()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py#L11) (2 connections)
-- [uploads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py#L1) (1 connections)
-- [UC-063: Upload receipt image file.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py#L12) (1 connections)
+- [test_trip_uc057.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L1) (6 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L64) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L28) (1 connections)
+- [test_get_mileage_summary_all()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L74) (1 connections)
+- [test_get_mileage_summary_filtered_by_vehicle()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L101) (1 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L68) (1 connections)
 
 ## Relationships
 
@@ -14,11 +17,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\uploads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/uploads.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_trip_uc057.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py)
 
 ## Audit Trail
 
-- EXTRACTED: 4 (100%)
+- EXTRACTED: 11 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

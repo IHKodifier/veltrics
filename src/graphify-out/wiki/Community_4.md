@@ -1,137 +1,35 @@
 # Community 4
 
-> 77 nodes · cohesion 0.10
+> 86 nodes · cohesion 0.02
 
 ## Key Concepts
 
-- **BaseModel** (66 connections)
-- [AuthService](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py#L57) (35 connections)
-- [UC-011: Account Deletion (GDPR Right to be Forgotten)         Soft-deletes user](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py#L556) (21 connections)
-- [AuthSessionDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py#L49) (20 connections)
-- [auth_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py#L1) (16 connections)
-- [SessionRevokeResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/session.py#L19) (14 connections)
-- [OrganizationDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py#L39) (13 connections)
-- [UC-004: User Password Authentication & Session Initiation     Authenticates reg](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L24) (13 connections)
-- [UC-006: Forgot Password Request     Issues a password reset JWT token with 5-mi](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L33) (13 connections)
-- [UC-006: Password Reset Execution     Verifies reset token, validates password p](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L41) (13 connections)
-- [UC-009: Session Refresh & Access Token Renewal     Validates active refresh tok](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L49) (13 connections)
-- [UC-010: User Sign Out & Token Revocation     Revokes the provided refresh token](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py#L57) (13 connections)
-- [UserDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py#L22) (13 connections)
-- [auth.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py#L1) (13 connections)
-- [UserSessionDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/session.py#L5) (13 connections)
-- [UserProfileResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/user.py#L39) (12 connections)
-- [UC-007: Multi-tenant authorization boundary verification endpoint.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L166) (12 connections)
-- [UC-011: Account Deletion (GDPR Right to be Forgotten).     Soft-deletes user re](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L182) (12 connections)
-- [UC-013: Active Session Management & Device Tracking     Returns list of active](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L193) (12 connections)
-- [UC-013: Revoke Specific Device Session     Revokes the specified refresh token](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L205) (12 connections)
-- [UC-007: Fetch current user profile details.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L21) (12 connections)
-- [UC-013 Alternate Flow A1: Revoke All Other Sessions     Revokes all active sess](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L216) (12 connections)
-- [UC-007: Update current user profile (full name, phone, city, job role, avatar).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L47) (12 connections)
-- [UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated AuthSessio](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L89) (12 connections)
-- [log_event()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/audit_service.py#L12) (11 connections)
-- *... and 52 more nodes in this community*
-
-## Class Diagram
-
-```mermaid
-classDiagram
-    class AuthSessionDTO {
-        +auth.py()
-    }
-    class ForgotPasswordRequest {
-        +auth.py()
-    }
-    class ForgotPasswordResponse {
-        +auth.py()
-    }
-    class LoginRequest {
-        +auth.py()
-    }
-    class LogoutRequest {
-        +auth.py()
-    }
-    class LogoutResponse {
-        +auth.py()
-    }
-    class OrganizationDTO {
-        +auth.py()
-    }
-    class RefreshTokenRequest {
-        +auth.py()
-    }
-    class RefreshTokenResponse {
-        +auth.py()
-    }
-    class RegisterRequest {
-        +auth.py()
-    }
-    class ResetPasswordRequest {
-        +auth.py()
-    }
-    class ResetPasswordResponse {
-        +auth.py()
-    }
-    class AuthService {
-        +auth_service.py()
-    }
-    class UserDTO {
-        +auth.py()
-    }
-    class CostBreakdownItem {
-        +cost_breakdown.py()
-    }
-    class CostBreakdownResponse {
-        +cost_breakdown.py()
-    }
-    class Config {
-        +session.py()
-    }
-    class SessionRevokeResponse {
-        +session.py()
-    }
-    class UserSessionDTO {
-        +session.py()
-    }
-    class ProfileCompletionRequest {
-        +user.py()
-    }
-    class UserProfileResponse {
-        +user.py()
-    }
-    class UserProfileUpdate {
-        +user.py()
-    }
-    AuthSessionDTO --> AuthService
-    ForgotPasswordRequest --> AuthService
-    ForgotPasswordResponse --> AuthService
-    LoginRequest --> AuthService
-    LogoutRequest --> AuthService
-    LogoutResponse --> AuthService
-    OrganizationDTO --> AuthService
-    RefreshTokenRequest --> AuthService
-    RefreshTokenResponse --> AuthService
-    RegisterRequest --> AuthService
-    ResetPasswordRequest --> AuthService
-    ResetPasswordResponse --> AuthService
-    AuthService --> RegisterRequest
-    AuthService --> LoginRequest
-    AuthService --> UserDTO
-    AuthService --> OrganizationDTO
-    AuthService --> AuthSessionDTO
-    AuthService --> ForgotPasswordRequest
-    AuthService --> ForgotPasswordResponse
-    AuthService --> ResetPasswordRequest
-    AuthService --> ResetPasswordResponse
-    AuthService --> RefreshTokenRequest
-    AuthService --> RefreshTokenResponse
-    AuthService --> LogoutRequest
-    AuthService --> LogoutResponse
-    AuthService --> UserSessionDTO
-    AuthService --> SessionRevokeResponse
-    UserDTO --> AuthService
-    SessionRevokeResponse --> AuthService
-    UserSessionDTO --> AuthService
-```
+- [vehicle_detail_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_detail_screen.dart) (33 connections)
+- [vehicle_list_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_list_screen.dart) (17 connections)
+- [add_vehicle_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/add_vehicle_screen.dart) (16 connections)
+- [quick_actions_fab.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (15 connections)
+- [edit_vehicle_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/edit_vehicle_screen.dart) (14 connections)
+- [vehicle_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/data/vehicle_repository.dart) (6 connections)
+- [../../domain/vehicle_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_list_screen.dart) (5 connections)
+- [../../data/vehicle_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_list_screen.dart) (4 connections)
+- [../../../fuel/presentation/screens/log_fuel_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_detail_screen.dart) (2 connections)
+- [add_vehicle_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_list_screen.dart) (1 connections)
+- [../domain/vehicle_document_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/data/vehicle_repository.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [_buildActionButton](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [Column](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [dispose](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [initState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [ScaleTransition](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [SizedBox](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [_toggle](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [VeltricsQuickActionsFab](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [_VeltricsQuickActionsFabState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart) (1 connections)
+- [VehicleRepository](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/data/vehicle_repository.dart) (1 connections)
+- [AddVehicleScreen](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/add_vehicle_screen.dart) (1 connections)
+- [_AddVehicleScreenState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/add_vehicle_screen.dart) (1 connections)
+- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/add_vehicle_screen.dart) (1 connections)
+- *... and 61 more nodes in this community*
 
 ## Relationships
 
@@ -139,20 +37,17 @@ classDiagram
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\auth.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/auth.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\users.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\auth.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\cost_breakdown.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/cost_breakdown.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\session.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/session.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/user.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\audit_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/audit_service.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\auth_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\dashboard\presentation\widgets\quick_actions_fab.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/dashboard/presentation/widgets/quick_actions_fab.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\data\vehicle_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/data/vehicle_repository.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\presentation\screens\add_vehicle_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/add_vehicle_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\presentation\screens\edit_vehicle_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/edit_vehicle_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\presentation\screens\vehicle_detail_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_detail_screen.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\presentation\screens\vehicle_list_screen.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/presentation/screens/vehicle_list_screen.dart)
 
 ## Audit Trail
 
-- EXTRACTED: 242 (36%)
-- INFERRED: 422 (64%)
+- EXTRACTED: 189 (100%)
+- INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 
 ---

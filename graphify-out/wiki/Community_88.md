@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [UC-027: Update Vehicle Metadata & Specifications. Validates organization…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L305) (0 connections)
+- [UC-007: Multi-tenant authorization boundary verification endpoint.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L163) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/backend/app/api/v1/vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
+- [src/backend/app/api/v1/users.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py)
 
 ## Audit Trail
 

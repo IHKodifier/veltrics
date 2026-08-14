@@ -1,14 +1,16 @@
 # Community 38
 
-> 5 nodes · cohesion 0.40
+> 7 nodes · cohesion 0.29
 
 ## Key Concepts
 
-- [user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (4 connections)
-- [AuthSession](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
-- [OrganizationModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
-- [RefreshTokenTokens](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
-- [UserModel](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart) (1 connections)
+- [test_trip_uc053.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L1) (7 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L64) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L28) (1 connections)
+- [test_get_trip_summary_metrics()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L137) (1 connections)
+- [test_get_trips_filtered_by_purpose()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L74) (1 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L68) (1 connections)
+- [test_trip_history_pagination()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py#L185) (1 connections)
 
 ## Relationships
 
@@ -16,11 +18,11 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\auth\domain\user_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/auth/domain/user_model.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_trip_uc053.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc053.py)
 
 ## Audit Trail
 
-- EXTRACTED: 8 (100%)
+- EXTRACTED: 13 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

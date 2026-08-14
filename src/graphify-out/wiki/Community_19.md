@@ -1,23 +1,25 @@
 # Community 19
 
-> 14 nodes · cohesion 0.14
+> 16 nodes · cohesion 0.12
 
 ## Key Concepts
 
-- [test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L1) (8 connections)
-- [Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L107) (3 connections)
-- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L134) (3 connections)
-- [AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP 200](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L45) (3 connections)
-- [Edge Case: Incorrect password returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L76) (3 connections)
-- [Edge Case: Unregistered email returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L95) (3 connections)
-- [test_uc004_disabled_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L106) (2 connections)
-- [test_uc004_incorrect_password()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L75) (2 connections)
-- [test_uc004_login_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L44) (2 connections)
-- [test_uc004_soft_deleted_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L133) (2 connections)
-- [test_uc004_unregistered_email()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L94) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L41) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L25) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L35) (1 connections)
+- [test_sync_uc090_119.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L1) (10 connections)
+- [main.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L1) (3 connections)
+- [Text](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/presentation/widgets/quick_log_trip_dialog.dart) (3 connections)
+- [test_data()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L46) (3 connections)
+- [test_uc096_delta_sync_with_since_timestamp()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L243) (3 connections)
+- [lifespan()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L26) (2 connections)
+- [test_uc094_sync_conflict_server_wins()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L192) (2 connections)
+- [test_uc096_delta_sync_full_snapshot()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L282) (2 connections)
+- [health_check()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L85) (1 connections)
+- [root()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L93) (1 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L42) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L27) (1 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L35) (1 connections)
+- [test_uc097_media_attachment_queue_integration()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L305) (1 connections)
+- [test_uc119_sync_batch_rollback_on_constraint_failure()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L148) (1 connections)
+- [test_uc119_sync_batch_topological_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L79) (1 connections)
 
 ## Relationships
 
@@ -25,12 +27,14 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\main.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\trip\presentation\widgets\quick_log_trip_dialog.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/presentation/widgets/quick_log_trip_dialog.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_sync_uc090_119.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py)
 
 ## Audit Trail
 
-- EXTRACTED: 26 (72%)
-- INFERRED: 10 (28%)
+- EXTRACTED: 27 (75%)
+- INFERRED: 9 (25%)
 - AMBIGUOUS: 0 (0%)
 
 ---

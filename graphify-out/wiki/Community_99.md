@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- [AC 1: WHEN valid login credentials are provided THE SYSTEM SHALL return HTTP…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py#L43) (0 connections)
+- [Alternate Flow A1: Account Linking If email matches existing account with…](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py#L82) (0 connections)
 
 ## Relationships
 
@@ -12,7 +12,7 @@
 
 ## Source Files
 
-- [src/tests/unit/test_auth_uc004.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc004.py)
+- [src/tests/unit/test_auth_uc002.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc002.py)
 
 ## Audit Trail
 
