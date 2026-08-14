@@ -1,0 +1,36 @@
+{
+  "hotspots": [
+    {
+      "label": "AuthService",
+      "risk": 0.635,
+      "type": "CLASS"
+    },
+    {
+      "label": "Organization",
+      "risk": 0.212,
+      "type": "CLASS"
+    },
+    {
+      "label": "register_or_login()",
+      "risk": 0.201,
+      "type": "FUNCTION"
+    },
+    {
+      "label": "log_fuel_entry()",
+      "risk": 0.164,
+      "type": "FUNCTION"
+    },
+    {
+      "label": "update_vehicle()",
+      "risk": 0.143,
+      "type": "FUNCTION"
+    }
+  ],
+  "blast_radius": {
+    "Organization": 199,
+    "User": 115,
+    "Vehicle": 102,
+    "MaintenanceSchedule": 53,
+    "ServiceRecord": 40
+  }
+}
