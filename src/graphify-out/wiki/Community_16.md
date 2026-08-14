@@ -1,70 +1,77 @@
 # Community 16
 
-> 23 nodes · cohesion 0.23
+> 29 nodes · cohesion 0.17
 
 ## Key Concepts
 
-- [UC-035: Create custom maintenance schedule task item for a vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L160) (10 connections)
-- [UC-035: Update schedule parameters (intervals, task name, active status) and rec](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L207) (10 connections)
-- [UC-035: Soft-delete schedule item.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L255) (10 connections)
-- [UC-037: Retrieve chronological service records for a vehicle within the active o](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L285) (10 connections)
-- [UC-038: Bulk accept/acknowledge default maintenance schedules for a vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L320) (10 connections)
-- [maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L1) (8 connections)
-- [maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L1) (8 connections)
-- [verify_organization_header()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L22) (8 connections)
-- [BulkAcceptSchedulesRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L54) (7 connections)
-- [MaintenanceScheduleCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L22) (7 connections)
-- [MaintenanceScheduleResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L5) (7 connections)
-- [MaintenanceScheduleUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L38) (7 connections)
-- [ServiceRecordCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L59) (7 connections)
-- [ServiceRecordResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L78) (7 connections)
-- [bulk_accept_maintenance_schedules()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L315) (4 connections)
-- [create_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L155) (4 connections)
-- [delete_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L250) (4 connections)
-- [get_maintenance_schedules()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L31) (3 connections)
-- [get_service_history()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L278) (3 connections)
-- [log_maintenance_task()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L85) (3 connections)
-- [update_maintenance_schedule()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py#L201) (3 connections)
-- [validate_service_type()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L72) (1 connections)
-- [validate_task_name()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py#L32) (1 connections)
+- [ExpenseLogCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L5) (8 connections)
+- [ExpenseLogResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L14) (8 connections)
+- [ExpenseLogUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L44) (8 connections)
+- [ExpensePaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L31) (8 connections)
+- [ExpenseSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L38) (8 connections)
+- [QuickExpenseCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L53) (8 connections)
+- [UC-061: Soft Delete Expense Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L110) (8 connections)
+- [UC-062: Quick-Log Expense from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L124) (8 connections)
+- [UC-058: Log General Fleet Expense.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L29) (8 connections)
+- [UC-059: Expense Category & Cost Summary Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L43) (8 connections)
+- [UC-059: View Expense History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L66) (8 connections)
+- [UC-060: Edit Expense Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L96) (8 connections)
+- [expenses.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L1) (7 connections)
+- [expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py#L1) (7 connections)
+- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L12) (7 connections)
+- [expense_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L1) (6 connections)
+- [create_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L24) (4 connections)
+- [list_expenses()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L57) (4 connections)
+- [quick_create_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L119) (4 connections)
+- [log_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L9) (3 connections)
+- [quick_log_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L150) (3 connections)
+- [delete_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L105) (3 connections)
+- [get_expense_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L36) (3 connections)
+- [update_expense()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py#L90) (3 connections)
+- [get_expenses()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py#L38) (2 connections)
+- *... and 4 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
-    class BulkAcceptSchedulesRequest {
-        +maintenance.py()
+    class Config {
+        +expense_log.py()
     }
-    class MaintenanceScheduleCreate {
-        +maintenance.py()
+    class ExpenseLogCreate {
+        +expense_log.py()
     }
-    class MaintenanceScheduleResponse {
-        +maintenance.py()
+    class ExpenseLogResponse {
+        +expense_log.py()
     }
-    class MaintenanceScheduleUpdate {
-        +maintenance.py()
+    class ExpenseLogUpdate {
+        +expense_log.py()
     }
-    class ServiceRecordCreate {
-        +maintenance.py()
+    class ExpensePaginatedResponse {
+        +expense_log.py()
     }
-    class ServiceRecordResponse {
-        +maintenance.py()
+    class ExpenseSummaryResponse {
+        +expense_log.py()
+    }
+    class QuickExpenseCreate {
+        +expense_log.py()
     }
 ```
 
 ## Relationships
 
-- [[Community 15]] (35 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/maintenance.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/maintenance.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\expenses.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/expenses.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/expense_log.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\expense_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/expense_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 62 (44%)
-- INFERRED: 80 (56%)
+- EXTRACTED: 70 (45%)
+- INFERRED: 86 (55%)
 - AMBIGUOUS: 0 (0%)
 
 ---

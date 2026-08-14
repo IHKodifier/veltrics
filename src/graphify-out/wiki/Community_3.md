@@ -1,10 +1,10 @@
 # Community 3
 
-> 98 nodes · cohesion 0.07
+> 113 nodes · cohesion 0.05
 
 ## Key Concepts
 
-- **BaseModel** (89 connections)
+- **BaseModel** (109 connections)
 - [AuthService](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py#L57) (35 connections)
 - [UC-011: Account Deletion (GDPR Right to be Forgotten)         Soft-deletes user](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py#L556) (21 connections)
 - [AuthSessionDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py#L49) (20 connections)
@@ -29,12 +29,15 @@
 - [UC-007: Update current user profile (full name, phone, city, job role, avatar).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L47) (12 connections)
 - [UC-007: Complete profile onboarding (SCR-AUTH-007) and return updated AuthSessio](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py#L89) (12 connections)
 - [log_event()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/audit_service.py#L12) (11 connections)
-- *... and 73 more nodes in this community*
+- *... and 88 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
+    class AuditService {
+        +audit_service.py()
+    }
     class AuthSessionDTO {
         +auth.py()
     }
@@ -77,12 +80,6 @@ classDiagram
     class UserDTO {
         +auth.py()
     }
-    class CostBreakdownItem {
-        +cost_breakdown.py()
-    }
-    class CostBreakdownResponse {
-        +cost_breakdown.py()
-    }
     class DriverCreateRequest {
         +driver.py()
     }
@@ -110,6 +107,7 @@ classDiagram
     class UserProfileUpdate {
         +user.py()
     }
+    AuditService --> AuthService
     AuthSessionDTO --> AuthService
     ForgotPasswordRequest --> AuthService
     ForgotPasswordResponse --> AuthService
@@ -123,6 +121,7 @@ classDiagram
     ResetPasswordRequest --> AuthService
     ResetPasswordResponse --> AuthService
     AuthService --> UserSession
+    AuthService --> AuditService
     AuthService --> RegisterRequest
     AuthService --> LoginRequest
     AuthService --> UserDTO
@@ -146,7 +145,7 @@ classDiagram
 
 ## Relationships
 
-- [[Community 1]] (2 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
@@ -155,18 +154,19 @@ classDiagram
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\users.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/users.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user_session.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user_session.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\auth.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/auth.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\cost_breakdown.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/cost_breakdown.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\driver.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/driver.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\session.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/session.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/user.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\audit_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/audit_service.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\auth_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/auth_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\data\vehicle_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/data/vehicle_repository.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc012.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc012.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc013.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc013.py)
 
 ## Audit Trail
 
-- EXTRACTED: 303 (41%)
-- INFERRED: 442 (59%)
+- EXTRACTED: 349 (42%)
+- INFERRED: 476 (58%)
 - AMBIGUOUS: 0 (0%)
 
 ---

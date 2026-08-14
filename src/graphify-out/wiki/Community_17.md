@@ -1,42 +1,78 @@
 # Community 17
 
-> 20 nodes · cohesion 0.10
+> 28 nodes · cohesion 0.16
 
 ## Key Concepts
 
-- [test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L1) (11 connections)
-- [AC 3: WHEN an existing Email/Password user signs in via POST /api/v1/auth/login,](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L106) (3 connections)
-- [AC 4 (Account Linking Flow A1): WHEN an existing user registered via email](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L134) (3 connections)
-- [Edge Case: Incorrect password on email login returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L176) (3 connections)
-- [Edge Case: Sign in with non-existent email returns HTTP 401 Unauthorized.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L195) (3 connections)
-- [Alternate Flow A1: Disabled user account (is_active == False) returns HTTP 403 F](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L207) (3 connections)
-- [Alternate Flow A1: Soft-deleted user account (deleted_at IS NOT NULL) returns HT](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L234) (3 connections)
-- [AC 1: WHEN an existing Google user signs in,     THE SYSTEM SHALL return HTTP 2](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L45) (3 connections)
-- [AC 2: WHEN an existing Facebook user signs in,     THE SYSTEM SHALL return HTTP](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L76) (3 connections)
-- [test_uc005_account_linking_multi_provider()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L133) (2 connections)
-- [test_uc005_disabled_user_account()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L206) (2 connections)
-- [test_uc005_incorrect_password()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L175) (2 connections)
-- [test_uc005_nonexistent_email()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L194) (2 connections)
-- [test_uc005_sign_in_email_password_existing_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L105) (2 connections)
-- [test_uc005_sign_in_facebook_existing_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L75) (2 connections)
-- [test_uc005_sign_in_google_existing_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L44) (2 connections)
-- [test_uc005_soft_deleted_user_account()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L233) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L41) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L25) (1 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py#L35) (1 connections)
+- [BillingAlertResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L24) (9 connections)
+- [NotificationItemResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L5) (9 connections)
+- [NotificationPreferenceDTO](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L14) (9 connections)
+- [PurgeTokenResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L30) (9 connections)
+- [BillingAlertCreateRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L20) (8 connections)
+- [UC-079: Automatically Purge Stale FCM Tokens (>90 days inactive).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L104) (7 connections)
+- [UC-076: Get In-App Notification Inbox messages.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L28) (7 connections)
+- [UC-076: Mark notification as read.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L50) (7 connections)
+- [UC-077: Get Notification Channel Preferences.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L65) (7 connections)
+- [UC-077: Update Notification Channel Preferences.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L76) (7 connections)
+- [UC-078: Billing & Payment Alert Notifications.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L88) (7 connections)
+- [notifications.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L1) (6 connections)
+- [notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L1) (5 connections)
+- [notification_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L1) (5 connections)
+- [create_billing_alert()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L84) (4 connections)
+- [AppNotification](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L18) (3 connections)
+- [UserDevice](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L6) (3 connections)
+- [get_notification_inbox()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L25) (3 connections)
+- [get_notification_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L62) (3 connections)
+- [mark_notification_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L46) (3 connections)
+- [purge_stale_fcm_tokens()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L101) (3 connections)
+- [notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py#L1) (2 connections)
+- [mark_as_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L58) (2 connections)
+- [register_device_token()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L10) (2 connections)
+- [update_notification_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L72) (2 connections)
+- *... and 3 more nodes in this community*
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class AppNotification {
+        +notification.py()
+    }
+    class BillingAlertCreateRequest {
+        +notification.py()
+    }
+    class BillingAlertResponse {
+        +notification.py()
+    }
+    class NotificationItemResponse {
+        +notification.py()
+    }
+    class NotificationPreferenceDTO {
+        +notification.py()
+    }
+    class PurgeTokenResponse {
+        +notification.py()
+    }
+    class UserDevice {
+        +notification.py()
+    }
+```
 
 ## Relationships
 
-- [[Community 16]] (8 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc005.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc005.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\notifications.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\notification_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 38 (70%)
-- INFERRED: 16 (30%)
+- EXTRACTED: 55 (41%)
+- INFERRED: 80 (59%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -4,12 +4,12 @@
 
 ## Key Concepts
 
-- [test_trip_uc057.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L1) (6 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L64) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L28) (1 connections)
-- [test_get_mileage_summary_all()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L74) (1 connections)
-- [test_get_mileage_summary_filtered_by_vehicle()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L101) (1 connections)
-- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py#L68) (1 connections)
+- [test_cost_breakdown_uc065.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py#L1) (6 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py#L108) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py#L30) (1 connections)
+- [test_get_cost_breakdown_all_vehicles()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py#L118) (1 connections)
+- [test_get_cost_breakdown_single_vehicle()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py#L131) (1 connections)
+- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py#L112) (1 connections)
 
 ## Relationships
 
@@ -17,7 +17,7 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_trip_uc057.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_trip_uc057.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_cost_breakdown_uc065.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_cost_breakdown_uc065.py)
 
 ## Audit Trail
 

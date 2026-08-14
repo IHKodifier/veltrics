@@ -19,7 +19,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 2]] (4 shared connections)
 
 ## Source Files
 

@@ -1,97 +1,81 @@
 # Community 12
 
-> 31 nodes · cohesion 0.14
+> 43 nodes · cohesion 0.11
 
 ## Key Concepts
 
-- [UC-119: Offline Sync Batch Transaction Engine.     Processes operation envelopes](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L106) (15 connections)
-- [UC-096: Delta Sync Payload Fetching (Incremental Catch-up).     Returns active e](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L268) (15 connections)
-- [Helper to convert SQLAlchemy model instance to dict.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L95) (15 connections)
-- [AdService](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/ad_service.py#L21) (9 connections)
-- [execute_sync_batch()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L105) (8 connections)
-- [UC-100 & UC-120 & UC-122: Verify Rewarded Ad Completion Signature Token & Claim](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/ads.py#L24) (7 connections)
-- [UC-089: Contact Enterprise Sales Inquiry Form (>25 Fleets).     Submits custom](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/ads.py#L37) (7 connections)
-- [AdRewardVerifyResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ads.py#L13) (6 connections)
-- [EnterpriseInquiryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ads.py#L29) (6 connections)
-- [DeltaSyncResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L28) (6 connections)
-- [get_delta_sync()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L263) (6 connections)
-- [SyncBatchResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L24) (6 connections)
-- [SyncOperationResult](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L17) (6 connections)
-- [utc_now()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L10) (6 connections)
-- [submit_enterprise_inquiry()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/ad_service.py#L86) (5 connections)
-- [AdRewardVerifyRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ads.py#L6) (5 connections)
-- [EnterpriseInquiryRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ads.py#L20) (5 connections)
-- [sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L1) (5 connections)
-- [SyncBatchRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py#L13) (5 connections)
-- [verify_and_claim_ad_reward()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/ad_service.py#L23) (4 connections)
-- [sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L1) (4 connections)
-- [ads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ads.py#L1) (4 connections)
-- [serialize_model()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py#L94) (4 connections)
-- [submit_enterprise_sales_inquiry()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/ads.py#L32) (3 connections)
-- [verify_ad_reward()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/ads.py#L19) (3 connections)
-- *... and 6 more nodes in this community*
+- [fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L1) (12 connections)
+- [fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py#L1) (10 connections)
+- [FuelLogCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L5) (10 connections)
+- [FuelLogResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L71) (10 connections)
+- [FuelLogUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L49) (10 connections)
+- [FuelPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L112) (10 connections)
+- [FuelTrendsResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py#L103) (10 connections)
+- [ReceiptOcrResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ocr_receipt.py#L4) (10 connections)
+- [fuel.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L1) (9 connections)
+- [UC-051: Edit Fuel Log Entry.     Updates entry, syncs linked ExpenseLog, and re](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L123) (8 connections)
+- [UC-051: Soft Delete Fuel Log Entry.     Soft-deletes entry and linked ExpenseLo](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L138) (8 connections)
+- [UC-048: View Fuel Efficiency Trends & Aggregate Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L28) (8 connections)
+- [UC-050: Detect Fuel Anomaly & Theft Alerts - Fetch anomaly logs.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L40) (8 connections)
+- [UC-050 (A1): Manager clears fuel anomaly flag.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L51) (8 connections)
+- [UC-049: Fuel Receipt OCR Auto-Fill (Pro).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L60) (8 connections)
+- [UC-046: Log Fuel Fill-Up Entry.     Automatically updates vehicle current odome](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L75) (8 connections)
+- [UC-047 / UC-048: View Fuel Log History with optional pagination.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L92) (8 connections)
+- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L12) (7 connections)
+- [list_fuel_logs()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L84) (5 connections)
+- [create_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L70) (4 connections)
+- [delete_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L133) (4 connections)
+- [get_fuel_trends()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L23) (4 connections)
+- [list_fuel_anomalies()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L35) (4 connections)
+- [update_fuel_log()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L117) (4 connections)
+- [ocr_scan_receipt()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py#L57) (3 connections)
+- *... and 18 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
-    class AdService {
-        +ad_service.py()
+    class Config {
+        +fuel_log.py()
     }
-    class AdRewardVerifyRequest {
-        +ads.py()
+    class FuelLogCreate {
+        +fuel_log.py()
     }
-    class AdRewardVerifyResponse {
-        +ads.py()
+    class FuelLogResponse {
+        +fuel_log.py()
     }
-    class EnterpriseInquiryRequest {
-        +ads.py()
+    class FuelLogUpdate {
+        +fuel_log.py()
     }
-    class EnterpriseInquiryResponse {
-        +ads.py()
+    class FuelMonthlyTrend {
+        +fuel_log.py()
     }
-    class DeltaSyncResponse {
-        +sync.py()
+    class FuelPaginatedResponse {
+        +fuel_log.py()
     }
-    class SyncBatchRequest {
-        +sync.py()
+    class FuelTrendsResponse {
+        +fuel_log.py()
     }
-    class SyncBatchResponse {
-        +sync.py()
+    class ReceiptOcrResponse {
+        +ocr_receipt.py()
     }
-    class SyncOperationEnvelope {
-        +sync.py()
-    }
-    class SyncOperationResult {
-        +sync.py()
-    }
-    AdService --> AdRewardVerifyRequest
-    AdService --> AdRewardVerifyResponse
-    AdService --> EnterpriseInquiryRequest
-    AdService --> EnterpriseInquiryResponse
-    AdRewardVerifyRequest --> AdService
-    AdRewardVerifyResponse --> AdService
-    EnterpriseInquiryRequest --> AdService
-    EnterpriseInquiryResponse --> AdService
 ```
 
 ## Relationships
 
-- [[Community 18]] (15 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\ads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/ads.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/sync.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\ads.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ads.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\sync.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/sync.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\ad_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/ad_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\fuel.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/fuel.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/fuel_log.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\ocr_receipt.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/ocr_receipt.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 68 (38%)
-- INFERRED: 112 (62%)
+- EXTRACTED: 104 (47%)
+- INFERRED: 119 (53%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -1,35 +1,71 @@
 # Community 13
 
-> 30 nodes · cohesion 0.07
+> 41 nodes · cohesion 0.16
 
 ## Key Concepts
 
-- [invite_team_member_dialog.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (14 connections)
-- [organization_switcher_widget.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (13 connections)
-- [organization_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/data/organization_repository.dart) (7 connections)
-- [../../data/organization_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (2 connections)
-- [../../domain/organization_invitation_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (2 connections)
-- [../../domain/organization_model.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (2 connections)
-- [Exception](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/data/organization_repository.dart) (1 connections)
-- [jsonDecode](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/data/organization_repository.dart) (1 connections)
-- [OrganizationRepository](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/data/organization_repository.dart) (1 connections)
-- [AlertDialog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [Center](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [Container](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [dispose](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [Divider](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [Icon](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [initState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [InviteTeamMemberDialog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [_InviteTeamMemberDialogState](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [SizedBox](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart) (1 connections)
-- [build](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (1 connections)
-- [Container](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (1 connections)
-- [Icon](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (1 connections)
-- [InkWell](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (1 connections)
-- [ListTile](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart) (1 connections)
-- *... and 5 more nodes in this community*
+- [MileageSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L95) (11 connections)
+- [QuickTripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L86) (11 connections)
+- [TripCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L20) (11 connections)
+- [TripPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L71) (11 connections)
+- [TripResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L48) (11 connections)
+- [TripStart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L5) (11 connections)
+- [TripStop](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L13) (11 connections)
+- [TripSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L78) (11 connections)
+- [TripUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L34) (11 connections)
+- [UC-054: Edit Trip Entry & Classification.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L116) (11 connections)
+- [UC-055: Soft Delete Trip Entry.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L130) (11 connections)
+- [UC-056: Quick-Log Trip from Dashboard.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L144) (11 connections)
+- [UC-057: View Distance & Mileage Summary Analytics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L160) (11 connections)
+- [UC-053: Get Trip Summary & Tax Deduction Metrics.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L29) (11 connections)
+- [UC-052: Start GPS Trip Tracking session.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L43) (11 connections)
+- [UC-052: Stop active GPS Trip Tracking session and calculate distance.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L56) (11 connections)
+- [UC-052 / UC-053: Create trip entry (Manual or completed GPS trip).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L69) (11 connections)
+- [UC-053: View Trip History.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L86) (11 connections)
+- [trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L1) (10 connections)
+- [trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py#L1) (10 connections)
+- [resolve_organization()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L12) (10 connections)
+- [trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L1) (9 connections)
+- [list_trips()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L77) (4 connections)
+- [quick_create_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py#L139) (4 connections)
+- [quick_log_trip()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py#L271) (3 connections)
+- *... and 16 more nodes in this community*
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class Config {
+        +trip.py()
+    }
+    class MileageSummaryResponse {
+        +trip.py()
+    }
+    class QuickTripCreate {
+        +trip.py()
+    }
+    class TripCreate {
+        +trip.py()
+    }
+    class TripPaginatedResponse {
+        +trip.py()
+    }
+    class TripResponse {
+        +trip.py()
+    }
+    class TripStart {
+        +trip.py()
+    }
+    class TripStop {
+        +trip.py()
+    }
+    class TripSummaryResponse {
+        +trip.py()
+    }
+    class TripUpdate {
+        +trip.py()
+    }
+```
 
 ## Relationships
 
@@ -37,14 +73,14 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\organization\data\organization_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/data/organization_repository.dart)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\organization\presentation\widgets\invite_team_member_dialog.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/invite_team_member_dialog.dart)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\organization\presentation\widgets\organization_switcher_widget.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/organization/presentation/widgets/organization_switcher_widget.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\trips.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/trips.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/trip.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\trip_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/trip_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 64 (100%)
-- INFERRED: 0 (0%)
+- EXTRACTED: 103 (37%)
+- INFERRED: 178 (63%)
 - AMBIGUOUS: 0 (0%)
 
 ---

@@ -5,12 +5,21 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
+from app.api.deps import get_current_user
+from app.models.user import User
 from app.models.vehicle import Vehicle
 from app.models.driver import Driver
 from app.models.maintenance import MaintenanceSchedule, ServiceRecord
 from app.schemas.dashboard import DashboardSummaryResponse
 from app.schemas.cost_breakdown import CostBreakdownResponse
-from app.services import dashboard_service
+from app.schemas.dashboard_manager import (
+    ManagerDashboardKpiResponse,
+    VehicleCostRankingResponse,
+    VehicleAvailabilityResponse,
+    DashboardLayoutConfigRequest,
+    DashboardLayoutConfigResponse,
+)
+from app.services import dashboard_service, manager_dashboard_service
 
 router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
 
@@ -96,20 +105,58 @@ def get_dashboard_summary(
         overdue_maintenance_count=overdue_count
     )
 
-@router.get("/cost-breakdown", response_model=CostBreakdownResponse)
-def get_cost_breakdown(
-    timeframe: str = Query("6m", description="Timeframe option (1m, 3m, 6m, 1y)"),
-    vehicle_id: Optional[str] = Query(None, description="Optional single vehicle filter"),
+@router.get("/manager", response_model=ManagerDashboardKpiResponse)
+def get_manager_kpi_dashboard(
     org_id: str = Depends(verify_organization_header),
     db: Session = Depends(get_db)
 ):
     """
-    UC-065: Cost Breakdown Charts per Vehicle (Fuel vs Maintenance vs Expenses).
+    UC-067: Fleet Manager Web Dashboard Layout & Aggregation.
     """
-    return dashboard_service.get_cost_breakdown(
-        db=db,
-        organization_id=org_id,
-        vehicle_id=vehicle_id,
-        timeframe=timeframe
-    )
+    return manager_dashboard_service.get_manager_kpis(db, org_id)
+
+
+@router.get("/cost-ranking", response_model=VehicleCostRankingResponse)
+def get_cost_ranking_table(
+    org_id: str = Depends(verify_organization_header),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-068: Fleet Cost Ranking Table & Heatmap.
+    """
+    return manager_dashboard_service.get_cost_ranking_table(db, org_id)
+
+
+@router.get("/vehicle-availability", response_model=VehicleAvailabilityResponse)
+def get_vehicle_availability_widget(
+    org_id: str = Depends(verify_organization_header),
+    db: Session = Depends(get_db)
+):
+    """
+    UC-069: Fleet Vehicle Availability Widget.
+    """
+    return manager_dashboard_service.get_vehicle_availability(db, org_id)
+
+
+@router.get("/layout", response_model=DashboardLayoutConfigResponse)
+def get_dashboard_layout(
+    current_user: User = Depends(get_current_user)
+):
+    """
+    UC-071: Get customized dashboard layout preferences for current user.
+    """
+    return manager_dashboard_service.get_dashboard_layout(current_user.id)
+
+
+@router.put("/layout", response_model=DashboardLayoutConfigResponse)
+def save_dashboard_layout(
+    payload: DashboardLayoutConfigRequest,
+    current_user: User = Depends(get_current_user)
+):
+    """
+    UC-071: Save customized dashboard layout preferences for current user.
+    """
+    widgets_data = [w.model_dump() for w in payload.widgets]
+    return manager_dashboard_service.save_dashboard_layout(current_user.id, widgets_data)
+
 

@@ -4,21 +4,21 @@
 
 ## Key Concepts
 
-- [test_organizations_uc015.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L1) (9 connections)
-- [UC-015: POST /api/v1/organizations/switch switches active context for valid user](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L103) (3 connections)
-- [UC-015: Switch attempt to organization owned by another user yields HTTP 403 For](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L122) (3 connections)
-- [UC-015: Switch attempt to non-existent organization yields HTTP 404 Not Found.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L136) (3 connections)
-- [UC-015: GET /api/v1/organizations/active returns current primary organization fo](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L150) (3 connections)
-- [UC-015: GET /api/v1/organizations/active for user with no org returns HTTP 404 N](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L161) (3 connections)
-- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L47) (3 connections)
-- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L34) (2 connections)
-- [test_get_active_organization_not_found()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L160) (2 connections)
-- [test_get_active_organization_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L149) (2 connections)
-- [test_switch_organization_context_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L102) (2 connections)
-- [test_switch_organization_non_existent_not_found()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L135) (2 connections)
-- [test_switch_organization_unauthorized_access_forbidden()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L121) (2 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L43) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py#L24) (1 connections)
+- [test_sync_uc090_119.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L1) (10 connections)
+- [main.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L1) (3 connections)
+- [Text](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/presentation/widgets/quick_log_trip_dialog.dart) (3 connections)
+- [test_uc096_delta_sync_with_since_timestamp()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L243) (3 connections)
+- [lifespan()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L34) (2 connections)
+- [test_uc094_sync_conflict_server_wins()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L192) (2 connections)
+- [test_uc096_delta_sync_full_snapshot()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L282) (2 connections)
+- [health_check()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L104) (1 connections)
+- [root()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py#L112) (1 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L42) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L27) (1 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L35) (1 connections)
+- [test_uc097_media_attachment_queue_integration()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L305) (1 connections)
+- [test_uc119_sync_batch_rollback_on_constraint_failure()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L148) (1 connections)
+- [test_uc119_sync_batch_topological_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py#L79) (1 connections)
 
 ## Relationships
 
@@ -26,12 +26,14 @@
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_organizations_uc015.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_organizations_uc015.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\main.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/main.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\trip\presentation\widgets\quick_log_trip_dialog.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/trip/presentation/widgets/quick_log_trip_dialog.dart)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_sync_uc090_119.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_sync_uc090_119.py)
 
 ## Audit Trail
 
-- EXTRACTED: 28 (68%)
-- INFERRED: 13 (32%)
+- EXTRACTED: 26 (79%)
+- INFERRED: 7 (21%)
 - AMBIGUOUS: 0 (0%)
 
 ---

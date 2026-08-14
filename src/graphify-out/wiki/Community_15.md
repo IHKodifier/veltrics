@@ -1,69 +1,88 @@
 # Community 15
 
-> 24 nodes · cohesion 0.19
+> 33 nodes · cohesion 0.15
 
 ## Key Concepts
 
-- [DeviceTokenCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L5) (7 connections)
-- [DeviceTokenResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L10) (7 connections)
-- [NotificationPaginatedResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L33) (7 connections)
-- [NotificationPreferencesUpdate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L38) (7 connections)
-- [NotificationResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L19) (7 connections)
-- [notifications.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L1) (6 connections)
-- [UC-072: Register FCM Device Push Token.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L26) (6 connections)
-- [UC-073: In-App Notification Center Directory & Unread Counter.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L41) (6 connections)
-- [UC-074: Mark Notification as Read / Deep Link Routing.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L55) (6 connections)
-- [UC-073 (A1): Mark All Notifications as Read.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L69) (6 connections)
-- [UC-075: Configure Notification Channel Preferences.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L83) (6 connections)
-- [notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py#L1) (5 connections)
-- [notification_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L1) (5 connections)
-- [mark_all_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L64) (4 connections)
-- [mark_notification_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L50) (4 connections)
-- [resolve_user()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L17) (4 connections)
-- [register_device_token()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L10) (3 connections)
-- [get_notifications()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L35) (3 connections)
-- [register_device()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L21) (3 connections)
-- [update_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py#L78) (3 connections)
-- [mark_all_as_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L77) (2 connections)
-- [mark_as_read()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L58) (2 connections)
-- [update_notification_preferences()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L96) (2 connections)
-- [get_notifications()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py#L31) (1 connections)
+- [UC-067: Fleet Manager Web Dashboard Layout & Aggregation.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L113) (13 connections)
+- [UC-068: Fleet Cost Ranking Table & Heatmap.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L124) (13 connections)
+- [UC-069: Fleet Vehicle Availability Widget.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L135) (13 connections)
+- [UC-071: Get customized dashboard layout preferences for current user.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L145) (13 connections)
+- [UC-071: Save customized dashboard layout preferences for current user.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L156) (13 connections)
+- [UC-064: Get high-level KPI dashboard metrics summary for active organization.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L43) (13 connections)
+- [DashboardSummaryResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard.py#L3) (11 connections)
+- [CostBreakdownResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/cost_breakdown.py#L11) (10 connections)
+- [DashboardLayoutConfigResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L48) (10 connections)
+- [ManagerDashboardKpiResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L4) (9 connections)
+- [VehicleAvailabilityResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L32) (9 connections)
+- [VehicleCostRankingResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L27) (9 connections)
+- [DashboardLayoutConfigRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L45) (8 connections)
+- [dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L1) (7 connections)
+- [dashboard_manager.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L1) (7 connections)
+- [manager_dashboard_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L1) (5 connections)
+- [WidgetItem](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L40) (4 connections)
+- [get_dashboard_summary()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L39) (3 connections)
+- [get_manager_kpi_dashboard()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L109) (3 connections)
+- [get_vehicle_availability_widget()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py#L131) (3 connections)
+- [VehicleCostRankingItem](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py#L16) (3 connections)
+- [get_cost_ranking_table()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L75) (3 connections)
+- [get_dashboard_layout()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L157) (3 connections)
+- [get_manager_kpis()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L23) (3 connections)
+- [get_vehicle_availability()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py#L128) (3 connections)
+- *... and 8 more nodes in this community*
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
-    class DeviceTokenCreate {
-        +notification.py()
+    class CostBreakdownItem {
+        +cost_breakdown.py()
     }
-    class DeviceTokenResponse {
-        +notification.py()
+    class CostBreakdownResponse {
+        +cost_breakdown.py()
     }
-    class NotificationPaginatedResponse {
-        +notification.py()
+    class DashboardSummaryResponse {
+        +dashboard.py()
     }
-    class NotificationPreferencesUpdate {
-        +notification.py()
+    class DashboardLayoutConfigRequest {
+        +dashboard_manager.py()
     }
-    class NotificationResponse {
-        +notification.py()
+    class DashboardLayoutConfigResponse {
+        +dashboard_manager.py()
+    }
+    class ManagerDashboardKpiResponse {
+        +dashboard_manager.py()
+    }
+    class VehicleAvailabilityResponse {
+        +dashboard_manager.py()
+    }
+    class VehicleCostRankingItem {
+        +dashboard_manager.py()
+    }
+    class VehicleCostRankingResponse {
+        +dashboard_manager.py()
+    }
+    class WidgetItem {
+        +dashboard_manager.py()
     }
 ```
 
 ## Relationships
 
-- [[Community 14]] (30 shared connections)
+- [[Community 2]] (4 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\notifications.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/notifications.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/notification.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\notification_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/notification_service.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\cost_breakdown.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/cost_breakdown.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\dashboard_manager.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/dashboard_manager.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\manager_dashboard_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/manager_dashboard_service.py)
 
 ## Audit Trail
 
-- EXTRACTED: 53 (47%)
-- INFERRED: 59 (53%)
+- EXTRACTED: 66 (32%)
+- INFERRED: 140 (68%)
 - AMBIGUOUS: 0 (0%)
 
 ---

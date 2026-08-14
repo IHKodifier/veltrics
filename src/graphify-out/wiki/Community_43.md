@@ -4,24 +4,24 @@
 
 ## Key Concepts
 
-- [test_quick_actions_uc056_062.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py#L1) (6 connections)
-- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py#L63) (1 connections)
-- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py#L27) (1 connections)
-- [test_quick_log_expense_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py#L93) (1 connections)
-- [test_quick_log_trip_success()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py#L73) (1 connections)
-- [test_setup()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py#L67) (1 connections)
+- [test_auth_uc001.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L1) (5 connections)
+- [test_uc001_existing_user_google_one_tap_returns_existing_data()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L95) (2 connections)
+- [test_uc001_new_user_google_one_tap_creates_user_and_personal_org()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L48) (2 connections)
+- [client()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L45) (1 connections)
+- [override_get_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L29) (1 connections)
+- [setup_db()](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py#L39) (1 connections)
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Community 0]] (2 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_quick_actions_uc056_062.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_quick_actions_uc056_062.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc001.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc001.py)
 
 ## Audit Trail
 
-- EXTRACTED: 11 (100%)
+- EXTRACTED: 12 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

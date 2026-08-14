@@ -1,35 +1,35 @@
 # Community 2
 
-> 153 nodes · cohesion 0.04
+> 189 nodes · cohesion 0.04
 
 ## Key Concepts
 
-- [User](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py#L13) (169 connections)
+- [Vehicle](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/vehicle.py#L20) (178 connections)
+- [MaintenanceSchedule](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/maintenance.py#L7) (103 connections)
+- [ServiceRecord](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/maintenance.py#L31) (101 connections)
 - [AuditLog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/audit_log.py#L5) (93 connections)
-- [UserOrganization](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user_organization.py#L8) (55 connections)
-- [OrganizationInvitation](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/organization_invitation.py#L6) (34 connections)
-- [ExpenseLog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/expense_log.py#L6) (32 connections)
-- [FuelLog](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/fuel_log.py#L6) (32 connections)
-- [OrganizationInvitationResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization_invitation.py#L45) (25 connections)
-- [SwitchOrganizationResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization.py#L67) (23 connections)
-- [OrganizationInvitationCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization_invitation.py#L8) (22 connections)
-- [OrganizationCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization.py#L7) (22 connections)
-- [OrganizationResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization.py#L45) (22 connections)
-- [PersonalOrganizationCreate](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization.py#L41) (22 connections)
-- [SwitchOrganizationRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization.py#L63) (22 connections)
-- [Retrieve organizations list.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L146) (21 connections)
-- [UC-015: Switch active organization context for user.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L163) (21 connections)
-- [UC-015: Get active organization for user.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L209) (21 connections)
-- [Retrieve organization details by ID.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L249) (21 connections)
-- [UC-017: Edit Organization Profile Details.     Enforces ISO 4217 currency valida](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L272) (21 connections)
-- [UC-018: Invite Driver / Manager via Email or Phone.     Generates a secure 64-ch](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L319) (21 connections)
-- [UC-018: List pending organization invitations.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L401) (21 connections)
-- [UC-021: Remove Member from Organization.     Prevents owner removal. Unassigns u](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L434) (21 connections)
-- [UC-022: Cancel Pending Member Invitation.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L507) (21 connections)
-- [UC-014: Provision commercial or custom organization.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L55) (21 connections)
-- [UC-023: Soft Delete Organization & Child Entities.     Rejects personal org dele](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L558) (21 connections)
-- [UC-014: Auto-provision personal organization for a user during registration or s](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py#L96) (21 connections)
-- *... and 128 more nodes in this community*
+- [Driver](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/driver.py#L7) (65 connections)
+- [VehicleType](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/vehicle.py#L7) (32 connections)
+- [VehicleDetailResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py#L68) (22 connections)
+- [VehicleResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py#L46) (22 connections)
+- [VehicleCreateRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py#L15) (21 connections)
+- [VehicleStatusUpdateRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py#L30) (21 connections)
+- [VehicleTypeResponse](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py#L4) (21 connections)
+- [VehicleUpdateRequest](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py#L33) (21 connections)
+- [UC-025: List Organization Vehicles directory with status, search, fuel type, and](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L153) (21 connections)
+- [UC-024: Typeahead autocomplete lookup against seeded Vehicle Master Catalogue.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L20) (21 connections)
+- [UC-026: View Vehicle Detailed Overview.     Enforces tenant isolation and retur](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L206) (21 connections)
+- [UC-026: Update Vehicle Status (ACTIVE, MAINTENANCE, INACTIVE).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L275) (21 connections)
+- [UC-027: Update Vehicle Metadata & Specifications.     Validates organization ow](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L314) (21 connections)
+- [UC-028: Soft Delete Vehicle & Write Audit Log.     Frees up 1 vehicle slot in a](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L392) (21 connections)
+- [UC-029: Log Manual Odometer Update.     Enforces lower-reading guard unless is_](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L435) (21 connections)
+- [UC-030: Upload & Manage Vehicle Documents (Registration / Insurance / Permit).](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L500) (21 connections)
+- [UC-030: List Vehicle Documents.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L546) (21 connections)
+- [UC-031: Recover Soft-Deleted Vehicle.     Enforces active organization quota li](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L580) (21 connections)
+- [UC-032: Assign Primary Driver to Vehicle.     Enforces tenant isolation on assi](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L637) (21 connections)
+- [UC-033: Unassign Primary Driver from Vehicle.](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L699) (21 connections)
+- [UC-024: Register New Vehicle with organization quota validation & duplicate VIN](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py#L73) (21 connections)
+- *... and 164 more nodes in this community*
 
 ## Class Diagram
 
@@ -38,109 +38,95 @@ classDiagram
     class AuditLog {
         +audit_log.py()
     }
-    class AuditService {
-        +audit_service.py()
+    class Driver {
+        +driver.py()
     }
-    class ExpenseLog {
-        +expense_log.py()
+    class MaintenanceSchedule {
+        +maintenance.py()
     }
-    class FuelLog {
-        +fuel_log.py()
+    class ServiceRecord {
+        +maintenance.py()
     }
-    class AppNotification {
-        +notification.py()
+    class AssignDriverRequest {
+        +vehicle.py()
     }
-    class UserDevice {
-        +notification.py()
+    class VehicleDocument {
+        +vehicle_document.py()
     }
-    class OrganizationInvitation {
-        +organization_invitation.py()
+    class OdometerUpdateRequest {
+        +vehicle.py()
     }
-    class OrganizationInvitationCreate {
-        +organization_invitation.py()
+    class Vehicle {
+        +vehicle.py()
     }
-    class OrganizationInvitationRedeem {
-        +organization_invitation.py()
+    class VehicleCreateRequest {
+        +vehicle.py()
     }
-    class OrganizationInvitationResponse {
-        +organization_invitation.py()
+    class VehicleDetailResponse {
+        +vehicle.py()
     }
-    class RedeemInvitationResponse {
-        +organization_invitation.py()
+    class VehicleDocumentCreate {
+        +vehicle.py()
     }
-    class OrganizationCreate {
-        +organization.py()
+    class VehicleDocumentResponse {
+        +vehicle.py()
     }
-    class OrganizationResponse {
-        +organization.py()
+    class VehicleResponse {
+        +vehicle.py()
     }
-    class OrganizationUpdate {
-        +organization.py()
+    class VehicleStatusUpdateRequest {
+        +vehicle.py()
     }
-    class PersonalOrganizationCreate {
-        +organization.py()
+    class VehicleType {
+        +vehicle.py()
     }
-    class SwitchOrganizationRequest {
-        +organization.py()
+    class VehicleTypeResponse {
+        +vehicle.py()
     }
-    class SwitchOrganizationResponse {
-        +organization.py()
+    class VehicleUpdateRequest {
+        +vehicle.py()
     }
-    class Trip {
-        +trip.py()
-    }
-    class UserOrganization {
-        +user_organization.py()
-    }
-    class User {
-        +user.py()
-    }
-    AuditLog --> AuditService
-    AuditService --> AuditLog
+    VehicleResponse <|-- VehicleDetailResponse
+    VehicleDetailResponse <|-- VehicleResponse
 ```
 
 ## Relationships
 
-- [[Community 1]] (65 shared connections)
-- [[Community 3]] (40 shared connections)
-- [[unknown]] (25 shared connections)
-- [[Community 18]] (15 shared connections)
-- [[Community 16]] (8 shared connections)
-- [[Community 23]] (5 shared connections)
-- [[Community 24]] (5 shared connections)
-- [[Community 21]] (5 shared connections)
-- [[Community 22]] (5 shared connections)
-- [[Community 25]] (4 shared connections)
-- [[Community 26]] (4 shared connections)
-- [[Community 5]] (2 shared connections)
+- [[Community 0]] (108 shared connections)
+- [[Community 9]] (48 shared connections)
+- [[Community 15]] (24 shared connections)
+- [[Community 4]] (19 shared connections)
+- [[Community 3]] (8 shared connections)
+- [[Community 10]] (6 shared connections)
+- [[unknown]] (4 shared connections)
 
 ## Source Files
 
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\invitations.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/invitations.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\organizations.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/organizations.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\dashboard.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/dashboard.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\api\v1\vehicles.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/api/v1/vehicles.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\audit_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/audit_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\expense_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/expense_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\fuel_log.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/fuel_log.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\notification.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/notification.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\organization_invitation.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/organization_invitation.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\trip.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/trip.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\user_organization.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/user_organization.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\organization.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\organization_invitation.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/organization_invitation.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\driver.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/driver.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\maintenance.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/maintenance.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\vehicle.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/vehicle.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\models\vehicle_document.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/models/vehicle_document.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\schemas\vehicle.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/schemas/vehicle.py)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\audit_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/audit_service.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\backend\app\services\fuel_service.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/backend/app/services/fuel_service.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\frontend\lib\features\vehicle\data\vehicle_repository.dart](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/frontend/lib/features/vehicle/data/vehicle_repository.dart)
 - [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_ads_uc086_122.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_ads_uc086_122.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc010.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc010.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc011.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc011.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_auth_uc012.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_auth_uc012.py)
-- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_fuel_uc047.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_fuel_uc047.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_dashboard_uc064.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_dashboard_uc064.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_db_seeding_uc118.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_db_seeding_uc118.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc034.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc034.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc035.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc035.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc036.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc036.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc037.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc037.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc038.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc038.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_maintenance_uc039_045.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_maintenance_uc039_045.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_vehicles_uc027.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc027.py)
+- [E:\Non_Office\Dev_Space\vibe_skool\veltrics\src\tests\unit\test_vehicles_uc028_033.py](file:///E:/Non_Office/Dev_Space/vibe_skool/veltrics/src/tests/unit/test_vehicles_uc028_033.py)
 
 ## Audit Trail
 
-- EXTRACTED: 300 (22%)
-- INFERRED: 1080 (78%)
+- EXTRACTED: 366 (21%)
+- INFERRED: 1361 (79%)
 - AMBIGUOUS: 0 (0%)
 
 ---

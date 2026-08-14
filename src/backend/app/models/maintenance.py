@@ -17,6 +17,9 @@ class MaintenanceSchedule(Base):
     last_performed_date = Column(Date, nullable=True)
     next_due_km = Column(Float, nullable=False, default=5000.0)
     next_due_date = Column(Date, nullable=True)
+    is_custom = Column(Boolean, nullable=False, default=False)
+    snoozed_until_date = Column(Date, nullable=True)
+    snoozed_until_km = Column(Float, nullable=True)
     is_active = Column(Boolean, nullable=False, default=True)
     created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
     updated_at = Column(DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
@@ -45,3 +48,30 @@ class ServiceRecord(Base):
 
     vehicle = relationship("Vehicle", back_populates="service_records")
     maintenance_schedule = relationship("MaintenanceSchedule", back_populates="service_records")
+
+class Vendor(Base):
+    __tablename__ = "vendors"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid)
+    organization_id = Column(String(36), ForeignKey("organizations.id", ondelete="CASCADE"), nullable=False, index=True)
+    name = Column(String(255), nullable=False)
+    contact_person = Column(String(255), nullable=True)
+    phone_number = Column(String(64), nullable=True)
+    address = Column(String(512), nullable=True)
+    rating = Column(Float, nullable=False, default=5.0)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = Column(DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
+
+class VehicleInspection(Base):
+    __tablename__ = "vehicle_inspections"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid)
+    organization_id = Column(String(36), ForeignKey("organizations.id", ondelete="CASCADE"), nullable=False, index=True)
+    vehicle_id = Column(String(36), ForeignKey("vehicles.id", ondelete="CASCADE"), nullable=False, index=True)
+    inspector_id = Column(String(36), ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
+    inspection_type = Column(String(32), nullable=False, default="PRE_TRIP")  # PRE_TRIP, POST_TRIP, ROUTINE
+    overall_status = Column(String(32), nullable=False, default="PASSED")    # PASSED, FAILED, NEEDS_ATTENTION
+    items_json = Column(String(2048), nullable=True)                          # JSON string of checklist items
+    notes = Column(String(1024), nullable=True)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
