@@ -11,6 +11,7 @@ from app.models.user_session import UserSession
 from app.models.fuel_log import FuelLog
 from app.models.expense_log import ExpenseLog
 from app.models.trip import Trip
+from app.models.subscription import Subscription
 
 __all__ = [
     "User",
@@ -28,6 +29,7 @@ __all__ = [
     "FuelLog",
     "ExpenseLog",
     "Trip",
+    "Subscription",
 ]
 
 

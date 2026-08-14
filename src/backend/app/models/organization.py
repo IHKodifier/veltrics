@@ -14,6 +14,9 @@ class Organization(Base):
     is_personal = Column(Boolean, nullable=False, default=True)
     max_vehicles = Column(Integer, nullable=False, default=3)
     max_drivers = Column(Integer, nullable=False, default=3)
+    tier = Column(String(20), nullable=False, default="free")
+    ad_bonus_vehicles = Column(Integer, nullable=False, default=0)
+    ad_bonus_drivers = Column(Integer, nullable=False, default=0)
     address = Column(String(255), nullable=True)
     phone = Column(String(50), nullable=True)
     tax_id = Column(String(50), nullable=True)
@@ -27,5 +30,6 @@ class Organization(Base):
     owner = relationship("User", back_populates="organizations")
     invitations = relationship("OrganizationInvitation", back_populates="organization", cascade="all, delete-orphan")
     members = relationship("UserOrganization", back_populates="organization", cascade="all, delete-orphan")
+    subscription = relationship("Subscription", back_populates="organization", uselist=False, cascade="all, delete-orphan")
 
 
